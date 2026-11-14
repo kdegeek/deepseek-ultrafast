@@ -1,5 +1,15 @@
 # DeepSeek Ultrafast
 
+## Strix Halo fork
+
+This fork is developing native Windows AMD support. The Vulkan compute backend
+and AMD PyTorch correctness reference are implemented and hardware-tested on a
+Ryzen AI Max+ 395 / Radeon 8060S. Full original-checkpoint generation acceptance
+is still in progress; the upstream CUDA server is not yet an AMD server.
+See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
+
+## Upstream engine
+
 An ultra-fast inference engine for **DeepSeek-V4.1-Flash** for `sm_100a` and `sm_103a`. It supports 1M context length and multi-server KV cache sharing.
 
 ## Performance

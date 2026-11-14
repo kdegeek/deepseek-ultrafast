@@ -1,0 +1,19 @@
+[package]
+name = "deepseek-ultrafast-strix"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+memmap2.workspace = true
+half.workspace = true
+safetensors = "0.8"
+wgpu = { version = "30.0.2", default-features = false, features = ["std", "parking_lot", "vulkan", "wgsl"] }
+pollster = "0.4"
+bytemuck = { version = "1", features = ["derive"] }
+
+[[bin]]
+name = "strix"
+path = "src/main.rs"
