@@ -9,8 +9,13 @@ short target-only text prompt on AMD with an 8 GiB weight cache. A persistent
 Python/HIP reference server now exposes local OpenAI-compatible completions and
 officially encoded text chat, including incremental SSE streaming, at
 `http://127.0.0.1:18080/v1`. Bounded initial prefill reduces measured short-prompt
-latency; this remains a slow correctness reference. Native Rust decoding and
-native AMD server integration remain to be ported.
+latency; this remains a slow correctness reference. An experimental native
+Rust/Vulkan target-only decoder now executes the original 40-layer checkpoint,
+with an 8 GiB weight cache and no Python bridge. Independent reduced-model AMD
+tests pass, and short France and officially serialized “OK” completions match all
+reference token IDs, including EOS. Intermediate logits still differ substantially on some inputs;
+this is scoped generation acceptance, not broad numerical or quality validation.
+Native serving is not enabled.
 See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
 
 ## Upstream engine

@@ -13,7 +13,7 @@ fn main() -> Result<()> {
     match args.first().map(String::as_str) {
         Some("generate-experimental") if (3..=7).contains(&args.len()) => {
             eprintln!(
-                "Experimental native decoder: original-model oracle parity has not passed; see docs/STRIX_HALO.md."
+                "Experimental native decoder: consult docs/STRIX_HALO.md for scoped oracle acceptance and limitations."
             );
             let max_tokens = args.get(3).map(|s| s.parse()).transpose()?.unwrap_or(8);
             let gib: usize = args.get(4).map(|s| s.parse()).transpose()?.unwrap_or(8);
@@ -91,7 +91,7 @@ fn main() -> Result<()> {
             );
         }
         Some("--help" | "-h") | None => println!(
-            "Strix Halo native Vulkan tools\n\nstrix device\nstrix verify\nstrix inspect <checkpoint-directory> [weight-budget-GiB]\nstrix check-matrix <checkpoint-directory> <tensor-name>\nstrix generate-experimental <checkpoint-directory> <raw-prompt> [max-tokens=8] [cache-GiB=8] [context=128] [trace-directory]\n\nExperimental decoding has known original-model oracle divergence. The Python reference remains the validated text/API path."
+            "Strix Halo native Vulkan tools\n\nstrix device\nstrix verify\nstrix inspect <checkpoint-directory> [weight-budget-GiB]\nstrix check-matrix <checkpoint-directory> <tensor-name>\nstrix generate-experimental <checkpoint-directory> <raw-prompt> [max-tokens=8] [cache-GiB=8] [context=128] [trace-directory]\n\nExperimental decoding has scoped original-model acceptance and known intermediate-logit differences. The Python reference remains the validated API path."
         ),
         _ => bail!("unknown command or incorrect argument count; use --help"),
     }

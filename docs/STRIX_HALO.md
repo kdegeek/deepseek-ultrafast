@@ -7,8 +7,10 @@ The existing AMD PyTorch installation reports `2.11.0+rocm7.14.0`.
 The fork currently has two paths:
 
 - `crates/strix`: native Rust/Vulkan compute using wgpu. Packed FP4, FP8, BF16,
-  and FP32 matrix-vector kernels, RMSNorm, SiLU, device reporting, and strict
-  checkpoint inspection. This is not yet a token-generation engine.
+  and FP32 matrix-vector kernels plus an **experimental native target-only token
+  loop**. It executes the original 40-layer checkpoint without Python, HTTP,
+  CUDA, or HIP. Reduced-model tests and the original France completion pass;
+  broader numerical/quality equivalence is not established.
 - `ports/strix-reference`: the official model architecture with pure PyTorch
   replacements for TileLang kernels and a bounded lazy checkpoint loader.
   It supplies a correctness baseline for the native migration. A short target-only
@@ -47,6 +49,107 @@ KV cache, activations, staging and OS memory. Single-matrix diagnostic extractio
 is capped at 256 MiB. Original I8-packed FP4 experts are accepted only when model
 configuration, tensor name, dimensions, and typed scales agree. Arbitrary integer
 weights are not guessed to be FP4.
+
+## Experimental native text decoder
+
+The native decoder has passed **scoped original-model generation acceptance**:
+the France completion produces `[11111, 16, 1]`, exactly matching the reference,
+including EOS. The officially serialized “Reply with only OK.” prompt produces
+`[11932, 1]` (`OK`, EOS). Intermediate logits differ on other inputs, so the command stays
+explicitly experimental:
+
+```powershell
+cargo build -p deepseek-ultrafast-strix --release
+.\target\release\strix.exe generate-experimental target/models/DeepSeek-V4.1-Flash 'The capital of France is' 3 8 128
+```
+
+Arguments after the raw prompt are generated-token limit, packed GPU weight-cache
+budget in integer GiB (default 8), and context bound (default/maximum 128).
+An optional final directory records intermediate tensors and logits as JSON.
+EOS is included in `generated_tokens` and omitted from rendered text. Prompt
+tokenization uses the original tokenizer with no inserted special tokens.
+There is no native chat template or API mode yet. The existing Python API stays
+the validated fallback. The native CLI performs no subprocess or HTTP call.
+For the chat acceptance, the pinned official encoder serialized the prompt once;
+that string was passed directly to the native executable, which generated both
+output token IDs. Python did not participate in native inference.
+
+Implemented text graph: all 40 layers, delayed hyperconnection pre-mixes,
+Sinkhorn mixing with source/destination axes preserved, normalized Engram gates,
+compressed tokenizer IDs and NumPy-compatible PCG64 hashes, sparse high-offset
+Engram row reads, low-rank/grouped attention projections, YaRN and inverse RoPE,
+per-layer sliding KV, shared compressed KV and index keys, learned attention
+sinks, sqrt-softplus routing with correction bias, six selected FP4 experts and
+one FP8 shared expert, and the full original output head.
+
+All learned matrix products run on the AMD Vulkan adapter, including the router,
+hyperconnection projections, compressor, Engram projection, and output head.
+There is no CPU matrix fallback. Host Rust code schedules the graph and computes
+activation quantization, small vector operations, norms, rotations, hyperconnection
+mixing, routing selection, and attention over the bounded KV. Each projection
+currently reads its result back; this is not a fully resident or tuned GPU graph.
+
+FP8 linear inputs use E4M3/E8M0 blocks of 32. Compressed KV uses FP4 blocks of 16
+with E4M3 scales; index keys/queries use FP4 blocks of 32 with E8M0 scales.
+Window KV and grouped output-projection inputs follow the official FP8 roundtrip.
+BF16 staging, learned zero-value sinks, and 64-key probability staging are explicit.
+`wo_a` is grouped by output rows, not treated as a single dense projection.
+The E8M0 code-zero decoder was corrected from zero to `2^-127`, and code 255 to
+NaN, matching the pinned reference. Nonfinite uploaded scales remain rejected.
+
+The enforced 128-position limit keeps every compressed position inside both
+`index_topk=512` and the candidate-block budget. Index projection/key arithmetic
+still executes, but selection is provably the complete set in position order.
+Long-context pruning, vision, DSpark, batching, stochastic sampling and native
+serving are unsupported. Different model configurations and unhandled text
+tensors fail at admission; vision-only routing biases and vision/MTP tensors
+remain on disk and are explicitly outside target-only text execution.
+
+The checkpoint catalog reads only bounded safetensors headers, validates metadata,
+payload extent and index membership, then uses `seek`/`read_exact` for bounded
+dense chunks and individual Engram rows. It never maps or duplicates the full
+checkpoint. On Windows, its open handles deny writes/deletion during inference.
+The packed GPU LRU counts both weights and scales, including alignment and the
+dummy scale buffer for unquantized matrices. Eviction precedes allocation; the
+prior operation has completed before its matrix is dropped. Host upload buffers,
+KV capacity and process/system memory are reported separately. GPU driver
+allocation overhead and other processes are not covered by the weight-cache cap.
+Process private-byte counters overlap GPU allocations and are not additive to
+the cache byte count. Process memory is sampled once per second; system-wide
+available-memory readings also include other processes and filesystem cache.
+An optional 16 GiB cache was tested against the same raw prompt: generated IDs,
+text, and every recorded top-ten logit list were unchanged. It is an opt-in
+weight-reuse setting; the default remains 8 GiB.
+
+Reproducible validation:
+
+```powershell
+cargo test -p deepseek-ultrafast-strix
+cargo test -p deepseek-ultrafast-strix --lib amd_hardware_acceptance -- --ignored
+cargo test -p deepseek-ultrafast-strix --lib amd_reduced_decoder_oracle -- --ignored
+cargo clippy -p deepseek-ultrafast-strix --all-targets -- -D warnings
+cargo fmt -p deepseek-ultrafast-strix -- --check
+& ports/strix-reference/validate_native.ps1 -OutputPrefix target/strix-native-final
+```
+
+The last command compares **exactly** `[11111, 16, 1]`, including EOS, and returns
+exit code 2 if that original-model gate fails. It retains JSON, stderr and process
+memory evidence even on a mismatch. An earlier implementation produced
+`[11111, 603, 671]` and failed this gate; a text prefix containing “Paris” was not
+counted as a pass. The wider FMA reduction tree passed the exact sequence.
+
+`ports/strix-reference/native_oracle.py` is separate validation tooling. Its CPU
+fixtures cover exact activation quantization, hyperconnection axes and attention
+padding/block boundaries. Its synthetic five-layer checkpoint covers Engram,
+both compression ratios, shared KV/index state, and four sequential positions.
+The reduced gate uses the existing reference smoke-test tolerances (`rtol=0.03`,
+`atol=0.01`) plus exact greedy IDs; these were not widened for the native port.
+`--checkpoint ... --trace ... --positions 2` records independent original-model
+HIP tensors without changing vendored official sources. These fixture/trace
+commands use Python only for the oracle, never as the native decoder backend.
+
+The full-checkpoint result and remaining numerical limitation are recorded in
+[`validation/strix-halo-native-2026-11-14.json`](validation/strix-halo-native-2026-11-14.json).
 
 ## Original checkpoint and AMD reference
 
@@ -273,13 +376,19 @@ checked into Git. No models, drivers, OS settings or existing services were repl
 
 ## Next native integration work
 
-1. Connect the verified checkpoint naming, dtype conversion, sparse Engram reads,
-   and bounded weight lifecycle to the Rust model execution path.
-2. Implement the remaining native graph operations: RoPE, activation/KV
-   quantization, compressed/shared sparse attention, routing, Engram hashing and
-   lookup, hyper-connections, and the final logits head. Compare intermediate
-   tensors and greedy tokens against the AMD reference using original weights.
-3. Integrate target decoding and official prompt encoding with the native server,
+1. Resolve the remaining original-checkpoint numerical divergence. Identical-input layer-0
+   MoE matched the HIP oracle exactly, while identical-input Engram/attention
+   differed slightly in BF16. That is diagnostic evidence, not proof that every
+   layer equation is correct. Small early differences grow substantially through
+   the actual 40-layer graph on the one-token “The” diagnostic; its greedy token
+   differs even though the complete France prompt passes. The exact root cause
+   and broader quality impact remain unresolved.
+2. Continue intermediate-tensor comparisons across more real layers, compression
+   boundaries and routed experts. Pairwise FP32 RMS reductions and explicit FMA
+   with a wider Vulkan reduction tree improved early agreement and closed the
+   France completion gate. They did not establish general logit equivalence.
+   Do not hide remaining failures by widening tolerances.
+3. After broader acceptance, integrate official prompt encoding and native serving,
    then validate request cancellation, KV lifetime, memory bounds, and API
    behavior on the actual Radeon hardware.
 4. Tune weight reuse, transfers and kernels only after matching the correctness

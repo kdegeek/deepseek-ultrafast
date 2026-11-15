@@ -1,0 +1,1611 @@
+{
+  "accepted": true,
+  "scope": "Two short original-checkpoint greedy completions from the native Rust/Vulkan target-only decoder; exact sampled IDs including EOS. Not broad numerical equivalence, quality, throughput, long-context, or native server acceptance.",
+  "base_commit": "266ba403f94d1d8b8cc615e99be31476e73853b7",
+  "implementation_commit": "f3ad2cfb2561f5e3184df6ffdc0fe95b3bf43ea3",
+  "implementation_note": "Followup changes diagnostic wording after the scoped acceptance passed. Source SHA256 below and per-run executable hashes identify the tested artifacts.",
+  "source_sha256": {
+    "Cargo.lock": "0b658bba808e2193d797325f81fd6207f3bdc24f2dec78df78e71df91cd9ac17",
+    "crates/strix/Cargo.toml": "91b98882983a76043815703cd8ebdb4a5edb5788d7c1f26aa475eadac8b93d85",
+    "crates/strix/src/checkpoint.rs": "19116683077958dd97d48c9c7e4b0b22b790185ff1c99fa301b78472cb7a775f",
+    "crates/strix/src/config.rs": "d3385ef6914ff147d1dfe533fd2aa0a207931fd53e13d3c1b10d2abd22880fd8",
+    "crates/strix/src/decoder.rs": "909c1c06a14d06d589ca84534f5ace0172d9d7addd2c2f4c14b99e7128cc5feb",
+    "crates/strix/src/engram.rs": "fff0254f7b296680710729baae85b32aa3e096771fe5b08def15855781100e8a",
+    "crates/strix/src/lib.rs": "a4823641674e4c46fde2352064868b65a252fe26acefa92e5da374890faabbaf",
+    "crates/strix/src/main.rs": "dce9e78b7c75dce36e83f66e8b09ede67df157809d6343c9df8a0968cd06cb77",
+    "crates/strix/src/math.rs": "6f2ede0047b395b48be83e5bc9281ccfda1e34233bf303926545488788d61af0",
+    "crates/strix/src/ops.wgsl": "0022b85257b316e1867386dc8f9a21a2d03a5b8143c025915291b5ed3d8d6ddc",
+    "crates/strix/src/original-config.json": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809",
+    "crates/strix/src/reference.rs": "4d5f5e1b333a1662abf49c6265541c876408bef06cd16030d3173a6b442275a0",
+    "crates/strix/src/runtime.rs": "b7b831ec97277207d7caf5235e8445d7ff77f20d673bee6c25b4736ce16b6195",
+    "crates/strix/src/verification.rs": "6d12b3ecc78e457663bd23298a3d69548d370d47bbfd8c688ba0894f6a7a57e1",
+    "crates/strix/src/weights.rs": "e72a572fdf68fc19b89c9c5057cff7e538a59d08f3a25d965eddc201675846dd"
+  },
+  "checkpoint": {
+    "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "directory": "target/models/DeepSeek-V4.1-Flash",
+    "shards": 48,
+    "previously_sha256_verified": true,
+    "duplicate_checkpoint_created": false,
+    "redownloaded": false,
+    "file_bytes": 510296708312,
+    "validated_text_tensors": 93378
+  },
+  "execution": {
+    "native_binary": true,
+    "python_subprocess_or_http_bridge": false,
+    "adapter": "AMD Radeon(TM) 8060S Graphics",
+    "backend": "Vulkan",
+    "learned_dense_and_expert_matrix_products": "AMD Vulkan only, including routing, compressor, Engram, hyperconnection projections, and full head",
+    "host_operations": [
+      "tokenization and Engram hashes",
+      "activation quantization and BF16 staging",
+      "RMSNorm and RoPE",
+      "hyperconnection mixing and routing selection",
+      "bounded attention and learned sinks"
+    ],
+    "context_limit": 128,
+    "batch": 1,
+    "sampling": "greedy"
+  },
+  "runs": {
+    "raw_8_gib": {
+      "checked_utc": "2026-11-15T02:39:38.3018047Z",
+      "command": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "generate-experimental",
+        "target/models/DeepSeek-V4.1-Flash",
+        "The capital of France is",
+        "3",
+        "8",
+        "128"
+      ],
+      "executable_sha256": "0b6a21f220a2f2bd271da5bfc0057d0e4d0c1192d37d058bb67c62c4a7582569",
+      "native_exit_code": 0,
+      "accepted": true,
+      "acceptance_rule": "Exact original reference greedy token sequence, including EOS. No numerical tolerance or text-prefix substitution.",
+      "expected_tokens": [
+        11111,
+        16,
+        1
+      ],
+      "actual_tokens": [
+        11111,
+        16,
+        1
+      ],
+      "elapsed_wall_seconds": 224.53976,
+      "process": {
+        "peak_sampled_private_bytes": 9294675968,
+        "peak_working_set_bytes": 219983872,
+        "pid": 36272,
+        "samples": 220
+      },
+      "system": {
+        "note": "System-wide availability includes other processes and filesystem cache; it is not native model usage. Vulkan driver/shared GPU allocation is not isolated by process working set.",
+        "available_physical_before_bytes": 90416431104,
+        "available_physical_after_bytes": 86183342080,
+        "total_visible_physical_bytes": 119880355840
+      },
+      "generation": {
+        "checkpoint": "target/models/DeepSeek-V4.1-Flash",
+        "checkpoint_read_bytes": 91226940096,
+        "context_limit": 128,
+        "device": {
+          "backend": "Vulkan",
+          "device": 5510,
+          "driver": "26.10.1 (LLPC)",
+          "max_buffer_size": 2147483648,
+          "max_storage_buffer_binding_size": 2147483644,
+          "name": "AMD Radeon(TM) 8060S Graphics",
+          "vendor": 4098
+        },
+        "elapsed_seconds_including_prefill": 209.6660702,
+        "generated_tokens": [
+          11111,
+          16,
+          1
+        ],
+        "host_operations": "tokenizer, Engram hashes, activation quantization, norms, RoPE, hyperconnections, routing selection, bounded attention; all learned matrix projections execute on AMD Vulkan",
+        "initialization_seconds": 14.1093348,
+        "memory_note": "Weight cache counts actual packed Vulkan buffers including scale padding. Host weight staging bound and persistent KV capacity reported separately. Driver allocation/cache, process working set, transient activations, tokenizer/catalog and other processes are not included in cache budget.",
+        "mode": "experimental native Rust/Vulkan target-only greedy text",
+        "oracle_status": "known original-model divergence; not accepted as reference-equivalent",
+        "peak_checkpoint_read_bytes": 20971520,
+        "persistent_kv_host_capacity_bytes": 635904,
+        "prompt": "The capital of France is",
+        "prompt_tokens": [
+          671,
+          6102,
+          294,
+          8760,
+          344
+        ],
+        "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+        "steps": [
+          {
+            "input_token": 671,
+            "next_token": 671,
+            "position": 0,
+            "seconds": 32.1245119,
+            "top_logits": [
+              [
+                671,
+                15.042409896850586
+              ],
+              [
+                1,
+                14.81460189819336
+              ],
+              [
+                201,
+                14.709943771362305
+              ],
+              [
+                271,
+                14.245716094970703
+              ],
+              [
+                1718,
+                13.951164245605469
+              ],
+              [
+                223,
+                13.81253433227539
+              ],
+              [
+                455,
+                13.671102523803711
+              ],
+              [
+                28,
+                13.467479705810547
+              ],
+              [
+                6328,
+                13.378888130187988
+              ],
+              [
+                1613,
+                13.274103164672852
+              ]
+            ]
+          },
+          {
+            "input_token": 6102,
+            "next_token": 305,
+            "position": 1,
+            "seconds": 31.86006,
+            "top_logits": [
+              [
+                305,
+                18.527851104736328
+              ],
+              [
+                294,
+                17.94105339050293
+              ],
+              [
+                4593,
+                17.09147834777832
+              ],
+              [
+                734,
+                16.81298828125
+              ],
+              [
+                515,
+                15.972905158996582
+              ],
+              [
+                344,
+                15.871252059936523
+              ],
+              [
+                28,
+                15.643064498901367
+              ],
+              [
+                330,
+                15.379101753234863
+              ],
+              [
+                16381,
+                15.28734016418457
+              ],
+              [
+                14,
+                15.227018356323242
+              ]
+            ]
+          },
+          {
+            "input_token": 294,
+            "next_token": 270,
+            "position": 2,
+            "seconds": 30.3143258,
+            "top_logits": [
+              [
+                270,
+                19.337993621826172
+              ],
+              [
+                455,
+                18.52750015258789
+              ],
+              [
+                260,
+                16.985673904418945
+              ],
+              [
+                8760,
+                16.97266960144043
+              ],
+              [
+                19402,
+                16.323368072509766
+              ],
+              [
+                16603,
+                16.188508987426758
+              ],
+              [
+                14251,
+                16.14635467529297
+              ],
+              [
+                305,
+                16.108928680419922
+              ],
+              [
+                566,
+                15.871173858642578
+              ],
+              [
+                5837,
+                15.801063537597656
+              ]
+            ]
+          },
+          {
+            "input_token": 8760,
+            "next_token": 344,
+            "position": 3,
+            "seconds": 29.3307152,
+            "top_logits": [
+              [
+                344,
+                24.26142120361328
+              ],
+              [
+                4588,
+                19.317920684814453
+              ],
+              [
+                515,
+                19.14954376220703
+              ],
+              [
+                1613,
+                19.08025360107422
+              ],
+              [
+                16,
+                18.6322021484375
+              ],
+              [
+                369,
+                18.358076095581055
+              ],
+              [
+                14,
+                18.197399139404297
+              ],
+              [
+                671,
+                17.955350875854492
+              ],
+              [
+                278,
+                17.939327239990234
+              ],
+              [
+                734,
+                17.893089294433594
+              ]
+            ]
+          },
+          {
+            "input_token": 344,
+            "next_token": 11111,
+            "position": 4,
+            "seconds": 28.1763588,
+            "top_logits": [
+              [
+                11111,
+                18.67876434326172
+              ],
+              [
+                4588,
+                15.904120445251465
+              ],
+              [
+                1613,
+                15.851417541503906
+              ],
+              [
+                223,
+                15.674535751342773
+              ],
+              [
+                260,
+                15.5299654006958
+              ],
+              [
+                42761,
+                14.92457389831543
+              ],
+              [
+                28534,
+                14.790745735168457
+              ],
+              [
+                117031,
+                14.596892356872559
+              ],
+              [
+                455,
+                14.419092178344727
+              ],
+              [
+                818,
+                14.14869499206543
+              ]
+            ]
+          },
+          {
+            "input_token": 11111,
+            "next_token": 16,
+            "position": 5,
+            "seconds": 28.5147102,
+            "top_logits": [
+              [
+                16,
+                19.016332626342773
+              ],
+              [
+                603,
+                17.443166732788086
+              ],
+              [
+                14,
+                16.850387573242188
+              ],
+              [
+                201,
+                15.421157836914062
+              ],
+              [
+                14170,
+                15.183051109313965
+              ],
+              [
+                1042,
+                14.970943450927734
+              ],
+              [
+                1,
+                14.720207214355469
+              ],
+              [
+                339,
+                14.64369010925293
+              ],
+              [
+                3533,
+                14.628305435180664
+              ],
+              [
+                5903,
+                14.267467498779297
+              ]
+            ]
+          },
+          {
+            "input_token": 16,
+            "next_token": 1,
+            "position": 6,
+            "seconds": 29.3441865,
+            "top_logits": [
+              [
+                1,
+                16.011913299560547
+              ],
+              [
+                455,
+                15.717910766601562
+              ],
+              [
+                223,
+                14.840032577514648
+              ],
+              [
+                1162,
+                14.712089538574219
+              ],
+              [
+                983,
+                14.202194213867188
+              ],
+              [
+                2275,
+                13.201238632202148
+              ],
+              [
+                11111,
+                12.857511520385742
+              ],
+              [
+                446,
+                12.560925483703613
+              ],
+              [
+                3211,
+                12.51845932006836
+              ],
+              [
+                4588,
+                12.369518280029297
+              ]
+            ]
+          }
+        ],
+        "stop_reason": "eos",
+        "text": " Paris.",
+        "validated_text_tensors": 93378,
+        "weight_cache": {
+          "budget_bytes": 8589934592,
+          "cache_hits": 0,
+          "matvec_seconds": 17.49833979999993,
+          "matvecs": 23534,
+          "peak_host_weight_staging_bound_bytes": 41943048,
+          "peak_resident_bytes": 8589933136,
+          "resident_bytes": 8581990224,
+          "upload_seconds": 177.23096960000035,
+          "uploads": 23534
+        }
+      },
+      "diagnostic_status_note": "The captured native output still carried the pre-validation diagnostic status. The independent harness computed accepted=true from the exact observed token sequence; subsequent runs use neutral experimental status text."
+    },
+    "raw_16_gib": {
+      "checked_utc": "2026-11-15T02:42:30.9348455Z",
+      "command": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "generate-experimental",
+        "target/models/DeepSeek-V4.1-Flash",
+        "The capital of France is",
+        "3",
+        "16",
+        "128"
+      ],
+      "executable_sha256": "5b1fc7b52e3feabb35291d9c2e65a05cb640faa0d2a6bec02fbcfccd898f00d7",
+      "native_exit_code": 0,
+      "accepted": true,
+      "acceptance_rule": "Exact original reference greedy token sequence, including EOS. No numerical tolerance or text-prefix substitution.",
+      "expected_tokens": [
+        11111,
+        16,
+        1
+      ],
+      "actual_tokens": [
+        11111,
+        16,
+        1
+      ],
+      "elapsed_wall_seconds": 76.0237268,
+      "process": {
+        "pid": 29856,
+        "samples": 74,
+        "peak_working_set_bytes": 2479550464,
+        "peak_sampled_private_bytes": 17879257088
+      },
+      "system": {
+        "available_physical_after_bytes": 86609457152,
+        "total_visible_physical_bytes": 119880355840,
+        "note": "System-wide availability includes other processes and filesystem cache; it is not native model usage. Vulkan driver/shared GPU allocation is not isolated by process working set.",
+        "available_physical_before_bytes": 90957594624
+      },
+      "generation": {
+        "checkpoint": "target/models/DeepSeek-V4.1-Flash",
+        "checkpoint_read_bytes": 27218173632,
+        "context_limit": 128,
+        "device": {
+          "backend": "Vulkan",
+          "device": 5510,
+          "driver": "26.10.1 (LLPC)",
+          "max_buffer_size": 2147483648,
+          "max_storage_buffer_binding_size": 2147483644,
+          "name": "AMD Radeon(TM) 8060S Graphics",
+          "vendor": 4098
+        },
+        "elapsed_seconds_including_prefill": 67.0429531,
+        "generated_tokens": [
+          11111,
+          16,
+          1
+        ],
+        "host_operations": "tokenizer, Engram hashes, activation quantization, norms, RoPE, hyperconnections, routing selection, bounded attention; all learned matrix projections execute on AMD Vulkan",
+        "initialization_seconds": 8.151898599999999,
+        "memory_note": "Weight cache counts actual packed Vulkan buffers including scale padding. Host weight staging bound and persistent KV capacity reported separately. Driver allocation/cache, process working set, transient activations, tokenizer/catalog and other processes are not included in cache budget.",
+        "mode": "experimental native Rust/Vulkan target-only greedy text",
+        "oracle_status": "experimental; independent acceptance harness reports prompt-specific token parity; broad logit equivalence is not established",
+        "peak_checkpoint_read_bytes": 20971520,
+        "persistent_kv_host_capacity_bytes": 635904,
+        "prompt": "The capital of France is",
+        "prompt_tokens": [
+          671,
+          6102,
+          294,
+          8760,
+          344
+        ],
+        "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+        "steps": [
+          {
+            "input_token": 671,
+            "next_token": 671,
+            "position": 0,
+            "seconds": 26.8639837,
+            "top_logits": [
+              [
+                671,
+                15.042409896850586
+              ],
+              [
+                1,
+                14.81460189819336
+              ],
+              [
+                201,
+                14.709943771362305
+              ],
+              [
+                271,
+                14.245716094970703
+              ],
+              [
+                1718,
+                13.951164245605469
+              ],
+              [
+                223,
+                13.81253433227539
+              ],
+              [
+                455,
+                13.671102523803711
+              ],
+              [
+                28,
+                13.467479705810547
+              ],
+              [
+                6328,
+                13.378888130187988
+              ],
+              [
+                1613,
+                13.274103164672852
+              ]
+            ]
+          },
+          {
+            "input_token": 6102,
+            "next_token": 305,
+            "position": 1,
+            "seconds": 9.437600400000001,
+            "top_logits": [
+              [
+                305,
+                18.527851104736328
+              ],
+              [
+                294,
+                17.94105339050293
+              ],
+              [
+                4593,
+                17.09147834777832
+              ],
+              [
+                734,
+                16.81298828125
+              ],
+              [
+                515,
+                15.972905158996582
+              ],
+              [
+                344,
+                15.871252059936523
+              ],
+              [
+                28,
+                15.643064498901367
+              ],
+              [
+                330,
+                15.379101753234863
+              ],
+              [
+                16381,
+                15.28734016418457
+              ],
+              [
+                14,
+                15.227018356323242
+              ]
+            ]
+          },
+          {
+            "input_token": 294,
+            "next_token": 270,
+            "position": 2,
+            "seconds": 7.0529743,
+            "top_logits": [
+              [
+                270,
+                19.337993621826172
+              ],
+              [
+                455,
+                18.52750015258789
+              ],
+              [
+                260,
+                16.985673904418945
+              ],
+              [
+                8760,
+                16.97266960144043
+              ],
+              [
+                19402,
+                16.323368072509766
+              ],
+              [
+                16603,
+                16.188508987426758
+              ],
+              [
+                14251,
+                16.14635467529297
+              ],
+              [
+                305,
+                16.108928680419922
+              ],
+              [
+                566,
+                15.871173858642578
+              ],
+              [
+                5837,
+                15.801063537597656
+              ]
+            ]
+          },
+          {
+            "input_token": 8760,
+            "next_token": 344,
+            "position": 3,
+            "seconds": 6.3736585,
+            "top_logits": [
+              [
+                344,
+                24.26142120361328
+              ],
+              [
+                4588,
+                19.317920684814453
+              ],
+              [
+                515,
+                19.14954376220703
+              ],
+              [
+                1613,
+                19.08025360107422
+              ],
+              [
+                16,
+                18.6322021484375
+              ],
+              [
+                369,
+                18.358076095581055
+              ],
+              [
+                14,
+                18.197399139404297
+              ],
+              [
+                671,
+                17.955350875854492
+              ],
+              [
+                278,
+                17.939327239990234
+              ],
+              [
+                734,
+                17.893089294433594
+              ]
+            ]
+          },
+          {
+            "input_token": 344,
+            "next_token": 11111,
+            "position": 4,
+            "seconds": 5.647016,
+            "top_logits": [
+              [
+                11111,
+                18.67876434326172
+              ],
+              [
+                4588,
+                15.904120445251465
+              ],
+              [
+                1613,
+                15.851417541503906
+              ],
+              [
+                223,
+                15.674535751342773
+              ],
+              [
+                260,
+                15.5299654006958
+              ],
+              [
+                42761,
+                14.92457389831543
+              ],
+              [
+                28534,
+                14.790745735168457
+              ],
+              [
+                117031,
+                14.596892356872559
+              ],
+              [
+                455,
+                14.419092178344727
+              ],
+              [
+                818,
+                14.14869499206543
+              ]
+            ]
+          },
+          {
+            "input_token": 11111,
+            "next_token": 16,
+            "position": 5,
+            "seconds": 5.7835841,
+            "top_logits": [
+              [
+                16,
+                19.016332626342773
+              ],
+              [
+                603,
+                17.443166732788086
+              ],
+              [
+                14,
+                16.850387573242188
+              ],
+              [
+                201,
+                15.421157836914062
+              ],
+              [
+                14170,
+                15.183051109313965
+              ],
+              [
+                1042,
+                14.970943450927734
+              ],
+              [
+                1,
+                14.720207214355469
+              ],
+              [
+                339,
+                14.64369010925293
+              ],
+              [
+                3533,
+                14.628305435180664
+              ],
+              [
+                5903,
+                14.267467498779297
+              ]
+            ]
+          },
+          {
+            "input_token": 16,
+            "next_token": 1,
+            "position": 6,
+            "seconds": 5.8828903,
+            "top_logits": [
+              [
+                1,
+                16.011913299560547
+              ],
+              [
+                455,
+                15.717910766601562
+              ],
+              [
+                223,
+                14.840032577514648
+              ],
+              [
+                1162,
+                14.712089538574219
+              ],
+              [
+                983,
+                14.202194213867188
+              ],
+              [
+                2275,
+                13.201238632202148
+              ],
+              [
+                11111,
+                12.857511520385742
+              ],
+              [
+                446,
+                12.560925483703613
+              ],
+              [
+                3211,
+                12.51845932006836
+              ],
+              [
+                4588,
+                12.369518280029297
+              ]
+            ]
+          }
+        ],
+        "stop_reason": "eos",
+        "text": " Paris.",
+        "validated_text_tensors": 93378,
+        "weight_cache": {
+          "budget_bytes": 17179869184,
+          "cache_hits": 14891,
+          "matvec_seconds": 9.962861899999986,
+          "matvecs": 23534,
+          "peak_host_weight_staging_bound_bytes": 41943048,
+          "peak_resident_bytes": 17179403052,
+          "resident_bytes": 17176896300,
+          "upload_seconds": 46.88837190000002,
+          "uploads": 8643
+        }
+      }
+    },
+    "official_serialized_chat_16_gib": {
+      "checked_utc": "2026-11-15T02:44:53.7942925Z",
+      "command": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "generate-experimental",
+        "target/models/DeepSeek-V4.1-Flash",
+        "<｜begin▁of▁sentence｜><｜User｜>Reply with only OK.<｜Assistant｜></think>",
+        "2",
+        "16",
+        "128"
+      ],
+      "executable_sha256": "5b1fc7b52e3feabb35291d9c2e65a05cb640faa0d2a6bec02fbcfccd898f00d7",
+      "native_exit_code": 0,
+      "accepted": true,
+      "acceptance_rule": "Exact original reference greedy token sequence, including EOS. No numerical tolerance or text-prefix substitution.",
+      "expected_tokens": [
+        11932,
+        1
+      ],
+      "actual_tokens": [
+        11932,
+        1
+      ],
+      "elapsed_wall_seconds": 109.6452527,
+      "process": {
+        "peak_working_set_bytes": 2479833088,
+        "peak_sampled_private_bytes": 17879822336,
+        "pid": 37840,
+        "samples": 107
+      },
+      "system": {
+        "total_visible_physical_bytes": 119880355840,
+        "available_physical_after_bytes": 91186577408,
+        "note": "System-wide availability includes other processes and filesystem cache; it is not native model usage. Vulkan driver/shared GPU allocation is not isolated by process working set.",
+        "available_physical_before_bytes": 85411319808
+      },
+      "generation": {
+        "checkpoint": "target/models/DeepSeek-V4.1-Flash",
+        "checkpoint_read_bytes": 37336649088,
+        "context_limit": 128,
+        "device": {
+          "backend": "Vulkan",
+          "device": 5510,
+          "driver": "26.10.1 (LLPC)",
+          "max_buffer_size": 2147483648,
+          "max_storage_buffer_binding_size": 2147483644,
+          "name": "AMD Radeon(TM) 8060S Graphics",
+          "vendor": 4098
+        },
+        "elapsed_seconds_including_prefill": 97.8579685,
+        "generated_tokens": [
+          11932,
+          1
+        ],
+        "host_operations": "tokenizer, Engram hashes, activation quantization, norms, RoPE, hyperconnections, routing selection, bounded attention; all learned matrix projections execute on AMD Vulkan",
+        "initialization_seconds": 10.9673071,
+        "memory_note": "Weight cache counts actual packed Vulkan buffers including scale padding. Host weight staging bound and persistent KV capacity reported separately. Driver allocation/cache, process working set, transient activations, tokenizer/catalog and other processes are not included in cache budget.",
+        "mode": "experimental native Rust/Vulkan target-only greedy text",
+        "oracle_status": "experimental; independent acceptance harness reports prompt-specific token parity; broad logit equivalence is not established",
+        "peak_checkpoint_read_bytes": 20971520,
+        "persistent_kv_host_capacity_bytes": 901056,
+        "prompt": "<｜begin▁of▁sentence｜><｜User｜>Reply with only OK.<｜Assistant｜></think>",
+        "prompt_tokens": [
+          0,
+          128803,
+          19905,
+          418,
+          1353,
+          20370,
+          16,
+          128804,
+          128822
+        ],
+        "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+        "steps": [
+          {
+            "input_token": 0,
+            "next_token": 5,
+            "position": 0,
+            "seconds": 30.9198965,
+            "top_logits": [
+              [
+                5,
+                13.32295036315918
+              ],
+              [
+                201,
+                12.52658462524414
+              ],
+              [
+                372,
+                12.11568832397461
+              ],
+              [
+                30,
+                11.815019607543945
+              ],
+              [
+                271,
+                11.086129188537598
+              ],
+              [
+                1897,
+                10.961254119873047
+              ],
+              [
+                795,
+                10.88766860961914
+              ],
+              [
+                7249,
+                10.542770385742188
+              ],
+              [
+                6328,
+                10.428781509399414
+              ],
+              [
+                15,
+                10.148895263671875
+              ]
+            ]
+          },
+          {
+            "input_token": 128803,
+            "next_token": 5,
+            "position": 1,
+            "seconds": 9.8947887,
+            "top_logits": [
+              [
+                5,
+                18.808998107910156
+              ],
+              [
+                2788,
+                18.791519165039062
+              ],
+              [
+                12473,
+                18.369815826416016
+              ],
+              [
+                30,
+                17.418272018432617
+              ],
+              [
+                11458,
+                15.803165435791016
+              ],
+              [
+                6656,
+                15.703919410705566
+              ],
+              [
+                30594,
+                15.395533561706543
+              ],
+              [
+                531,
+                15.350979804992676
+              ],
+              [
+                39029,
+                14.955432891845703
+              ],
+              [
+                372,
+                14.570998191833496
+              ]
+            ]
+          },
+          {
+            "input_token": 19905,
+            "next_token": 30,
+            "position": 2,
+            "seconds": 6.2459288,
+            "top_logits": [
+              [
+                30,
+                12.970230102539062
+              ],
+              [
+                5,
+                12.946584701538086
+              ],
+              [
+                201,
+                12.806568145751953
+              ],
+              [
+                372,
+                12.269407272338867
+              ],
+              [
+                271,
+                11.393134117126465
+              ],
+              [
+                6328,
+                11.058160781860352
+              ],
+              [
+                795,
+                10.930131912231445
+              ],
+              [
+                15,
+                10.66386890411377
+              ],
+              [
+                1897,
+                10.625101089477539
+              ],
+              [
+                223,
+                10.357317924499512
+              ]
+            ]
+          },
+          {
+            "input_token": 418,
+            "next_token": 9045,
+            "position": 3,
+            "seconds": 8.0950653,
+            "top_logits": [
+              [
+                9045,
+                24.92544937133789
+              ],
+              [
+                260,
+                24.351764678955078
+              ],
+              [
+                270,
+                24.172393798828125
+              ],
+              [
+                1353,
+                23.633468627929688
+              ],
+              [
+                582,
+                22.56454849243164
+              ],
+              [
+                223,
+                22.057811737060547
+              ],
+              [
+                1438,
+                20.84194564819336
+              ],
+              [
+                4338,
+                20.69422149658203
+              ],
+              [
+                710,
+                20.52787971496582
+              ],
+              [
+                905,
+                20.191726684570312
+              ]
+            ]
+          },
+          {
+            "input_token": 1353,
+            "next_token": 270,
+            "position": 4,
+            "seconds": 5.9824011,
+            "top_logits": [
+              [
+                270,
+                24.747726440429688
+              ],
+              [
+                834,
+                22.9310359954834
+              ],
+              [
+                260,
+                22.776065826416016
+              ],
+              [
+                582,
+                22.513408660888672
+              ],
+              [
+                905,
+                21.696422576904297
+              ],
+              [
+                28,
+                20.861555099487305
+              ],
+              [
+                223,
+                20.7398681640625
+              ],
+              [
+                811,
+                20.40725326538086
+              ],
+              [
+                782,
+                20.353132247924805
+              ],
+              [
+                26639,
+                20.211048126220703
+              ]
+            ]
+          },
+          {
+            "input_token": 20370,
+            "next_token": 14,
+            "position": 5,
+            "seconds": 7.7746843,
+            "top_logits": [
+              [
+                14,
+                25.883460998535156
+              ],
+              [
+                201,
+                25.74905014038086
+              ],
+              [
+                16,
+                25.252822875976562
+              ],
+              [
+                603,
+                24.79291534423828
+              ],
+              [
+                855,
+                24.057483673095703
+              ],
+              [
+                305,
+                23.767822265625
+              ],
+              [
+                1137,
+                23.60944366455078
+              ],
+              [
+                271,
+                23.24085235595703
+              ],
+              [
+                304,
+                22.786550521850586
+              ],
+              [
+                7128,
+                22.202150344848633
+              ]
+            ]
+          },
+          {
+            "input_token": 16,
+            "next_token": 4147,
+            "position": 6,
+            "seconds": 6.8376997,
+            "top_logits": [
+              [
+                4147,
+                26.515600204467773
+              ],
+              [
+                3011,
+                23.89610481262207
+              ],
+              [
+                2042,
+                23.698440551757812
+              ],
+              [
+                27676,
+                23.264751434326172
+              ],
+              [
+                1,
+                22.988189697265625
+              ],
+              [
+                342,
+                21.729103088378906
+              ],
+              [
+                16696,
+                21.082149505615234
+              ],
+              [
+                1999,
+                20.896942138671875
+              ],
+              [
+                1162,
+                20.229759216308594
+              ],
+              [
+                116571,
+                20.221233367919922
+              ]
+            ]
+          },
+          {
+            "input_token": 128804,
+            "next_token": 201,
+            "position": 7,
+            "seconds": 8.0727674,
+            "top_logits": [
+              [
+                201,
+                24.65524673461914
+              ],
+              [
+                271,
+                15.97327995300293
+              ],
+              [
+                1,
+                15.64413833618164
+              ],
+              [
+                15,
+                13.013168334960938
+              ],
+              [
+                1018,
+                12.858839988708496
+              ],
+              [
+                61,
+                12.836883544921875
+              ],
+              [
+                32,
+                12.474666595458984
+              ],
+              [
+                3476,
+                12.08403491973877
+              ],
+              [
+                5,
+                11.91843032836914
+              ],
+              [
+                6328,
+                11.883602142333984
+              ]
+            ]
+          },
+          {
+            "input_token": 128822,
+            "next_token": 11932,
+            "position": 8,
+            "seconds": 6.4273863,
+            "top_logits": [
+              [
+                11932,
+                35.47602844238281
+              ],
+              [
+                3648,
+                25.763622283935547
+              ],
+              [
+                633,
+                19.933460235595703
+              ],
+              [
+                33001,
+                19.150917053222656
+              ],
+              [
+                6453,
+                18.396780014038086
+              ],
+              [
+                201,
+                17.597248077392578
+              ],
+              [
+                111215,
+                17.070470809936523
+              ],
+              [
+                853,
+                16.602149963378906
+              ],
+              [
+                20370,
+                16.516441345214844
+              ],
+              [
+                53624,
+                15.986556053161621
+              ]
+            ]
+          },
+          {
+            "input_token": 11932,
+            "next_token": 1,
+            "position": 9,
+            "seconds": 7.6059388,
+            "top_logits": [
+              [
+                1,
+                33.520973205566406
+              ],
+              [
+                201,
+                16.053255081176758
+              ],
+              [
+                3,
+                15.897314071655273
+              ],
+              [
+                1175,
+                15.137411117553711
+              ],
+              [
+                320,
+                14.804571151733398
+              ],
+              [
+                16,
+                14.641093254089355
+              ],
+              [
+                204,
+                14.393000602722168
+              ],
+              [
+                223,
+                13.85116195678711
+              ],
+              [
+                4,
+                12.972967147827148
+              ],
+              [
+                0,
+                12.549003601074219
+              ]
+            ]
+          }
+        ],
+        "stop_reason": "eos",
+        "text": "OK",
+        "validated_text_tensors": 93378,
+        "weight_cache": {
+          "budget_bytes": 17179869184,
+          "cache_hits": 21217,
+          "matvec_seconds": 14.802260999999959,
+          "matvecs": 33626,
+          "peak_host_weight_staging_bound_bytes": 41943048,
+          "peak_resident_bytes": 17179403052,
+          "resident_bytes": 17176896300,
+          "upload_seconds": 67.46230400000007,
+          "uploads": 12409
+        }
+      }
+    }
+  },
+  "cache_setting_check": {
+    "same_generated_tokens": true,
+    "same_text": true,
+    "all_recorded_top10_logits_identical": true,
+    "all_logits_compared": false,
+    "default_cache_gib": 8,
+    "optional_cache_gib": 16,
+    "note": "Only the cache budget changed, plus diagnostic text in the executable. Output preservation was checked; no generalized TPS claim. The 8 GiB run overlapped brief regression checks; timing is observational, not a controlled benchmark."
+  },
+  "tests": [
+    {
+      "command": "cargo test -p deepseek-ultrafast-strix",
+      "passed": true,
+      "unit_passed": 29,
+      "integration_passed": 1,
+      "hardware_ignored": 2
+    },
+    {
+      "command": "cargo test -p deepseek-ultrafast-strix --lib amd_hardware_acceptance -- --ignored",
+      "passed": true,
+      "hardware": "real AMD Vulkan",
+      "reference": "independent scalar f64 primitives",
+      "existing_tolerance": "2e-4 + 2e-4 * abs(expected), unchanged"
+    },
+    {
+      "command": "cargo test -p deepseek-ultrafast-strix --lib amd_reduced_decoder_oracle -- --ignored",
+      "passed": true,
+      "hardware": "real AMD Vulkan",
+      "reference": "independent original CPU Transformer, synthetic five-layer checkpoint, Engram and both compression ratios",
+      "positions": 4,
+      "greedy": [
+        43,
+        53,
+        20,
+        63
+      ],
+      "rtol": 0.03,
+      "atol": 0.01,
+      "tolerance_source": "pre-existing ports/strix-reference/run.py smoke gate, not widened"
+    },
+    {
+      "command": "$env:DSUF_TEST_CKPT='C:/Users/ncrawford/deepseek-ultrafast/target/models/DeepSeek-V4.1-Flash'; cargo test -p deepseek-ultrafast-strix --release --lib engram::tests::checkpoint_constants -- --exact",
+      "passed": true,
+      "token_map_elements": 129280,
+      "compressed_vocab": 99092,
+      "weighted_map_checksum": 464308076285175
+    },
+    {
+      "command": "cargo clippy -p deepseek-ultrafast-strix --all-targets -- -D warnings",
+      "passed": true
+    },
+    {
+      "command": "cargo fmt -p deepseek-ultrafast-strix -- --check",
+      "passed": true
+    },
+    {
+      "command": "C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Scripts/python.exe -m unittest discover -s ports/strix-reference/tests -v",
+      "passed": true,
+      "tests": 43,
+      "actual_fp4_expert_max_abs_error": 2.3841858e-07,
+      "log": "target/strix-native-python-tests-final.log"
+    },
+    {
+      "command": "native CLI invalid context 129 / max_tokens 0",
+      "passed": true,
+      "result": "both rejected with exit code 1 before decoding"
+    }
+  ],
+  "remaining_numerical_limitation": {
+    "reference_prefix": "The",
+    "input_token_id": 671,
+    "reference_next_id": 455,
+    "native_next_id": 671,
+    "native_trace": "target/strix-native-fma",
+    "reference_trace": "target/strix-oracle-trace",
+    "logits_max_abs_difference": 12.153058005126953,
+    "logits_relative_l2_difference": 0.7889873388458726,
+    "accepted_as_numerically_equivalent": false,
+    "diagnosis": "The exact root cause remains unresolved. Early BF16 differences amplify through the full model; passing two completion gates does not prove every equation or broad quality equivalence.",
+    "recovery_attempts": [
+      "Replaced long serial FP32 RMS accumulation with a pairwise FP32 reduction.",
+      "Changed matrix reductions from 64 lanes to 256 lanes and explicit FMA, retaining the original independent primitive tolerances.",
+      "Validated complete reduced CPU-oracle forward/decode, discovering and fixing compressed RoPE base selection when original_seq_len is zero."
+    ],
+    "earlier_failed_full_run": {
+      "variant": "pairwise RMS with 64-lane matvec",
+      "tokens": [
+        11111,
+        603,
+        671
+      ],
+      "text": " Paris.\nThe",
+      "expected": [
+        11111,
+        16,
+        1
+      ],
+      "accepted": false,
+      "log": "target/strix-native-raw-attempt.log"
+    },
+    "earlier_identical_input_probes": {
+      "variant": "initial 64-lane implementation; not a whole-model proof",
+      "layer0_moe_max_abs_error": 0.0,
+      "layer1_engram_max_abs_error": 0.00012207031,
+      "layer1_attention_max_abs_error": 0.0009765625,
+      "log": "target/strix-isolate.log"
+    }
+  },
+  "limitations": [
+    "Intermediate-logit divergence remains unresolved despite two exact completion gates.",
+    "Context at most 128; longer selection/candidate pruning explicitly rejected.",
+    "Host-side bounded attention/vector work and per-projection GPU readbacks; not an optimized resident graph.",
+    "Native serving, native chat serialization, batching, stochastic sampling, vision, and DSpark are unsupported.",
+    "Weight budgets cover actual packed resident weight/scale buffers, not total GPU/driver/process/system memory. Process counters overlap weight allocations and are not additive.",
+    "No broad quality or TPS claim."
+  ],
+  "preserved": {
+    "original_cuda_crates_unchanged": true,
+    "pinned_official_sources_unchanged": true,
+    "existing_reference_kernels_loader_engine_api_unchanged": true,
+    "models_environments_services_drivers_os_unchanged": true,
+    "servers_started": false,
+    "push_or_pr": false
+  },
+  "primary_docs": [
+    "https://github.com/gfx-rs/wgpu/tree/v30.0.1",
+    "https://docs.rs/wgpu/30.0.2/wgpu/",
+    "https://huggingface.co/docs/tokenizers/en/quicktour",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/tree/314113f8a7dadb388215396ba5fbee2c610a04d6"
+  ]
+}
