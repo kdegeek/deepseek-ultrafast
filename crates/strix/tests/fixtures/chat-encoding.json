@@ -1,0 +1,810 @@
+[
+  {
+    "label": "user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "user-user-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界\n\n\n\nMessage 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-assistant-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜Assistant｜></think><｜end▁of▁sentence｜><｜User｜>Message 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-system-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜System｜><｜User｜>Message 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-user-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜User｜>\n\nMessage 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-assistant-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜end▁of▁sentence｜><｜User｜>Message 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-system-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜System｜><｜User｜>Message 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "system-user-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜User｜>\n\nMessage 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "system-assistant-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜end▁of▁sentence｜><｜User｜>Message 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "system-system-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜System｜><｜User｜>Message 2 界<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-user-user-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界\n\n\n\nMessage 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-user-assistant-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界\n\n<｜Assistant｜></think>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "user-user-system-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界\n\n<｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "user-assistant-user-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜Assistant｜></think><｜end▁of▁sentence｜><｜User｜>Message 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-assistant-assistant-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜Assistant｜></think><｜end▁of▁sentence｜>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "user-assistant-system-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜Assistant｜></think><｜end▁of▁sentence｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "user-system-user-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜System｜><｜User｜>Message 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "user-system-assistant-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜System｜><｜Assistant｜></think>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "user-system-system-user",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜User｜>Message 0 界<｜System｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-user-user-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜User｜>\n\nMessage 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-user-assistant-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-user-system-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜User｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-assistant-user-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜end▁of▁sentence｜><｜User｜>Message 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-assistant-assistant-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜end▁of▁sentence｜>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-assistant-system-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜end▁of▁sentence｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-system-user-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜System｜><｜User｜>Message 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-system-assistant-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜System｜><｜Assistant｜></think>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "assistant-system-system-user",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜>Message 0 界<｜end▁of▁sentence｜><｜System｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-user-user-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜User｜>\n\nMessage 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "system-user-assistant-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜User｜><｜Assistant｜></think>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-user-system-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜User｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-assistant-user-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜end▁of▁sentence｜><｜User｜>Message 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "system-assistant-assistant-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜end▁of▁sentence｜>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-assistant-system-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "assistant",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜end▁of▁sentence｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-system-user-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "user",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜System｜><｜User｜>Message 2 界\n\n<｜Assistant｜></think>"
+  },
+  {
+    "label": "system-system-assistant-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "assistant",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜System｜><｜Assistant｜></think>Message 2 界<｜end▁of▁sentence｜><｜User｜><｜Assistant｜></think>"
+  },
+  {
+    "label": "system-system-system-user",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Message 0 界"
+      },
+      {
+        "role": "system",
+        "content": ""
+      },
+      {
+        "role": "system",
+        "content": "Message 2 界"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    "prompt": "<｜begin▁of▁sentence｜><｜System｜>Message 0 界<｜System｜><｜System｜>Message 2 界<｜User｜><｜Assistant｜></think>"
+  }
+]

@@ -1,0 +1,938 @@
+{
+  "schema": 1,
+  "verdict": "passed: scoped original-checkpoint native HTTP acceptance and delivery recovery",
+  "scope": "Native Rust/C++ ATen/HIP original Flash text generation on the Radeon 8060S; not broad quality, long context or universal numerical parity",
+  "runtime": {
+    "context": 128,
+    "initialization_seconds": 10.4000647,
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "prefill_batch": 1,
+    "python_runtime": false,
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "routing": "native ATen topk; exact cutoff ties can select different experts",
+    "runtime": {
+      "backend": "experimental native ATen/HIP compatibility",
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "hip_runtime_version": 71460850,
+      "torch_version": "2.11.0",
+      "loaded_modules": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+        "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+        "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+        "C:\\WINDOWS\\System32\\user32.dll",
+        "C:\\WINDOWS\\System32\\win32u.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+        "C:\\WINDOWS\\System32\\GDI32.dll",
+        "C:\\WINDOWS\\System32\\msvcp_win.dll",
+        "C:\\WINDOWS\\System32\\gdi32full.dll",
+        "C:\\WINDOWS\\System32\\ucrtbase.dll",
+        "C:\\WINDOWS\\System32\\oleaut32.dll",
+        "C:\\WINDOWS\\System32\\combase.dll",
+        "C:\\WINDOWS\\System32\\RPCRT4.dll",
+        "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+        "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+        "C:\\WINDOWS\\System32\\ws2_32.dll",
+        "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140.dll",
+        "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+        "C:\\WINDOWS\\System32\\IMM32.DLL",
+        "C:\\WINDOWS\\system32\\mswsock.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amdhip64_7.dll",
+        "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+        "C:\\WINDOWS\\System32\\msvcrt.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm_kpack.dll",
+        "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+        "C:\\WINDOWS\\System32\\sechost.dll",
+        "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1.dll",
+        "C:\\WINDOWS\\SYSTEM32\\MSVCP140.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_hip.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10_hip.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipblas.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipfft.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsparse.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsolver.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsolver.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\aotriton_v2.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\MIOpen.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\libhipblaslt.dll",
+        "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocblas.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocfft.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\liblzma.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\dl.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\hiprtc0714.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsparse.dll",
+        "C:\\WINDOWS\\SYSTEM32\\MSVCP140_ATOMIC_WAIT.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amd_comgr.dll",
+        "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\libomp140.x86_64.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm-openblas.dll",
+        "C:\\WINDOWS\\System32\\PSAPI.DLL",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\uv.dll",
+        "C:\\WINDOWS\\System32\\ole32.dll",
+        "C:\\WINDOWS\\System32\\SHELL32.dll",
+        "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+        "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+        "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+        "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-server-build\\strix_aten.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+        "C:\\WINDOWS\\System32\\CRYPT32.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+        "C:\\WINDOWS\\SYSTEM32\\DEVOBJ.dll",
+        "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.dll",
+        "C:\\WINDOWS\\System32\\WINTRUST.dll",
+        "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll"
+      ]
+    },
+    "weight_cache_bytes": 8589934592
+  },
+  "full_api": {
+    "artifact": {
+      "path": "target/strix-native-api-20261114/report.json",
+      "sha256": "3e1ae5e82538fb39e607080f787ba094a4d2ded6ad5727c4773ba00b6d12ac26",
+      "utc": "2026-11-15T05:43:16.829706+00:00",
+      "server_pid": 50968,
+      "command": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "serve-aten",
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\DeepSeek-V4.1-Flash",
+        "18081",
+        "8",
+        "128"
+      ],
+      "executable_sha256": "d7dff91e5f4b8ffce2d8f11c604fffe5bd0d328ee3d36b0c788dfbd1541dbc64",
+      "shim_sha256": "08ec9f5df688df2e691d2a51f906f0ff6aa88eddf0e7bac91585e16809013ff3",
+      "source_sha256": {
+        "crates/strix/src/serving.rs": "88adb0da5ae37b9ee44c87dc92a1fee277a46b293c14adc694a074da69d8c04f",
+        "crates/strix/src/serving_contract.rs": "660994b3a89ae7118cd7ed8827ad858669fa1dff04ae3563be87c29d161ee798",
+        "crates/strix/src/decoder.rs": "cef2f7bbe6a6020ac50f8db944d797d0fbb45f4905b8ae9f926254e5a266ce7f",
+        "crates/strix/src/aten.rs": "16b5b89d4d364ccd72d5bcfba465173a2ab01291ad47a2825ff39ae5cca702a9",
+        "crates/strix/native/aten.cpp": "f218c5b27d6c555d323e883f5cabf2b7b26604265873410c03e850ab8cc4bcd1",
+        "ports/strix-reference/upstream/encoding.py": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2"
+      },
+      "server_stopped": true,
+      "listener_closed": true
+    },
+    "requests": [
+      {
+        "name": "raw_A",
+        "seconds": 189.1733600999869,
+        "response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "logprobs": null,
+              "text": " Paris."
+            }
+          ],
+          "created": 1794721407,
+          "id": "cmpl-50968-1",
+          "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "object": "text_completion",
+          "usage": {
+            "completion_tokens": 3,
+            "prompt_tokens": 5,
+            "total_tokens": 8
+          }
+        },
+        "text": null,
+        "sse_events": null,
+        "metrics": {
+          "aten_memory": {
+            "allocated_bytes": 8630146048,
+            "peak_allocated_bytes": 8871647232,
+            "peak_reserved_bytes": 11811160064,
+            "reserved_bytes": 11811160064
+          },
+          "combined_weight_cache_bytes": 8478544704,
+          "combined_weight_cache_peak_upper_bound_bytes": 8478785536,
+          "hc_resident_bytes": 157286400,
+          "peak_checkpoint_read_bytes": 20971520,
+          "prompt_token_ids": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "sampled_token_ids": [
+            11111,
+            16,
+            1
+          ],
+          "seconds": 189.1632564,
+          "steps": [
+            {
+              "input_token": 671,
+              "logits_finite": true,
+              "next_token": 455,
+              "position": 0,
+              "seconds": 26.5519505
+            },
+            {
+              "input_token": 6102,
+              "logits_finite": true,
+              "next_token": 294,
+              "position": 1,
+              "seconds": 25.7266214
+            },
+            {
+              "input_token": 294,
+              "logits_finite": true,
+              "next_token": 8760,
+              "position": 2,
+              "seconds": 26.3895634
+            },
+            {
+              "input_token": 8760,
+              "logits_finite": true,
+              "next_token": 344,
+              "position": 3,
+              "seconds": 26.3339448
+            },
+            {
+              "input_token": 344,
+              "logits_finite": true,
+              "next_token": 11111,
+              "position": 4,
+              "seconds": 26.537356
+            },
+            {
+              "input_token": 11111,
+              "logits_finite": true,
+              "next_token": 16,
+              "position": 5,
+              "seconds": 27.8527985
+            },
+            {
+              "input_token": 16,
+              "logits_finite": true,
+              "next_token": 1,
+              "position": 6,
+              "seconds": 29.7709028
+            }
+          ],
+          "stop_reason": "eos",
+          "total_weight_cache_budget_bytes": 8589934592,
+          "weight_cache": {
+            "budget_bytes": 8321499136,
+            "cache_hits": 0,
+            "matvec_seconds": 94.52143360000069,
+            "matvecs": 122773,
+            "peak_host_weight_staging_bound_bytes": 62914560,
+            "peak_resident_bytes": 8321499136,
+            "resident_bytes": 8321258304,
+            "upload_seconds": 79.10637519999923,
+            "uploads": 122773
+          },
+          "loaded_module_count": 76,
+          "python_modules": []
+        }
+      },
+      {
+        "name": "chat_B_stream",
+        "seconds": 271.0956578000041,
+        "response": null,
+        "text": "OK",
+        "sse_events": [
+          {
+            "seconds": 0.0022887000086484477,
+            "data": {
+              "choices": [
+                {
+                  "delta": {
+                    "content": "",
+                    "role": "assistant"
+                  },
+                  "finish_reason": null,
+                  "index": 0
+                }
+              ],
+              "created": 1794721597,
+              "id": "chatcmpl-50968-2",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 244.969912200002,
+            "data": {
+              "choices": [
+                {
+                  "delta": {
+                    "content": "OK"
+                  },
+                  "finish_reason": null,
+                  "index": 0
+                }
+              ],
+              "created": 1794721597,
+              "id": "chatcmpl-50968-2",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 271.0955327999982,
+            "data": {
+              "choices": [
+                {
+                  "delta": {},
+                  "finish_reason": "stop",
+                  "index": 0
+                }
+              ],
+              "created": 1794721597,
+              "id": "chatcmpl-50968-2",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 271.09563029999845,
+            "data": {
+              "choices": [],
+              "created": 1794721597,
+              "id": "chatcmpl-50968-2",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 9,
+                "total_tokens": 11
+              }
+            }
+          },
+          {
+            "seconds": 271.0956578000041,
+            "data": "[DONE]"
+          }
+        ],
+        "metrics": {
+          "aten_memory": {
+            "allocated_bytes": 8650462208,
+            "peak_allocated_bytes": 8892516352,
+            "peak_reserved_bytes": 11823742976,
+            "reserved_bytes": 11823742976
+          },
+          "combined_weight_cache_bytes": 8478544704,
+          "combined_weight_cache_peak_upper_bound_bytes": 8478785536,
+          "hc_resident_bytes": 157286400,
+          "peak_checkpoint_read_bytes": 20971520,
+          "prompt_token_ids": [
+            0,
+            128803,
+            19905,
+            418,
+            1353,
+            20370,
+            16,
+            128804,
+            128822
+          ],
+          "sampled_token_ids": [
+            11932,
+            1
+          ],
+          "seconds": 271.0884879,
+          "steps": [
+            {
+              "input_token": 0,
+              "logits_finite": true,
+              "next_token": 5,
+              "position": 0,
+              "seconds": 31.6451654
+            },
+            {
+              "input_token": 128803,
+              "logits_finite": true,
+              "next_token": 5,
+              "position": 1,
+              "seconds": 27.5829577
+            },
+            {
+              "input_token": 19905,
+              "logits_finite": true,
+              "next_token": 30,
+              "position": 2,
+              "seconds": 27.5169845
+            },
+            {
+              "input_token": 418,
+              "logits_finite": true,
+              "next_token": 9045,
+              "position": 3,
+              "seconds": 25.1174532
+            },
+            {
+              "input_token": 1353,
+              "logits_finite": true,
+              "next_token": 270,
+              "position": 4,
+              "seconds": 25.084293
+            },
+            {
+              "input_token": 20370,
+              "logits_finite": true,
+              "next_token": 201,
+              "position": 5,
+              "seconds": 26.1597805
+            },
+            {
+              "input_token": 16,
+              "logits_finite": true,
+              "next_token": 4147,
+              "position": 6,
+              "seconds": 25.2530405
+            },
+            {
+              "input_token": 128804,
+              "logits_finite": true,
+              "next_token": 201,
+              "position": 7,
+              "seconds": 25.6844885
+            },
+            {
+              "input_token": 128822,
+              "logits_finite": true,
+              "next_token": 11932,
+              "position": 8,
+              "seconds": 30.9233475
+            },
+            {
+              "input_token": 11932,
+              "logits_finite": true,
+              "next_token": 1,
+              "position": 9,
+              "seconds": 26.1208611
+            }
+          ],
+          "stop_reason": "eos",
+          "total_weight_cache_budget_bytes": 8589934592,
+          "weight_cache": {
+            "budget_bytes": 8321499136,
+            "cache_hits": 0,
+            "matvec_seconds": 233.29243260000428,
+            "matvecs": 298187,
+            "peak_host_weight_staging_bound_bytes": 62914560,
+            "peak_resident_bytes": 8321499136,
+            "resident_bytes": 8321258304,
+            "upload_seconds": 190.39971020000112,
+            "uploads": 298187
+          },
+          "loaded_module_count": 76,
+          "python_modules": []
+        }
+      },
+      {
+        "name": "raw_A_after_B_stream",
+        "seconds": 189.58016700000735,
+        "response": null,
+        "text": " Paris.",
+        "sse_events": [
+          {
+            "seconds": 133.44696960000147,
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "logprobs": null,
+                  "text": " Paris"
+                }
+              ],
+              "created": 1794721868,
+              "id": "cmpl-50968-3",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 162.31416740000714,
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "logprobs": null,
+                  "text": "."
+                }
+              ],
+              "created": 1794721868,
+              "id": "cmpl-50968-3",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 189.5800445000059,
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "logprobs": null,
+                  "text": ""
+                }
+              ],
+              "created": 1794721868,
+              "id": "cmpl-50968-3",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 189.58014200000616,
+            "data": {
+              "choices": [],
+              "created": 1794721868,
+              "id": "cmpl-50968-3",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": {
+                "completion_tokens": 3,
+                "prompt_tokens": 5,
+                "total_tokens": 8
+              }
+            }
+          },
+          {
+            "seconds": 189.58016700000735,
+            "data": "[DONE]"
+          }
+        ],
+        "metrics": {
+          "aten_memory": {
+            "allocated_bytes": 8654394368,
+            "peak_allocated_bytes": 8893980672,
+            "peak_reserved_bytes": 11836325888,
+            "reserved_bytes": 11836325888
+          },
+          "combined_weight_cache_bytes": 8478544704,
+          "combined_weight_cache_peak_upper_bound_bytes": 8478785536,
+          "hc_resident_bytes": 157286400,
+          "peak_checkpoint_read_bytes": 20971520,
+          "prompt_token_ids": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "sampled_token_ids": [
+            11111,
+            16,
+            1
+          ],
+          "seconds": 189.5740676,
+          "steps": [
+            {
+              "input_token": 671,
+              "logits_finite": true,
+              "next_token": 455,
+              "position": 0,
+              "seconds": 25.2000307
+            },
+            {
+              "input_token": 6102,
+              "logits_finite": true,
+              "next_token": 294,
+              "position": 1,
+              "seconds": 25.1686104
+            },
+            {
+              "input_token": 294,
+              "logits_finite": true,
+              "next_token": 8760,
+              "position": 2,
+              "seconds": 29.6077602
+            },
+            {
+              "input_token": 8760,
+              "logits_finite": true,
+              "next_token": 344,
+              "position": 3,
+              "seconds": 26.7640955
+            },
+            {
+              "input_token": 344,
+              "logits_finite": true,
+              "next_token": 11111,
+              "position": 4,
+              "seconds": 26.705646
+            },
+            {
+              "input_token": 11111,
+              "logits_finite": true,
+              "next_token": 16,
+              "position": 5,
+              "seconds": 28.8671212
+            },
+            {
+              "input_token": 16,
+              "logits_finite": true,
+              "next_token": 1,
+              "position": 6,
+              "seconds": 27.2607274
+            }
+          ],
+          "stop_reason": "eos",
+          "total_weight_cache_budget_bytes": 8589934592,
+          "weight_cache": {
+            "budget_bytes": 8321499136,
+            "cache_hits": 0,
+            "matvec_seconds": 329.28149860000383,
+            "matvecs": 420960,
+            "peak_host_weight_staging_bound_bytes": 62914560,
+            "peak_resident_bytes": 8321499136,
+            "resident_bytes": 8321258304,
+            "upload_seconds": 269.3140450000007,
+            "uploads": 420960
+          },
+          "loaded_module_count": 76,
+          "python_modules": []
+        }
+      },
+      {
+        "name": "raw_after_cancel_user_stop",
+        "seconds": 153.7491183999955,
+        "response": null,
+        "text": " Paris",
+        "sse_events": [
+          {
+            "seconds": 128.59701399999904,
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": null,
+                  "index": 0,
+                  "logprobs": null,
+                  "text": " Paris"
+                }
+              ],
+              "created": 1794722085,
+              "id": "cmpl-50968-5",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 153.74900019999768,
+            "data": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "logprobs": null,
+                  "text": ""
+                }
+              ],
+              "created": 1794722085,
+              "id": "cmpl-50968-5",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": null
+            }
+          },
+          {
+            "seconds": 153.74909310000658,
+            "data": {
+              "choices": [],
+              "created": 1794722085,
+              "id": "cmpl-50968-5",
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "usage": {
+                "completion_tokens": 2,
+                "prompt_tokens": 5,
+                "total_tokens": 7
+              }
+            }
+          },
+          {
+            "seconds": 153.7491183999955,
+            "data": "[DONE]"
+          }
+        ],
+        "metrics": {
+          "aten_memory": {
+            "allocated_bytes": 8654656512,
+            "peak_allocated_bytes": 8896055296,
+            "peak_reserved_bytes": 11842617344,
+            "reserved_bytes": 11842617344
+          },
+          "combined_weight_cache_bytes": 8478544704,
+          "combined_weight_cache_peak_upper_bound_bytes": 8478785536,
+          "hc_resident_bytes": 157286400,
+          "peak_checkpoint_read_bytes": 20971520,
+          "prompt_token_ids": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "sampled_token_ids": [
+            11111,
+            16
+          ],
+          "seconds": 153.7435108,
+          "steps": [
+            {
+              "input_token": 671,
+              "logits_finite": true,
+              "next_token": 455,
+              "position": 0,
+              "seconds": 26.3980659
+            },
+            {
+              "input_token": 6102,
+              "logits_finite": true,
+              "next_token": 294,
+              "position": 1,
+              "seconds": 25.6773966
+            },
+            {
+              "input_token": 294,
+              "logits_finite": true,
+              "next_token": 8760,
+              "position": 2,
+              "seconds": 25.6158066
+            },
+            {
+              "input_token": 8760,
+              "logits_finite": true,
+              "next_token": 344,
+              "position": 3,
+              "seconds": 25.8349634
+            },
+            {
+              "input_token": 344,
+              "logits_finite": true,
+              "next_token": 11111,
+              "position": 4,
+              "seconds": 25.0697954
+            },
+            {
+              "input_token": 11111,
+              "logits_finite": true,
+              "next_token": 16,
+              "position": 5,
+              "seconds": 25.1474013
+            }
+          ],
+          "stop_reason": "stop_sequence",
+          "total_weight_cache_budget_bytes": 8589934592,
+          "weight_cache": {
+            "budget_bytes": 8321499136,
+            "cache_hits": 0,
+            "matvec_seconds": 422.14358310000466,
+            "matvecs": 543682,
+            "peak_host_weight_staging_bound_bytes": 62914560,
+            "peak_resident_bytes": 8321499136,
+            "resident_bytes": 8321258304,
+            "upload_seconds": 343.43194139999775,
+            "uploads": 543682
+          },
+          "loaded_module_count": 76,
+          "python_modules": []
+        }
+      }
+    ],
+    "responsive_health_seconds": 0.0008581000001868233,
+    "busy_status": 429,
+    "context_status": 400,
+    "disconnect_cleanup_seconds": 27.294379600003595,
+    "completed_requests": 4,
+    "cancelled_requests": 1,
+    "final_state": "ready"
+  },
+  "delivery_build": {
+    "artifact": {
+      "path": "target/strix-native-api-delivery-20261114/report.json",
+      "sha256": "2e948dbbf0d32a1eadeb260825ed89dff870b31b8231c714c5cbd6e91337f096",
+      "utc": "2026-11-15T05:58:27.549182+00:00",
+      "server_pid": 52508,
+      "command": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "serve-aten",
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\DeepSeek-V4.1-Flash",
+        "18081",
+        "8",
+        "128"
+      ],
+      "executable_sha256": "a2e7e880b5366ee8276809aeab4fb4d94808aab1b7cda85feef3b725fbaa738c",
+      "shim_sha256": "ec485b16937cbee051ea03cdd3dc00882cbb815abacffc62cef4f5d3d67c7d1c",
+      "source_sha256": {
+        "crates/strix/src/serving.rs": "8bc780ee2a75004670ab3fa16ed1222a132a3b31e881a393e58eb2b5d8fa415b",
+        "crates/strix/src/serving_contract.rs": "660994b3a89ae7118cd7ed8827ad858669fa1dff04ae3563be87c29d161ee798",
+        "crates/strix/src/decoder.rs": "cef2f7bbe6a6020ac50f8db944d797d0fbb45f4905b8ae9f926254e5a266ce7f",
+        "crates/strix/src/aten.rs": "16b5b89d4d364ccd72d5bcfba465173a2ab01291ad47a2825ff39ae5cca702a9",
+        "crates/strix/native/aten.cpp": "f218c5b27d6c555d323e883f5cabf2b7b26604265873410c03e850ab8cc4bcd1",
+        "ports/strix-reference/upstream/encoding.py": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2",
+        "tools/validate-strix-native-api.py": "b6da2508efc7687d6546093480699b00d1f5b26cd46b534779dad5dc0ef9991f",
+        "tools/serve-strix.ps1": "545cc3720f4b989e09b10b24717e79ad451a039c6fc4b5492f948fef400e6742"
+      },
+      "server_stopped": true,
+      "listener_closed": true
+    },
+    "requests": [
+      {
+        "name": "The_after_inflight_cancel",
+        "seconds": 25.772619699986535,
+        "response": {
+          "choices": [
+            {
+              "finish_reason": "length",
+              "index": 0,
+              "logprobs": null,
+              "text": " The"
+            }
+          ],
+          "created": 1794722341,
+          "id": "cmpl-52508-2",
+          "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "object": "text_completion",
+          "usage": {
+            "completion_tokens": 1,
+            "prompt_tokens": 1,
+            "total_tokens": 2
+          }
+        },
+        "text": null,
+        "sse_events": null,
+        "metrics": {
+          "aten_memory": {
+            "allocated_bytes": 8621233152,
+            "peak_allocated_bytes": 8833843200,
+            "peak_reserved_bytes": 11681136640,
+            "reserved_bytes": 11681136640
+          },
+          "combined_weight_cache_bytes": 8478544704,
+          "combined_weight_cache_peak_upper_bound_bytes": 8478785536,
+          "hc_resident_bytes": 157286400,
+          "peak_checkpoint_read_bytes": 20971520,
+          "prompt_token_ids": [
+            671
+          ],
+          "sampled_token_ids": [
+            455
+          ],
+          "seconds": 25.7662868,
+          "steps": [
+            {
+              "input_token": 671,
+              "logits_finite": true,
+              "next_token": 455,
+              "position": 0,
+              "seconds": 25.7662427
+            }
+          ],
+          "stop_reason": "max_tokens",
+          "total_weight_cache_budget_bytes": 8589934592,
+          "weight_cache": {
+            "budget_bytes": 8321499136,
+            "cache_hits": 0,
+            "matvec_seconds": 26.72190010000017,
+            "matvecs": 34988,
+            "peak_host_weight_staging_bound_bytes": 62914560,
+            "peak_resident_bytes": 8321499136,
+            "resident_bytes": 8321258304,
+            "upload_seconds": 19.42649190000003,
+            "uploads": 34988
+          },
+          "loaded_module_count": 76,
+          "python_modules": []
+        }
+      }
+    ],
+    "wait_seconds_after_role_chunk": 2,
+    "busy_before_disconnect": true,
+    "disconnect_cleanup_seconds": 22.901623099998687,
+    "final_state": "ready",
+    "delta_from_full_api_build": "Added startup cache guard rejecting less than 3 GiB before runtime/checkpoint initialization and its test. Generation equations/scheduling unchanged. Launcher gained source/runtime pre/post-build checks and complete bundled runtime hashing; HTTP validator gained a 2-second cancellation delay and bounded recovery mode."
+  },
+  "verification": {
+    "cargo_test_native_serve": {
+      "passed": 46,
+      "ignored": 3,
+      "ignored_scope": "explicit AMD/Vulkan and native FFI tests run separately by parent; this count excludes them"
+    },
+    "serving_contract_tests": 12,
+    "official_encoding_fixtures": 40,
+    "clippy_all_targets": "passed",
+    "powershell_parse": "passed",
+    "python_validator_compile": "passed",
+    "diff_check": "passed"
+  },
+  "launcher": {
+    "checks": {
+      "fresh": {
+        "current": true,
+        "executable": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "shim": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-server-build\\strix_aten.dll",
+        "site_packages": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages",
+        "checkpoint": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\DeepSeek-V4.1-Flash",
+        "port": 18081
+      },
+      "stale": {
+        "current": false,
+        "executable": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "shim": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-server-build\\strix_aten.dll",
+        "site_packages": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages",
+        "checkpoint": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\DeepSeek-V4.1-Flash",
+        "port": 18081
+      },
+      "stale_exit": 1,
+      "restored": {
+        "current": true,
+        "executable": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\strix.exe",
+        "shim": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-server-build\\strix_aten.dll",
+        "site_packages": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages",
+        "checkpoint": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\DeepSeek-V4.1-Flash",
+        "port": 18081
+      },
+      "budget_rejection": "Error: native API weight cache must be 3..=32 GiB; the full FP32 output head and HC reserve require at least 3 GiB",
+      "budget_exit": 1
+    },
+    "manifest_path": "target/strix-aten-server-build/serve-build.json",
+    "manifest_sha256": "900dbcd1aee91ca910287bdb2d03905a1aba5fd4564997ac3443cd7a60cd2ebc",
+    "source_fingerprints": 22,
+    "runtime_fingerprints": 331,
+    "freshness_scope": "All crate source files, Cargo manifests/lock, native C++ build inputs, all Torch DLLs, and complete bundled HIP/ROCm bin directories including math kernels. Selected compiler/ABI inputs also checked against native build manifest."
+  },
+  "bounds": {
+    "context": 128,
+    "max_generated_tokens": 64,
+    "batch": 1,
+    "temperature": 0,
+    "body_bytes": 65536,
+    "deadline_seconds": 3600,
+    "weight_cache_bytes": 8589934592,
+    "cache_minimum_gib": 3,
+    "cancellation": "Between complete native forwards; an in-flight forward finishes before KV reset/admission"
+  },
+  "memory_scope": "ATen allocator peaks are process lifetime, not per-request resets. Weight cache includes HC; reservations/transient tensors/host memory are additional.",
+  "unverified": [
+    "Arbitrary-prompt model quality",
+    "Original-model behavior at 128 positions and pruning/window boundaries",
+    "DSpark/speculation",
+    "Vision",
+    "Tools/reasoning",
+    "Remote/authenticated serving",
+    "Full-speed throughput or optimized resident graph"
+  ],
+  "publication": "Evidence recorded locally; root manages commit/push separately"
+}

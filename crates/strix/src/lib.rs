@@ -8,5 +8,9 @@ pub mod engram;
 pub mod math;
 pub mod reference;
 pub mod runtime;
+#[cfg(feature = "native-serve")]
+pub mod serving;
+#[cfg(feature = "native-serve")]
+mod serving_contract;
 pub mod verification;
 pub mod weights;

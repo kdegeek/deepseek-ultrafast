@@ -4,6 +4,13 @@ Target verified on November 14, 2026: GMKtec EVO-X2, Ryzen AI Max+ 395,
 Radeon 8060S, Windows 11 Pro. Vulkan driver reports `26.10.1 (LLPC)`.
 The existing AMD PyTorch installation reports `2.11.0+rocm7.14.0`.
 
+For current native serving, start `pwsh -NoProfile -File tools/serve-strix.ps1`
+and use `http://127.0.0.1:18081/v1`. The [native API guide](STRIX_NATIVE_API.md)
+covers setup, supported text requests, streaming, cancellation and hardware
+acceptance. This explicitly selects Rust/C++ ATen/HIP; the historical Vulkan
+decoder and Python reference results below remain separate. Native serving is
+slow, greedy and limited to 128 total tokens; routing ties can vary across runs.
+
 The fork has the following paths:
 
 - `crates/strix`: native Rust/Vulkan compute using wgpu. Packed FP4, FP8, BF16,
@@ -73,8 +80,9 @@ budget in integer GiB (default 8), and context bound (default/maximum 128).
 An optional final directory records intermediate tensors and logits as JSON.
 EOS is included in `generated_tokens` and omitted from rendered text. Prompt
 tokenization uses the original tokenizer with no inserted special tokens.
-There is no native chat template or API mode yet. The existing Python API stays
-the validated fallback. The native CLI performs no subprocess or HTTP call.
+This Vulkan CLI has no chat template or API mode. The separate ATen backend now
+has a [native API](STRIX_NATIVE_API.md); the Python API remains a fallback.
+The native CLI performs no subprocess or HTTP call.
 For the chat acceptance, the pinned official encoder serialized the prompt once;
 that string was passed directly to the native executable, which generated both
 output token IDs. Python did not participate in native inference.
@@ -391,19 +399,20 @@ Validation left no server running and installed no startup service. Detailed
 local logs/results remain under `target/strix-http-*`; the concise JSON above is
 checked into Git. No models, drivers, OS settings or existing services were replaced.
 
-## Next native integration work
+## Remaining native work
 
-1. Native numerical equivalence remains unestablished. The numerical investigation
-   below demonstrates that even one legitimate accumulation change inside the HIP
-   reference can change the full-model greedy result. This explains a mechanism
-   for amplification; it does not prove that every native operation is correct.
+1. The Vulkan numerical failures remain unresolved. The optional ATen backend
+   has separate full-vocabulary and conditional-route evidence in
+   [STRIX_ATEN.md](STRIX_ATEN.md). Exact tied routing can vary in the unchanged
+   reference and native runtime; unconditional determinism is not promised.
 2. Keep the exact-token gates and full-vocabulary comparisons visible. Broader
    original-model acceptance requires more than locally accurate components or
    two easy completions. Do not change the reference, tune reduction width to
    prompts, or widen tolerances to conceal the remaining disagreement.
-3. After broader acceptance, integrate official prompt encoding and native serving,
-   then validate request cancellation, KV lifetime, memory bounds, and API
-   behavior on the actual Radeon hardware.
+3. Extend the native API's bounded text coverage beyond its current 128-token
+   cap and test broader prompts. Its official text encoding, cancellation,
+   request-state lifetime and HTTP acceptance are recorded separately in the
+   [native API guide](STRIX_NATIVE_API.md).
 4. Tune weight reuse, transfers and kernels only after matching the correctness
    baseline. DSpark, vision and long-context support require separate acceptance.
 

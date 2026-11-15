@@ -2,25 +2,28 @@
 
 ## Strix Halo fork
 
-This fork is developing native Windows AMD support. The Vulkan compute backend
-and AMD PyTorch correctness reference are implemented and hardware-tested on a
-Ryzen AI Max+ 395 / Radeon 8060S. The original 510 GB checkpoint now completes a
-short target-only text prompt on AMD with an 8 GiB weight cache. A persistent
-Python/HIP reference server now exposes local OpenAI-compatible completions and
-officially encoded text chat, including incremental SSE streaming, at
-`http://127.0.0.1:18080/v1`. Bounded initial prefill reduces measured short-prompt
-latency; this remains a slow correctness reference. An experimental native
-Rust/Vulkan target-only decoder now executes the original 40-layer checkpoint,
-with an 8 GiB weight cache and no Python bridge. Independent reduced-model AMD
-tests pass, and short France and officially serialized “OK” completions match all
-reference token IDs, including EOS. The broader comparison still has five
-next-token mismatches across 28 tested positions and substantial logit differences.
-The native decoder remains experimental; the Python/HIP API is the tested serving path.
-Native serving is not enabled.
-An opt-in [native ATen/HIP compatibility path](docs/STRIX_ATEN.md) now reuses the
-installed native libraries through Rust/C++, with explicit backend selection and
-separate original-checkpoint fidelity evidence. It has no Python runtime bridge.
-See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
+This fork adds Windows AMD support for the Ryzen AI Max+ 395 / Radeon 8060S.
+The original 510 GB checkpoint runs with bounded disk reads and an 8 GiB weight
+cache. The native Rust/C++ ATen/HIP path uses the installed native libraries
+without loading a Python runtime. Start its local OpenAI-compatible text API:
+
+```powershell
+pwsh -NoProfile -File tools/serve-strix.ps1
+```
+
+Base URL: **`http://127.0.0.1:18081/v1`**. The API supports raw completions,
+officially encoded text chat, streaming, cancellation and independent requests.
+It remains **slow and experimental**, with greedy text generation and a
+**128-token total context limit**. Exact routing-score ties can select different
+experts across runs. See the [native API guide](docs/STRIX_NATIVE_API.md) for
+setup, supported options, hardware acceptance and limits, and the
+[ATen fidelity guide](docs/STRIX_ATEN.md) for full-logit and conditional-routing
+evidence. Neither upstream NVIDIA throughput nor 1M context applies to this port.
+
+The validated Python/HIP reference API remains available on port 18080. The
+separate Rust/Vulkan decoder preserves its known numerical failures and is not
+the native serving backend. The [Strix Halo guide](docs/STRIX_HALO.md) records
+these paths and their historical acceptance. Original CUDA code is preserved.
 
 ## Upstream engine
 

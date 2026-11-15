@@ -11,6 +11,21 @@ use std::path::Path;
 fn main() -> Result<()> {
     let args: Vec<_> = std::env::args().skip(1).collect();
     match args.first().map(String::as_str) {
+        #[cfg(feature = "native-serve")]
+        Some("serve-aten") if (2..=5).contains(&args.len()) => {
+            let port = args.get(2).map(|s| s.parse()).transpose()?.unwrap_or(18081);
+            let gib: usize = args.get(3).map(|s| s.parse()).transpose()?.unwrap_or(8);
+            let context = args.get(4).map(|s| s.parse()).transpose()?.unwrap_or(128);
+            let cache_bytes = gib
+                .checked_mul(1024 * 1024 * 1024)
+                .context("cache size overflow")?;
+            deepseek_ultrafast_strix::serving::run(deepseek_ultrafast_strix::serving::Config {
+                checkpoint: args[1].clone().into(),
+                port,
+                cache_bytes,
+                context,
+            })?;
+        }
         Some("generate-experimental") if (3..=7).contains(&args.len()) => {
             eprintln!(
                 "Experimental native decoder: consult docs/STRIX_HALO.md for scoped oracle acceptance and limitations."
@@ -91,7 +106,7 @@ fn main() -> Result<()> {
             );
         }
         Some("--help" | "-h") | None => println!(
-            "Strix Halo native Vulkan tools\n\nstrix device\nstrix verify\nstrix inspect <checkpoint-directory> [weight-budget-GiB]\nstrix check-matrix <checkpoint-directory> <tensor-name>\nstrix generate-experimental <checkpoint-directory> <raw-prompt> [max-tokens=8] [cache-GiB=8] [context=128] [trace-directory]\n\nExperimental decoding has scoped original-model acceptance and known intermediate-logit differences. The Python reference remains the validated API path."
+            "Strix Halo native tools\n\nstrix device\nstrix verify\nstrix inspect <checkpoint-directory> [weight-budget-GiB]\nstrix check-matrix <checkpoint-directory> <tensor-name>\nstrix generate-experimental <checkpoint-directory> <raw-prompt> [max-tokens=8] [cache-GiB=8] [context=128] [trace-directory]\nstrix serve-aten <checkpoint-directory> [port=18081] [cache-GiB=8] [context=128] (requires --features native-serve)\n\nVulkan decoding remains experimental. The opt-in native ATen API supports bounded text generation; see docs/STRIX_NATIVE_API.md for numerical and serving limits."
         ),
         _ => bail!("unknown command or incorrect argument count; use --help"),
     }

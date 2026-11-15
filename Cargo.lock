@@ -809,7 +809,9 @@ name = "deepseek-ultrafast-strix"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "axum",
  "bytemuck",
+ "futures-core",
  "half",
  "memmap2",
  "pollster",
@@ -817,6 +819,9 @@ dependencies = [
  "serde",
  "serde_json",
  "tokenizers",
+ "tokio",
+ "tokio-stream",
+ "tower",
  "wgpu",
 ]
 
