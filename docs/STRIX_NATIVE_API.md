@@ -1,9 +1,9 @@
 # Native Strix Halo API
 
-From this repository in PowerShell 7:
+On the tested 128 GB Strix Halo machine, from this repository in PowerShell 7:
 
 ```powershell
-pwsh -NoProfile -File tools/serve-strix.ps1
+pwsh -NoProfile -File tools/serve-strix.ps1 -CacheGiB 32
 ```
 
 This starts a native Rust/C++ ATen/HIP API at **http://127.0.0.1:18081/v1** on
@@ -16,6 +16,11 @@ without starting inference. `-SitePackages`, `-Checkpoint`, `-Port`,
 `-CacheGiB` (3–32) and `-Context` override the defaults. The minimum cache holds
 the full FP32 output head plus the HC reserve. It installs no packages and
 changes no driver, OS or persistent environment setting.
+
+Without `-CacheGiB`, the conservative default remains 8 GiB. The tested 32 GiB
+configuration avoids weight-cache thrashing on this machine; it does not change
+model arithmetic or the routing policy. The comparison below is specific to
+the original France prompt, not a guarantee for every workload.
 
 Freshness checks cover Rust/C++ sources, the executable/shim, selected compiler
 and ABI inputs, all Torch DLLs and the bundled HIP/ROCm runtime directories,
@@ -119,3 +124,30 @@ Python in that command is the external HTTP test client, never part of the
 native server. Each run records evidence in `target/<label>/report.json`.
 Numerical fidelity and its
 remaining boundaries are described in [STRIX_ATEN.md](STRIX_ATEN.md).
+
+## Cache comparison on this machine
+
+Both 32 GiB requests returned ` Paris.` and EOS, preserving all seven expected
+next-token predictions. The second request reused all 122,773 cached matrix
+entries with zero new uploads. It used the same delivery executable as the final
+cancellation/recovery check. The 8 GiB API run used the preceding build, whose
+only later serving change was the startup minimum-cache guard.
+
+| Weight-cache budget | First France request | Repeated France request | Peak native allocation | Peak native reservation |
+|---|---:|---:|---:|---:|
+| 8 GiB | 189.17 s | 189.58 s, after chat | 8.90 GB | 11.84 GB |
+| 32 GiB | 130.95 s | 114.75 s | 27.79 GB | 28.01 GB |
+
+Times include five prefill positions and two subsequent forwards. The 32 GiB
+process started with an empty GPU weight cache; the filesystem cache was not
+flushed. The 8 GiB memory peaks cover the full HTTP acceptance suite; the 32 GiB
+peaks cover the two France requests. Other system workloads were uncontrolled, and these are two requests,
+not a general throughput benchmark. Approximately 68 GiB of OS-visible RAM
+remained available after the first 32 GiB request. Total allocation/reservation
+includes more than cached weights.
+
+[Cache evidence](validation/strix-halo-cache-2026-11-15.json) records exact
+tokens, per-forward timings, memory counters and source/executable hashes.
+`tools/benchmark-strix-cache.py --cache-gib 32 --label NEW_LABEL` reproduces the
+bounded two-request experiment using the SDK environment shown above. It stops
+only its own server when finished.

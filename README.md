@@ -5,10 +5,11 @@
 This fork adds Windows AMD support for the Ryzen AI Max+ 395 / Radeon 8060S.
 The original 510 GB checkpoint runs with bounded disk reads and an 8 GiB weight
 cache. The native Rust/C++ ATen/HIP path uses the installed native libraries
-without loading a Python runtime. Start its local OpenAI-compatible text API:
+without loading a Python runtime. On the tested 128 GB machine, start its local
+OpenAI-compatible text API with the measured cache setting:
 
 ```powershell
-pwsh -NoProfile -File tools/serve-strix.ps1
+pwsh -NoProfile -File tools/serve-strix.ps1 -CacheGiB 32
 ```
 
 Base URL: **`http://127.0.0.1:18081/v1`**. The API supports raw completions,

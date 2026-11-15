@@ -4,7 +4,8 @@ Target verified on November 14, 2026: GMKtec EVO-X2, Ryzen AI Max+ 395,
 Radeon 8060S, Windows 11 Pro. Vulkan driver reports `26.10.1 (LLPC)`.
 The existing AMD PyTorch installation reports `2.11.0+rocm7.14.0`.
 
-For current native serving, start `pwsh -NoProfile -File tools/serve-strix.ps1`
+For current native serving on this 128 GB machine, start
+`pwsh -NoProfile -File tools/serve-strix.ps1 -CacheGiB 32`
 and use `http://127.0.0.1:18081/v1`. The [native API guide](STRIX_NATIVE_API.md)
 covers setup, supported text requests, streaming, cancellation and hardware
 acceptance. This explicitly selects Rust/C++ ATen/HIP; the historical Vulkan
