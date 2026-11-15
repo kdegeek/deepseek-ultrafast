@@ -4,8 +4,9 @@
 
 This fork is developing native Windows AMD support. The Vulkan compute backend
 and AMD PyTorch correctness reference are implemented and hardware-tested on a
-Ryzen AI Max+ 395 / Radeon 8060S. Full original-checkpoint generation acceptance
-is still in progress; the upstream CUDA server is not yet an AMD server.
+Ryzen AI Max+ 395 / Radeon 8060S. The original 510 GB checkpoint now completes a
+short target-only text prompt on AMD with an 8 GiB weight cache. Native Rust
+decoding and AMD server integration remain to be ported; performance tuning is pending.
 See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
 
 ## Upstream engine

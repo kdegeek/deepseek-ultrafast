@@ -21,7 +21,7 @@ from safetensors import safe_open
 
 
 class CheckpointStore:
-    """Keep safetensors maps open without copying or materializing their payloads."""
+    """Read dense tensors individually and map only sparsely accessed row tables."""
 
     def __init__(self, directory):
         self.directory = Path(directory).resolve()
@@ -59,12 +59,14 @@ class CheckpointStore:
             if not self.weight_map:
                 raise ValueError(f"no safetensors tensors in {self.directory}")
 
-    def _open(self, filename):
-        if filename not in self._files:
-            self._files[filename] = self._stack.enter_context(
-                safe_open(self.directory / filename, framework="pt", device="cpu")
-            )
-        return self._files[filename]
+    def _open(self, filename, backend="pread"):
+        key = (filename, backend)
+        if key not in self._files:
+            with torch.device("cpu"):
+                self._files[key] = self._stack.enter_context(
+                    safe_open(self.directory / filename, framework="pt", device="cpu", backend=backend)
+                )
+        return self._files[key]
 
     def resolve(self, name):
         """Accept the original names and the official converter's HF aliases."""
@@ -82,12 +84,16 @@ class CheckpointStore:
 
     def slice(self, name):
         name = self.resolve(name)
-        return self._open(self.weight_map[name]).get_slice(name)
+        # In safetensors 0.8, CPU pread slicing reads the ENTIRE source tensor.
+        # Keep Engram row reads bounded by using mmap.
+        with torch.device("cpu"):
+            return self._open(self.weight_map[name], "mmap").get_slice(name)
 
     def tensor(self, name):
         name = self.resolve(name)
-        # safetensors' PyTorch bridge calls tensor factories. A caller's default
-        # CUDA device must not turn a CPU mmap read into a whole GPU allocation.
+        # The many-shard PyTorch mmap-storage path access-violates on this Windows
+        # AMD runtime. Pread owns just this tensor's CPU bytes and avoids that path.
+        # Keep its factory calls on CPU even inside a default CUDA device context.
         with torch.device("cpu"):
             return self._open(self.weight_map[name]).get_tensor(name)
 
@@ -248,7 +254,7 @@ class LazyCheckpoint:
         ):
             raise TypeError(f"{name}: unsupported dtype conversion {source.dtype} -> {spec.dtype}")
         # copy=True is necessary even on CPU: cached tensors must own their bytes,
-        # independent of the mmap that the manager will eventually close.
+        # independent of the temporary CPU read buffer.
         return torch.nn.Parameter(source.to(device=self.device, dtype=spec.dtype, copy=True),
                                   requires_grad=False)
 

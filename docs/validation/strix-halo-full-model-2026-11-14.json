@@ -1,0 +1,190 @@
+{
+  "accepted": true,
+  "scope": "One short original-model target-only raw completion on AMD; not broad quality or performance acceptance.",
+  "base_commit": "daf872397dce5ec203cde34e836825ee9ea5287b",
+  "checkpoint": {
+    "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "selected_files": 54,
+    "expected_selected_bytes": 510310553041,
+    "safetensors_shards": 48,
+    "safetensors_file_bytes": 510296708312,
+    "lfs_sha256_verified": true,
+    "lfs_files_verified": 48,
+    "manifest": "strix-original-checkpoint.json",
+    "local_source_manifest_sha256": "e65948fd2f76031eb2b423d7b9190616b12635e70a508ed3af1b8b9a5a90c277",
+    "verification_log": "target/strix-download-verify.log"
+  },
+  "hardware": {
+    "Manufacturer": "GMKtec",
+    "Model": "NucBox_EVO-X2",
+    "CPU": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "PhysicalMemoryBytes": 119880355840
+  },
+  "generation": {
+    "checked_utc": "2026-11-15T01:18:39.594166+00:00",
+    "device": "cuda",
+    "device_name": "AMD Radeon(TM) 8060S Graphics",
+    "torch_version": "2.11.0+rocm7.14.0",
+    "hip_version": "7.14.60850",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "model": "target\\models\\DeepSeek-V4.1-Flash",
+    "prompt": "The capital of France is",
+    "text": " Paris.",
+    "tokens": [
+      11111,
+      16
+    ],
+    "prompt_tokens": [
+      671,
+      6102,
+      294,
+      8760,
+      344
+    ],
+    "stop_reason": "eos",
+    "initialization_seconds": 7.710513799996988,
+    "elapsed_seconds_including_prefill": 176.09616580000147,
+    "mode": "target-only reference, raw completion",
+    "weight_cache": {
+      "cache_budget_bytes": 8589934592,
+      "resident_weight_bytes": 8561612848,
+      "peak_resident_weight_bytes": 8589922760,
+      "parameter_loads": 18253,
+      "cache_hits": 0,
+      "engram_rows_read": 336
+    },
+    "device_memory": {
+      "peak_allocated_bytes": 8749762048,
+      "peak_reserved_bytes": 14237564928,
+      "total_device_bytes": 89108070400
+    },
+    "forward_steps": [
+      {
+        "stage": "prefill",
+        "position": 0,
+        "input_token_id": 671,
+        "next_token_id": 455,
+        "elapsed_seconds": 24.4523646000016,
+        "logits_min": -17.312639236450195,
+        "logits_max": 15.576796531677246,
+        "logits_finite": true
+      },
+      {
+        "stage": "prefill",
+        "position": 1,
+        "input_token_id": 6102,
+        "next_token_id": 294,
+        "elapsed_seconds": 24.689654300003895,
+        "logits_min": -14.648179054260254,
+        "logits_max": 19.558956146240234,
+        "logits_finite": true
+      },
+      {
+        "stage": "prefill",
+        "position": 2,
+        "input_token_id": 294,
+        "next_token_id": 8760,
+        "elapsed_seconds": 24.264520800003083,
+        "logits_min": -20.774782180786133,
+        "logits_max": 19.791078567504883,
+        "logits_finite": true
+      },
+      {
+        "stage": "prefill",
+        "position": 3,
+        "input_token_id": 8760,
+        "next_token_id": 344,
+        "elapsed_seconds": 24.363341399999626,
+        "logits_min": -11.718766212463379,
+        "logits_max": 24.365917205810547,
+        "logits_finite": true
+      },
+      {
+        "stage": "prefill",
+        "position": 4,
+        "input_token_id": 344,
+        "next_token_id": 11111,
+        "elapsed_seconds": 26.561815699998988,
+        "logits_min": -12.7695951461792,
+        "logits_max": 20.959896087646484,
+        "logits_finite": true
+      },
+      {
+        "stage": "decode",
+        "position": 5,
+        "input_token_id": 11111,
+        "next_token_id": 16,
+        "elapsed_seconds": 26.235861599998316,
+        "logits_min": -15.426828384399414,
+        "logits_max": 21.816930770874023,
+        "logits_finite": true
+      },
+      {
+        "stage": "decode",
+        "position": 6,
+        "input_token_id": 16,
+        "next_token_id": 1,
+        "elapsed_seconds": 25.527520299998287,
+        "logits_min": -15.6617431640625,
+        "logits_max": 18.86962127685547,
+        "logits_finite": true
+      }
+    ],
+    "all_logits_finite": true,
+    "model_layers": 40,
+    "context_limit": 256,
+    "provenance_sha256": {
+      "source-manifest.json": "e65948fd2f76031eb2b423d7b9190616b12635e70a508ed3af1b8b9a5a90c277",
+      "download-verified.json": "e7323187b0e230b306f504cf0fefe870c9822a0f4465775eefd1b45dd6cc1dff",
+      "inference/config.json": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809",
+      "tokenizer.json": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+      "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547"
+    }
+  },
+  "generation_log": "target/strix-full-generation-pread.log",
+  "validation": {
+    "python_tests_passed": 33,
+    "python_tests_skipped": 0,
+    "python_test_log": "target/strix-python-tests-final.log",
+    "reduced_architecture_smoke": {
+      "fixture": "synthetic reduced architecture",
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "checks": [
+        {
+          "stage": "prefill",
+          "max_abs_error": 1.1920928955078125e-07,
+          "top_token_cpu": 89,
+          "top_token_gpu": 89
+        },
+        {
+          "stage": "decode",
+          "max_abs_error": 1.1920928955078125e-07,
+          "top_token_cpu": 14,
+          "top_token_gpu": 14
+        }
+      ],
+      "passed": true,
+      "model_quality_verified": false
+    },
+    "native_checkpoint_tensors": 96085,
+    "native_checkpoint_stored_bytes": 510286023000,
+    "target_parameter_shapes_checked": 93338,
+    "engram_compressed_vocab_size": 99092,
+    "upstream_sources_modified": false
+  },
+  "integration_fix": {
+    "observed_failure": "Native 0xC0000005 in PyTorch CPU storage while safetensors get_tensor loaded layers.30.hc_attn_fn.",
+    "remediation": "Use safetensors 0.8 pread for individual dense tensors; retain mmap for sparse Engram rows to avoid whole-table pread slicing.",
+    "failure_trace": "target/strix-full-generation-trace.log"
+  },
+  "unverified": [
+    "native Rust decoding and server",
+    "optimized throughput",
+    "DSpark",
+    "vision",
+    "long context and 1M context",
+    "API serving",
+    "chat generation"
+  ]
+}

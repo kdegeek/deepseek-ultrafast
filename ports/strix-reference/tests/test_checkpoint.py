@@ -1,7 +1,9 @@
 """Bounded checkpoint fixtures plus an optional actual released expert matrix."""
 import json
+from itertools import product
 from pathlib import Path
 import sys
+import struct
 import tempfile
 import unittest
 
@@ -97,6 +99,31 @@ class CheckpointTests(unittest.TestCase):
         finally:
             manager.close()
         self.assertTrue(model[1].weight.is_meta)
+
+    def test_indexed_shards_load_under_device_context_with_eviction(self):
+        weight_map = {}
+        for index in range(40):
+            name, filename = f"{index}.weight", f"part-{index:02d}.safetensors"
+            weight_map[name] = filename
+            value = torch.eye(4, dtype=torch.float32) * (2 if index == 39 else 1)
+            save_file({name: value}, self.directory / filename)
+        (self.directory / "model.safetensors.index.json").write_text(json.dumps({"weight_map": weight_map}))
+        devices = ["cpu"] + (["cuda"] if torch.cuda.is_available() and torch.version.hip else [])
+        for device in devices:
+            with self.subTest(device=device):
+                model = torch.nn.Sequential(*(torch.nn.Linear(4, 4, bias=False, dtype=torch.float32, device="meta")
+                                              for _ in range(40)))
+                manager = checkpoint.attach_hooks(model, self.directory, device, 64)
+                try:
+                    with torch.inference_mode(), torch.device(device):
+                        x = torch.tensor([[1., 2., 3., 4.]], dtype=torch.float32)
+                        for _ in range(2):
+                            torch.testing.assert_close(model(x), x * 2, rtol=0, atol=0)
+                    self.assertEqual(manager.loads, 80)
+                    self.assertEqual(manager.peak_resident_bytes, 64)
+                    self.assertFalse(any(manager.pins.values()))
+                finally:
+                    manager.close()
 
     def test_budget_error_unpins_scope(self):
         model = QuantLinear()
@@ -203,6 +230,33 @@ class CheckpointTests(unittest.TestCase):
         finally:
             manager.close()
 
+    def test_actual_engram_high_offset_rows_under_gpu_default(self):
+        directory = ROOT.parents[1] / "target" / "models" / "DeepSeek-V4.1-Flash"
+        if not (directory / "download-verified.json").exists():
+            self.skipTest("verified original checkpoint is unavailable")
+        store = checkpoint.CheckpointStore(directory)
+        device = "cuda" if torch.cuda.is_available() and torch.version.hip else "cpu"
+        try:
+            for name in ("layers.1.engram.embed.weight", "layers.1.engram.embed.scale"):
+                path = directory / store.weight_map[name]
+                with path.open("rb") as stream:
+                    header_length = struct.unpack("<Q", stream.read(8))[0]
+                    metadata = json.loads(stream.read(header_length))[name]
+                    rows, columns = metadata["shape"]
+                    ids = [0, rows // 2, rows - 1, rows // 2]
+                    expected = []
+                    for row in ids:
+                        # Both original Engram weights and scales are one byte.
+                        stream.seek(8 + header_length + metadata["data_offsets"][0] + row * columns)
+                        expected.append(stream.read(columns))
+                with torch.device(device):
+                    actual = store.rows(name, ids)
+                self.assertEqual(actual.device.type, "cpu")
+                self.assertEqual(tuple(actual.shape), (len(ids), columns))
+                self.assertEqual(actual.view(torch.uint8).numpy().tobytes(), b"".join(expected))
+        finally:
+            store.close()
+
     def test_full_tiny_architecture_matches_eager_prefill_and_decode(self):
         previous = torch.get_default_dtype()
         torch.set_default_dtype(torch.bfloat16)
@@ -229,8 +283,10 @@ class CheckpointTests(unittest.TestCase):
                         value.view(torch.uint8).copy_(torch.randint(0, 256, value.shape, dtype=torch.uint8))
                     elif name.endswith("norm.weight") or name == "norm.weight":
                         value.fill_(1)
-                    elif name.endswith("bias") or "hc_" in name or name.endswith("attn_sink"):
+                    elif name.endswith("bias") or name.endswith("attn_sink"):
                         value.zero_()
+                    elif "hc_" in name:
+                        value.copy_(torch.randn(value.shape, dtype=torch.float32) * 0.02)
                     else:
                         value.copy_(torch.randn(value.shape, dtype=torch.float32) * 0.05)
             state = {name: value.detach().contiguous().view(torch.int8) if value.dtype == torch.float4_e2m1fn_x2
@@ -241,8 +297,8 @@ class CheckpointTests(unittest.TestCase):
                 expected_prefill = eager(tokens, 0)[1].clone()
                 expected_decode = eager(decode, 4)[1].clone()
             devices = ["cpu"] + (["cuda"] if torch.cuda.is_available() and torch.version.hip else [])
-            for device in devices:
-                with self.subTest(device=device):
+            for device, incremental in product(devices, (False, True)):
+                with self.subTest(device=device, incremental=incremental):
                     official.precompute_freqs_cis.cache_clear()
                     official.get_window_topk_idxs.cache_clear()
                     lazy, manager = checkpoint.build_lazy_model(args, tokenizer, self.directory, device, 128 * 1024)
@@ -253,9 +309,15 @@ class CheckpointTests(unittest.TestCase):
                             if name.endswith("score_state"):
                                 self.assertTrue(torch.isneginf(value).all())
                         with torch.inference_mode(), torch.device(device):
-                            actual_prefill = lazy(tokens.to(device), 0)[1].cpu()
+                            if incremental:
+                                # The bounded runner prefills one token at a time,
+                                # including the first incomplete compression group.
+                                for position in range(tokens.shape[1]):
+                                    actual_prefill = lazy(tokens[:, position:position + 1].to(device), position)[1].cpu()
+                            else:
+                                actual_prefill = lazy(tokens.to(device), 0)[1].cpu()
                             actual_decode = lazy(decode.to(device), 4)[1].cpu()
-                        tolerance = {"rtol": 0, "atol": 0} if device == "cpu" else {"rtol": 0.03, "atol": 0.01}
+                        tolerance = {"rtol": 0, "atol": 0} if device == "cpu" and not incremental else {"rtol": 0.03, "atol": 0.01}
                         torch.testing.assert_close(actual_prefill, expected_prefill, **tolerance)
                         torch.testing.assert_close(actual_decode, expected_decode, **tolerance)
                         self.assertTrue(torch.equal(actual_prefill.argmax(-1), expected_prefill.argmax(-1)))

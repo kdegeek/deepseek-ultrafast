@@ -4,7 +4,7 @@
     "checks": [
       {
         "elements": 1,
-        "max_abs_error": 2.384185791015625E-07,
+        "max_abs_error": 2.384185791015625e-07,
         "operation": "matvec/F32/1x32"
       },
       {
@@ -14,7 +14,7 @@
       },
       {
         "elements": 1,
-        "max_abs_error": 2.384185791015625E-07,
+        "max_abs_error": 2.384185791015625e-07,
         "operation": "matvec/Bf16/1x32"
       },
       {
@@ -44,7 +44,7 @@
       },
       {
         "elements": 33,
-        "max_abs_error": 4.76837158203125E-07,
+        "max_abs_error": 4.76837158203125e-07,
         "operation": "matvec/F32/33x96"
       },
       {
@@ -54,7 +54,7 @@
       },
       {
         "elements": 33,
-        "max_abs_error": 4.76837158203125E-07,
+        "max_abs_error": 4.76837158203125e-07,
         "operation": "matvec/Bf16/33x96"
       },
       {
@@ -64,7 +64,7 @@
       },
       {
         "elements": 33,
-        "max_abs_error": 7.62939453125E-06,
+        "max_abs_error": 7.62939453125e-06,
         "operation": "matvec/Fp8/33x96"
       },
       {
@@ -74,7 +74,7 @@
       },
       {
         "elements": 33,
-        "max_abs_error": 7.62939453125E-06,
+        "max_abs_error": 7.62939453125e-06,
         "operation": "matvec/Fp4/33x96"
       },
       {
@@ -84,7 +84,7 @@
       },
       {
         "elements": 65,
-        "max_abs_error": 8.344650268554688E-07,
+        "max_abs_error": 8.344650268554688e-07,
         "operation": "matvec/F32/65x256"
       },
       {
@@ -94,7 +94,7 @@
       },
       {
         "elements": 65,
-        "max_abs_error": 7.748603820800781E-07,
+        "max_abs_error": 7.748603820800781e-07,
         "operation": "matvec/Bf16/65x256"
       },
       {
@@ -104,7 +104,7 @@
       },
       {
         "elements": 65,
-        "max_abs_error": 4.57763671875E-05,
+        "max_abs_error": 4.57763671875e-05,
         "operation": "matvec/Fp8/65x256"
       },
       {
@@ -114,7 +114,7 @@
       },
       {
         "elements": 65,
-        "max_abs_error": 3.814697265625E-06,
+        "max_abs_error": 3.814697265625e-06,
         "operation": "matvec/Fp4/65x256"
       },
       {
@@ -129,27 +129,27 @@
       },
       {
         "elements": 1,
-        "max_abs_error": 2.9802322387695312E-08,
+        "max_abs_error": 2.9802322387695312e-08,
         "operation": "silu_mul/1"
       },
       {
         "elements": 201,
-        "max_abs_error": 1.1920928955078125E-07,
+        "max_abs_error": 1.1920928955078125e-07,
         "operation": "rms_norm/3x67"
       },
       {
         "elements": 201,
-        "max_abs_error": 2.384185791015625E-07,
+        "max_abs_error": 2.384185791015625e-07,
         "operation": "silu_mul/201"
       },
       {
         "elements": 512,
-        "max_abs_error": 2.384185791015625E-07,
+        "max_abs_error": 2.384185791015625e-07,
         "operation": "rms_norm/2x256"
       },
       {
         "elements": 512,
-        "max_abs_error": 2.384185791015625E-07,
+        "max_abs_error": 2.384185791015625e-07,
         "operation": "silu_mul/512"
       }
     ],
@@ -168,7 +168,7 @@
   "original_checkpoint_matrix": {
     "check": {
       "elements": 2304,
-      "max_abs_error": 5.662441253662109E-07,
+      "max_abs_error": 5.662441253662109e-07,
       "operation": "layers.6.ffn.experts.0.w1.weight"
     },
     "checkpoint": "target/strix-checkpoint-sample",
@@ -190,13 +190,13 @@
     "checks": [
       {
         "stage": "prefill",
-        "max_abs_error": 1.1920928955078125E-07,
+        "max_abs_error": 1.1920928955078125e-07,
         "top_token_cpu": 89,
         "top_token_gpu": 89
       },
       {
         "stage": "decode",
-        "max_abs_error": 1.1920928955078125E-07,
+        "max_abs_error": 1.1920928955078125e-07,
         "top_token_cpu": 14,
         "top_token_gpu": 14
       }
@@ -204,12 +204,14 @@
     "passed": true,
     "model_quality_verified": false
   },
-  "full_model_generation_verified": false,
+  "full_model_generation_verified": true,
   "test_results": {
     "clippy": "passed",
     "rust_unit_passed": 20,
     "rust_gpu_passed": 1,
-    "full_model_generation": "pending original checkpoint download",
-    "python_cpu_and_amd_passed": 31
-  }
+    "full_model_generation": "passed original checkpoint: ' Paris.' then EOS; see full-model evidence",
+    "python_cpu_and_amd_passed": 33
+  },
+  "full_model_generation_evidence": "strix-halo-full-model-2026-11-14.json",
+  "full_model_generation_checked_utc": "2026-11-15T01:18:39.594166+00:00"
 }

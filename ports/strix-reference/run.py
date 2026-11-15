@@ -1,9 +1,12 @@
 """Memory-bounded AMD correctness reference for the original DeepSeek V4.1 model."""
 import argparse
 import dataclasses
+import hashlib
 import json
+import platform
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -82,6 +85,7 @@ def generate(args):
     from transformers import AutoTokenizer
     from checkpoint import build_lazy_model
 
+    initialized = time.perf_counter()
     config = json.loads((args.checkpoint / "inference" / "config.json").read_text())
     config.update(max_batch_size=1, max_seq_len=args.context, temperature=0,
                   vision_n_layers=0, n_mtp_layers=0)
@@ -96,34 +100,71 @@ def generate(args):
     if not prompt or len(prompt) + args.tokens > args.context:
         raise ValueError("prompt is empty or prompt plus completion exceeds context")
     model_args = ModelArgs(**config)
+    print("Building lazy original-model reference", file=sys.stderr, flush=True)
     model, manager = build_lazy_model(model_args, tokenizer, args.checkpoint, args.device, int(args.cache_gib * 1024**3))
     generated = []
+    steps = []
+    stop_reason = "max_tokens"
     started = time.perf_counter()
+    print(f"Model ready after {started - initialized:.2f}s; {len(prompt)} prompt tokens", file=sys.stderr, flush=True)
+    if args.device == "cuda":
+        torch.cuda.reset_peak_memory_stats()
+
+    def forward(token, position, stage):
+        step_started = time.perf_counter()
+        next_ids, logits, _ = model(torch.tensor([[token]], dtype=torch.long), position)
+        if not torch.isfinite(logits).all():
+            raise RuntimeError(f"non-finite {stage} logits at position {position}")
+        # Reading the extrema synchronizes the GPU before recording elapsed time.
+        minimum, maximum = logits.min().item(), logits.max().item()
+        next_id = int(next_ids.item())
+        seconds = time.perf_counter() - step_started
+        steps.append({"stage": stage, "position": position, "input_token_id": token,
+                      "next_token_id": next_id, "elapsed_seconds": seconds,
+                      "logits_min": minimum, "logits_max": maximum, "logits_finite": True})
+        print(f"{stage} position {position}: {seconds:.2f}s; finite logits [{minimum:.4f}, {maximum:.4f}]",
+              file=sys.stderr, flush=True)
+        return next_id
+
     try:
         with torch.inference_mode(), torch.device(args.device):
             # Token-by-token prefill bounds activation and selected-expert memory.
             for position, token in enumerate(prompt):
-                next_ids, logits, _ = model(torch.tensor([[token]], dtype=torch.long), position)
-                if not torch.isfinite(logits).all():
-                    raise RuntimeError(f"non-finite prefill logits at position {position}")
-                print(f"prefill {position + 1}/{len(prompt)}", file=sys.stderr, flush=True)
+                next_id = forward(token, position, "prefill")
             for offset in range(args.tokens):
-                next_id = int(next_ids.item())
                 if next_id == tokenizer.eos_token_id:
+                    stop_reason = "eos"
                     break
                 generated.append(next_id)
                 print(f"decode {offset + 1}/{args.tokens}: {tokenizer.decode([next_id])!r}", file=sys.stderr, flush=True)
                 if offset + 1 < args.tokens:
-                    next_ids, logits, _ = model(torch.tensor([[next_id]], dtype=torch.long), len(prompt) + offset)
-                    if not torch.isfinite(logits).all():
-                        raise RuntimeError(f"non-finite decode logits at position {offset}")
+                    next_id = forward(next_id, len(prompt) + offset, "decode")
+        generation_seconds = time.perf_counter() - started
         cache_stats = manager.stats()
+        device_memory = ({"peak_allocated_bytes": torch.cuda.max_memory_allocated(),
+                          "peak_reserved_bytes": torch.cuda.max_memory_reserved(),
+                          "total_device_bytes": torch.cuda.get_device_properties(0).total_memory}
+                         if args.device == "cuda" else None)
     finally:
         manager.close()
-    return {"device": args.device, "model": str(args.checkpoint), "prompt": args.prompt,
+    provenance = {}
+    for name in ("source-manifest.json", "download-verified.json", "inference/config.json", "tokenizer.json", "tokenizer_config.json"):
+        path = args.checkpoint / name
+        if path.is_file():
+            provenance[name] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return {"checked_utc": datetime.now(timezone.utc).isoformat(),
+            "device": args.device, "device_name": torch.cuda.get_device_name() if args.device == "cuda" else platform.processor(),
+            "torch_version": torch.__version__, "hip_version": torch.version.hip,
+            "platform": platform.platform(), "model": str(args.checkpoint), "prompt": args.prompt,
             "text": tokenizer.decode(generated), "tokens": generated,
-            "elapsed_seconds_including_prefill": time.perf_counter() - started,
-            "mode": "target-only reference, raw completion", "weight_cache": cache_stats}
+            "prompt_tokens": prompt, "stop_reason": stop_reason,
+            "initialization_seconds": started - initialized,
+            "elapsed_seconds_including_prefill": generation_seconds,
+            "mode": "target-only reference, raw completion", "weight_cache": cache_stats,
+            "device_memory": device_memory, "forward_steps": steps,
+            "all_logits_finite": all(step["logits_finite"] for step in steps),
+            "model_layers": model_args.n_layers, "context_limit": args.context,
+            "provenance_sha256": provenance}
 
 
 def main():
@@ -135,6 +176,7 @@ def main():
     parser.add_argument("--tokens", type=int, default=8)
     parser.add_argument("--cache-gib", type=float, default=8)
     parser.add_argument("--prompt", default="The capital of France is")
+    parser.add_argument("--output", type=Path, help="also save the result JSON to this path")
     args = parser.parse_args()
     torch.set_num_threads(8)
     if args.device == "cuda" and (not torch.cuda.is_available() or not torch.version.hip):
@@ -145,6 +187,8 @@ def main():
         parser.error("require 1 <= tokens <= context <= 4096 and 0 < cache-gib <= 32")
     torch.set_default_dtype(torch.bfloat16)
     result = smoke(args.device) if args.command == "smoke" else generate(args)
+    if args.output is not None:
+        args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
 
 
