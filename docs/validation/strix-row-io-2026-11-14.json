@@ -1,0 +1,305 @@
+{
+  "checked_utc": "2026-11-14T21:57:18.385924-06:00",
+  "accepted": true,
+  "scope": "Bounded sparse checkpoint-row I/O reliability and one original-model completion; no native decoder numerical acceptance.",
+  "base_commit": "22d5e48",
+  "source_sha256": {
+    "ports/strix-reference/checkpoint.py": "d01ca32b06c54df248a145becb6723cbdf8f545f300a21d04f4d3f202ebac489",
+    "ports/strix-reference/tests/test_checkpoint.py": "cfbd5e37bde528a7da2d6ff1ef492df9446b31d4d9f875f894072961c8ed99c9"
+  },
+  "implementation": {
+    "dense_tensors": "Existing safetensors backend=pread get_tensor path unchanged.",
+    "sparse_rows": "Validated safetensors pread metadata plus bounded seek/readinto into one owned CPU bytearray; no mmap or tensor-slice materialization.",
+    "metadata_api": "CheckpointStore.slice returns immutable get_shape/get_dtype metadata only.",
+    "dtype_and_order": "Preserves original byte-aligned dtype, requested row order, duplicates, and model/HF name aliases.",
+    "limits": {
+      "header_bytes": 33554432,
+      "requested_row_payload_bytes": 1048576
+    },
+    "memory_scope": "Limits apply to each parsed header and owned row payload, not total process memory, parsed JSON objects, dense tensor reads, device allocations or OS cache.",
+    "lifecycle": "ExitStack closes sparse file handles; returned tensor retains its owned bytearray after store close.",
+    "immutable_checkpoint_required": true,
+    "counters": "row_read_bytes, peak_row_read_bytes and row_read_limit_bytes added to LazyCheckpoint.stats()."
+  },
+  "tests": {
+    "full_python_suite": {
+      "command": "C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Scripts/python.exe -m unittest discover -s ports/strix-reference/tests -v",
+      "passed": 50,
+      "skipped": 0,
+      "log": "target/strix-row-io-python-tests-2026-11-15.log"
+    },
+    "focused_after_reporting_only_change": {
+      "command": "python -m unittest discover -s ports/strix-reference/tests -p test_checkpoint.py -k test_engram_fetches_unique_rows_only_and_masks -v",
+      "passed": 1
+    },
+    "coverage": [
+      "Malformed, duplicate, oversized and truncated headers/payloads rejected before row reads",
+      "Truncation after metadata discovery raises EOFError",
+      "Row type/range/byte-cap enforcement",
+      "FP32/BF16/FP8 E4M3/E8M0 exact byte/order/alias preservation and CPU placement under CUDA default",
+      "Actual layer 1 and 14 first/middle/last/duplicate row bytes, weights and scales, three repeats under CUDA default",
+      "Returned storage remains valid after handles close",
+      "Existing reduced original architecture and CPU/AMD numerical tests pass"
+    ],
+    "diff_check_passed": true,
+    "parent_verification_after_reporting_change": {
+      "skipped": 0,
+      "command": "C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Scripts/python.exe -m unittest discover -s ports/strix-reference/tests -v",
+      "recorded_forward_nontiming_fields_match_original": true,
+      "source_sha256": "d01ca32b06c54df248a145becb6723cbdf8f545f300a21d04f4d3f202ebac489",
+      "passed": 50
+    }
+  },
+  "independent_actual_rows": {
+    "tables": [
+      {
+        "name": "layers.1.engram.embed.weight",
+        "shape": [
+          384006168,
+          256
+        ],
+        "dtype": "F8_E4M3",
+        "tensor_bytes": 98305579008,
+        "row_ids": [
+          0,
+          192003084,
+          384006167,
+          192003084
+        ],
+        "requested_bytes": 1024,
+        "independent_raw_read_equal": true,
+        "rows_sha256": "376ce6d1d82d8d9ea7a0bcde6fb7f8dc251ea16407ab8b901b88c79f07153d09"
+      },
+      {
+        "name": "layers.1.engram.embed.scale",
+        "shape": [
+          384006168,
+          8
+        ],
+        "dtype": "F8_E8M0",
+        "tensor_bytes": 3072049344,
+        "row_ids": [
+          0,
+          192003084,
+          384006167,
+          192003084
+        ],
+        "requested_bytes": 32,
+        "independent_raw_read_equal": true,
+        "rows_sha256": "0108264eb7fd8910416f7c97d23746fcf54757e32bffb98566bc0fabcf8f6207"
+      },
+      {
+        "name": "layers.14.engram.embed.weight",
+        "shape": [
+          384016682,
+          256
+        ],
+        "dtype": "F8_E4M3",
+        "tensor_bytes": 98308270592,
+        "row_ids": [
+          0,
+          192008341,
+          384016681,
+          192008341
+        ],
+        "requested_bytes": 1024,
+        "independent_raw_read_equal": true,
+        "rows_sha256": "e1b686d367df7ec67ed75d275130b73fef15d1c2410420a5d6bf6925152c3934"
+      },
+      {
+        "name": "layers.14.engram.embed.scale",
+        "shape": [
+          384016682,
+          8
+        ],
+        "dtype": "F8_E8M0",
+        "tensor_bytes": 3072133456,
+        "row_ids": [
+          0,
+          192008341,
+          384016681,
+          192008341
+        ],
+        "requested_bytes": 32,
+        "independent_raw_read_equal": true,
+        "rows_sha256": "8bad51bc8763033af69f5ea7a6f7d44d64ed98e2b66ab9f9ca3ceb26cf9b6e28"
+      }
+    ],
+    "counters": {
+      "total_row_read_bytes": 2112,
+      "peak_row_read_bytes": 1024,
+      "all_metadata_backends": "pread",
+      "mmap_opened": false
+    },
+    "handles_closed": true,
+    "device_context_note": "Readback above is CPU-only; CUDA-default placement and repeat checks ran in the full test suite."
+  },
+  "full_original_generation": {
+    "command": "C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Scripts/python.exe -u ports/strix-reference/run.py generate --checkpoint target/models/DeepSeek-V4.1-Flash --cache-gib 8 --context 256 --tokens 8 --prompt 'The capital of France is' --output target/strix-row-io-full-2026-11-15.json",
+    "exit_code": 0,
+    "result": {
+      "checked_utc": "2026-11-14T21:54:35.985721-06:00",
+      "device": "cuda",
+      "device_name": "AMD Radeon(TM) 8060S Graphics",
+      "torch_version": "2.11.0+rocm7.14.0",
+      "hip_version": "7.14.60850",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "model": "target\\models\\DeepSeek-V4.1-Flash",
+      "prompt": "The capital of France is",
+      "text": " Paris.",
+      "tokens": [
+        11111,
+        16
+      ],
+      "prompt_tokens": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "stop_reason": "eos",
+      "initialization_seconds": 7.497633799997857,
+      "elapsed_seconds_including_prefill": 172.92434979999962,
+      "mode": "target-only reference, raw completion",
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589922760,
+        "parameter_loads": 18253,
+        "cache_hits": 0,
+        "engram_rows_read": 336,
+        "loaded_weight_bytes": 119366627392,
+        "cache_hit_bytes": 0,
+        "load_seconds": 59.625384600120015,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8749762048,
+        "peak_reserved_bytes": 14237564928,
+        "total_device_bytes": 89108070400
+      },
+      "forward_steps": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_token_id": 671,
+          "next_token_id": 455,
+          "elapsed_seconds": 26.982549899999867,
+          "logits_min": -17.312639236450195,
+          "logits_max": 15.576796531677246,
+          "logits_finite": true
+        },
+        {
+          "stage": "prefill",
+          "position": 1,
+          "input_token_id": 6102,
+          "next_token_id": 294,
+          "elapsed_seconds": 23.4737763999874,
+          "logits_min": -14.648179054260254,
+          "logits_max": 19.558956146240234,
+          "logits_finite": true
+        },
+        {
+          "stage": "prefill",
+          "position": 2,
+          "input_token_id": 294,
+          "next_token_id": 8760,
+          "elapsed_seconds": 23.534578999999212,
+          "logits_min": -20.774782180786133,
+          "logits_max": 19.791078567504883,
+          "logits_finite": true
+        },
+        {
+          "stage": "prefill",
+          "position": 3,
+          "input_token_id": 8760,
+          "next_token_id": 344,
+          "elapsed_seconds": 23.39121790000354,
+          "logits_min": -11.718766212463379,
+          "logits_max": 24.365917205810547,
+          "logits_finite": true
+        },
+        {
+          "stage": "prefill",
+          "position": 4,
+          "input_token_id": 344,
+          "next_token_id": 11111,
+          "elapsed_seconds": 25.38762389999465,
+          "logits_min": -12.7695951461792,
+          "logits_max": 20.959896087646484,
+          "logits_finite": true
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_token_id": 11111,
+          "next_token_id": 16,
+          "elapsed_seconds": 23.655946300001233,
+          "logits_min": -15.426828384399414,
+          "logits_max": 21.816930770874023,
+          "logits_finite": true
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_token_id": 16,
+          "next_token_id": 1,
+          "elapsed_seconds": 26.49736570000823,
+          "logits_min": -15.6617431640625,
+          "logits_max": 18.86962127685547,
+          "logits_finite": true
+        }
+      ],
+      "all_logits_finite": true,
+      "model_layers": 40,
+      "context_limit": 256,
+      "provenance_sha256": {
+        "source-manifest.json": "e65948fd2f76031eb2b423d7b9190616b12635e70a508ed3af1b8b9a5a90c277",
+        "download-verified.json": "e7323187b0e230b306f504cf0fefe870c9822a0f4465775eefd1b45dd6cc1dff",
+        "inference/config.json": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809",
+        "tokenizer.json": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+        "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547"
+      }
+    },
+    "sampled_completion_ids_including_eos": [
+      11111,
+      16,
+      1
+    ],
+    "comparison": {
+      "baseline": "strix-halo-full-model-2026-11-14.json",
+      "recorded_fields": [
+        "input_token_id",
+        "next_token_id",
+        "logits_min",
+        "logits_max",
+        "logits_finite"
+      ],
+      "all_seven_recorded_forward_values_identical": true,
+      "all_logits_compared": false
+    },
+    "log": "target/strix-row-io-full-2026-11-15.log",
+    "generation_loader_sha256": "a5f583a5fe98090d87c24b58430ec6a807912c172bbb88f29d0ea3beab07c9c6",
+    "post_generation_change": "Only three sparse-row reporting fields were then added to LazyCheckpoint.stats(); the generation was not repeated for reporting-only additions. Exact final source hashes are above."
+  },
+  "limitations": [
+    "No access violation occurred in these runs; this does not prove absence of all runtime faults.",
+    "Full-model test is one short raw completion, not broad quality or API acceptance.",
+    "Checkpoint files must remain unchanged while open; row reader is single-threaded."
+  ],
+  "preserved": {
+    "pinned_architecture_and_model_bytes": true,
+    "environments_drivers_os_services": true,
+    "native_decoder": true,
+    "no_downloads": true,
+    "no_servers_started": true,
+    "no_commit_or_push_by_worker": true
+  },
+  "primary_sources": [
+    "https://github.com/safetensors/safetensors/blob/v0.8.0/README.md#format",
+    "https://github.com/safetensors/safetensors/blob/v0.8.0/bindings/python/src/lib.rs"
+  ]
+}

@@ -55,8 +55,10 @@ weights are not guessed to be FP4.
 The native decoder has passed **scoped original-model generation acceptance**:
 the France completion produces `[11111, 16, 1]`, exactly matching the reference,
 including EOS. The officially serialized “Reply with only OK.” prompt produces
-`[11932, 1]` (`OK`, EOS). Intermediate logits differ on other inputs, so the command stays
-explicitly experimental:
+`[11932, 1]` (`OK`, EOS). The broader comparison has five next-token mismatches
+across 28 tested positions, including the single-token `The` prefix. Logit
+differences remain substantial. This is not acceptance as a replacement for the
+Python/HIP reference; the command stays explicitly experimental:
 
 ```powershell
 cargo build -p deepseek-ultrafast-strix --release
@@ -178,12 +180,24 @@ then loads parameters for active modules through an LRU with a byte budget.
 Dense parameters use safetensors' `pread` backend, reading one tensor at a time.
 The original many-shard PyTorch mmap path crashed with a native access violation
 while loading layer 30 on this Windows runtime; per-tensor reads avoid that path.
-Engram tables retain CPU mappings and copy only requested rows. They must not use
-the safetensors 0.8 CPU `pread` slicing path, which reads a whole tensor before
-slicing it. OS page cache, CPU read buffers, GPU allocator reservations and
+Engram tables use direct bounded file reads for requested rows. Headers are
+validated before use, with a 32 MiB header limit and a 1 MiB payload limit per
+row request. Shape/dtype inspection uses metadata only. Neither sparse rows nor
+dense tensors use PyTorch mmap storage: a later layer-14 diagnostic also exposed
+an access violation in the former sparse mmap path. The safetensors 0.8 CPU
+`pread` payload-slicing path is also avoided because it reads a whole tensor
+before slicing it. OS page cache, CPU read buffers, GPU allocator reservations and
 temporary dequantization buffers are additional to the weight-cache budget.
-Files must not change while mapped. The reference is single-device and
+Files must not change while the loader is open. The reference is single-device and
 single-threaded; its model globals are not safe for concurrent requests.
+
+The [sparse-row I/O evidence](validation/strix-row-io-2026-11-14.json) records
+independent byte comparisons for both original Engram tables, including large
+file offsets, dtype/order preservation, bounded-read failures and handle lifetime.
+All 50 Python tests pass. A fresh original-model run with the new reader produced
+` Paris.` and EOS; every recorded forward prediction and logit extremum matched
+the previous acceptance. `row_read_bytes`, `peak_row_read_bytes` and
+`row_read_limit_bytes` expose sparse-read accounting separately from weight memory.
 
 The original `run.py` entry point uses greedy target decoding and raw completion
 prompts, with bounded token-by-token prefill. The separate `serve.py` entry point

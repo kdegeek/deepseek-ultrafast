@@ -13,8 +13,9 @@ latency; this remains a slow correctness reference. An experimental native
 Rust/Vulkan target-only decoder now executes the original 40-layer checkpoint,
 with an 8 GiB weight cache and no Python bridge. Independent reduced-model AMD
 tests pass, and short France and officially serialized “OK” completions match all
-reference token IDs, including EOS. Intermediate logits still differ substantially on some inputs;
-this is scoped generation acceptance, not broad numerical or quality validation.
+reference token IDs, including EOS. The broader comparison still has five
+next-token mismatches across 28 tested positions and substantial logit differences.
+The native decoder remains experimental; the Python/HIP API is the tested serving path.
 Native serving is not enabled.
 See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
 

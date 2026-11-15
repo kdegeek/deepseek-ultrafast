@@ -6,6 +6,7 @@ import sys
 import struct
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import torch
 from safetensors.torch import save_file
@@ -103,6 +104,101 @@ class CheckpointTests(unittest.TestCase):
         (self.directory / "bad.safetensors").write_bytes(b"not safetensors")
         with self.assertRaises(Exception):
             checkpoint.CheckpointStore(self.directory)
+
+    def test_sparse_rows_preserve_dtype_alias_order_and_owned_storage(self):
+        tensors = {
+            "model.table": torch.arange(24, dtype=torch.float32).reshape(6, 4),
+            "bf16": torch.arange(24, dtype=torch.bfloat16).reshape(6, 4),
+            "fp8": torch.arange(24, dtype=torch.uint8).reshape(6, 4).view(torch.float8_e4m3fn),
+            "scale": torch.arange(120, 144, dtype=torch.uint8).reshape(6, 4).view(torch.float8_e8m0fnu),
+        }
+        self.save(tensors)
+        store = checkpoint.CheckpointStore(self.directory)
+        outputs = []
+        try:
+            # No payload path may call safetensors tensor/slice materialization.
+            store.tensor = lambda *unused: self.fail("sparse read loaded a dense tensor")
+            with patch.object(store, "_open", wraps=store._open) as opened:
+                for name, tensor in tensors.items():
+                    with torch.device("cuda" if torch.cuda.is_available() and torch.version.hip else "cpu"):
+                        actual = store.rows("table" if name == "model.table" else name, [5, 0, 3, 3])
+                    expected_bytes = torch.cat([tensor[i:i+1].view(torch.uint8) for i in [5, 0, 3, 3]])
+                    self.assertEqual(actual.device.type, "cpu")
+                    self.assertEqual(actual.dtype, tensor.dtype)
+                    self.assertTrue(torch.equal(actual.view(torch.uint8), expected_bytes))
+                    outputs.append((actual, expected_bytes))
+                self.assertTrue(all(call.kwargs.get("backend", "pread") == "pread" and len(call.args) == 1
+                                    for call in opened.call_args_list))
+            handles = [entry[0] for entry in store._row_files.values()]
+            self.assertEqual(store.peak_row_read_bytes, 64)
+            self.assertEqual(store.row_read_bytes, 64 + 32 + 16 + 16)
+        finally:
+            store.close()
+        self.assertTrue(all(handle.closed for handle in handles))
+        for actual, expected_bytes in outputs:
+            self.assertTrue(torch.equal(actual.view(torch.uint8), expected_bytes))
+        with self.assertRaisesRegex(RuntimeError, "closed"):
+            store.rows("table", [0])
+        store.close()
+
+    def test_sparse_rows_reject_invalid_ids_and_bounded_request(self):
+        self.save({"table": torch.zeros(3, 4), "vector": torch.zeros(4)})
+        store = checkpoint.CheckpointStore(self.directory)
+        try:
+            for ids, error in [([], ValueError), ([True], TypeError), ([1.5], TypeError),
+                               (["1"], TypeError), ([-1], IndexError), ([3], IndexError),
+                               (range(checkpoint.MAX_ROW_READ_BYTES // 16 + 1), ValueError)]:
+                with self.subTest(ids=str(ids)), self.assertRaises(error):
+                    store.rows("table", ids)
+            with self.assertRaisesRegex(ValueError, "two-dimensional"):
+                store.rows("vector", [0])
+            self.assertEqual(store.row_read_bytes, 0)
+            self.assertEqual(store.rows("table", (2, 0)).shape, (2, 4))
+        finally:
+            store.close()
+
+    def test_sparse_rows_validate_header_and_payload_before_reading(self):
+        shard = self.directory / "bad.safetensors"
+        (self.directory / "model.safetensors.index.json").write_text(
+            json.dumps({"weight_map": {"table": shard.name}}))
+        def file_bytes(header, data=b"\0" * 16):
+            raw = header if isinstance(header, bytes) else json.dumps(header).encode()
+            return struct.pack("<Q", len(raw)) + raw + data
+        record = {"dtype": "F32", "shape": [2, 2], "data_offsets": [0, 16]}
+        cases = [
+            b"short",
+            struct.pack("<Q", checkpoint.MAX_ROW_HEADER_BYTES + 1),
+            struct.pack("<Q", 100) + b"{}",
+            file_bytes(b"not-json"),
+            file_bytes(b'{"table":{},"table":{}}'),
+            file_bytes({"table": {**record, "shape": [2, 3]}}),
+            file_bytes({"table": {**record, "dtype": "UNKNOWN"}}),
+            file_bytes({"table": {**record, "data_offsets": [8, 24]}}),
+            file_bytes({"table": record}, b"\0" * 15),
+            file_bytes({"table": record}, b"\0" * 17),
+        ]
+        for i, data in enumerate(cases):
+            with self.subTest(case=i):
+                shard.write_bytes(data)
+                store = checkpoint.CheckpointStore(self.directory)
+                try:
+                    with self.assertRaises(Exception):
+                        store.rows("table", [0])
+                    self.assertEqual(store.row_read_bytes, 0)
+                finally:
+                    store.close()
+
+    def test_sparse_rows_reject_payload_truncated_after_metadata(self):
+        self.save({"table": torch.ones(3, 4)})
+        store = checkpoint.CheckpointStore(self.directory)
+        try:
+            info = store.slice("table")
+            with (self.directory / "model.safetensors").open("r+b") as stream:
+                stream.truncate(info.offset + info.size - 1)
+            with self.assertRaisesRegex(EOFError, "truncated"):
+                store.rows("table", [2])
+        finally:
+            store.close()
 
     def test_lru_reload_matches_eager_with_one_matrix_budget(self):
         model = torch.nn.Sequential(torch.nn.Linear(4, 4, bias=False, device="meta"),
@@ -228,6 +324,9 @@ class CheckpointTests(unittest.TestCase):
             self.assertEqual(manager.engram_rows, 3)
             self.assertEqual(manager.resident_bytes, 0)
             self.assertTrue(model[0].weight.is_meta)
+            self.assertEqual(manager.stats()["row_read_bytes"], 3 * (64 + 2))
+            self.assertEqual(manager.stats()["peak_row_read_bytes"], 3 * 64)
+            self.assertEqual(manager.stats()["row_read_limit_bytes"], checkpoint.MAX_ROW_READ_BYTES)
         finally:
             manager.close()
 
@@ -260,7 +359,8 @@ class CheckpointTests(unittest.TestCase):
         store = checkpoint.CheckpointStore(directory)
         device = "cuda" if torch.cuda.is_available() and torch.version.hip else "cpu"
         try:
-            for name in ("layers.1.engram.embed.weight", "layers.1.engram.embed.scale"):
+            for name in (f"layers.{layer}.engram.embed.{kind}"
+                         for layer in (1, 14) for kind in ("weight", "scale")):
                 path = directory / store.weight_map[name]
                 with path.open("rb") as stream:
                     header_length = struct.unpack("<Q", stream.read(8))[0]
@@ -272,11 +372,15 @@ class CheckpointTests(unittest.TestCase):
                         # Both original Engram weights and scales are one byte.
                         stream.seek(8 + header_length + metadata["data_offsets"][0] + row * columns)
                         expected.append(stream.read(columns))
-                with torch.device(device):
-                    actual = store.rows(name, ids)
-                self.assertEqual(actual.device.type, "cpu")
-                self.assertEqual(tuple(actual.shape), (len(ids), columns))
-                self.assertEqual(actual.view(torch.uint8).numpy().tobytes(), b"".join(expected))
+                for _ in range(3):
+                    with torch.device(device):
+                        actual = store.rows(name, ids)
+                    self.assertEqual(actual.device.type, "cpu")
+                    self.assertEqual(tuple(actual.shape), (len(ids), columns))
+                    self.assertEqual(actual.view(torch.uint8).numpy().tobytes(), b"".join(expected))
+                self.assertEqual(store.slice(name).get_dtype(), metadata["dtype"])
+            self.assertLessEqual(store.peak_row_read_bytes, checkpoint.MAX_ROW_READ_BYTES)
+            self.assertTrue(all(backend == "pread" for _, backend in store._files))
         finally:
             store.close()
 

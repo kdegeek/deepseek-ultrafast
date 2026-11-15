@@ -2,7 +2,7 @@
 
 Parameters live on meta until their owning module is called. A size-bounded LRU
 keeps device tensors; active forward scopes are pinned. Engram embeddings fetch
-only requested rows from CPU memory maps. This is an inference-only, single-
+only requested rows with bounded file reads. This is an inference-only, single-
 device, single-threaded reference loader, not a concurrent serving backend.
 """
 from __future__ import annotations
@@ -11,7 +11,10 @@ from collections import OrderedDict
 from contextlib import ExitStack, contextmanager
 from dataclasses import dataclass
 import json
+import operator
+import os
 from pathlib import Path
+import struct
 import sys
 import threading
 import time
@@ -21,13 +24,56 @@ import torch
 from safetensors import safe_open
 
 
+MAX_ROW_HEADER_BYTES = 32 * 1024**2
+MAX_ROW_READ_BYTES = 1024**2
+_ROW_DTYPES = {name: getattr(torch, dtype) for name, dtype in {
+    "BOOL": "bool", "U8": "uint8", "I8": "int8", "I16": "int16", "I32": "int32", "I64": "int64",
+    "U16": "uint16", "U32": "uint32", "U64": "uint64", "F16": "float16", "BF16": "bfloat16",
+    "F32": "float32", "F64": "float64", "C64": "complex64",
+    "F8_E4M3": "float8_e4m3fn", "F8_E5M2": "float8_e5m2", "F8_E8M0": "float8_e8m0fnu",
+    "F8_E4M3FNUZ": "float8_e4m3fnuz", "F8_E5M2FNUZ": "float8_e5m2fnuz",
+}.items()}
+
+
+def _unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate safetensors header key: {key}")
+        result[key] = value
+    return result
+
+
+@dataclass(frozen=True)
+class _RowMetadata:
+    shape: tuple
+    dtype: str
+    offset: int
+    size: int
+
+    def get_shape(self):
+        return list(self.shape)
+
+    def get_dtype(self):
+        return self.dtype
+
+
 class CheckpointStore:
-    """Read dense tensors individually and map only sparsely accessed row tables."""
+    """Read dense tensors individually and sparse rows without PyTorch mmap storage.
+
+    Checkpoint files must remain immutable while the store is open. Sparse reads
+    are single-threaded, like the owning model, and preserve requested row order.
+    """
 
     def __init__(self, directory):
         self.directory = Path(directory).resolve()
         self._stack = ExitStack()
         self._files = {}
+        self._row_files = {}
+        self._row_metadata = {}
+        self.row_read_bytes = 0
+        self.peak_row_read_bytes = 0
+        self.closed = False
         try:
             self._read_index()
         except BaseException:
@@ -61,6 +107,8 @@ class CheckpointStore:
                 raise ValueError(f"no safetensors tensors in {self.directory}")
 
     def _open(self, filename, backend="pread"):
+        if self.closed:
+            raise RuntimeError("checkpoint store is closed")
         key = (filename, backend)
         if key not in self._files:
             with torch.device("cpu"):
@@ -84,11 +132,47 @@ class CheckpointStore:
         raise KeyError(f"checkpoint tensor not found: {name}")
 
     def slice(self, name):
+        """Metadata only; payload slicing is intentionally not exposed."""
         name = self.resolve(name)
-        # In safetensors 0.8, CPU pread slicing reads the ENTIRE source tensor.
-        # Keep Engram row reads bounded by using mmap.
-        with torch.device("cpu"):
-            return self._open(self.weight_map[name], "mmap").get_slice(name)
+        if self.closed:
+            raise RuntimeError("checkpoint store is closed")
+        if name not in self._row_metadata:
+            filename = self.weight_map[name]
+            if filename not in self._row_files:
+                stream = (self.directory / filename).open("rb", buffering=0)
+                try:
+                    prefix = stream.read(8)
+                    if len(prefix) != 8:
+                        raise ValueError("truncated safetensors header length")
+                    length = struct.unpack("<Q", prefix)[0]
+                    file_size = os.fstat(stream.fileno()).st_size
+                    if not 0 < length <= MAX_ROW_HEADER_BYTES or 8 + length > file_size:
+                        raise ValueError("invalid or oversized safetensors row header")
+                    header_bytes = stream.read(length)
+                    if len(header_bytes) != length:
+                        raise EOFError("truncated safetensors row header")
+                    header = json.loads(header_bytes, object_pairs_hook=_unique_object)
+                    # The library validates all shapes, contiguous offsets, dtype
+                    # widths and complete payload length. get_slice below only
+                    # retrieves metadata; __getitem__ is never called because
+                    # safetensors 0.8 pread slicing reads the entire tensor.
+                    self._open(filename)
+                    self._stack.enter_context(stream)
+                    self._row_files[filename] = (stream, header, 8 + length, file_size)
+                except BaseException:
+                    stream.close()
+                    raise
+            _, header, data_start, file_size = self._row_files[filename]
+            info = header[name]
+            view = self._open(filename).get_slice(name)
+            shape, dtype = view.get_shape(), view.get_dtype()
+            begin, end = info["data_offsets"]
+            if (info["shape"] != shape or info["dtype"] != dtype
+                    or type(begin) is not int or type(end) is not int
+                    or not 0 <= begin <= end <= file_size - data_start):
+                raise ValueError(f"{name}: inconsistent safetensors row metadata")
+            self._row_metadata[name] = _RowMetadata(tuple(shape), dtype, data_start + begin, end - begin)
+        return self._row_metadata[name]
 
     def tensor(self, name):
         name = self.resolve(name)
@@ -100,22 +184,50 @@ class CheckpointStore:
 
     def rows(self, name, ids):
         """Read selected rows only, including on platforms without FP8 indexing."""
+        name = self.resolve(name)
         view = self.slice(name)
         shape = view.get_shape()
         if len(shape) != 2:
             raise ValueError(f"{name}: expected two-dimensional row table")
-        if not ids:
-            raise ValueError("row request must be nonempty")
+        if not isinstance(ids, (list, tuple, range)) or not ids:
+            raise ValueError("row request must be a nonempty list, tuple or range of integers")
+        if view.dtype not in _ROW_DTYPES:
+            raise ValueError(f"{name}: unsupported byte-aligned row dtype {view.dtype}")
+        dtype = _ROW_DTYPES[view.dtype]
+        stride = shape[1] * dtype.itemsize
+        size = len(ids) * stride
+        if not stride or size > MAX_ROW_READ_BYTES:
+            raise ValueError(f"row request must contain 1..{MAX_ROW_READ_BYTES} bytes")
+        if view.size != shape[0] * stride:
+            raise ValueError(f"{name}: row shape/dtype does not match tensor byte length")
+        if any(isinstance(i, bool) for i in ids):
+            raise TypeError("row IDs must be integers, not booleans")
+        ids = [operator.index(i) for i in ids]
         if any(i < 0 or i >= shape[0] for i in ids):
             raise IndexError(f"{name}: row outside checkpoint table")
-        # Concatenate bytes: torch.cat/index_select need not support shell FP8 dtypes.
+        stream = self._row_files[self.weight_map[name]][0]
+        data = bytearray(size)
+        target = memoryview(data)
+        for out, row in enumerate(ids):
+            stream.seek(view.offset + row * stride)
+            begin, end = out * stride, (out + 1) * stride
+            while begin < end:
+                count = stream.readinto(target[begin:end])
+                if not count:
+                    raise EOFError(f"{name}: checkpoint row truncated")
+                begin += count
+        self.row_read_bytes += size
+        self.peak_row_read_bytes = max(self.peak_row_read_bytes, size)
+        # Own one bounded byte buffer. frombuffer retains its Python owner; no
+        # mapped storage, dtype conversion, shell-FP8 indexing or extra copy.
         with torch.device("cpu"):
-            pieces = [view[i : i + 1] for i in ids]
-            dtype = pieces[0].dtype
-            return torch.cat([piece.view(torch.uint8) for piece in pieces], dim=0).view(dtype)
+            return torch.frombuffer(data, dtype=torch.uint8).view(dtype).reshape(len(ids), shape[1])
 
     def close(self):
+        self.closed = True
         self._files.clear()
+        self._row_files.clear()
+        self._row_metadata.clear()
         self._stack.close()
 
 
@@ -338,6 +450,9 @@ class LazyCheckpoint:
         return {"cache_budget_bytes": self.cache_bytes, "resident_weight_bytes": self.resident_bytes,
                 "peak_resident_weight_bytes": self.peak_resident_bytes, "parameter_loads": self.loads,
                 "cache_hits": self.cache_hits, "engram_rows_read": self.engram_rows,
+                "row_read_bytes": self.store.row_read_bytes,
+                "peak_row_read_bytes": self.store.peak_row_read_bytes,
+                "row_read_limit_bytes": MAX_ROW_READ_BYTES,
                 "loaded_weight_bytes": self.loaded_bytes, "cache_hit_bytes": self.hit_bytes,
                 "load_seconds": self.load_seconds, "retain_budget_bytes": self.retain_bytes,
                 "retained_parameter_bytes": sum(self.specs[n].size for n in self.retained),
