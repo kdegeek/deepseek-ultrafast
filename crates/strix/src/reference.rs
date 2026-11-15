@@ -43,9 +43,13 @@ pub fn decode_e2m1(code: u8) -> f32 {
     if code & 8 == 0 { magnitude } else { -magnitude }
 }
 
-/// Matches the upstream checkpoint convention, including zero -> zero.
+/// OCP E8M0: code zero is 2^-127 (a subnormal F32), code 255 is NaN.
 pub fn decode_e8m0(code: u8) -> f32 {
-    f32::from_bits(u32::from(code) << 23)
+    match code {
+        0 => f32::from_bits(0x0040_0000),
+        255 => f32::NAN,
+        _ => f32::from_bits(u32::from(code) << 23),
+    }
 }
 
 fn byte_at(words: &[u32], index: usize) -> u8 {
@@ -258,11 +262,11 @@ mod tests {
 
     #[test]
     fn scale_convention_matches_upstream() {
-        assert_eq!(decode_e8m0(0), 0.0);
+        assert_eq!(decode_e8m0(0), 2f32.powi(-127));
         for code in 1..255u8 {
             assert_eq!(decode_e8m0(code), 2f32.powi(i32::from(code) - 127));
         }
-        assert!(decode_e8m0(255).is_infinite());
+        assert!(decode_e8m0(255).is_nan());
     }
 
     #[test]

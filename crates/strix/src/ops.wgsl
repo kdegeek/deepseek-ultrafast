@@ -14,11 +14,12 @@ struct Params {
 @group(0) @binding(4) var<storage, read_write> output: array<f32>;
 @group(0) @binding(5) var<uniform> params: Params;
 
-var<workgroup> partial: array<f32, 64>;
+var<workgroup> partial: array<f32, 256>;
 
 fn scale_at(index: u32) -> f32 {
     let code = (scales[index / 4u] >> ((index % 4u) * 8u)) & 255u;
-    // Match model::formats::e8m0_to_f32, including code zero -> zero.
+    // OCP E8M0's smallest value is 2^-127. Code 255 is rejected on upload.
+    if code == 0u { return bitcast<f32>(0x00400000u); }
     return bitcast<f32>(code << 23u);
 }
 
@@ -60,18 +61,18 @@ fn weight_at(row: u32, col: u32) -> f32 {
     }
 }
 
-@compute @workgroup_size(64)
+@compute @workgroup_size(256)
 fn matvec(@builtin(workgroup_id) group: vec3<u32>,
           @builtin(local_invocation_index) lane: u32) {
     let row = group.x;
     if row >= params.rows { return; }
     var sum = 0.0;
-    for (var col = lane; col < params.cols; col += 64u) {
-        sum += weight_at(row, col) * input[col];
+    for (var col = lane; col < params.cols; col += 256u) {
+        sum = fma(weight_at(row, col), input[col], sum);
     }
     partial[lane] = sum;
     workgroupBarrier();
-    for (var stride = 32u; stride > 0u; stride /= 2u) {
+    for (var stride = 128u; stride > 0u; stride /= 2u) {
         if lane < stride { partial[lane] += partial[lane + stride]; }
         workgroupBarrier();
     }

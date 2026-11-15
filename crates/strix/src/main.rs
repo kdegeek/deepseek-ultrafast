@@ -1,6 +1,6 @@
 use anyhow::{Context, Result, bail, ensure};
 use deepseek_ultrafast_strix::{
-    checkpoint,
+    checkpoint, decoder,
     reference::{self, Format},
     runtime::Gpu,
     verification,
@@ -11,6 +11,26 @@ use std::path::Path;
 fn main() -> Result<()> {
     let args: Vec<_> = std::env::args().skip(1).collect();
     match args.first().map(String::as_str) {
+        Some("generate-experimental") if (3..=7).contains(&args.len()) => {
+            eprintln!(
+                "Experimental native decoder: original-model oracle parity has not passed; see docs/STRIX_HALO.md."
+            );
+            let max_tokens = args.get(3).map(|s| s.parse()).transpose()?.unwrap_or(8);
+            let gib: usize = args.get(4).map(|s| s.parse()).transpose()?.unwrap_or(8);
+            let context = args.get(5).map(|s| s.parse()).transpose()?.unwrap_or(128);
+            let bytes = gib
+                .checked_mul(1024 * 1024 * 1024)
+                .context("cache size overflow")?;
+            let result = decoder::generate(
+                Path::new(&args[1]),
+                &args[2],
+                max_tokens,
+                bytes,
+                context,
+                args.get(6).map(Into::into),
+            )?;
+            println!("{}", serde_json::to_string_pretty(&result)?);
+        }
         Some("device") if args.len() == 1 => {
             println!("{}", serde_json::to_string_pretty(&Gpu::new()?.info)?);
         }
@@ -71,7 +91,7 @@ fn main() -> Result<()> {
             );
         }
         Some("--help" | "-h") | None => println!(
-            "Strix Halo Vulkan port tools (full text generation is not implemented yet)\n\nstrix device\nstrix verify\nstrix inspect <checkpoint-directory> [weight-budget-GiB]\nstrix check-matrix <checkpoint-directory> <tensor-name>"
+            "Strix Halo native Vulkan tools\n\nstrix device\nstrix verify\nstrix inspect <checkpoint-directory> [weight-budget-GiB]\nstrix check-matrix <checkpoint-directory> <tensor-name>\nstrix generate-experimental <checkpoint-directory> <raw-prompt> [max-tokens=8] [cache-GiB=8] [context=128] [trace-directory]\n\nExperimental decoding has known original-model oracle divergence. The Python reference remains the validated text/API path."
         ),
         _ => bail!("unknown command or incorrect argument count; use --help"),
     }

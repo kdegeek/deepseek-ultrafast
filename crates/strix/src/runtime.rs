@@ -60,6 +60,11 @@ impl Gpu {
             }).context("No AMD hardware Vulkan adapter found; install an AMD Vulkan-capable graphics driver")?;
         let adapter_info = adapter.get_info();
         let limits = adapter.limits();
+        ensure!(
+            limits.max_compute_invocations_per_workgroup >= 256
+                && limits.max_compute_workgroup_size_x >= 256,
+            "AMD adapter must support 256-lane compute workgroups"
+        );
         let info = DeviceInfo {
             name: adapter_info.name,
             vendor: adapter_info.vendor,
