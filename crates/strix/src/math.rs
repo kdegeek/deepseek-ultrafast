@@ -96,6 +96,75 @@ pub fn rms(x: &[f32], gamma: &[f32], eps: f32) -> Vec<f32> {
 pub fn sigmoid(x: f32) -> f32 {
     1.0 / (1.0 + (-x).exp())
 }
+
+/// Original Flash's temperature-one sqrt-softplus router, in top-k score order.
+pub fn route(logits: &[f32], bias: &[f32], topk: usize, route_scale: f32) -> Vec<(usize, f32)> {
+    let scores: Vec<_> = logits
+        .iter()
+        .map(|&v| {
+            if v > 20. {
+                v.sqrt()
+            } else {
+                v.exp().ln_1p().sqrt()
+            }
+        })
+        .collect();
+    let mut indices: Vec<_> = (0..scores.len()).collect();
+    indices.sort_by(|&a, &b| {
+        (scores[b] + bias[b])
+            .total_cmp(&(scores[a] + bias[a]))
+            .then(a.cmp(&b))
+    });
+    indices.truncate(topk);
+    let sum = indices.iter().map(|&i| scores[i]).sum::<f32>() + 1e-20;
+    indices
+        .into_iter()
+        .map(|i| (i, scores[i] / sum * route_scale))
+        .collect()
+}
+
+/// Pinned Engram per-stream normalization and signed-square-root gate.
+pub fn engram_gates(x: &[f32], kv: &[f32], q: &[f32], k: &[f32], dim: usize, eps: f32) -> Vec<f32> {
+    let hc = x.len() / dim;
+    let softmax_scale = (dim as f64).sqrt().recip() as f32;
+    (0..hc)
+        .map(|h| {
+            let stream = &x[h * dim..(h + 1) * dim];
+            let key = &kv[h * dim..(h + 1) * dim];
+            let rstd = inv_rms(stream, eps) * inv_rms(key, eps);
+            let products: Vec<_> = stream
+                .iter()
+                .zip(key)
+                .enumerate()
+                .map(|(i, (a, b))| a * (q[h * dim + i] * k[h * dim + i]) * b)
+                .collect();
+            // Avoid a long serial FP32 reduction. The original layer-14 gate
+            // is calibrated against HIP and CPU f64 in engram_variance.py.
+            let dot = pairwise_sum(&products) * rstd * softmax_scale;
+            sigmoid(dot.abs().max(1e-6).sqrt().copysign(dot))
+        })
+        .collect()
+}
+
+fn pairwise_sum(x: &[f32]) -> f32 {
+    if x.len() <= 32 {
+        x.iter().sum()
+    } else {
+        let (left, right) = x.split_at(x.len() / 2);
+        pairwise_sum(left) + pairwise_sum(right)
+    }
+}
+
+pub fn engram(x: &mut [f32], kv: &[f32], q: &[f32], k: &[f32], dim: usize, eps: f32) {
+    let hc = x.len() / dim;
+    let gates = engram_gates(x, kv, q, k, dim, eps);
+    for (h, gate) in gates.into_iter().enumerate() {
+        let stream = &mut x[h * dim..(h + 1) * dim];
+        for (i, v) in stream.iter_mut().enumerate() {
+            *v = bf16(*v + gate * kv[hc * dim + i]);
+        }
+    }
+}
 pub fn softmax(x: &mut [f32]) {
     let max = x.iter().copied().fold(f32::NEG_INFINITY, f32::max);
     for v in x.iter_mut() {
@@ -208,6 +277,10 @@ pub fn hc_post(x: &[f32], residual: &[f32], mix: &Mix) -> Vec<f32> {
 /// 64-key block and a learned sink with zero value. KV ordering is significant.
 pub fn attention(q: &[f32], kv: &[Vec<f32>], sinks: &[f32], dim: usize) -> Vec<f32> {
     let mut output = vec![0.0; q.len()];
+    // The pinned model computes head_dim**-0.5 as a Python scalar, then the
+    // kernel multiplies FP32 scores by it. Division by an FP32 sqrt has a
+    // different rounding boundary (and can change the BF16 probability).
+    let softmax_scale = (dim as f64).sqrt().recip() as f32;
     for (h, query) in q.chunks_exact(dim).enumerate() {
         let mut maximum = -1e30f32;
         let mut denominator = 0.0;
@@ -219,7 +292,7 @@ pub fn attention(q: &[f32], kv: &[Vec<f32>], sinks: &[f32], dim: usize) -> Vec<f
                     if key.is_empty() {
                         f32::NEG_INFINITY
                     } else {
-                        query.iter().zip(key).map(|(a, b)| a * b).sum::<f32>() / (dim as f32).sqrt()
+                        query.iter().zip(key).map(|(a, b)| a * b).sum::<f32>() * softmax_scale
                     }
                 })
                 .collect();
@@ -252,6 +325,20 @@ pub fn attention(q: &[f32], kv: &[Vec<f32>], sinks: &[f32], dim: usize) -> Vec<f
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn attention_scalar_multiply_bf16_boundary() {
+        // Pinned kernel.py: score = (query @ values.T) * softmax_scale.
+        // Independent PyTorch 2.11 CPU/HIP output: 0.5. The former division
+        // by sqrt(512f32) yielded 0.50390625 with these identical operands.
+        // One nonzero product removes accumulation-order ambiguity.
+        let mut q = vec![0.; 512];
+        let mut kv = vec![0.; 512];
+        q[0] = 12.;
+        kv[0] = 1.;
+        let out = attention(&q, &[kv], &[0.522_517_5], 512);
+        assert_eq!(out[0], 0.5);
+        assert!(out[1..].iter().all(|&v| v == 0.));
+    }
     #[test]
     fn rounding_ties_and_saturation() {
         for code in 0..126 {

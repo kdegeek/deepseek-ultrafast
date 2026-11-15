@@ -195,11 +195,10 @@ impl Decoder {
         let Some(index) = self.cfg.engram_index(layer) else {
             return Ok(());
         };
-        let (n, heads, dim, hc) = (
+        let (n, heads, dim) = (
             self.cfg.engram_max_ngram_size,
             self.cfg.engram_n_heads,
             self.cfg.dim,
-            self.cfg.hc_mult,
         );
         let mut rolling = 0i64;
         let mut embedding = Vec::new();
@@ -239,23 +238,7 @@ impl Decoder {
             .weights
             .store
             .small(&format!("layers.{layer}.engram.k_weight"))?;
-        for h in 0..hc {
-            let stream = &mut x[h * dim..(h + 1) * dim];
-            let key = &kv[h * dim..(h + 1) * dim];
-            let dot = stream
-                .iter()
-                .zip(key)
-                .enumerate()
-                .map(|(i, (a, b))| a * (q[h * dim + i] * k[h * dim + i]) * b)
-                .sum::<f32>()
-                * math::inv_rms(stream, self.cfg.norm_eps)
-                * math::inv_rms(key, self.cfg.norm_eps)
-                / (dim as f32).sqrt();
-            let gate = math::sigmoid(dot.abs().max(1e-6).sqrt().copysign(dot));
-            for (i, v) in stream.iter_mut().enumerate() {
-                *v = math::bf16(*v + gate * kv[hc * dim + i]);
-            }
-        }
+        math::engram(x, &kv, &q, &k, dim, self.cfg.norm_eps);
         self.trace(&format!("l{layer:02}-engram"), x)
     }
 
@@ -461,37 +444,21 @@ impl Decoder {
     fn moe(&mut self, x: &[f32], layer: usize) -> Result<Vec<f32>> {
         let p = format!("layers.{layer}.ffn");
         let logits = self.weights.linear(&format!("{p}.gate.weight"), x, false)?;
-        let scores: Vec<_> = logits
-            .iter()
-            .map(|&v| {
-                if v > 20. {
-                    v.sqrt()
-                } else {
-                    v.exp().ln_1p().sqrt()
-                }
-            })
-            .collect();
         let bias = self.weights.store.small(&format!("{p}.gate.bias"))?;
-        let mut indices: Vec<_> = (0..scores.len()).collect();
-        indices.sort_by(|&a, &b| {
-            (scores[b] + bias[b])
-                .total_cmp(&(scores[a] + bias[a]))
-                .then(a.cmp(&b))
-        });
-        indices.truncate(self.cfg.n_activated_experts);
-        let sum = indices.iter().map(|&i| scores[i]).sum::<f32>() + 1e-20;
+        let mut routed = math::route(
+            &logits,
+            &bias,
+            self.cfg.n_activated_experts,
+            self.cfg.route_scale,
+        );
         self.trace(
             &format!("l{layer:02}-experts"),
-            &indices.iter().map(|&v| v as f32).collect::<Vec<_>>(),
+            &routed.iter().map(|&(i, _)| i as f32).collect::<Vec<_>>(),
         )?;
         let mut y = vec![0.; x.len()];
-        indices.sort();
-        for i in indices {
-            let out = self.expert(
-                x,
-                &format!("{p}.experts.{i}"),
-                scores[i] / sum * self.cfg.route_scale,
-            )?;
+        routed.sort_by_key(|&(i, _)| i);
+        for (i, weight) in routed {
+            let out = self.expert(x, &format!("{p}.experts.{i}"), weight)?;
             for (a, b) in y.iter_mut().zip(out) {
                 *a += b;
             }
