@@ -1,0 +1,2946 @@
+{
+  "checked_utc": "2026-11-15T05:22:01.923785+00:00",
+  "status": "Experimental native ATen/HIP; meaningful original-model fidelity verified; complete numerical parity NOT accepted; no native API/push/PR",
+  "base_head": "febd107842ca06afb20c482d1a2cfbac9be80305",
+  "implementation_commit": "defeab15b1ef981238d9da4d85ab185f3bea243e",
+  "model": {
+    "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "checkpoint": "target/models/DeepSeek-V4.1-Flash",
+    "prior_verified_shards": 48,
+    "prior_verified_bytes": 510296708312,
+    "full_shard_hashes_rerun": false,
+    "new_model_downloads_or_copies": false,
+    "context_limit": 128,
+    "max_positions_exercised": 34,
+    "batch": 1,
+    "prefill_batch": 1,
+    "original_layers": 40,
+    "selection": "explicit aten-ops",
+    "reference_identity": {
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "torch": "2.11.0+rocm7.14.0",
+      "hip": "7.14.60850",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "context": 128,
+      "prefill_batch": 1,
+      "initialization_seconds": 11.670832799994969,
+      "encoding_sha256": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2",
+      "tokenizer_sha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+      "provenance_sha256": {
+        "source-manifest.json": "e65948fd2f76031eb2b423d7b9190616b12635e70a508ed3af1b8b9a5a90c277",
+        "download-verified.json": "e7323187b0e230b306f504cf0fefe870c9822a0f4465775eefd1b45dd6cc1dff",
+        "inference/config.json": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809",
+        "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547"
+      },
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 0,
+        "peak_resident_weight_bytes": 0,
+        "parameter_loads": 0,
+        "cache_hits": 0,
+        "engram_rows_read": 0,
+        "loaded_weight_bytes": 0,
+        "cache_hit_bytes": 0,
+        "load_seconds": 0.0,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      }
+    },
+    "long_reference_identity": {
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "torch": "2.11.0+rocm7.14.0",
+      "hip": "7.14.60850",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "context": 128,
+      "prefill_batch": 1,
+      "initialization_seconds": 10.193724500000826,
+      "encoding_sha256": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2",
+      "tokenizer_sha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+      "provenance_sha256": {
+        "source-manifest.json": "e65948fd2f76031eb2b423d7b9190616b12635e70a508ed3af1b8b9a5a90c277",
+        "download-verified.json": "e7323187b0e230b306f504cf0fefe870c9822a0f4465775eefd1b45dd6cc1dff",
+        "inference/config.json": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809",
+        "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547"
+      },
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 0,
+        "peak_resident_weight_bytes": 0,
+        "parameter_loads": 0,
+        "cache_hits": 0,
+        "engram_rows_read": 0,
+        "row_read_bytes": 0,
+        "peak_row_read_bytes": 0,
+        "row_read_limit_bytes": 1048576,
+        "loaded_weight_bytes": 0,
+        "cache_hit_bytes": 0,
+        "load_seconds": 0.0,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      }
+    }
+  },
+  "native_runtime": {
+    "architecture": "Rust -> dynamically loaded C ABI DLL -> existing native ATen/HIP; no Python interpreter, import, process or HTTP bridge",
+    "runtime": {
+      "backend": "experimental native ATen/HIP compatibility",
+      "torch_version": "2.11.0",
+      "hip_runtime_version": 71460850,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "loaded_modules": [
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\examples\\aten_teacher_force_review.exe",
+        "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+        "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+        "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+        "C:\\WINDOWS\\SYSTEM32\\apphelp.dll",
+        "C:\\WINDOWS\\System32\\user32.dll",
+        "C:\\WINDOWS\\System32\\win32u.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+        "C:\\WINDOWS\\System32\\GDI32.dll",
+        "C:\\WINDOWS\\System32\\gdi32full.dll",
+        "C:\\WINDOWS\\System32\\msvcp_win.dll",
+        "C:\\WINDOWS\\System32\\ucrtbase.dll",
+        "C:\\WINDOWS\\System32\\oleaut32.dll",
+        "C:\\WINDOWS\\System32\\combase.dll",
+        "C:\\WINDOWS\\System32\\RPCRT4.dll",
+        "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+        "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+        "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140.dll",
+        "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+        "C:\\WINDOWS\\System32\\IMM32.DLL",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amdhip64_7.dll",
+        "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm_kpack.dll",
+        "C:\\WINDOWS\\System32\\msvcrt.dll",
+        "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+        "C:\\WINDOWS\\System32\\sechost.dll",
+        "C:\\WINDOWS\\System32\\WS2_32.dll",
+        "C:\\WINDOWS\\SYSTEM32\\MSVCP140.dll",
+        "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_hip.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10_hip.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\MIOpen.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipblas.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipfft.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsparse.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsolver.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsolver.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\aotriton_v2.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocblas.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\libhipblaslt.dll",
+        "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\hiprtc0714.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amd_comgr.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocfft.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsparse.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\dl.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\liblzma.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm-openblas.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\libomp140.x86_64.dll",
+        "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\uv.dll",
+        "C:\\WINDOWS\\System32\\PSAPI.DLL",
+        "C:\\WINDOWS\\System32\\ole32.dll",
+        "C:\\WINDOWS\\System32\\SHELL32.dll",
+        "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+        "C:\\WINDOWS\\SYSTEM32\\MSVCP140_ATOMIC_WAIT.dll",
+        "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+        "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+        "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+        "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+        "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-rope-build\\strix_aten.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+        "C:\\WINDOWS\\System32\\CRYPT32.dll",
+        "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+        "C:\\WINDOWS\\SYSTEM32\\DEVOBJ.dll",
+        "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.dll",
+        "C:\\WINDOWS\\System32\\WINTRUST.dll",
+        "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll"
+      ]
+    },
+    "loaded_module_count": 76,
+    "loaded_modules_with_versions": [
+      {
+        "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\examples\\aten_teacher_force_review.exe",
+        "bytes": 9525248,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+        "bytes": 2575040,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+        "bytes": 862016,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+        "bytes": 4284008,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\apphelp.dll",
+        "bytes": 678576,
+        "file_version": "10.0.26100.9549 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\user32.dll",
+        "bytes": 2003968,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\win32u.dll",
+        "bytes": 182632,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+        "bytes": 1341256,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+        "bytes": 187456,
+        "file_version": "10.0.26100.8328 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+        "bytes": 1241280,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+        "bytes": 657784,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+        "bytes": 1399656,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\oleaut32.dll",
+        "bytes": 920320,
+        "file_version": "10.0.26100.9974 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\combase.dll",
+        "bytes": 3887936,
+        "file_version": "10.0.26100.7705 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+        "bytes": 1182928,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+        "bytes": 732752,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+        "bytes": 398160,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140.dll",
+        "bytes": 178616,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+        "bytes": 107528,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\IMM32.DLL",
+        "bytes": 224232,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amdhip64_7.dll",
+        "bytes": 22084096,
+        "file_version": "10.0.3581.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+        "bytes": 4846520,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm_kpack.dll",
+        "bytes": 181248,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+        "bytes": 716104,
+        "file_version": "7.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+        "bytes": 795248,
+        "file_version": "10.0.26100.3624 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\sechost.dll",
+        "bytes": 716104,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+        "bytes": 549408,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\MSVCP140.dll",
+        "bytes": 643512,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1.dll",
+        "bytes": 50112,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_hip.dll",
+        "bytes": 70167040,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10_hip.dll",
+        "bytes": 1827840,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\MIOpen.dll",
+        "bytes": 492380672,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipblas.dll",
+        "bytes": 801280,
+        "file_version": "3.5.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipfft.dll",
+        "bytes": 153600,
+        "file_version": "1.0.24"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsparse.dll",
+        "bytes": 219136,
+        "file_version": "4.6.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsolver.dll",
+        "bytes": 1506816,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsolver.dll",
+        "bytes": 23884800,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\aotriton_v2.dll",
+        "bytes": 15560192,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10.dll",
+        "bytes": 1232384,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+        "bytes": 228957696,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocblas.dll",
+        "bytes": 20873728,
+        "file_version": "5.5.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\libhipblaslt.dll",
+        "bytes": 6535680,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+        "bytes": 449312,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\hiprtc0714.dll",
+        "bytes": 2126336,
+        "file_version": "10.0.3581.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amd_comgr.dll",
+        "bytes": 120767488,
+        "file_version": "3.3.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocfft.dll",
+        "bytes": 27372544,
+        "file_version": "1.0.38"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsparse.dll",
+        "bytes": 69130240,
+        "file_version": "4.7.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\dl.dll",
+        "bytes": 16896,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\liblzma.dll",
+        "bytes": 195584,
+        "file_version": "5.8.1"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+        "bytes": 2317664,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm-openblas.dll",
+        "bytes": 11719680,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\libomp140.x86_64.dll",
+        "bytes": 634936,
+        "file_version": "20140926"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\uv.dll",
+        "bytes": 210944,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\PSAPI.DLL",
+        "bytes": 42864,
+        "file_version": "10.0.26100.8521 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\ole32.dll",
+        "bytes": 1716376,
+        "file_version": "10.0.26100.6725 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+        "bytes": 8306176,
+        "file_version": "10.0.26100.9549 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+        "bytes": 55192,
+        "file_version": "10.0.26100.1150 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\MSVCP140_ATOMIC_WAIT.dll",
+        "bytes": 57792,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+        "bytes": 232544,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+        "bytes": 232544,
+        "file_version": "10.0.26100.7920 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+        "bytes": 70096,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+        "bytes": 241664,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-rope-build\\strix_aten.dll",
+        "bytes": 222720,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+        "bytes": 315936,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+        "bytes": 1583000,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+        "bytes": 195032,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\DEVOBJ.dll",
+        "bytes": 245104,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.dll",
+        "bytes": 357584,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+        "bytes": 561872,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+        "bytes": 99216,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\CRYPTSP.dll",
+        "bytes": 132584,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+        "bytes": 245264,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\windows.storage.dll",
+        "bytes": 9339760,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SHCORE.dll",
+        "bytes": 1028664,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+        "bytes": 190912,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\caffe2_nvrtc.dll",
+        "bytes": 12800,
+        "file_version": null
+      }
+    ],
+    "python_or_torch_python_modules": [],
+    "delivery_component_modules": [
+      {
+        "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\examples\\aten_probe.exe",
+        "bytes": 715776,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+        "bytes": 2575040,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+        "bytes": 862016,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+        "bytes": 4284008,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+        "bytes": 732752,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+        "bytes": 1399656,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140.dll",
+        "bytes": 178616,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amdhip64_7.dll",
+        "bytes": 22084096,
+        "file_version": "10.0.3581.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+        "bytes": 4846520,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm_kpack.dll",
+        "bytes": 181248,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+        "bytes": 716104,
+        "file_version": "7.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\USER32.dll",
+        "bytes": 2003968,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\win32u.dll",
+        "bytes": 182632,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+        "bytes": 187456,
+        "file_version": "10.0.26100.8328 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140_1.dll",
+        "bytes": 50112,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\MSVCP140.dll",
+        "bytes": 643512,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+        "bytes": 1241280,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+        "bytes": 657784,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+        "bytes": 795248,
+        "file_version": "10.0.26100.3624 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\sechost.dll",
+        "bytes": 716104,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+        "bytes": 1182928,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+        "bytes": 549408,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\IMM32.DLL",
+        "bytes": 224232,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_hip.dll",
+        "bytes": 70167040,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10_hip.dll",
+        "bytes": 1827840,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\MIOpen.dll",
+        "bytes": 492380672,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsparse.dll",
+        "bytes": 219136,
+        "file_version": "4.6.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipblas.dll",
+        "bytes": 801280,
+        "file_version": "3.5.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipfft.dll",
+        "bytes": 153600,
+        "file_version": "1.0.24"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\hipsolver.dll",
+        "bytes": 1506816,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsolver.dll",
+        "bytes": 23884800,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+        "bytes": 228957696,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\aotriton_v2.dll",
+        "bytes": 15560192,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10.dll",
+        "bytes": 1232384,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocblas.dll",
+        "bytes": 20873728,
+        "file_version": "5.5.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\libhipblaslt.dll",
+        "bytes": 6535680,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amd_comgr.dll",
+        "bytes": 120767488,
+        "file_version": "3.3.0.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+        "bytes": 449312,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\hiprtc0714.dll",
+        "bytes": 2126336,
+        "file_version": "10.0.3581.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+        "bytes": 920320,
+        "file_version": "10.0.26100.9974 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocsparse.dll",
+        "bytes": 69130240,
+        "file_version": "4.7.0.0"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_libraries\\bin\\rocfft.dll",
+        "bytes": 27372544,
+        "file_version": "1.0.38"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\combase.dll",
+        "bytes": 3887936,
+        "file_version": "10.0.26100.7705 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\dl.dll",
+        "bytes": 16896,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\liblzma.dll",
+        "bytes": 195584,
+        "file_version": "5.8.1"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\rocm-openblas.dll",
+        "bytes": 11719680,
+        "file_version": null
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\libomp140.x86_64.dll",
+        "bytes": 634936,
+        "file_version": "20140926"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\uv.dll",
+        "bytes": 210944,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+        "bytes": 2317664,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\PSAPI.DLL",
+        "bytes": 42864,
+        "file_version": "10.0.26100.8521 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\ole32.dll",
+        "bytes": 1716376,
+        "file_version": "10.0.26100.6725 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+        "bytes": 8306176,
+        "file_version": "10.0.26100.9549 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+        "bytes": 55192,
+        "file_version": "10.0.26100.1150 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\MSVCP140_ATOMIC_WAIT.dll",
+        "bytes": 57792,
+        "file_version": "14.51.36247.0"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+        "bytes": 232544,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+        "bytes": 232544,
+        "file_version": "10.0.26100.7920 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+        "bytes": 70096,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+        "bytes": 241664,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-delivery-build\\strix_aten.dll",
+        "bytes": 225792,
+        "file_version": null
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+        "bytes": 315936,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+        "bytes": 1583000,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+        "bytes": 195032,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\DEVOBJ.dll",
+        "bytes": 245104,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.dll",
+        "bytes": 357584,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+        "bytes": 561872,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+        "bytes": 99216,
+        "file_version": "10.0.26100.9711 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\CRYPTSP.dll",
+        "bytes": 132584,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+        "bytes": 245264,
+        "file_version": "10.0.26100.1 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\windows.storage.dll",
+        "bytes": 9339760,
+        "file_version": "10.0.26100.10066 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\System32\\SHCORE.dll",
+        "bytes": 1028664,
+        "file_version": "10.0.26100.8117 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+        "bytes": 190912,
+        "file_version": "10.0.26100.9818 (WinBuild.160101.0800)"
+      },
+      {
+        "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\caffe2_nvrtc.dll",
+        "bytes": 12800,
+        "file_version": null
+      }
+    ],
+    "bootstrap": "Process-local AddDllDirectory for torch/lib, _rocm_sdk_core/bin, _rocm_sdk_libraries/bin; absolute bundled amdhip64_7.dll before torch_hip.dll and shim; validate existing, transitive and late-loaded DLL paths, ABI, versions and Radeon 8060S device",
+    "dependency_evidence": [
+      {
+        "path": "target/strix-aten-shim-dependencies.txt",
+        "bytes": 654,
+        "sha256": "521d315415703d4ecf7486736105ef5e3fb936ce22345f8766928429b3842011"
+      },
+      {
+        "path": "target/strix-aten-rust-dependencies.txt",
+        "bytes": 780,
+        "sha256": "0d167ebbc5725648912bfe0d407571bf1d4af966f2fd8fdd2ba630e27b2bf083"
+      }
+    ],
+    "lifetime": "Opaque tensor handles use RAII; error outputs null; exceptions caught in C ABI. Failed forward clears request/cache state and rejects reuse. ATen DLL registrations retained to process exit; allocator reservations distinguished from active allocations.",
+    "constant_table_note": "Native CPU ATen constructs only rotary constant buffers, matching the original CPU buffer initialization. All learned projections and retained matrix operations execute on HIP. No CPU model fallback."
+  },
+  "builds": {
+    "full_62_position_run": {
+      "built_utc": "2026-11-15T04:46:52.3052477Z",
+      "site_packages": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages",
+      "files": [
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\lib\\llvm\\bin\\clang-cl.exe",
+          "bytes": 109728256,
+          "file_version": "23.0.0git",
+          "sha256": "A1A8EA725205CA3587038A137BDCFFE66CE69205F638C862B0D670885C89DEF0"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\include\\torch\\csrc\\api\\include\\torch\\version.h",
+          "bytes": 298,
+          "file_version": null,
+          "sha256": "2D59D7F6C3979E1F1B7415F007CA1696A89296328DC49204B7652B2D2062DECE"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+          "bytes": 228957696,
+          "file_version": null,
+          "sha256": "E3739633151C2914C133214C38A590753C249EDCA0172B747BFE0F2CA6AAC0D6"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10.dll",
+          "bytes": 1232384,
+          "file_version": null,
+          "sha256": "CAF2D6F2FED09D6DAECCB153D41A661F2338A89CE9E5353516DA2364AF2F1E79"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_hip.dll",
+          "bytes": 70167040,
+          "file_version": null,
+          "sha256": "8DF8DA5ABD7A6EA08D63D9EE26FA2583D7E1B503F2A06F761E4DB589D56C2A03"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amdhip64_7.dll",
+          "bytes": 22084096,
+          "file_version": "10.0.3581.0",
+          "sha256": "B4B4799F5DEAFB81FF735E077B0EFE95FB98ABE728A2A98EFA713B1C6F8BD1A2"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\strix\\native\\aten.cpp",
+          "bytes": 16354,
+          "file_version": null,
+          "sha256": "9C1AAF424DDD0751BF680BB80457DC271CB4DE2DF2053FBF7C832FEDDFE4AA77"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-rope-build\\strix_aten.dll",
+          "bytes": 222720,
+          "file_version": null,
+          "sha256": "10B56D0AA75A03C954E6773B00A265CF974B6D209E0758739C6FD15318CB0D13"
+        }
+      ]
+    },
+    "delivery_guards": {
+      "built_utc": "2026-11-15T05:00:57.2903520Z",
+      "site_packages": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages",
+      "files": [
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\lib\\llvm\\bin\\clang-cl.exe",
+          "bytes": 109728256,
+          "file_version": "23.0.0git",
+          "sha256": "A1A8EA725205CA3587038A137BDCFFE66CE69205F638C862B0D670885C89DEF0"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\include\\torch\\csrc\\api\\include\\torch\\version.h",
+          "bytes": 298,
+          "file_version": null,
+          "sha256": "2D59D7F6C3979E1F1B7415F007CA1696A89296328DC49204B7652B2D2062DECE"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_cpu.dll",
+          "bytes": 228957696,
+          "file_version": null,
+          "sha256": "E3739633151C2914C133214C38A590753C249EDCA0172B747BFE0F2CA6AAC0D6"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\c10.dll",
+          "bytes": 1232384,
+          "file_version": null,
+          "sha256": "CAF2D6F2FED09D6DAECCB153D41A661F2338A89CE9E5353516DA2364AF2F1E79"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\torch\\lib\\torch_hip.dll",
+          "bytes": 70167040,
+          "file_version": null,
+          "sha256": "8DF8DA5ABD7A6EA08D63D9EE26FA2583D7E1B503F2A06F761E4DB589D56C2A03"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\.unsloth\\studio\\unsloth_studio\\Lib\\site-packages\\_rocm_sdk_core\\bin\\amdhip64_7.dll",
+          "bytes": 22084096,
+          "file_version": "10.0.3581.0",
+          "sha256": "B4B4799F5DEAFB81FF735E077B0EFE95FB98ABE728A2A98EFA713B1C6F8BD1A2"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\strix\\native\\aten.cpp",
+          "bytes": 16541,
+          "file_version": null,
+          "sha256": "F218C5B27D6C555D323E883F5CABF2B7B26604265873410C03E850AB8CC4BCD1"
+        },
+        {
+          "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\strix-aten-delivery-build\\strix_aten.dll",
+          "bytes": 225792,
+          "file_version": null,
+          "sha256": "5AA250505E7DFEAD1A5778FFEB0A628CE2B77B875E579936AB90AF68D5206CAF"
+        }
+      ]
+    },
+    "scope": "62-position run predates only final FFI integer-parameter guards and validation-runner parsing/reporting checks. Tensor equations and scheduling are unchanged. Delivery DLL has fresh 312-component and full The-logit evidence plus FFI error/lifecycle tests.",
+    "runner_note": "The full runner was built as aten_teacher_force_review.exe from a temporary identical source copy while aten_teacher_force.exe was still running. The copy was removed; the executable is retained. Normal reproduction builds the committed aten_teacher_force example.",
+    "build_warnings": "Four bundled wheel-header dllimport enum warnings; build succeeded without modifying headers."
+  },
+  "full_original_model": {
+    "short_28": {
+      "report": {
+        "path": "target/strix-aten-final-short-comparison.json",
+        "bytes": 26146,
+        "sha256": "ec64c305817d646afd1543f335c5692a2f107770da5f09b65da6f3c367ec3668"
+      },
+      "all_exact": false,
+      "positions": 28,
+      "greedy_matches": 28,
+      "bit_exact_full_logit_positions": 18,
+      "max_abs": 0.32554101943969727,
+      "max_relative_l2": 0.019489945682430166,
+      "native_directory": "target\\strix-aten-final-suite",
+      "reference_directory": "target\\strix-numerics-20261114",
+      "inputs_sha256": "585ee7b41206b3fc8e3a8c74d646596dc901a6e46891873125578aafacc6e792",
+      "executable_sha256": "58139ded8407ff240295bd9b99be4e486394632aad736c6b862803be4c36d59c",
+      "shim_sha256": "10b56d0aa75a03c954e6773b00a265cf974b6d209e0758739c6fd15318cb0d13",
+      "cases": {
+        "the": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 671,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8590300160,
+              "peak_allocated_bytes": 8749656064,
+              "peak_reserved_bytes": 11658067968,
+              "reserved_bytes": 11658067968
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              671
+            ],
+            "next_tokens": [
+              455
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "The",
+            "prompt_tokens": [
+              671
+            ],
+            "seconds": 46.1237275,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 24.818996900000034,
+              "matvecs": 17494,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 16.517340400000002,
+              "uploads": 17494
+            }
+          }
+        },
+        "france": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 671,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 1,
+              "input_token": 6102,
+              "hip_next": 294,
+              "native_next": 294,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 2,
+              "input_token": 294,
+              "hip_next": 8760,
+              "native_next": 8760,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 3,
+              "input_token": 8760,
+              "hip_next": 344,
+              "native_next": 344,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 4,
+              "input_token": 344,
+              "hip_next": 11111,
+              "native_next": 11111,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 5,
+              "input_token": 11111,
+              "hip_next": 16,
+              "native_next": 16,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 6,
+              "input_token": 16,
+              "hip_next": 1,
+              "native_next": 1,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8637486080,
+              "peak_allocated_bytes": 8873009152,
+              "peak_reserved_bytes": 11777605632,
+              "reserved_bytes": 11777605632
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              671,
+              6102,
+              294,
+              8760,
+              344,
+              11111,
+              16
+            ],
+            "next_tokens": [
+              455,
+              294,
+              8760,
+              344,
+              11111,
+              16,
+              1
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "The capital of France is",
+            "prompt_tokens": [
+              671,
+              6102,
+              294,
+              8760,
+              344
+            ],
+            "seconds": 232.5578404,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 124.44349049999975,
+              "matvecs": 122773,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 91.28828399999949,
+              "uploads": 122773
+            }
+          }
+        },
+        "chat": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 0,
+              "hip_next": 5,
+              "native_next": 5,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129277,
+              "max_abs": 0.01117396354675293,
+              "relative_l2": 0.0009801943607478751
+            },
+            {
+              "position": 1,
+              "input_token": 128803,
+              "hip_next": 5,
+              "native_next": 5,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.1545170247554779,
+              "relative_l2": 0.008038657616938645
+            },
+            {
+              "position": 2,
+              "input_token": 19905,
+              "hip_next": 30,
+              "native_next": 30,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129205,
+              "max_abs": 0.002134561538696289,
+              "relative_l2": 0.00016329187530767747
+            },
+            {
+              "position": 3,
+              "input_token": 418,
+              "hip_next": 9045,
+              "native_next": 9045,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129279,
+              "max_abs": 0.24053716659545898,
+              "relative_l2": 0.01066038672351304
+            },
+            {
+              "position": 4,
+              "input_token": 1353,
+              "hip_next": 270,
+              "native_next": 270,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.26753556728363037,
+              "relative_l2": 0.008781860312898416
+            },
+            {
+              "position": 5,
+              "input_token": 20370,
+              "hip_next": 201,
+              "native_next": 201,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.2565493583679199,
+              "relative_l2": 0.010808706661387637
+            },
+            {
+              "position": 6,
+              "input_token": 16,
+              "hip_next": 4147,
+              "native_next": 4147,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.257051944732666,
+              "relative_l2": 0.013770409933978975
+            },
+            {
+              "position": 7,
+              "input_token": 128804,
+              "hip_next": 201,
+              "native_next": 201,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.32554101943969727,
+              "relative_l2": 0.019489945682430166
+            },
+            {
+              "position": 8,
+              "input_token": 128822,
+              "hip_next": 11932,
+              "native_next": 11932,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.29584330320358276,
+              "relative_l2": 0.017116523138751727
+            },
+            {
+              "position": 9,
+              "input_token": 11932,
+              "hip_next": 1,
+              "native_next": 1,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 129280,
+              "max_abs": 0.2396535873413086,
+              "relative_l2": 0.010444053622384838
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8637617152,
+              "peak_allocated_bytes": 8873009152,
+              "peak_reserved_bytes": 11785994240,
+              "reserved_bytes": 11785994240
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              0,
+              128803,
+              19905,
+              418,
+              1353,
+              20370,
+              16,
+              128804,
+              128822,
+              11932
+            ],
+            "next_tokens": [
+              5,
+              5,
+              30,
+              9045,
+              270,
+              201,
+              4147,
+              201,
+              11932,
+              1
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "<｜begin▁of▁sentence｜><｜User｜>Reply with only OK.<｜Assistant｜></think>",
+            "prompt_tokens": [
+              0,
+              128803,
+              19905,
+              418,
+              1353,
+              20370,
+              16,
+              128804,
+              128822
+            ],
+            "seconds": 282.1782434,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 133.8357606000025,
+              "matvecs": 175414,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 127.75587920000126,
+              "uploads": 175414
+            }
+          }
+        },
+        "arithmetic": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 20,
+              "hip_next": 201,
+              "native_next": 201,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 1,
+              "input_token": 940,
+              "hip_next": 20,
+              "native_next": 20,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 2,
+              "input_token": 223,
+              "hip_next": 20,
+              "native_next": 20,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 3,
+              "input_token": 20,
+              "hip_next": 940,
+              "native_next": 940,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 4,
+              "input_token": 438,
+              "hip_next": 223,
+              "native_next": 223,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8636961792,
+              "peak_allocated_bytes": 8873009152,
+              "peak_reserved_bytes": 11785994240,
+              "reserved_bytes": 11785994240
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              20,
+              940,
+              223,
+              20,
+              438
+            ],
+            "next_tokens": [
+              201,
+              20,
+              20,
+              940,
+              223
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "2 + 2 =",
+            "prompt_tokens": [
+              20,
+              940,
+              223,
+              20,
+              438
+            ],
+            "seconds": 182.1583427,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 84.2251025999994,
+              "matvecs": 87680,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 84.2837809000002,
+              "uploads": 87680
+            }
+          }
+        },
+        "story": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 16600,
+              "hip_next": 201,
+              "native_next": 201,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 1,
+              "input_token": 4465,
+              "hip_next": 260,
+              "native_next": 260,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 2,
+              "input_token": 260,
+              "hip_next": 1014,
+              "native_next": 1014,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 3,
+              "input_token": 1014,
+              "hip_next": 14,
+              "native_next": 14,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8630801408,
+              "peak_allocated_bytes": 8873009152,
+              "peak_reserved_bytes": 11785994240,
+              "reserved_bytes": 11785994240
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              16600,
+              4465,
+              260,
+              1014
+            ],
+            "next_tokens": [
+              201,
+              260,
+              1014,
+              14
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "Once upon a time",
+            "prompt_tokens": [
+              16600,
+              4465,
+              260,
+              1014
+            ],
+            "seconds": 131.3851824,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 60.609422900000226,
+              "matvecs": 70135,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 60.996202000000025,
+              "uploads": 70135
+            }
+          }
+        },
+        "hello": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 19923,
+              "hip_next": 201,
+              "native_next": 201,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8609436672,
+              "peak_allocated_bytes": 8873009152,
+              "peak_reserved_bytes": 11785994240,
+              "reserved_bytes": 11785994240
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              19923
+            ],
+            "next_tokens": [
+              201
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "Hello",
+            "prompt_tokens": [
+              19923
+            ],
+            "seconds": 39.951003,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 19.16876550000005,
+              "matvecs": 17494,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 18.22125499999998,
+              "uploads": 17494
+            }
+          }
+        }
+      },
+      "golden_logits_sha256": {
+        "the/p000-logits.json": "58c95e9726bcbdc6a367b7360222da79217eed17e27fa00077d007bcfab002e7",
+        "france/p000-logits.json": "58c95e9726bcbdc6a367b7360222da79217eed17e27fa00077d007bcfab002e7",
+        "france/p001-logits.json": "5bdfd487471d72c942533323025921624226c5d25b31456963ac8321ac203da0",
+        "france/p002-logits.json": "3ca63e7a63d47cc302eccecceb43ff3314c9c57f26ea50b9ac90009cbfd096c5",
+        "france/p003-logits.json": "7f72ef2b9405d221c8c0bb13010c59d3b6ede64ca67fb77f704316ab5a096dff",
+        "france/p004-logits.json": "66a1c5e95d67cffa1479c012cf8b1cec5a109f4a74af838989dde7d7053b97f8",
+        "france/p005-logits.json": "4a49e0d3f9b7f0a047b83fff1bd2dde078bf903edbc732a28d5e956755ffad75",
+        "france/p006-logits.json": "3685c46b38d33b15e2ce5f4fc52fb9c639ba2c6f89ac50fbe96aa1ace2027193",
+        "chat/p000-logits.json": "bfa8a225c1315c0f017ca30ff82d3fbb4d97e7fe62647b1c6a9953281d98123b",
+        "chat/p001-logits.json": "37bc2f2e754c52c2a9be7e5d66447b5ef84cccc30e20f7e1f2d331a539988ba1",
+        "chat/p002-logits.json": "2975e66bfda985937f53059e06413b065f5e3a93aff8a68d48ee2ed3b342a079",
+        "chat/p003-logits.json": "c221ba92b53afd95c80bf689967ddca790783b9ca361d2c291bae3cdd835bc0c",
+        "chat/p004-logits.json": "11c9bd7c327b84b0702cab6fd34d667f784714cf062843ed97b9c38970b4e8bc",
+        "chat/p005-logits.json": "440c78be4fce97edc82a009c4ee765924b4ee7b83ed225206535f59d68663051",
+        "chat/p006-logits.json": "9e42e0738f8bbaf5afb8246a30c81b8a1407a40cc863cec4d6d18d8ba4b8c998",
+        "chat/p007-logits.json": "a0c065034e49fb61d8810c27d6e3ef7e12593c200dbc7a4b318de1c2f2b48260",
+        "chat/p008-logits.json": "7cb26bfb5c956e5bc71c160522b1813ca021f75850b360de38656dd50aaad640",
+        "chat/p009-logits.json": "4b3a0b5fb4ccf1c412aefd0cf89670b6847e98e20f908f3dcd9b60f60ae70eb0",
+        "arithmetic/p000-logits.json": "4edaa53daefd0bf1c58314cf818c31852694f9a929225fa91d9da7e8fa8b7ec9",
+        "arithmetic/p001-logits.json": "1b7a9f9c6e595a3fe9564508b4f745d9a9f68015b946dd8ad06d0d5ce531b5cb",
+        "arithmetic/p002-logits.json": "7508fc685a4917f6640e028be2ac21568e09c77d96dd54145a8abaa1dbe1efd5",
+        "arithmetic/p003-logits.json": "2a5e9ab05f485fac089a28e1ce8e7d70d61220ab8bdea3bee1168035f64af0c8",
+        "arithmetic/p004-logits.json": "94e3709831f73b723f67069db8fc47d35e93be77bdfe4dcce5bdf5f5eb768c1c",
+        "story/p000-logits.json": "e36d673acb46335ffb2be44f82c83e583cfb5d4624eb68d71fa4b75dccccb587",
+        "story/p001-logits.json": "4dbc18d612d34d61c19398d0ac8708d75763460fa0c206bf57cc4d491a06c28e",
+        "story/p002-logits.json": "c18895e58686003134f4d120e7613ada728a9bc14e8166e208a3e3d7e3488663",
+        "story/p003-logits.json": "76dab32ac02d22ed549e2c4b5bfffecfa3c6460f01134345a3b74685e07aca58",
+        "hello/p000-logits.json": "a4ee4009e317d9bc8ebebdadeb87f47ec01d73c11992b3acdf11f354c3b48c2b"
+      },
+      "native_logits_sha256": {
+        "the/p000-logits.json": "ccef074146849d6f7afedf6b2a5b766cc57b6fc8084d12fd2ecb24c0b564c2db",
+        "france/p000-logits.json": "ccef074146849d6f7afedf6b2a5b766cc57b6fc8084d12fd2ecb24c0b564c2db",
+        "france/p001-logits.json": "521956d53bd5575387445efa8fd19308569256383852ee9c88a6ae07d377bb0d",
+        "france/p002-logits.json": "e1b24a69f50647a72c42d007282e06e852774641b7b9e59fddedef49774737c6",
+        "france/p003-logits.json": "1ca5572f6a8eca4a8e8447739877cea06c4756d886b76ac9a893b8b985d21c48",
+        "france/p004-logits.json": "5db554ac1bf146b93bfd87ed3c235cdf88dd7bd5cfb0871f3ea7cc8e33095c22",
+        "france/p005-logits.json": "4851ba2ff90396d84a01289105067fa526315476a7940d80ee53137772edfea7",
+        "france/p006-logits.json": "997f6fc679907a137db576646b687466d08e01e6c4411676b6d0ec61dfeda048",
+        "chat/p000-logits.json": "65702d4d0111337a4b330786473e674b3e05a83f7e73ecc28ac9a4599d348e16",
+        "chat/p001-logits.json": "d520152c03e4eb3bcbd148bcb48e94a1aa6a8ea48e73c4a077574e6d17dc88e3",
+        "chat/p002-logits.json": "16682f869532705c8538e684ca62c2885006e569b0842cb31310753880e59d1e",
+        "chat/p003-logits.json": "50a60ac6c2ecc37b4939d2912f2631a0382b4c78509ab919cac95e7c2e9b3ecb",
+        "chat/p004-logits.json": "244d83a2bdcdc89660eeaf1998387564167adf4c28879de77c9de1092ddfe4de",
+        "chat/p005-logits.json": "333473a123786eba88e541148af6f1317e94dae10c9d38eacd6ac04ab97c3f9b",
+        "chat/p006-logits.json": "05661d34376997a07060780583f64bc250f1e94592fbe96b8d2827ae2696808e",
+        "chat/p007-logits.json": "d439fb3ad56979310998bc2bc6b3d5aeb9576f138149e4c962f2b29cf5f5f977",
+        "chat/p008-logits.json": "9725b34edf2adcbbddadb67bf0300fa9ed01e63de118d689d67db5256b51e607",
+        "chat/p009-logits.json": "c312f6de15d7256df2545a9993665e3613fb657d939de942fd568ac33277cacd",
+        "arithmetic/p000-logits.json": "8d06c05dd3621f702e0d5d0731a6a46be17b34b7344f951e25a1aa6c58c5cf6b",
+        "arithmetic/p001-logits.json": "9f7a8b8a3818ed5ec3469236c75b6975537500c0e92e37c27b5af0c0d3d26f92",
+        "arithmetic/p002-logits.json": "40c60467ab4aa8108017b91139b2b52097ff38a477e876d88fbd300042e3a286",
+        "arithmetic/p003-logits.json": "a6dd446d3e4473a135708f48666db640f5e61cc447a2b245065675f7d5ed8e17",
+        "arithmetic/p004-logits.json": "9c512bd9b2ebfb57330eeba7db18636fcaec80b00dd344ccf1c88c41f939bce2",
+        "story/p000-logits.json": "23adffc08e17993deae2c37982a28309f0498fb539f99a724cc556558e4447e3",
+        "story/p001-logits.json": "99734b3fc60805e0e958f2ce0351b8f1c66216abebe7e02c5d11f895fefc5d9b",
+        "story/p002-logits.json": "28689248196a792e9a2acc0a67d40e4f21929747f9b27bc059255ba8d97d9cca",
+        "story/p003-logits.json": "f9c92f2e0eab20cb56fd85ad559a78073d86850123f363285c8973fbf530ab71",
+        "hello/p000-logits.json": "61ffc01592cab1f3a413ec9573911ca9955bd3da71270486e86e660d535fb216"
+      }
+    },
+    "geography_34": {
+      "report": {
+        "path": "target/strix-aten-final-long-comparison.json",
+        "bytes": 24203,
+        "sha256": "4df94fe565efd19a110484493d17f7b5ff5eeaf54cb104e71beb685cc4370627"
+      },
+      "all_exact": true,
+      "positions": 34,
+      "greedy_matches": 34,
+      "bit_exact_full_logit_positions": 34,
+      "max_abs": 0.0,
+      "max_relative_l2": 0.0,
+      "native_directory": "target\\strix-aten-final-suite",
+      "reference_directory": "target\\strix-aten-long-reference",
+      "inputs_sha256": "e004c251a81607c95499cf0cbb3e3dcb92ec51ad76a8c561c87f941500eb645b",
+      "executable_sha256": "58139ded8407ff240295bd9b99be4e486394632aad736c6b862803be4c36d59c",
+      "shim_sha256": "10b56d0aa75a03c954e6773b00a265cf974b6d209e0758739c6fd15318cb0d13",
+      "cases": {
+        "geography34": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 671,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 1,
+              "input_token": 6102,
+              "hip_next": 294,
+              "native_next": 294,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 2,
+              "input_token": 294,
+              "hip_next": 8760,
+              "native_next": 8760,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 3,
+              "input_token": 8760,
+              "hip_next": 344,
+              "native_next": 344,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 4,
+              "input_token": 344,
+              "hip_next": 11111,
+              "native_next": 11111,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 5,
+              "input_token": 11111,
+              "hip_next": 16,
+              "native_next": 16,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 6,
+              "input_token": 16,
+              "hip_next": 1,
+              "native_next": 1,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 7,
+              "input_token": 455,
+              "hip_next": 446,
+              "native_next": 446,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 8,
+              "input_token": 6102,
+              "hip_next": 294,
+              "native_next": 294,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 9,
+              "input_token": 294,
+              "hip_next": 8760,
+              "native_next": 8760,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 10,
+              "input_token": 10322,
+              "hip_next": 344,
+              "native_next": 344,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 11,
+              "input_token": 344,
+              "hip_next": 17575,
+              "native_next": 17575,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 12,
+              "input_token": 17575,
+              "hip_next": 16,
+              "native_next": 16,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 13,
+              "input_token": 16,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 14,
+              "input_token": 455,
+              "hip_next": 6102,
+              "native_next": 6102,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 15,
+              "input_token": 6102,
+              "hip_next": 294,
+              "native_next": 294,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 16,
+              "input_token": 294,
+              "hip_next": 14251,
+              "native_next": 14251,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 17,
+              "input_token": 14251,
+              "hip_next": 344,
+              "native_next": 344,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 18,
+              "input_token": 344,
+              "hip_next": 16235,
+              "native_next": 16235,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 19,
+              "input_token": 16235,
+              "hip_next": 16,
+              "native_next": 16,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 20,
+              "input_token": 16,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 21,
+              "input_token": 455,
+              "hip_next": 6102,
+              "native_next": 6102,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 22,
+              "input_token": 6102,
+              "hip_next": 294,
+              "native_next": 294,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 23,
+              "input_token": 294,
+              "hip_next": 16603,
+              "native_next": 16603,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 24,
+              "input_token": 16603,
+              "hip_next": 344,
+              "native_next": 344,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 25,
+              "input_token": 344,
+              "hip_next": 29168,
+              "native_next": 29168,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 26,
+              "input_token": 29168,
+              "hip_next": 16,
+              "native_next": 16,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 27,
+              "input_token": 16,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 28,
+              "input_token": 455,
+              "hip_next": 6102,
+              "native_next": 6102,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 29,
+              "input_token": 6102,
+              "hip_next": 294,
+              "native_next": 294,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 30,
+              "input_token": 294,
+              "hip_next": 29585,
+              "native_next": 29585,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 31,
+              "input_token": 29585,
+              "hip_next": 344,
+              "native_next": 344,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 32,
+              "input_token": 344,
+              "hip_next": 76405,
+              "native_next": 76405,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            },
+            {
+              "position": 33,
+              "input_token": 76405,
+              "hip_next": 16,
+              "native_next": 16,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8639452160,
+              "peak_allocated_bytes": 8904337408,
+              "peak_reserved_bytes": 11834228736,
+              "reserved_bytes": 11834228736
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              671,
+              6102,
+              294,
+              8760,
+              344,
+              11111,
+              16,
+              455,
+              6102,
+              294,
+              10322,
+              344,
+              17575,
+              16,
+              455,
+              6102,
+              294,
+              14251,
+              344,
+              16235,
+              16,
+              455,
+              6102,
+              294,
+              16603,
+              344,
+              29168,
+              16,
+              455,
+              6102,
+              294,
+              29585,
+              344,
+              76405
+            ],
+            "next_tokens": [
+              455,
+              294,
+              8760,
+              344,
+              11111,
+              16,
+              1,
+              446,
+              294,
+              8760,
+              344,
+              17575,
+              16,
+              455,
+              6102,
+              294,
+              14251,
+              344,
+              16235,
+              16,
+              455,
+              6102,
+              294,
+              16603,
+              344,
+              29168,
+              16,
+              455,
+              6102,
+              294,
+              29585,
+              344,
+              76405,
+              16
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "The capital of France is Paris. The capital of Germany is Berlin. The capital of Italy is Rome. The capital of Spain is Madrid. The capital of Portugal is Lisbon",
+            "prompt_tokens": [
+              671,
+              6102,
+              294,
+              8760,
+              344,
+              11111,
+              16,
+              455,
+              6102,
+              294,
+              10322,
+              344,
+              17575,
+              16,
+              455,
+              6102,
+              294,
+              14251,
+              344,
+              16235,
+              16,
+              455,
+              6102,
+              294,
+              16603,
+              344,
+              29168,
+              16,
+              455,
+              6102,
+              294,
+              29585,
+              344,
+              76405
+            ],
+            "seconds": 963.2698405,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 482.74396089998095,
+              "matvecs": 596530,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 404.10860319998983,
+              "uploads": 596530
+            }
+          }
+        }
+      },
+      "golden_logits_sha256": {
+        "geography34/p000-logits.json": "58c95e9726bcbdc6a367b7360222da79217eed17e27fa00077d007bcfab002e7",
+        "geography34/p001-logits.json": "5bdfd487471d72c942533323025921624226c5d25b31456963ac8321ac203da0",
+        "geography34/p002-logits.json": "3ca63e7a63d47cc302eccecceb43ff3314c9c57f26ea50b9ac90009cbfd096c5",
+        "geography34/p003-logits.json": "7f72ef2b9405d221c8c0bb13010c59d3b6ede64ca67fb77f704316ab5a096dff",
+        "geography34/p004-logits.json": "66a1c5e95d67cffa1479c012cf8b1cec5a109f4a74af838989dde7d7053b97f8",
+        "geography34/p005-logits.json": "4a49e0d3f9b7f0a047b83fff1bd2dde078bf903edbc732a28d5e956755ffad75",
+        "geography34/p006-logits.json": "3685c46b38d33b15e2ce5f4fc52fb9c639ba2c6f89ac50fbe96aa1ace2027193",
+        "geography34/p007-logits.json": "533a5d22fb73f8f94930a6e53ee870df92696bf2b9ce429a5fe63c156663c92d",
+        "geography34/p008-logits.json": "ec3c26f5dbb8572797b90e7f638796609327c323346264f9eff1681620482aa6",
+        "geography34/p009-logits.json": "09f4c715612ebbbd9316e6677086e4f3da0f10a4fa5e6283847b25066e344a5d",
+        "geography34/p010-logits.json": "14cf7472bd32b529ee66817249e3b59fd01df4541a81c3b89fb9ed5f052ece71",
+        "geography34/p011-logits.json": "f38794e20845bd7c65e0ceee72d26b32e2370f3bcaa87baa4a445086c8924d15",
+        "geography34/p012-logits.json": "97587d74f6275e58ebf7aeb40c74e536290a3e7f214567e8c7353e694ee87283",
+        "geography34/p013-logits.json": "3496f47762b0ee6a2b1eec67f0ce653e8d10f3166851d919c13ab5435170d730",
+        "geography34/p014-logits.json": "b3a16f65f6b74978774519addc215c46035ab5777757416c7f1878dae6eb408a",
+        "geography34/p015-logits.json": "fa8922838f0c821324ec6bd4d0fbba477cf4c6246ba5e46ae0d9616b7cee2ec8",
+        "geography34/p016-logits.json": "906a37e771c5b0b4232c54f81d36b80db9ef1133e379daf242d9736381409e0c",
+        "geography34/p017-logits.json": "2d743fa56c573545119b76bfb19c009501168692c816dd2e3a885a6ba8ced86a",
+        "geography34/p018-logits.json": "d1b9e7657d18018694627901fe353a4ca2eadb5f8d1593e61307ea2ba65f81cd",
+        "geography34/p019-logits.json": "3499eb01a38c7ea9a2562102286726bca1804d010a2e45c802b5abdd63745efd",
+        "geography34/p020-logits.json": "de381c4e760e04cd037e088e219dd60a1f891bd189e5d3157a361d2bbb15289b",
+        "geography34/p021-logits.json": "4aef29296cf2d2cb778ac83d9a4afe63ce5f910e93ea5992d8cb576203afa9e6",
+        "geography34/p022-logits.json": "828a07230a0b1c9ac334d4ff5954143dc11c7a213789c1268fd8d371ffbb8a48",
+        "geography34/p023-logits.json": "4140a2080444b2204e051646dba0124ae19cb17649b64893ac3105f82ed27ba5",
+        "geography34/p024-logits.json": "2eeab05d0b6be872d9648eb0abe5fb85d2dbd4613aec91f8d759568662177ba8",
+        "geography34/p025-logits.json": "6bc972d29b6cb6c66d8904bd6c9034335c8277dd0dc1d222e066cf7d8c497bfa",
+        "geography34/p026-logits.json": "7676c34ed7ab633d441cf7dfd50299330f960498c516ddbc18273a75f6d9aab5",
+        "geography34/p027-logits.json": "8b5668e11d83bf206eb241a6c2fbcf44734fc246ba715843dcbd872b3147bb99",
+        "geography34/p028-logits.json": "7177d3b37fc4b86d33e8e3ef7197ad226285bedf16759db09633a7d95eec7658",
+        "geography34/p029-logits.json": "d6c9e441e96335a999f2872ff148d7a3b55fcabe0fdd4c977fa6e2cb0f93f9ed",
+        "geography34/p030-logits.json": "11cd21cb5d3234e3bf7cea462aa72611c2b43dfbe1a3aa959a52b94a221573db",
+        "geography34/p031-logits.json": "fd772cd2ca25f684d92557791de9a4c193dd4ede8cf50ff53d6a4fedcbed8655",
+        "geography34/p032-logits.json": "81e66f964a72f854682ccf73162d8b8e69d0298cd95118704d3a2a367b3004e0",
+        "geography34/p033-logits.json": "6f903ad75cecdc846ae21e3b635af21aa980a6b87d0b1271950df11f05bc4c6d"
+      },
+      "native_logits_sha256": {
+        "geography34/p000-logits.json": "ccef074146849d6f7afedf6b2a5b766cc57b6fc8084d12fd2ecb24c0b564c2db",
+        "geography34/p001-logits.json": "521956d53bd5575387445efa8fd19308569256383852ee9c88a6ae07d377bb0d",
+        "geography34/p002-logits.json": "e1b24a69f50647a72c42d007282e06e852774641b7b9e59fddedef49774737c6",
+        "geography34/p003-logits.json": "1ca5572f6a8eca4a8e8447739877cea06c4756d886b76ac9a893b8b985d21c48",
+        "geography34/p004-logits.json": "5db554ac1bf146b93bfd87ed3c235cdf88dd7bd5cfb0871f3ea7cc8e33095c22",
+        "geography34/p005-logits.json": "4851ba2ff90396d84a01289105067fa526315476a7940d80ee53137772edfea7",
+        "geography34/p006-logits.json": "997f6fc679907a137db576646b687466d08e01e6c4411676b6d0ec61dfeda048",
+        "geography34/p007-logits.json": "deb75436160d1cee57a3d5a81e4b8c4a81fb5178c3d71ab20a0b52cba2c01759",
+        "geography34/p008-logits.json": "38dd2be7245977d3dee56c86a758e9cbbaa4d8d4a8cf756a030719237755d220",
+        "geography34/p009-logits.json": "21a4699578a029ed02d93f7b2565224239bc4b662a52af733a6dc8bf059dff00",
+        "geography34/p010-logits.json": "a627c4377cdc95f39f0cd54a76cc2f986a8f384e708155e36728450872ee816a",
+        "geography34/p011-logits.json": "da117fef5289ce0a0cdb4aff2c20e1b8287c9feaa59086a345bcee404077a47d",
+        "geography34/p012-logits.json": "a51f37979f55b7db64011a456b884b72805b267bdb50074a60190a07125df92d",
+        "geography34/p013-logits.json": "da1db2c0eb2da8ada1b048b99bc0839b6299517e1855dc7ae6264f15b185fdb2",
+        "geography34/p014-logits.json": "c6f952ccd1982aaeb029658d2aef9f540713bf32d295dbbccbd5cf382a33099c",
+        "geography34/p015-logits.json": "6af4d7f46fd13cab0fa38bf46a884d6a2fb410fa5a55e2eff9dbfa76fbcd1901",
+        "geography34/p016-logits.json": "fd904d8f6f7d237f4ced58955a62eb3f5bc59fab5ab007a26fdee0a2c2f20215",
+        "geography34/p017-logits.json": "f8d87812005800dbac2a7882ba52add601c7f3f41ab4fcd73c5d4b2aafead037",
+        "geography34/p018-logits.json": "bef49a0aaab32d42ac6264f3293e267b8953c624b6d386e2c5196563d5c5cc9a",
+        "geography34/p019-logits.json": "a347ad04d5d9ad33ffca367e193b191c40f25c18b24632e2bc76d1c6a3da999f",
+        "geography34/p020-logits.json": "ee61a7e6e4599ff3406474aab347b566f648046d1f42a362a6cc8f53f4e8246e",
+        "geography34/p021-logits.json": "a690e13fefd8a70dd664f426a152be4311791f9c49816b88a0fd9bc01b2d1c3f",
+        "geography34/p022-logits.json": "e379882b50ea6b0ebc5ca71306c77a4eaeebefe6a0ca2b6d0fad76be15f9da78",
+        "geography34/p023-logits.json": "e24ca924a06b5a9f84b2219e7738354c22068055904cf05134b59ffd948491e5",
+        "geography34/p024-logits.json": "912c9c945d14e927b3129b99b9b042249db9d7136ff79c2e01565221673fc290",
+        "geography34/p025-logits.json": "0a82283c235fe5ad756a0a5afe5bda386e6ced61c5b034586aee15ba469594bf",
+        "geography34/p026-logits.json": "d42c72b7812f5656f90f4eef1eb161e6b996aeb1673c6464a4d07ed25d5340ef",
+        "geography34/p027-logits.json": "3c914d3a9da855d45dd73cec2ca537777f4df3e6ee6a3f57bea01a879ea77662",
+        "geography34/p028-logits.json": "43aa6d66a848f0bbeeafc946019c5e619bb1162a061169d5ed1a14666f8d5bed",
+        "geography34/p029-logits.json": "11792ad125b39e15cde030af16d3c4c2dbfc51236b22112e04c985444dbc8360",
+        "geography34/p030-logits.json": "6672b5a49738928a347c2cdf74900f335c8518ed53474d24f6b57191e8584506",
+        "geography34/p031-logits.json": "62f961243b5e67281f80d2b2d7203e0d5400ccb9f388a125f64e8a49b6387900",
+        "geography34/p032-logits.json": "7c33cbcaf569598ba640f3ee6c88d0e13216d0ab026ce183889d75838da67067",
+        "geography34/p033-logits.json": "5242918de37df020993e283b30200732cde9a968cf0764ab9f237b3024ba2a21"
+      }
+    },
+    "delivery_the": {
+      "report": {
+        "path": "target/strix-aten-delivery-the-comparison.json",
+        "bytes": 5893,
+        "sha256": "5afe555447e1a2357f7e5b1eb40a7a895e4e3d8945aa6498cc1584ca4eff6a33"
+      },
+      "all_exact": true,
+      "positions": 1,
+      "greedy_matches": 1,
+      "bit_exact_full_logit_positions": 1,
+      "max_abs": 0.0,
+      "max_relative_l2": 0.0,
+      "native_directory": "target\\strix-aten-delivery-the",
+      "reference_directory": "target\\strix-numerics-20261114",
+      "inputs_sha256": "585ee7b41206b3fc8e3a8c74d646596dc901a6e46891873125578aafacc6e792",
+      "executable_sha256": "2a5bdb2d180e02afda8f90fa0f4781d7e09cac7e1504ecfea953ea847bdc0713",
+      "shim_sha256": "5aa250505e7dfead1a5778ffeb0a628ce2b77b875e579936ab90af68d5206caf",
+      "cases": {
+        "the": {
+          "positions": [
+            {
+              "position": 0,
+              "input_token": 671,
+              "hip_next": 455,
+              "native_next": 455,
+              "greedy_match": true,
+              "count": 129280,
+              "different": 0,
+              "max_abs": 0.0,
+              "relative_l2": 0.0
+            }
+          ],
+          "native_summary": {
+            "aten_hc_resident_bytes": 157286400,
+            "aten_memory": {
+              "allocated_bytes": 8590300160,
+              "peak_allocated_bytes": 8749656064,
+              "peak_reserved_bytes": 11658067968,
+              "reserved_bytes": 11658067968
+            },
+            "backend": "aten-ops",
+            "experimental": true,
+            "input_tokens": [
+              671
+            ],
+            "next_tokens": [
+              455
+            ],
+            "peak_read_bytes": 20971520,
+            "prompt": "The",
+            "prompt_tokens": [
+              671
+            ],
+            "seconds": 43.0172771,
+            "total_weight_budget_bytes": 8589934592,
+            "weight_cache": {
+              "budget_bytes": 8321499136,
+              "cache_hits": 0,
+              "matvec_seconds": 21.365659400000176,
+              "matvecs": 17494,
+              "peak_host_weight_staging_bound_bytes": 62914560,
+              "peak_resident_bytes": 8321499136,
+              "resident_bytes": 8321258304,
+              "upload_seconds": 17.45935859999999,
+              "uploads": 17494
+            }
+          }
+        }
+      },
+      "golden_logits_sha256": {
+        "the/p000-logits.json": "58c95e9726bcbdc6a367b7360222da79217eed17e27fa00077d007bcfab002e7"
+      },
+      "native_logits_sha256": {
+        "the/p000-logits.json": "ccef074146849d6f7afedf6b2a5b766cc57b6fc8084d12fd2ecb24c0b564c2db"
+      }
+    }
+  },
+  "identical_input_components": {
+    "delivery_count": 312,
+    "all_exact": true,
+    "requests_sha256": "6238be1c6497e00e0c9c2998f48fa999862da7e8b022f01a72de5c79aabc08ad",
+    "expected_sha256": "2073f152a29ef700255f24547e36e88727e03dc0c3112f550c57a6178d324974",
+    "actual_sha256": "1321bd1290cc40b2bbb55096d1cdac03330f9bfa5b2e04bf5fcf82b1a3617f39",
+    "executable_sha256": "44504035ac286505efd1f42630ea83653de4708451f0804e42593f4cd653b406",
+    "shim_sha256": "5aa250505e7dfead1a5778ffeb0a628ce2b77b875e579936ab90af68d5206caf",
+    "unexecuted_labels": [
+      "l00-attn-p0/component",
+      "l00-attn-p0/quant-fp8-1",
+      "l00-attn-p0/quant-fp8-17",
+      "l00-attn-p0/quant-fp8-2",
+      "l00-attn-p0/quant-fp8-4",
+      "l00-attn-p0/quant-fp8-6",
+      "l00-attn-p0/quant-fp8-8",
+      "l00-ffn-p0/component",
+      "l00-ffn-p0/quant-fp8-18",
+      "l00-ffn-p0/quant-fp8-19",
+      "l00-ffn-p0/quant-fp8-20",
+      "l00-ffn-p0/quant-fp8-21",
+      "l00-ffn-p0/quant-fp8-22",
+      "l00-ffn-p0/quant-fp8-23",
+      "l00-ffn-p0/quant-fp8-24",
+      "l00-ffn-p0/quant-fp8-25",
+      "l00-ffn-p0/quant-fp8-26",
+      "l00-ffn-p0/quant-fp8-27",
+      "l00-ffn-p0/quant-fp8-28",
+      "l00-ffn-p0/quant-fp8-29",
+      "l00-ffn-p0/quant-fp8-30",
+      "l00-ffn-p0/quant-fp8-31",
+      "l00-ffn-p0/quant-fp8-32",
+      "l00-ffn-p0/quant-fp8-33",
+      "l00-ffn-p0/quant-fp8-34",
+      "l00-ffn-p0/quant-fp8-35",
+      "l00-ffn-p0/quant-fp8-36",
+      "l00-ffn-p0/quant-fp8-37",
+      "l00-ffn-p0/quant-fp8-38",
+      "l01-attn-p0/component",
+      "l01-attn-p0/quant-fp8-40",
+      "l01-attn-p0/quant-fp8-41",
+      "l01-attn-p0/quant-fp8-43",
+      "l01-attn-p0/quant-fp8-45",
+      "l01-attn-p0/quant-fp8-47",
+      "l01-attn-p0/quant-fp8-56",
+      "l01-engram-p0/quant-fp8-39",
+      "l01-ffn-p0/component",
+      "l01-ffn-p0/quant-fp8-57",
+      "l01-ffn-p0/quant-fp8-58",
+      "l01-ffn-p0/quant-fp8-59",
+      "l01-ffn-p0/quant-fp8-60",
+      "l01-ffn-p0/quant-fp8-61",
+      "l01-ffn-p0/quant-fp8-62",
+      "l01-ffn-p0/quant-fp8-63",
+      "l01-ffn-p0/quant-fp8-64",
+      "l01-ffn-p0/quant-fp8-65",
+      "l01-ffn-p0/quant-fp8-66",
+      "l01-ffn-p0/quant-fp8-67",
+      "l01-ffn-p0/quant-fp8-68",
+      "l01-ffn-p0/quant-fp8-69",
+      "l01-ffn-p0/quant-fp8-70",
+      "l01-ffn-p0/quant-fp8-71",
+      "l01-ffn-p0/quant-fp8-72",
+      "l01-ffn-p0/quant-fp8-73",
+      "l01-ffn-p0/quant-fp8-74",
+      "l01-ffn-p0/quant-fp8-75",
+      "l01-ffn-p0/quant-fp8-76",
+      "l01-ffn-p0/quant-fp8-77",
+      "l02-attn-p0/component",
+      "l02-attn-p0/quant-fp8-78",
+      "l02-attn-p0/quant-fp8-79",
+      "l02-attn-p0/quant-fp8-81",
+      "l02-attn-p0/quant-fp8-83",
+      "l02-attn-p0/quant-fp8-85",
+      "l02-attn-p0/quant-fp8-94",
+      "l02-attn-p1/component",
+      "l02-attn-p1/quant-fp4-102",
+      "l02-attn-p1/quant-fp4-105",
+      "l02-attn-p1/quant-fp4-107",
+      "l02-attn-p1/quant-fp8-100",
+      "l02-attn-p1/quant-fp8-103",
+      "l02-attn-p1/quant-fp8-109",
+      "l02-attn-p1/quant-fp8-118",
+      "l02-attn-p1/quant-fp8-95",
+      "l02-attn-p1/quant-fp8-96",
+      "l02-attn-p1/quant-fp8-98",
+      "l02-ffn-p0/component",
+      "l02-ffn-p0/quant-fp8-119",
+      "l02-ffn-p0/quant-fp8-120",
+      "l02-ffn-p0/quant-fp8-121",
+      "l02-ffn-p0/quant-fp8-122",
+      "l02-ffn-p0/quant-fp8-123",
+      "l02-ffn-p0/quant-fp8-124",
+      "l02-ffn-p0/quant-fp8-125",
+      "l02-ffn-p0/quant-fp8-126",
+      "l02-ffn-p0/quant-fp8-127",
+      "l02-ffn-p0/quant-fp8-128",
+      "l02-ffn-p0/quant-fp8-129",
+      "l02-ffn-p0/quant-fp8-130",
+      "l02-ffn-p0/quant-fp8-131",
+      "l02-ffn-p0/quant-fp8-132",
+      "l02-ffn-p0/quant-fp8-133",
+      "l02-ffn-p0/quant-fp8-134",
+      "l02-ffn-p0/quant-fp8-135",
+      "l02-ffn-p0/quant-fp8-136",
+      "l02-ffn-p0/quant-fp8-137",
+      "l02-ffn-p0/quant-fp8-138",
+      "l02-ffn-p0/quant-fp8-139",
+      "l14-attn-p0/component",
+      "l14-attn-p0/quant-fp8-141",
+      "l14-attn-p0/quant-fp8-142",
+      "l14-attn-p0/quant-fp8-144",
+      "l14-attn-p0/quant-fp8-146",
+      "l14-attn-p0/quant-fp8-148",
+      "l14-attn-p0/quant-fp8-157",
+      "l14-engram-p0/quant-fp8-140",
+      "l14-ffn-p0/component",
+      "l14-ffn-p0/quant-fp8-158",
+      "l14-ffn-p0/quant-fp8-159",
+      "l14-ffn-p0/quant-fp8-160",
+      "l14-ffn-p0/quant-fp8-161",
+      "l14-ffn-p0/quant-fp8-162",
+      "l14-ffn-p0/quant-fp8-163",
+      "l14-ffn-p0/quant-fp8-164",
+      "l14-ffn-p0/quant-fp8-165",
+      "l14-ffn-p0/quant-fp8-166",
+      "l14-ffn-p0/quant-fp8-167",
+      "l14-ffn-p0/quant-fp8-168",
+      "l14-ffn-p0/quant-fp8-169",
+      "l14-ffn-p0/quant-fp8-170",
+      "l14-ffn-p0/quant-fp8-171",
+      "l14-ffn-p0/quant-fp8-172",
+      "l14-ffn-p0/quant-fp8-173",
+      "l14-ffn-p0/quant-fp8-174",
+      "l14-ffn-p0/quant-fp8-175",
+      "l14-ffn-p0/quant-fp8-176",
+      "l14-ffn-p0/quant-fp8-177",
+      "l14-ffn-p0/quant-fp8-178",
+      "l20-attn-p0/component",
+      "l20-attn-p0/quant-fp4-186",
+      "l20-attn-p0/quant-fp4-189",
+      "l20-attn-p0/quant-fp4-191",
+      "l20-attn-p0/quant-fp8-179",
+      "l20-attn-p0/quant-fp8-180",
+      "l20-attn-p0/quant-fp8-182",
+      "l20-attn-p0/quant-fp8-184",
+      "l20-attn-p0/quant-fp8-187",
+      "l20-attn-p0/quant-fp8-193",
+      "l20-attn-p0/quant-fp8-202",
+      "l20-attn-p1/component",
+      "l20-attn-p1/quant-fp4-210",
+      "l20-attn-p1/quant-fp4-213",
+      "l20-attn-p1/quant-fp4-215",
+      "l20-attn-p1/quant-fp8-203",
+      "l20-attn-p1/quant-fp8-204",
+      "l20-attn-p1/quant-fp8-206",
+      "l20-attn-p1/quant-fp8-208",
+      "l20-attn-p1/quant-fp8-211",
+      "l20-attn-p1/quant-fp8-217",
+      "l20-attn-p1/quant-fp8-226",
+      "l20-ffn-p0/component",
+      "l20-ffn-p0/quant-fp8-227",
+      "l20-ffn-p0/quant-fp8-228",
+      "l20-ffn-p0/quant-fp8-229",
+      "l20-ffn-p0/quant-fp8-230",
+      "l20-ffn-p0/quant-fp8-231",
+      "l20-ffn-p0/quant-fp8-232",
+      "l20-ffn-p0/quant-fp8-233",
+      "l20-ffn-p0/quant-fp8-234",
+      "l20-ffn-p0/quant-fp8-235",
+      "l20-ffn-p0/quant-fp8-236",
+      "l20-ffn-p0/quant-fp8-237",
+      "l20-ffn-p0/quant-fp8-238",
+      "l20-ffn-p0/quant-fp8-239",
+      "l20-ffn-p0/quant-fp8-240",
+      "l20-ffn-p0/quant-fp8-241",
+      "l20-ffn-p0/quant-fp8-242",
+      "l20-ffn-p0/quant-fp8-243",
+      "l20-ffn-p0/quant-fp8-244",
+      "l20-ffn-p0/quant-fp8-245",
+      "l20-ffn-p0/quant-fp8-246",
+      "l20-ffn-p0/quant-fp8-247"
+    ],
+    "report": {
+      "path": "target/strix-aten-delivery-component-final-comparison.json",
+      "bytes": 74404,
+      "sha256": "0c22f354368bba9a406d7e42e0d93c1b00295e302f1856e72962043cd70930a2"
+    },
+    "scope": "Executed supported original-input probes, including complete HC, projection/dequant, RMS, pre/post, routing, Engram and attention. Unexecuted diagnostics are explicit; this is not a claim that every original 473-probe operation was newly run."
+  },
+  "first_isolated_remaining_divergence": {
+    "input": "original serialized chat prefix, position 0",
+    "layer": 20,
+    "operation": "FFN gate topk",
+    "trace": "Native and fresh unchanged HIP match through layer 19 and layer-20 FFN input; first block-output difference is layer-20 FFN.",
+    "replay": "All 384 original router logits, softplus scores and corrected scores match exactly. The cutoff ties experts 96 and 338; native and HIP calls both select either on identical inputs.",
+    "unbiased_scores": {
+      "96": 0.026660310104489326,
+      "338": 0.01665615849196911
+    },
+    "repeat_evidence": {
+      "original_label": "l20-ffn-p0/layers.20.ffn.gate",
+      "original_components": "target\\strix-aten-chat-l20-components",
+      "requests_sha256": "39ad350f41c9f36170289359f1da380e7b325119b8b503bb05d931f43ede866d",
+      "corrected_tensor_sha256": "f216d2c8911cb443153a82196dbe3156fb2538a51e00118eea4ab72c9ba51488",
+      "shape": [
+        1,
+        384
+      ],
+      "dtype": "FP32",
+      "cutoff": 14.184751510620117,
+      "cutoff_tied_experts": [
+        96,
+        338
+      ],
+      "hip_topk_repeats": [
+        {
+          "indices": [
+            180,
+            103,
+            58,
+            141,
+            353,
+            338
+          ],
+          "count": 40
+        },
+        {
+          "indices": [
+            180,
+            103,
+            58,
+            141,
+            353,
+            96
+          ],
+          "count": 60
+        }
+      ],
+      "native_topk_repeats": [
+        {
+          "indices": [
+            180,
+            103,
+            58,
+            141,
+            353,
+            96
+          ],
+          "count": 65
+        },
+        {
+          "indices": [
+            180,
+            103,
+            58,
+            141,
+            353,
+            338
+          ],
+          "count": 35
+        }
+      ],
+      "all_native_scores_bit_exact": true,
+      "interpretation": "Observed tied selections are reported, never forced to match a saved oracle; no tolerance or deterministic tie policy introduced.",
+      "primary_documentation": "https://docs.pytorch.org/docs/2.11/generated/torch.topk.html"
+    },
+    "fresh_hip_p0_vs_saved_hip_full_logits": {
+      "count": 129280,
+      "different": 129279,
+      "max_abs": 0.06165194511413574,
+      "relative_l2": 0.005259085329515595
+    },
+    "trace_report": {
+      "path": "target/strix-aten-chat-trace-comparison.json",
+      "bytes": 27197,
+      "sha256": "1404c7e2d79289cec3225f62267bf8ac6475de45768976c174ba7d1d40d5b016"
+    },
+    "repeat_report": {
+      "path": "target/strix-aten-router-tie-repeat/report.json",
+      "bytes": 29111,
+      "sha256": "9c2c8a166e57ab7c9a1497d6006b5d43a89e11ea9d27b9cc471c473d5e402d11"
+    },
+    "interpretation": "This is the first isolated chat divergence, not proof that every later difference has the same cause. No deterministic tie policy, score perturbation, golden replacement, tolerance widening or selected-expert override was introduced."
+  },
+  "deterministic_rope_correction": {
+    "input": "original France prefix, position 5, layer 23 attention query",
+    "identical_shape": [
+      64,
+      64
+    ],
+    "components": 4096,
+    "old_scalar_different_components": 1,
+    "old_scalar_max_abs": 0.00048828125,
+    "original_pair_indices": [
+      1162,
+      1163
+    ],
+    "original_pair_input": [
+      1.0625,
+      -1.1953125
+    ],
+    "original_cos": 0.7187296748161316,
+    "original_sin": 0.6952896118164062,
+    "old_scalar_result": [
+      1.59375,
+      -0.1201171875
+    ],
+    "original_hip_result": [
+      1.59375,
+      -0.12060546875
+    ],
+    "native_aten_replay": {
+      "l23-p5-rope_aten": {
+        "count": 4096,
+        "different": 0,
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      },
+      "l23-p5-rope_aten_config": {
+        "count": 4096,
+        "different": 0,
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      }
+    },
+    "shape_note": "A two-element complex call dispatches another ATen kernel. Regression retains the original 4096-element dispatch shape; no scalar f64 replacement.",
+    "trace_report": {
+      "path": "target/strix-aten-france-p5-trace-comparison.json",
+      "bytes": 27391,
+      "sha256": "1fc0a088c2a7c7f7e7d68f8a262ad2910b09cbb1f5106f485e5a05942a923d78"
+    },
+    "requests": {
+      "path": "target/strix-aten-france5-rope-fixed-requests.json",
+      "bytes": 96334,
+      "sha256": "4e7fc72dee7c3e5fabd0dd40dff64c6cea3d9c2763887f8ab96812cebb2df317"
+    }
+  },
+  "preserved_intermediate_failures": {
+    "hc_only": {
+      "components_exact": 60,
+      "the_native": 201,
+      "the_hip": 455,
+      "directory": "target/strix-aten-hc-the"
+    },
+    "ops_with_slabbed_head": {
+      "components_exact": 282,
+      "the_greedy": 455,
+      "the_logit_differences": 108620,
+      "the_max_abs": 3.814697265625e-05,
+      "directory": "target/strix-aten-ops-the",
+      "fix": "Full original FP32 [129280,5120] head shape, assembled from bounded reads on HIP"
+    },
+    "packed_before_rope": {
+      "report": {
+        "path": "target/strix-aten-packed-suite-comparison.json",
+        "bytes": 26191,
+        "sha256": "0a7ab0602bee48f83645258dab75923ea314c357ed97e8c8050fb8d15ab04544"
+      },
+      "all_exact": false,
+      "positions": 28,
+      "greedy_matches": 27,
+      "bit_exact_full_logit_positions": 16,
+      "max_abs": 4.617419958114624,
+      "max_relative_l2": 0.27639167632935024,
+      "native_directory": "target\\strix-aten-packed-suite",
+      "reference_directory": "target\\strix-numerics-20261114",
+      "inputs_sha256": "585ee7b41206b3fc8e3a8c74d646596dc901a6e46891873125578aafacc6e792",
+      "executable_sha256": "a3e3a99eb6445431a452ea285a392d97db4657cd17b3c96cf1f8dcf5e5e40954",
+      "shim_sha256": "675158a7c7a981f5137b060fee7c28b4b4a9eed36941bc0afada9a8c86f79dfa"
+    },
+    "geography_before_rope": {
+      "report": {
+        "path": "target/strix-aten-long-prerope-comparison.json",
+        "bytes": 25173,
+        "sha256": "1a070ba5bb183238e029fec2c71b8d18606b7bd2ab47d670a7540b9f668c8bee"
+      },
+      "all_exact": false,
+      "positions": 34,
+      "greedy_matches": 34,
+      "bit_exact_full_logit_positions": 5,
+      "max_abs": 4.612346291542053,
+      "max_relative_l2": 0.321971831883869,
+      "native_directory": "target\\strix-aten-long-native",
+      "reference_directory": "target\\strix-aten-long-reference",
+      "inputs_sha256": "e004c251a81607c95499cf0cbb3e3dcb92ec51ad76a8c561c87f941500eb645b",
+      "executable_sha256": "3551ba56c239745160585a264d95edfd53dc9b40a78c42fc0d1b9e5759e90c42",
+      "shim_sha256": "d1b7e254e93e482416418099e19ae1da5a7492ddc67db6c7f5657bcaca3b126e"
+    },
+    "loader_attempts": "Feasibility PATH-only System32 amdhip64_7.dll crashed. Production bootstrap explicitly loads bundled HIP. First native loader attempt with verbatim Windows path failed in rocBLAS path regex; canonical local-drive paths resolve it without PATH or SDK changes."
+  },
+  "resources": {
+    "total_weight_budget_bytes": 8589934592,
+    "projection_cache_budget_bytes": 8321499136,
+    "hc_reserve_bytes": 268435456,
+    "peak_projection_resident_bytes": 8321499136,
+    "hc_resident_bytes": 157286400,
+    "peak_native_allocated_bytes": 8904337408,
+    "peak_native_reserved_bytes": 11834228736,
+    "largest_checkpoint_read_bytes": 20971520,
+    "peak_host_weight_staging_bound_bytes": 62914560,
+    "cache_accounting": "Packed FP4/FP8 plus scales retained on HIP. Dense converted FP32 copies counted at full converted size. HC counted separately within 256 MiB reserve. Dequant slabs, upload tensors, rotary constants, BLAS workspace and activations are allocator/workspace, not hidden resident weights.",
+    "limits": "Allocator figures are native process/device allocator counters, not total system GPU usage or process working set. Host KV/activation/tokenizer/catalog memory is outside weight staging. Some validation runs overlapped; timing is not a performance benchmark."
+  },
+  "verification": {
+    "cargo_default": "PASS: 31 regular tests (30 lib + 1 integration), 2 hardware tests ignored by default",
+    "cargo_feature": "PASS: 33 regular tests (32 lib + 1 integration), 3 hardware tests ignored by default",
+    "explicit_amd": "PASS: both AMD tests with the exact requested default --lib -- --ignored command",
+    "native_ffi": "PASS: repeated HIP projection, RAII active-allocation stability across errors, null pointer, wrong shape/copy count, nonfinite input, unsupported operation, invalid integer parameters, and original-shape RoPE rounding boundary",
+    "backend_failures": "PASS: missing runtime, Python-module rejection and preloaded DLL path conflict checks; no silent backend fallback",
+    "malformed_probe": "PASS: negative topk returned bounded error and exit 1, no panic",
+    "clippy": "PASS: default and native-aten all-targets with -D warnings",
+    "format": "PASS: cargo fmt -p deepseek-ultrafast-strix -- --check; git diff --check",
+    "python": "PASS: all 50 unchanged reference tests, including real FP4 AMD check",
+    "transient_attempt": "One earlier concurrent AMD run during multiple HIP validations failed adapter enumeration in the reduced test; immediate serialized retry and final exact two-test command both passed. No driver or OS change.",
+    "logs": [
+      {
+        "path": "target/strix-aten-cargo-default-tests.log",
+        "bytes": 3264,
+        "sha256": "4081e24b245ea2f746da81fdd16f7b1f955cc0684d44b69facd7987a441cff14"
+      },
+      {
+        "path": "target/strix-aten-cargo-feature-tests.log",
+        "bytes": 3528,
+        "sha256": "86e39b00860ff5cf78e2ef4b8063a5baffda7809326df299e7ea7a4e3ca6e9a9"
+      },
+      {
+        "path": "target/strix-aten-cargo-amd-tests.log",
+        "bytes": 507,
+        "sha256": "664edd969e0786b252c90f4c6eae212efa0fbe010c7c98ea86134bc7af0630a3"
+      },
+      {
+        "path": "target/strix-aten-python-final-tests.log",
+        "bytes": 6875,
+        "sha256": "799117e20689d8011f34789a62260aa89d9ae7fc9a14c53b8adc5eba3fde39db"
+      },
+      {
+        "path": "target/strix-aten-invalid-request.log",
+        "bytes": 29,
+        "sha256": "facdc639787f28b55694c482c1d1fdf07a3b3ea7324a16332b09288aa10119c3"
+      }
+    ]
+  },
+  "historical_vulkan": {
+    "evidence": {
+      "path": "docs/validation/strix-halo-numerics-2026-11-14.json",
+      "bytes": 139580,
+      "sha256": "427301963ce1f2d59d66a73a07cdca9ee7d20195fad0aba820a5fe701c0703fc"
+    },
+    "status": "Unchanged failure: The native Vulkan token 1 versus HIP 455, 23/28 next-token matches. This ATen slice does not fix or supersede Vulkan numerical acceptance.",
+    "historical_prefix": {
+      "native_trace": "target/strix-native-fma",
+      "hip_trace": "target/strix-oracle-trace",
+      "native_next": 671,
+      "hip_next": 455,
+      "count": 129280,
+      "different": 129280,
+      "max_abs": 12.153058052062988,
+      "relative_l2": 0.7889873388457296
+    }
+  },
+  "limits": [
+    "Complete original-model numerical parity is not accepted. Chat differences and top-k nondeterminism remain explicit.",
+    "Maximum measured sequence length is 34. No 128-position/window-wrap equivalence, candidate pruning, arbitrary-prompt equivalence, vision, DSpark, batching, stochastic sampling or serving/API acceptance.",
+    "Rust still handles activation quantization, expert accumulation, bounded index selection, token/hash/read scheduling and host KV. This is not a fully resident ATen graph.",
+    "CPU constant rotary initialization mirrors the unchanged reference and performs no learned matrix arithmetic."
+  ],
+  "cleanup": {
+    "native_validation_processes_remaining": 0,
+    "port_18080_listeners": 0,
+    "process_actions": "Own runners ended normally; unrelated processes and services were untouched."
+  },
+  "preserved": {
+    "python_api": true,
+    "original_vulkan_command": true,
+    "historical_numerical_evidence": true,
+    "pinned_official_sources": true,
+    "baseline_pytorch_math": true,
+    "upstream_cuda": true,
+    "models_environment_drivers_os_services": true,
+    "installs_reboots_global_path_changes": false,
+    "push_or_pr": false
+  },
+  "source_sha256": {
+    "crates/strix/src/aten.rs": "16b5b89d4d364ccd72d5bcfba465173a2ab01291ad47a2825ff39ae5cca702a9",
+    "crates/strix/src/checkpoint.rs": "19116683077958dd97d48c9c7e4b0b22b790185ff1c99fa301b78472cb7a775f",
+    "crates/strix/src/config.rs": "d3385ef6914ff147d1dfe533fd2aa0a207931fd53e13d3c1b10d2abd22880fd8",
+    "crates/strix/src/decoder.rs": "b297b0b33ee7f24355fcd79185b6685c519d9f2d4b9e6b8d86c40a6581f9b6ab",
+    "crates/strix/src/engram.rs": "fff0254f7b296680710729baae85b32aa3e096771fe5b08def15855781100e8a",
+    "crates/strix/src/lib.rs": "6edcc98b2c6a145ca429892989f47ebae930c66a3ed4c9765899ffeac23ab409",
+    "crates/strix/src/main.rs": "dce9e78b7c75dce36e83f66e8b09ede67df157809d6343c9df8a0968cd06cb77",
+    "crates/strix/src/math.rs": "fca9491edb83b53dcabb6d6de9e6279f8f95a505c786a8ab8f7458d8152896f6",
+    "crates/strix/src/reference.rs": "4d5f5e1b333a1662abf49c6265541c876408bef06cd16030d3173a6b442275a0",
+    "crates/strix/src/runtime.rs": "b7b831ec97277207d7caf5235e8445d7ff77f20d673bee6c25b4736ce16b6195",
+    "crates/strix/src/verification.rs": "6d12b3ecc78e457663bd23298a3d69548d370d47bbfd8c688ba0894f6a7a57e1",
+    "crates/strix/src/weights.rs": "dd1844ff6269bca32b84c79edc9a3c1e94540bf7d61ad8bde876ff5ae0a58d00",
+    "crates/strix/native/aten.cpp": "f218c5b27d6c555d323e883f5cabf2b7b26604265873410c03e850ab8cc4bcd1",
+    "crates/strix/native/build-aten.ps1": "efe46717ae29edae67807a5daa5086f0847b87f5130523ac94f5762518f81c76",
+    "crates/strix/examples/aten_probe.rs": "b39eeedfa6760edb0fcb8cbae68863079d38317f4afd73c2c62cab8a2562f04f",
+    "crates/strix/examples/aten_teacher_force.rs": "fb509924eb7f672ce90e7058866a831b1975e8e5a88dd9483100e6774b803cbf",
+    "ports/strix-reference/validate_aten.py": "d9636bf1257b1c65c574a29e8d09e79ce47438d5649cd886f68240989676acd2",
+    "ports/strix-reference/validate_aten_router.py": "ff1ceda0a15825b3cf751966ff7217df8bf31ad98ed1b95b24948d2fd0539bb0"
+  },
+  "unchanged_official_source_sha256": {
+    "ports\\strix-reference\\upstream\\encoding.py": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2",
+    "ports\\strix-reference\\upstream\\engram.py": "11f35ecbead8150c35aa002b3d180ef290b05a25afe883a11884f94d476d3897",
+    "ports\\strix-reference\\upstream\\image_processor.py": "482759e3bcc4e9bb5ee582b244cc563f5d0e163d8b48dda91ebb7106e62f9272",
+    "ports\\strix-reference\\upstream\\model.py": "e5decd76fe70fd56ef2f10124d245c6f64fb6a0003cc9068a1d3182a168b8d2d",
+    "ports\\strix-reference\\upstream\\vision.py": "5d49edc196a4ef22384abe76d35a40098cbe1e74b586c8f66a2edff4f076b26c"
+  },
+  "commands": [
+    "pwsh -NoProfile -File crates/strix/native/build-aten.ps1 -SitePackages C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Lib/site-packages -Output target/strix-aten-delivery-build",
+    "cargo build -p deepseek-ultrafast-strix --release --features native-aten --examples",
+    "$env:STRIX_ATEN_SITE_PACKAGES='C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Lib/site-packages'",
+    "$env:STRIX_ATEN_SHIM=(Resolve-Path target/strix-aten-rope-build/strix_aten.dll).Path",
+    "target/release/examples/aten_teacher_force_review.exe target/models/DeepSeek-V4.1-Flash target/strix-aten-final-cases.json target/strix-aten-final-suite aten-ops",
+    "$env:STRIX_ATEN_SHIM=(Resolve-Path target/strix-aten-delivery-build/strix_aten.dll).Path",
+    "target/release/examples/aten_teacher_force.exe target/models/DeepSeek-V4.1-Flash target/strix-aten-the-case.json target/strix-aten-delivery-the aten-ops",
+    "target/release/examples/aten_probe.exe target/models/DeepSeek-V4.1-Flash target/strix-components-final/requests.json target/strix-aten-delivery-components-final",
+    "cargo test -p deepseek-ultrafast-strix",
+    "cargo test -p deepseek-ultrafast-strix --lib -- --ignored",
+    "cargo test -p deepseek-ultrafast-strix --features native-aten",
+    "cargo test -p deepseek-ultrafast-strix --features native-aten --lib aten::tests::hip_ffi_lifecycle_and_errors -- --ignored",
+    "cargo clippy -p deepseek-ultrafast-strix --all-targets -- -D warnings",
+    "cargo clippy -p deepseek-ultrafast-strix --features native-aten --all-targets -- -D warnings",
+    "cargo fmt -p deepseek-ultrafast-strix -- --check",
+    "C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Scripts/python.exe -m unittest discover -s ports/strix-reference/tests -v"
+  ],
+  "primary_docs": [
+    "https://docs.pytorch.org/docs/2.11/generated/torch.topk.html",
+    "https://github.com/pytorch/pytorch/blob/v2.11.0/docs/cpp/source/notes/tensor_basics.md",
+    "https://docs.pytorch.org/cppdocs/installing.html",
+    "https://github.com/pytorch/pytorch/blob/v2.11.0/docs/source/notes/hip.rst"
+  ]
+}

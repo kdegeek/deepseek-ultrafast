@@ -17,6 +17,9 @@ reference token IDs, including EOS. The broader comparison still has five
 next-token mismatches across 28 tested positions and substantial logit differences.
 The native decoder remains experimental; the Python/HIP API is the tested serving path.
 Native serving is not enabled.
+An opt-in [native ATen/HIP compatibility path](docs/STRIX_ATEN.md) now reuses the
+installed native libraries through Rust/C++, with explicit backend selection and
+separate original-checkpoint fidelity evidence. It has no Python runtime bridge.
 See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
 
 ## Upstream engine

@@ -4,7 +4,7 @@ Target verified on November 14, 2026: GMKtec EVO-X2, Ryzen AI Max+ 395,
 Radeon 8060S, Windows 11 Pro. Vulkan driver reports `26.10.1 (LLPC)`.
 The existing AMD PyTorch installation reports `2.11.0+rocm7.14.0`.
 
-The fork currently has two paths:
+The fork has the following paths:
 
 - `crates/strix`: native Rust/Vulkan compute using wgpu. Packed FP4, FP8, BF16,
   and FP32 matrix-vector kernels plus an **experimental native target-only token
@@ -15,6 +15,9 @@ The fork currently has two paths:
   replacements for TileLang kernels and a bounded lazy checkpoint loader.
   It supplies a correctness baseline for the native migration. A short target-only
   text completion has passed with the full original released checkpoint.
+- Optional `native-aten` feature: Rust/C++ ATen/HIP compatibility, selected
+  explicitly and validated separately. See [native ATen guide](STRIX_ATEN.md).
+  The Vulkan failures below are preserved and are not claims about this backend.
 
 The original CUDA implementation remains available. Neither the NVIDIA throughput
 figures in the upstream README nor its 1M context claim have been validated here.
