@@ -3,6 +3,10 @@ name = "deepseek-ultrafast-strix"
 edition.workspace = true
 version.workspace = true
 
+[features]
+# Runtime-loaded C ABI shim; ordinary Vulkan builds need no ATen SDK or DLLs.
+native-aten = []
+
 [dependencies]
 anyhow.workspace = true
 serde.workspace = true

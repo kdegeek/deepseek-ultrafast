@@ -239,20 +239,45 @@ pub struct Stats {
 }
 
 pub struct Weights {
+    #[cfg(all(feature = "native-aten", windows))]
+    pub aten: Option<crate::aten::Projector>,
     pub store: Store,
-    pub gpu: Gpu,
+    pub gpu: Option<Gpu>,
     cache: HashMap<String, Cached>,
     clock: u64,
     pub stats: Stats,
 }
 
 impl Weights {
+    pub fn clear(&mut self) {
+        self.cache.clear();
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(aten) = &mut self.aten {
+            aten.clear();
+        }
+        self.stats.resident_bytes = 0;
+    }
     pub fn new(store: Store, gpu: Gpu, budget: usize) -> Result<Self> {
+        Self::with_gpu(store, Some(gpu), budget)
+    }
+    #[cfg(all(feature = "native-aten", windows))]
+    pub fn new_aten(
+        store: Store,
+        api: std::rc::Rc<crate::aten::Api>,
+        budget: usize,
+    ) -> Result<Self> {
+        let mut weights = Self::with_gpu(store, None, budget)?;
+        weights.aten = Some(crate::aten::Projector::new(api));
+        Ok(weights)
+    }
+    fn with_gpu(store: Store, gpu: Option<Gpu>, budget: usize) -> Result<Self> {
         ensure!(
             (MAX_READ..=32usize * 1024 * 1024 * 1024).contains(&budget),
             "weight cache must be 64 MiB through 32 GiB"
         );
         Ok(Self {
+            #[cfg(all(feature = "native-aten", windows))]
+            aten: None,
             store,
             gpu,
             cache: HashMap::new(),
@@ -264,7 +289,7 @@ impl Weights {
         })
     }
 
-    /// Projections execute exclusively on Vulkan. Quantized linear inputs use
+    /// Projections execute on the explicitly selected AMD backend. Quantized inputs use
     /// E4M3/E8M0, except wo_a (explicit pre-quantization and BF16 einsum).
     pub fn linear(&mut self, name: &str, input: &[f32], round_output: bool) -> Result<Vec<f32>> {
         let rows = self.store.info(name)?.shape[0];
@@ -279,6 +304,22 @@ impl Weights {
         rows: usize,
         round_output: bool,
     ) -> Result<Vec<f32>> {
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(aten) = &mut self.aten {
+            return aten.range(
+                &mut self.store,
+                &mut self.stats,
+                name,
+                input,
+                first,
+                rows,
+                round_output,
+            );
+        }
+        let gpu = self
+            .gpu
+            .as_ref()
+            .context("Vulkan backend was not selected")?;
         let tensor = self.store.info(name)?.clone();
         ensure!(
             tensor.shape.len() == 2
@@ -357,9 +398,7 @@ impl Weights {
                     .stats
                     .peak_host_weight_staging_bound_bytes
                     .max(2 * size);
-                let matrix =
-                    self.gpu
-                        .upload_matrix(&weights, &packed_scales, count, cols, format)?;
+                let matrix = gpu.upload_matrix(&weights, &packed_scales, count, cols, format)?;
                 self.cache.insert(
                     key.clone(),
                     Cached {
@@ -382,8 +421,7 @@ impl Weights {
             cached.used = self.clock;
             let timer = Instant::now();
             output.extend(
-                self.gpu
-                    .matvec(&cached.matrix, &x)
+                gpu.matvec(&cached.matrix, &x)
                     .with_context(|| format!("Vulkan {key}"))?,
             );
             self.stats.matvec_seconds += timer.elapsed().as_secs_f64();

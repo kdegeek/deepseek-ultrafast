@@ -1,6 +1,7 @@
 //! Batch-one, target-only native decoder for the pinned original checkpoint.
 //! Host vector scheduling and bounded attention; every learned matrix projection
-//! (including routing, compression, Engram, and output head) runs on AMD Vulkan.
+//! (including routing, compression, Engram, and output head) runs on the
+//! explicitly selected AMD backend. Vulkan remains the default.
 use crate::{
     config::{Config, rope_table},
     engram::EngramConsts,
@@ -23,6 +24,14 @@ use tokenizers::Tokenizer;
 pub const REVISION: &str = "314113f8a7dadb388215396ba5fbee2c610a04d6";
 pub const MAX_CONTEXT: usize = 128;
 
+pub enum Backend {
+    Vulkan,
+    #[cfg(all(feature = "native-aten", windows))]
+    AtenHc(std::rc::Rc<crate::aten::Api>),
+    #[cfg(all(feature = "native-aten", windows))]
+    AtenOps(std::rc::Rc<crate::aten::Api>),
+}
+
 #[derive(Default)]
 struct LayerState {
     window: Vec<Vec<f32>>,
@@ -33,6 +42,9 @@ struct LayerState {
 }
 
 pub struct Decoder {
+    failed: bool,
+    #[cfg(all(feature = "native-aten", windows))]
+    pub compatibility: Option<crate::aten::Compatibility>,
     cfg: Config,
     pub weights: Weights,
     tokenizer: Tokenizer,
@@ -53,6 +65,15 @@ impl Decoder {
         cache_bytes: usize,
         context: usize,
         trace_dir: Option<PathBuf>,
+    ) -> Result<Self> {
+        Self::open_backend(dir, cache_bytes, context, trace_dir, Backend::Vulkan)
+    }
+    pub fn open_backend(
+        dir: &Path,
+        cache_bytes: usize,
+        context: usize,
+        trace_dir: Option<PathBuf>,
+        backend: Backend,
     ) -> Result<Self> {
         let started = Instant::now();
         ensure!(
@@ -97,8 +118,43 @@ impl Decoder {
         if let Some(path) = &trace_dir {
             std::fs::create_dir_all(path)?;
         }
-        let weights = Weights::new(store, Gpu::new()?, cache_bytes)?;
+        #[cfg(all(feature = "native-aten", windows))]
+        let mut compatibility = match &backend {
+            Backend::Vulkan => None,
+            Backend::AtenHc(api) | Backend::AtenOps(api) => {
+                Some(crate::aten::Compatibility::new(api.clone()))
+            }
+        };
+        #[cfg(all(feature = "native-aten", windows))]
+        if matches!(&backend, Backend::AtenOps(_)) {
+            compatibility
+                .as_mut()
+                .context("ATen compatibility")?
+                .init_rotary(&cfg, context)?;
+        }
+        let weights = match backend {
+            Backend::Vulkan => Weights::new(store, Gpu::new()?, cache_bytes)?,
+            #[cfg(all(feature = "native-aten", windows))]
+            Backend::AtenHc(_) => Weights::new(
+                store,
+                Gpu::new()?,
+                cache_bytes
+                    .checked_sub(256 * 1024 * 1024)
+                    .context("HC cache reserve")?,
+            )?,
+            #[cfg(all(feature = "native-aten", windows))]
+            Backend::AtenOps(api) => Weights::new_aten(
+                store,
+                api,
+                cache_bytes
+                    .checked_sub(256 * 1024 * 1024)
+                    .context("HC cache reserve")?,
+            )?,
+        };
         Ok(Self {
+            failed: false,
+            #[cfg(all(feature = "native-aten", windows))]
+            compatibility,
             cfg,
             weights,
             tokenizer,
@@ -152,10 +208,54 @@ impl Decoder {
     fn norm(&mut self, x: &[f32], name: &str) -> Result<Vec<f32>> {
         let gamma = self.weights.store.small(name)?;
         ensure!(gamma.len() == x.len(), "norm shape {name}");
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(compat) = &self.compatibility {
+            let result =
+                compat
+                    .api
+                    .vectors(2, &[x, &gamma], &[self.cfg.norm_eps as f64], x.len() + 1)?;
+            return Ok(result[1..].to_vec());
+        }
         Ok(math::rms(x, &gamma, self.cfg.norm_eps))
     }
 
+    fn pre(&self, x: &[f32], pre: &[f32]) -> Result<Vec<f32>> {
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(compat) = &self.compatibility {
+            return compat.api.pre(x, pre);
+        }
+        Ok(math::hc_pre(x, pre, self.cfg.dim))
+    }
+
+    fn post(&self, x: &[f32], residual: &[f32], mix: &Mix) -> Result<Vec<f32>> {
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(compat) = &self.compatibility {
+            return compat.api.post(x, residual, mix);
+        }
+        Ok(math::hc_post(x, residual, mix))
+    }
+
     fn mixes(&mut self, x: &[f32], prefix: &str) -> Result<Mix> {
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(compat) = &mut self.compatibility {
+            let values = compat.mix(
+                &mut self.weights.store,
+                prefix,
+                x,
+                self.cfg.hc_eps,
+                self.cfg.norm_eps,
+                self.cfg.hc_sinkhorn_iters,
+            )?;
+            let mix = Mix {
+                pre: values[49..53].to_vec(),
+                post: values[53..57].to_vec(),
+                comb: values[57..].to_vec(),
+            };
+            self.trace(&format!("{prefix}-pre"), &mix.pre)?;
+            self.trace(&format!("{prefix}-post"), &mix.post)?;
+            self.trace(&format!("{prefix}-comb"), &mix.comb)?;
+            return Ok(mix);
+        }
         let mut z = self.weights.linear(&format!("{prefix}_fn"), x, false)?;
         let scale = math::inv_rms(x, self.cfg.norm_eps);
         for v in &mut z {
@@ -177,8 +277,30 @@ impl Decoder {
         Ok(mix)
     }
 
-    fn rotary(&self, x: &mut [f32], layer: usize, position: usize, head_dim: usize, inverse: bool) {
+    fn rotary(
+        &self,
+        x: &mut [f32],
+        layer: usize,
+        position: usize,
+        head_dim: usize,
+        inverse: bool,
+    ) -> Result<()> {
         let rd = self.cfg.rope_head_dim;
+        #[cfg(all(feature = "native-aten", windows))]
+        if self.weights.aten.is_some() {
+            return self
+                .compatibility
+                .as_ref()
+                .context("ATen compatibility")?
+                .rotary(
+                    x,
+                    self.cfg.compress_ratios[layer] > 0,
+                    position,
+                    head_dim,
+                    rd,
+                    inverse,
+                );
+        }
         let (cos, sin) = &self.rope[usize::from(self.cfg.compress_ratios[layer] > 0)];
         let offset = position * rd / 2;
         math::rope(
@@ -189,6 +311,7 @@ impl Decoder {
             &sin[offset..offset + rd / 2],
             inverse,
         );
+        Ok(())
     }
 
     fn engram(&mut self, x: &mut [f32], layer: usize) -> Result<()> {
@@ -238,6 +361,17 @@ impl Decoder {
             .weights
             .store
             .small(&format!("layers.{layer}.engram.k_weight"))?;
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(aten) = &self.weights.aten {
+            let result = aten.api.vectors(
+                6,
+                &[x, &kv, &q, &k],
+                &[dim as f64, self.cfg.norm_eps as f64],
+                x.len(),
+            )?;
+            x.copy_from_slice(&result);
+            return self.trace(&format!("l{layer:02}-engram"), x);
+        }
         math::engram(x, &kv, &q, &k, dim, self.cfg.norm_eps);
         self.trace(&format!("l{layer:02}-engram"), x)
     }
@@ -279,6 +413,18 @@ impl Decoder {
                                 .sum(),
                         );
                     }
+                    #[cfg(all(feature = "native-aten", windows))]
+                    if let Some(aten) = &self.weights.aten {
+                        let kv: Vec<_> = state.pending_kv.iter().flatten().copied().collect();
+                        let scores: Vec<_> =
+                            state.pending_scores.iter().flatten().copied().collect();
+                        pooled = aten.api.vectors(
+                            9,
+                            &[&kv, &scores],
+                            &[self.cfg.head_dim as f64],
+                            self.cfg.head_dim,
+                        )?;
+                    }
                     state.pending_kv.clear();
                     state.pending_scores.clear();
                     latent = Some(self.norm(&pooled, &format!("{p}.compressor.norm.weight"))?);
@@ -301,14 +447,14 @@ impl Decoder {
                         position + 1 - ratio,
                         self.cfg.index_head_dim,
                         false,
-                    );
+                    )?;
                     math::quant_fp4(&mut key, 32, false)?;
                     self.states[source].keys.push(key);
                 }
                 let mut query =
                     self.weights
                         .linear(&format!("{p}.indexer.wq_b.weight"), qr, true)?;
-                self.rotary(&mut query, layer, position, self.cfg.index_head_dim, false);
+                self.rotary(&mut query, layer, position, self.cfg.index_head_dim, false)?;
                 math::quant_fp4(&mut query, 32, false)?;
                 let mut weights =
                     self.weights
@@ -355,7 +501,7 @@ impl Decoder {
                 position + 1 - ratio,
                 self.cfg.head_dim,
                 false,
-            );
+            )?;
             math::quant_fp4(&mut latent, 16, true)?;
             self.states[source].compressed.push(latent);
         }
@@ -377,10 +523,10 @@ impl Decoder {
         let mut q = self
             .weights
             .linear(&format!("{p}.wq_b.weight"), &qr, true)?;
-        self.rotary(&mut q, layer, position, self.cfg.head_dim, false);
+        self.rotary(&mut q, layer, position, self.cfg.head_dim, false)?;
         let kv = self.weights.linear(&format!("{p}.wkv.weight"), x, true)?;
         let mut kv = self.norm(&kv, &format!("{p}.kv_norm.weight"))?;
-        self.rotary(&mut kv, layer, position, self.cfg.head_dim, false);
+        self.rotary(&mut kv, layer, position, self.cfg.head_dim, false)?;
         math::quant_fp8(&mut kv)?;
         math::round_bf16(&mut kv);
         self.states[layer].window.push(kv);
@@ -397,7 +543,26 @@ impl Decoder {
         }
         let sinks = self.weights.store.small(&format!("{p}.attn_sink"))?;
         let mut output = math::attention(&q, &values, &sinks, self.cfg.head_dim);
-        self.rotary(&mut output, layer, position, self.cfg.head_dim, true);
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(aten) = &self.weights.aten {
+            let mut flat = Vec::new();
+            let mut valid = Vec::new();
+            for row in &values {
+                valid.push(if row.is_empty() { 0. } else { 1. });
+                if row.is_empty() {
+                    flat.extend(vec![0.; self.cfg.head_dim]);
+                } else {
+                    flat.extend(row);
+                }
+            }
+            output = aten.api.vectors(
+                10,
+                &[&q, &flat, &sinks, &valid],
+                &[self.cfg.head_dim as f64],
+                q.len(),
+            )?;
+        }
+        self.rotary(&mut output, layer, position, self.cfg.head_dim, true)?;
         math::quant_fp8(&mut output)?;
         math::round_bf16(&mut output);
         let mut grouped = Vec::new();
@@ -427,8 +592,8 @@ impl Decoder {
         let limit = self.cfg.swiglu_limit;
         let hidden: Vec<_> = gate
             .iter()
-            .zip(up)
-            .map(|(g, u)| {
+            .zip(&up)
+            .map(|(g, &u)| {
                 let (g, u) = if limit > 0.0 {
                     (g.min(limit), u.clamp(-limit, limit))
                 } else {
@@ -437,6 +602,13 @@ impl Decoder {
                 math::bf16((g * math::sigmoid(g)) * u * weight)
             })
             .collect();
+        #[cfg(all(feature = "native-aten", windows))]
+        let hidden = if let Some(aten) = &self.weights.aten {
+            aten.api
+                .vectors(7, &[&gate, &up], &[limit as f64, weight as f64], gate.len())?
+        } else {
+            hidden
+        };
         self.weights
             .linear(&format!("{prefix}.w2.weight"), &hidden, true)
     }
@@ -451,6 +623,21 @@ impl Decoder {
             self.cfg.n_activated_experts,
             self.cfg.route_scale,
         );
+        #[cfg(all(feature = "native-aten", windows))]
+        if let Some(aten) = &self.weights.aten {
+            let n = self.cfg.n_activated_experts;
+            let values = aten.api.vectors(
+                8,
+                &[&logits, &bias],
+                &[n as f64, self.cfg.route_scale as f64],
+                n * 2,
+            )?;
+            routed = values[..n]
+                .iter()
+                .zip(&values[n..])
+                .map(|(&i, &w)| (i as usize, w))
+                .collect();
+        }
         self.trace(
             &format!("l{layer:02}-experts"),
             &routed.iter().map(|&(i, _)| i as f32).collect::<Vec<_>>(),
@@ -471,6 +658,26 @@ impl Decoder {
     }
 
     pub fn forward(&mut self, token: u32) -> Result<Vec<f32>> {
+        ensure!(
+            !self.failed,
+            "decoder is unusable after a failed forward; reopen it"
+        );
+        let result = self.forward_inner(token);
+        if result.is_err() {
+            self.failed = true;
+            self.states.clear();
+            self.tokens.clear();
+            self.topk.clear();
+            self.weights.clear();
+            #[cfg(all(feature = "native-aten", windows))]
+            if let Some(compat) = &mut self.compatibility {
+                compat.clear();
+            }
+        }
+        result
+    }
+
+    fn forward_inner(&mut self, token: u32) -> Result<Vec<f32>> {
         let position = self.tokens.len();
         ensure!(
             position < self.context && token < 129264 && (token as usize) < self.cfg.vocab_size,
@@ -484,27 +691,27 @@ impl Decoder {
         for layer in 0..self.cfg.n_layers {
             self.engram(&mut x, layer)?;
             let mix = self.mixes(&x, &format!("layers.{layer}.hc_attn"))?;
-            let collapsed = math::hc_pre(&x, &pre, self.cfg.dim);
+            let collapsed = self.pre(&x, &pre)?;
             let input = self.norm(&collapsed, &format!("layers.{layer}.attn_norm.weight"))?;
             self.trace(&format!("l{layer:02}-attn-input"), &input)?;
             let out = self.attention(&input, layer, position)?;
             self.trace(&format!("l{layer:02}-attn"), &out)?;
-            x = math::hc_post(&out, &x, &mix);
+            x = self.post(&out, &x, &mix)?;
             self.trace(&format!("l{layer:02}-post-attn"), &x)?;
             let ffn_mix = self.mixes(&x, &format!("layers.{layer}.hc_ffn"))?;
-            let collapsed = math::hc_pre(&x, &mix.pre, self.cfg.dim);
+            let collapsed = self.pre(&x, &mix.pre)?;
             let input = self.norm(&collapsed, &format!("layers.{layer}.ffn_norm.weight"))?;
             self.trace(&format!("l{layer:02}-ffn-input"), &input)?;
             let out = self.moe(&input, layer)?;
             self.trace(&format!("l{layer:02}-ffn"), &out)?;
-            x = math::hc_post(&out, &x, &ffn_mix);
+            x = self.post(&out, &x, &ffn_mix)?;
             pre = ffn_mix.pre;
             self.trace(&format!("l{layer:02}-output"), &x)?;
             if self.trace_dir.is_some() {
                 eprintln!("position {position} layer {layer} complete");
             }
         }
-        let collapsed = math::hc_pre(&x, &pre, self.cfg.dim);
+        let collapsed = self.pre(&x, &pre)?;
         let x = self.norm(&collapsed, "norm.weight")?;
         self.trace("head-input", &x)?;
         let logits = self.weights.linear("head.weight", &x, false)?;
@@ -799,7 +1006,7 @@ pub fn generate(
         })
         .sum();
     Ok(
-        json!({"mode":"experimental native Rust/Vulkan target-only greedy text","oracle_status":"experimental; independent acceptance harness reports prompt-specific token parity; broad logit equivalence is not established","revision":REVISION,"checkpoint":dir,"device":decoder.weights.gpu.info,"prompt":prompt,"prompt_tokens":prompt_tokens,"generated_tokens":generated,"text":text,"stop_reason":stop,"initialization_seconds":decoder.initialization_seconds,"elapsed_seconds_including_prefill":started.elapsed().as_secs_f64(),"steps":steps,"weight_cache":decoder.weights.stats,"checkpoint_read_bytes":decoder.weights.store.read_bytes,"peak_checkpoint_read_bytes":decoder.weights.store.peak_read_bytes,"persistent_kv_host_capacity_bytes":state_capacity_bytes,"validated_text_tensors":decoder.validated_text_tensors,"context_limit":context,"host_operations":"tokenizer, Engram hashes, activation quantization, norms, RoPE, hyperconnections, routing selection, bounded attention; all learned matrix projections execute on AMD Vulkan","memory_note":"Weight cache counts actual packed Vulkan buffers including scale padding. Host weight staging bound and persistent KV capacity reported separately. Driver allocation/cache, process working set, transient activations, tokenizer/catalog and other processes are not included in cache budget."}),
+        json!({"mode":"experimental native Rust/Vulkan target-only greedy text","oracle_status":"experimental; independent acceptance harness reports prompt-specific token parity; broad logit equivalence is not established","revision":REVISION,"checkpoint":dir,"device":decoder.weights.gpu.as_ref().context("Vulkan backend")?.info,"prompt":prompt,"prompt_tokens":prompt_tokens,"generated_tokens":generated,"text":text,"stop_reason":stop,"initialization_seconds":decoder.initialization_seconds,"elapsed_seconds_including_prefill":started.elapsed().as_secs_f64(),"steps":steps,"weight_cache":decoder.weights.stats,"checkpoint_read_bytes":decoder.weights.store.read_bytes,"peak_checkpoint_read_bytes":decoder.weights.store.peak_read_bytes,"persistent_kv_host_capacity_bytes":state_capacity_bytes,"validated_text_tensors":decoder.validated_text_tensors,"context_limit":context,"host_operations":"tokenizer, Engram hashes, activation quantization, norms, RoPE, hyperconnections, routing selection, bounded attention; all learned matrix projections execute on AMD Vulkan","memory_note":"Weight cache counts actual packed Vulkan buffers including scale padding. Host weight staging bound and persistent KV capacity reported separately. Driver allocation/cache, process working set, transient activations, tokenizer/catalog and other processes are not included in cache budget."}),
     )
 }
 
@@ -831,6 +1038,9 @@ mod tests {
         });
         let states = (0..cfg.n_layers).map(|_| LayerState::default()).collect();
         let mut decoder = Decoder {
+            failed: false,
+            #[cfg(all(feature = "native-aten", windows))]
+            compatibility: None,
             weights: Weights::new(Store::open(&dir)?, Gpu::new()?, 64 * 1024 * 1024)?,
             cfg,
             hashes,
@@ -870,6 +1080,15 @@ mod tests {
         ensure!(
             decoder.weights.stats.peak_resident_bytes <= decoder.weights.stats.budget_bytes,
             "weight budget exceeded"
+        );
+        ensure!(decoder.forward(u32::MAX).is_err(), "invalid token accepted");
+        ensure!(
+            decoder.weights.stats.resident_bytes == 0 && decoder.states.is_empty(),
+            "failed forward retained request resources"
+        );
+        ensure!(
+            decoder.forward(0).is_err(),
+            "failed decoder reused partial KV state"
         );
         Ok(())
     }
