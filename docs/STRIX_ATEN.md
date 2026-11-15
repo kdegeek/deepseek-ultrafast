@@ -145,6 +145,48 @@ These measurements do not promote this backend to the serving default or
 establish arbitrary-prompt/128-position equivalence. The Vulkan `The` failure and
 its 23/28 next-token result remain unchanged historical facts.
 
+### Conditional routing validation
+
+A subsequent paired run captures the unchanged HIP reference's ten-position
+chat sequence, then checks every native router's raw logits, unbiased scores,
+corrected scores and weights bit for bit. The native diagnostic resamples the
+same ATen `topk` operation only when exact tied scores permit another legal
+sorted selection. It never supplies recorded weights or perturbs scores.
+Non-tied differences, nonfinite values, invalid/duplicate expert IDs or unequal
+weights fail immediately. This diagnostic is enabled only by the standalone
+`aten_route_replay` example; the serving API cannot enable it.
+
+**All 400 router checks and all 1,292,800 output logits match bit for bit.**
+Two selections needed resampling, both at position zero:
+
+- Layer 20: the first native selection chose expert 96; the reference chose
+  338. Their corrected scores both equal `14.184751510620117`. The second
+  unchanged native call selected the recorded branch.
+- Layer 36: the first native selection chose 337; the reference chose 186.
+  Experts 186, 239, 270 and 337 share cutoff `32.76362991333008`. The third
+  unchanged native call selected the recorded branch.
+
+The resulting chat continuation remains `OK` followed by EOS. This establishes
+conditional fidelity for the tested sequence and accounts for its observed
+divergence using permitted tied selections. It does **not** establish
+unconditional bit-identical production output, every historical mismatch,
+arbitrary prompt quality or the complete 128-position boundary. Production
+continues to use one ordinary ATen top-k call per router, with its documented
+tie variability. The earlier saved-reference failures remain recorded.
+
+See [the routing evidence](validation/strix-halo-routing-2026-11-14.json) and
+the separate [native API guide](STRIX_NATIVE_API.md) for serving and its own
+hardware acceptance. The comparison enforces exact unique coverage of all
+40 layers at each position and compares FP32 bit patterns, including signed
+zero. Reference capture and native replay took 249.6 and 286.0 seconds,
+respectively; these are diagnostic timings, not serving benchmarks.
+
+```powershell
+& $python ports/strix-reference/validate_routing_replay.py capture --checkpoint target/models/DeepSeek-V4.1-Flash --cases target/strix-numerics-20261114/cases.json --label chat --output target/new-routing-reference
+target/release/examples/aten_route_replay.exe target/models/DeepSeek-V4.1-Flash target/new-routing-reference target/new-routing-native
+& $python ports/strix-reference/validate_routing_replay.py compare --reference target/new-routing-reference --native target/new-routing-native --executable target/release/examples/aten_route_replay.exe --shim $env:STRIX_ATEN_SHIM --output target/new-routing-comparison.json
+```
+
 ```powershell
 cargo test -p deepseek-ultrafast-strix
 cargo test -p deepseek-ultrafast-strix --lib -- --ignored

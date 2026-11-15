@@ -24,6 +24,10 @@ use tokenizers::Tokenizer;
 pub const REVISION: &str = "314113f8a7dadb388215396ba5fbee2c610a04d6";
 pub const MAX_CONTEXT: usize = 128;
 
+#[cfg(all(feature = "native-aten", windows))]
+#[path = "routing_diagnostic.rs"]
+mod routing_diagnostic;
+
 pub enum Backend {
     Vulkan,
     #[cfg(all(feature = "native-aten", windows))]
@@ -43,6 +47,8 @@ struct LayerState {
 
 pub struct Decoder {
     failed: bool,
+    #[cfg(all(feature = "native-aten", windows))]
+    routing_replay: Option<routing_diagnostic::Replay>,
     #[cfg(all(feature = "native-aten", windows))]
     pub compatibility: Option<crate::aten::Compatibility>,
     cfg: Config,
@@ -154,6 +160,8 @@ impl Decoder {
         Ok(Self {
             failed: false,
             #[cfg(all(feature = "native-aten", windows))]
+            routing_replay: None,
+            #[cfg(all(feature = "native-aten", windows))]
             compatibility,
             cfg,
             weights,
@@ -184,6 +192,40 @@ impl Decoder {
             "image/control tokens for vision are unsupported"
         );
         Ok(ids)
+    }
+
+    /// Begin an independent request, retaining only immutable model data and weights.
+    /// A failed forward quarantines the decoder and requires reopening it.
+    pub fn reset_request(&mut self) -> Result<()> {
+        ensure!(!self.failed, "failed decoder must be reopened");
+        #[cfg(all(feature = "native-aten", windows))]
+        ensure!(
+            self.routing_replay.is_none(),
+            "diagnostic replay cannot be reused"
+        );
+        self.tokens.clear();
+        self.topk.clear();
+        self.states = (0..self.cfg.n_layers)
+            .map(|_| LayerState::default())
+            .collect();
+        Ok(())
+    }
+
+    /// Validation only: resample *unchanged* ATen top-k to follow a recorded legal
+    /// tie branch. Not enabled by environment variables or any serving interface.
+    #[cfg(all(feature = "native-aten", windows))]
+    pub fn enable_routing_replay(&mut self, directory: PathBuf) -> Result<()> {
+        ensure!(
+            self.tokens.is_empty() && self.weights.aten.is_some(),
+            "replay requires a fresh ATen decoder"
+        );
+        self.routing_replay = Some(routing_diagnostic::Replay::new(directory));
+        Ok(())
+    }
+
+    #[cfg(all(feature = "native-aten", windows))]
+    pub fn routing_replay_report(&self) -> Option<Value> {
+        self.routing_replay.as_ref().map(|r| json!(r.records))
     }
     pub fn decode(&self, ids: &[u32]) -> Result<String> {
         self.tokenizer
@@ -626,12 +668,24 @@ impl Decoder {
         #[cfg(all(feature = "native-aten", windows))]
         if let Some(aten) = &self.weights.aten {
             let n = self.cfg.n_activated_experts;
-            let values = aten.api.vectors(
-                8,
-                &[&logits, &bias],
-                &[n as f64, self.cfg.route_scale as f64],
-                n * 2,
-            )?;
+            let values = if let Some(replay) = &mut self.routing_replay {
+                replay.route(
+                    &aten.api,
+                    self.tokens.len() - 1,
+                    layer,
+                    &logits,
+                    &bias,
+                    n,
+                    self.cfg.route_scale,
+                )?
+            } else {
+                aten.api.vectors(
+                    8,
+                    &[&logits, &bias],
+                    &[n as f64, self.cfg.route_scale as f64],
+                    n * 2,
+                )?
+            };
             routed = values[..n]
                 .iter()
                 .zip(&values[n..])
@@ -1040,6 +1094,8 @@ mod tests {
         let mut decoder = Decoder {
             failed: false,
             #[cfg(all(feature = "native-aten", windows))]
+            routing_replay: None,
+            #[cfg(all(feature = "native-aten", windows))]
             compatibility: None,
             weights: Weights::new(Store::open(&dir)?, Gpu::new()?, 64 * 1024 * 1024)?,
             cfg,
@@ -1054,8 +1110,12 @@ mod tests {
             initialization_seconds: 0.,
             validated_text_tensors: 0,
         };
+        let mut initial_logits = Vec::new();
         for (position, token) in expected["tokens"].as_array().unwrap().iter().enumerate() {
             let actual = decoder.forward(token.as_u64().unwrap() as u32)?;
+            if position == 0 {
+                initial_logits = actual.clone();
+            }
             let reference = expected["logits"][position].as_array().unwrap();
             let atol = expected["atol"].as_f64().unwrap() as f32;
             let rtol = expected["rtol"].as_f64().unwrap() as f32;
@@ -1081,7 +1141,26 @@ mod tests {
             decoder.weights.stats.peak_resident_bytes <= decoder.weights.stats.budget_bytes,
             "weight budget exceeded"
         );
+        let resident_before = decoder.weights.stats.resident_bytes;
+        decoder.reset_request()?;
+        ensure!(
+            decoder.weights.stats.resident_bytes == resident_before,
+            "reset discarded warm weights"
+        );
+        ensure!(
+            decoder.tokens.is_empty() && decoder.topk.is_empty(),
+            "reset retained token state"
+        );
+        let repeated = decoder.forward(expected["tokens"][0].as_u64().unwrap() as u32)?;
+        ensure!(
+            initial_logits == repeated,
+            "reset did not reproduce initial logits"
+        );
         ensure!(decoder.forward(u32::MAX).is_err(), "invalid token accepted");
+        ensure!(
+            decoder.reset_request().is_err(),
+            "reset revived quarantined decoder"
+        );
         ensure!(
             decoder.weights.stats.resident_bytes == 0 && decoder.states.is_empty(),
             "failed forward retained request resources"
