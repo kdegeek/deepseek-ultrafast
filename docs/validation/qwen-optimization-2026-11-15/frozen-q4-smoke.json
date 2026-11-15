@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T21:06:13.180224+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "smoke",
+  "script_sha256": "37b838d0933e0e146fc3e555fddb8bd8a1bc6345211ff58edf5b08b8bc084790",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "smoke_arithmetic",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T21:06:13.682565+00:00",
+      "http_status": 200,
+      "http_seconds": 0.46127609998802654,
+      "request_sha256": "4ce48c1e25a26cbc818a687ff8190596f9d2642a175ccf3c398561250106f4c5",
+      "request_bytes": 249,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 64
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "80",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776773,
+        "id": "chatcmpl-72672-1",
+        "metrics": {
+          "available_physical_bytes": 81048268800,
+          "decode_ms": 171.0944,
+          "decode_tokens": 2,
+          "decode_tps": 11.689453307647709,
+          "prefill_ms": 247.573,
+          "prefill_tps": 173.68614509659776,
+          "seed": 2026,
+          "total_ms": 420.1677,
+          "ttft_ms": 249.0733
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 43,
+          "total_tokens": 46
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "smoke_arithmetic",
+      "passed": true,
+      "seconds": 0.46300290001090616,
+      "detail": {
+        "observed": "80",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 43,
+          "total_tokens": 46
+        },
+        "metrics": {
+          "available_physical_bytes": 81048268800,
+          "decode_ms": 171.0944,
+          "decode_tokens": 2,
+          "decode_tps": 11.689453307647709,
+          "prefill_ms": 247.573,
+          "prefill_tps": 173.68614509659776,
+          "seed": 2026,
+          "total_ms": 420.1677,
+          "ttft_ms": 249.0733
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 0,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 80404525056,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 607.4048,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": null,
+    "pid": 72672,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "models": {
+    "data": [
+      {
+        "created": 0,
+        "id": "Qwen/Qwen3.8-27B",
+        "object": "model",
+        "owned_by": "Qwen"
+      }
+    ],
+    "object": "list"
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 1,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 80404525056,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 607.4048,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-72672-1",
+      "metrics": {
+        "available_physical_bytes": 81048268800,
+        "decode_ms": 171.0944,
+        "decode_tokens": 2,
+        "decode_tps": 11.689453307647709,
+        "prefill_ms": 247.573,
+        "prefill_tps": 173.68614509659776,
+        "seed": 2026,
+        "total_ms": 420.1677,
+        "ttft_ms": 249.0733
+      },
+      "outcome": "completed"
+    },
+    "pid": 72672,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T21:06:13.693165+00:00"
+}

@@ -1,0 +1,3 @@
+[
+  {"name":"q8-selected","parameters":{"Quant":"q8","Backend":"Vulkan","Profile":"fast","DFlashDraft":4,"DraftSampling":"probabilistic"}}
+]

@@ -1,0 +1,6 @@
+[
+  {"name":"q8-64k-control","parameters":{"Quant":"q8","Backend":"Vulkan","Profile":"extended64","MtpDraft":0,"DFlashDraft":0,"RequestTimeoutSeconds":10800},"target_tokens":62000,"fixture_seed":20261115},
+  {"name":"q8-64k-dflash4","parameters":{"Quant":"q8","Backend":"Vulkan","Profile":"extended64","DFlashDraft":4,"DraftSampling":"probabilistic","RequestTimeoutSeconds":10800},"target_tokens":62000,"fixture_seed":20261115},
+  {"name":"q8-128k-dflash4","parameters":{"Quant":"q8","Backend":"Vulkan","Profile":"extended128","DFlashDraft":4,"DraftSampling":"probabilistic","RequestTimeoutSeconds":10800},"target_tokens":125000,"fixture_seed":20261116},
+  {"name":"q8-256k-dflash4","parameters":{"Quant":"q8","Backend":"Vulkan","Profile":"extended256","DFlashDraft":4,"DraftSampling":"probabilistic","RequestTimeoutSeconds":10800},"target_tokens":255000,"fixture_seed":20261117}
+]

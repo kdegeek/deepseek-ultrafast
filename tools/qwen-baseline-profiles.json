@@ -1,0 +1,24 @@
+[
+  {
+    "parameters": {
+      "Backend": "Vulkan",
+      "MtpDraft": 0
+    },
+    "name": "vulkan-baseline-batch-logits",
+    "batch_logit_capacity": true
+  },
+  {
+    "name": "vulkan-baseline",
+    "parameters": {
+      "Backend": "Vulkan",
+      "MtpDraft": 0
+    }
+  },
+  {
+    "name": "hip-baseline",
+    "parameters": {
+      "Backend": "HIP",
+      "MtpDraft": 0
+    }
+  }
+]

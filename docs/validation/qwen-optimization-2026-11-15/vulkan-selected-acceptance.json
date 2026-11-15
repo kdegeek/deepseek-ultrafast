@@ -1,0 +1,3497 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T20:54:12.402096+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "all",
+  "script_sha256": "37b838d0933e0e146fc3e555fddb8bd8a1bc6345211ff58edf5b08b8bc084790",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "arithmetic_invoice",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:13.106383+00:00",
+      "http_status": 200,
+      "http_seconds": 0.6751749999966705,
+      "request_sha256": "925ed6ec6261a0329c8b51c20d1f08fa6ca52fd61fa8aa273080ff8df579e0e9",
+      "request_bytes": 286,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "428.50",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776052,
+        "id": "chatcmpl-70256-1",
+        "metrics": {
+          "accepted_draft_tokens": 5,
+          "available_physical_bytes": 62713352192,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 28.6906,
+          "decode_ms": 376.8359,
+          "decode_tokens": 6,
+          "decode_tps": 15.92204988962039,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.625,
+          "draft_ms": 39.0997,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 252.951,
+          "prefill_tps": 217.4334159580314,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0015,
+          "sampling_and_sync_ms": 7.043,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 331.1513,
+          "total_including_cleanup_ms": 660.3694,
+          "total_ms": 631.6593,
+          "ttft_ms": 254.8234,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 7,
+          "prompt_tokens": 55,
+          "total_tokens": 62
+        }
+      }
+    },
+    {
+      "name": "structured_instruction",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:13.779687+00:00",
+      "http_status": 200,
+      "http_seconds": 0.6709038999979384,
+      "request_sha256": "cbbc7a2235e73c7eb40948e5640fee0a84ec11af39f522f52fac6d6866cbcfed",
+      "request_bytes": 257,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"color\":\"blue\",\"count\":3}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776053,
+        "id": "chatcmpl-70256-2",
+        "metrics": {
+          "accepted_draft_tokens": 8,
+          "available_physical_bytes": 62612934656,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.697,
+          "decode_ms": 380.9838,
+          "decode_tokens": 9,
+          "decode_tps": 23.62305168881197,
+          "dflash_draft": 4,
+          "draft_acceptance": 1.0,
+          "draft_ms": 38.6727,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 246.9128,
+          "prefill_tps": 182.25057591181988,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 11.9053,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 330.79740000000004,
+          "total_including_cleanup_ms": 657.2419,
+          "total_ms": 629.5248,
+          "ttft_ms": 248.541,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 10,
+          "prompt_tokens": 45,
+          "total_tokens": 55
+        }
+      }
+    },
+    {
+      "name": "unicode",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:14.457663+00:00",
+      "http_status": 200,
+      "http_seconds": 0.6756166000122903,
+      "request_sha256": "2ef06b529bcb32bf3497cb986fbcdbfd725eb507cec5b5632d535e02f1f74d1f",
+      "request_bytes": 220,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Café — 東京 🪵",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776053,
+        "id": "chatcmpl-70256-3",
+        "metrics": {
+          "accepted_draft_tokens": 8,
+          "available_physical_bytes": 62521303040,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.8058,
+          "decode_ms": 385.12,
+          "decode_tokens": 9,
+          "decode_tps": 23.369339426672205,
+          "dflash_draft": 4,
+          "draft_acceptance": 1.0,
+          "draft_ms": 40.6608,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 237.4466,
+          "prefill_tps": 138.97861666581034,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0008,
+          "sampling_and_sync_ms": 12.313,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 332.4883,
+          "total_including_cleanup_ms": 651.8172,
+          "total_ms": 623.9967,
+          "ttft_ms": 238.8767,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 10,
+          "prompt_tokens": 33,
+          "total_tokens": 43
+        }
+      }
+    },
+    {
+      "name": "instruction_summary",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:15.752094+00:00",
+      "http_status": 200,
+      "http_seconds": 1.2918512000032933,
+      "request_sha256": "c594e89c82dff36be3df77806e64f0679037bff6c7dec74f6ca70a98834f334b",
+      "request_bytes": 354,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Nine usable and three damaged doors were received, with the nine passing inspection.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776054,
+        "id": "chatcmpl-70256-4",
+        "metrics": {
+          "accepted_draft_tokens": 10,
+          "available_physical_bytes": 62360711168,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.361,
+          "decode_ms": 997.1663,
+          "decode_tokens": 15,
+          "decode_tps": 15.042626290118308,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.5,
+          "draft_ms": 98.8126,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 20,
+          "mtp_draft": 0,
+          "prefill_ms": 255.0404,
+          "prefill_tps": 231.33589815574317,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0006,
+          "sampling_and_sync_ms": 19.2231,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 5,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 879.3537999999999,
+          "total_including_cleanup_ms": 1281.9189,
+          "total_ms": 1254.5403,
+          "ttft_ms": 257.374,
+          "verification_steps": 5
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 16,
+          "prompt_tokens": 59,
+          "total_tokens": 75
+        }
+      }
+    },
+    {
+      "name": "multi_turn_inventory",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:16.366035+00:00",
+      "http_status": 200,
+      "http_seconds": 0.6107802000042284,
+      "request_sha256": "1f8211a79db475463e149dd1c408eeecdb98bdb0847015df6f52b6202e24d325",
+      "request_bytes": 476,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "22",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776055,
+        "id": "chatcmpl-70256-5",
+        "metrics": {
+          "accepted_draft_tokens": 1,
+          "available_physical_bytes": 62134206464,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 32.2522,
+          "decode_ms": 192.7635,
+          "decode_tokens": 2,
+          "decode_tps": 10.375408207466664,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.25,
+          "draft_ms": 19.8888,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 367.9575,
+          "prefill_tps": 258.18199112669265,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 3.3703000000000003,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 170.384,
+          "total_including_cleanup_ms": 595.3515,
+          "total_ms": 563.0811,
+          "ttft_ms": 370.3176,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 95,
+          "total_tokens": 98
+        }
+      }
+    },
+    {
+      "name": "coding_clamp",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:17.723734+00:00",
+      "http_status": 200,
+      "http_seconds": 1.3547691999992821,
+      "request_sha256": "2697257f4659047ffe8619b83bfff9aff42cf33fa2c3d58619a5a96e3a2a5336",
+      "request_bytes": 419,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 160
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "def clamp(value, low, high):\n    return max(low, min(high, value))",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776056,
+        "id": "chatcmpl-70256-6",
+        "metrics": {
+          "accepted_draft_tokens": 14,
+          "available_physical_bytes": 62359396352,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 30.1912,
+          "decode_ms": 944.5689,
+          "decode_tokens": 19,
+          "decode_tps": 20.114996375595258,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.7,
+          "draft_ms": 99.5941,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 20,
+          "mtp_draft": 0,
+          "prefill_ms": 359.4006,
+          "prefill_tps": 211.46319733467337,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0008,
+          "sampling_and_sync_ms": 18.5325,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 5,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 826.8044,
+          "total_including_cleanup_ms": 1336.4116,
+          "total_ms": 1306.2056,
+          "ttft_ms": 361.6367,
+          "verification_steps": 5
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 20,
+          "prompt_tokens": 76,
+          "total_tokens": 96
+        }
+      }
+    },
+    {
+      "name": "thinking_opt_in",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.626429+00:00",
+      "http_status": 200,
+      "http_seconds": 12.90058929999941,
+      "request_sha256": "803fe8d2e8d581bc8c8aa46af02b34dec0daec462d498b0afe1be836d73c4e07",
+      "request_bytes": 281,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "enable_thinking": true
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "<think>\nWe need answer user: Compute 37*24. Check arithmetic, then final product and one short sentence explaining calculation. Need final concise. Compute: 37*24 = 37*20 + 37*4 = 740+148=888. Or 24*37 = 24*30+24*7=720+168=888. Need final product and one short sentence. Could say \"888. I split 24 into 20 and 4, then added 37×20=740 and 37×4=148.\" That's one sentence? It includes final product maybe separate? User: \"then give the final product and one short sentence explaining the calculation.\" Could output: \"888 — I split 24 into 20 and 4, then added 740 and 148.\" That's final product and one sentence. Ensure short.\n</think>\n\n888 — I split 24 into 20 and 4, then added 37×20 = 740 and 37×4 = 148.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776057,
+        "id": "chatcmpl-70256-7",
+        "metrics": {
+          "accepted_draft_tokens": 199,
+          "available_physical_bytes": 61948211200,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.0787,
+          "decode_ms": 12502.293,
+          "decode_tokens": 265,
+          "decode_tps": 21.19611178525411,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.7537878787878788,
+          "draft_ms": 1316.9907000000003,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 264,
+          "mtp_draft": 0,
+          "prefill_ms": 353.9554,
+          "prefill_tps": 223.19196147311217,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.001,
+          "sampling_and_sync_ms": 181.4255,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 66,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 10991.150799999998,
+          "total_including_cleanup_ms": 12885.2485,
+          "total_ms": 12858.1541,
+          "ttft_ms": 355.8611,
+          "verification_steps": 66
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 266,
+          "prompt_tokens": 79,
+          "total_tokens": 345
+        }
+      }
+    },
+    {
+      "name": "reject_0",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.630807+00:00",
+      "http_status": 400,
+      "http_seconds": 0.0009834000084083527,
+      "request_sha256": "a5ae35835c37383ebf06389c917c213e0656e82553439df5f62b90173b9c0a32",
+      "request_bytes": 129,
+      "parameters": {
+        "model": "wrong/model",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "model must be Qwen/Qwen3.8-27B",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.654668+00:00",
+      "http_status": 400,
+      "http_seconds": 0.022467500006314367,
+      "request_sha256": "0f297128da279e8310a19c0b13dd1f1c2c0e8c74cbba04cecd8558a7622d9b23",
+      "request_bytes": 135,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": -1,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "temperature must be a finite number in [0, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_2",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.670066+00:00",
+      "http_status": 400,
+      "http_seconds": 0.01381680001213681,
+      "request_sha256": "64873c94ce91eda6c1f34270ca05498900662805ed7b52c121407d92ed7173a7",
+      "request_bytes": 136,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": "0",
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "temperature must be a finite number in [0, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_3",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.686628+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014919799999915995,
+      "request_sha256": "45d746ed1889fd768d1b3906e6c2d69b97a1ccd4fcd9f24974650ac4236cdbdd",
+      "request_bytes": 134,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 0
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "max_tokens must be an integer in [1, 8192]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_4",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.702818+00:00",
+      "http_status": 400,
+      "http_seconds": 0.01439820000086911,
+      "request_sha256": "f33d69a37d5b74e6d48b56870e4da0f9e98625ce7a2be0ab777e01c527b015bf",
+      "request_bytes": 136,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1.5
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "max_tokens must be an integer in [1, 8192]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_5",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.718976+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014486900006886572,
+      "request_sha256": "1debb351c16b097244bf9b67c64af485f3cebb8a49b9b01c991ee8671a90110a",
+      "request_bytes": 148,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "top_p": 1.1
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "top_p must be a finite number in [0.000001, 1]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_6",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.734743+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014358700005686842,
+      "request_sha256": "7d3b7925c0365024df52582c2e73a13ab9d20deb6bdc4a61c14aa4d8c93ef66f",
+      "request_bytes": 142,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "n": 2
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "n must be an integer in [1, 1]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_7",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.750681+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014047199991182424,
+      "request_sha256": "75ad3c285ddcfe662c9c99d9b4d5c12c99179ee13b5f26dbb44b9d9dec0c1c74",
+      "request_bytes": 147,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "tools": []
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: tools",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_8",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.765874+00:00",
+      "http_status": 400,
+      "http_seconds": 0.013596299992059357,
+      "request_sha256": "47057ea1eef4bde63fed8743a57919a72d67a35f79b9e5b927f1b00ac4f944d3",
+      "request_bytes": 152,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "logprobs": true
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: logprobs",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_9",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.782171+00:00",
+      "http_status": 400,
+      "http_seconds": 0.015020799997728318,
+      "request_sha256": "1bd7ae6b0c5c7df426e135fea433164d9f0957f385a8cdd5dff7898f9e2b6edc",
+      "request_bytes": 178,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: response_format",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_10",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.797971+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014467200002400205,
+      "request_sha256": "3482f13034ad172ff8b208fc1d0cb9c015d335adb9bef3a858981989df49fd74",
+      "request_bytes": 159,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "presence_penalty": 2.1
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "presence_penalty must be a finite number in [-2, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_11",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.813990+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014474800002062693,
+      "request_sha256": "f9045db55faab4d8ad78abd39d7e204b36eee9c6a73523c0ecc5e1677f5ab2a8",
+      "request_bytes": 161,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "frequency_penalty": -2.1
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "frequency_penalty must be a finite number in [-2, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_12",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.816028+00:00",
+      "http_status": 400,
+      "http_seconds": 0.0006001000001560897,
+      "request_sha256": "4265264ccdaa5ee9a2ff9f918c9b5677831fdc65b5eb4121c39e9a8cd2a4447f",
+      "request_bytes": 148,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "stop": [
+          ""
+        ]
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "stop supports at most four nonempty strings of at most 256 UTF-8 bytes without NUL",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_13",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.817577+00:00",
+      "http_status": 400,
+      "http_seconds": 0.000494699997943826,
+      "request_sha256": "3e35c69ba4d9bb7cdb99792768f8f6c7b61418a43b6199b866020baf76a2c20b",
+      "request_bytes": 171,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "stream_options": {
+          "unknown": true
+        }
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "stream_options requires stream=true",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_14",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:30.829303+00:00",
+      "http_status": 400,
+      "http_seconds": 0.010649399991962127,
+      "request_sha256": "1b3e55474337375089210bc6182cb1f4ae46cfeb5a96b0ea87777486f444d569",
+      "request_bytes": 162,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "unsupported_option": true
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: unsupported_option",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "deterministic_A",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:35.832824+00:00",
+      "http_status": 200,
+      "http_seconds": 5.001301200012676,
+      "request_sha256": "711da13972da2ac9ddd7c1b291a5e600027794c1e7684945ff3ef9701667451b",
+      "request_bytes": 211,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "It eliminates the daily hassle of writing down items from scratch.\nHouse members can easily add or check off products as they shop.\nThis reduces duplicate purchases and saves money on groceries.\nUltimately, it streamlines errands to save valuable time for the family.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776070,
+        "id": "chatcmpl-70256-8",
+        "metrics": {
+          "accepted_draft_tokens": 30,
+          "available_physical_bytes": 65056157696,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 28.3661,
+          "decode_ms": 4306.4718,
+          "decode_tokens": 53,
+          "decode_tps": 12.30705841380408,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.32608695652173914,
+          "draft_ms": 446.1628,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 92,
+          "mtp_draft": 0,
+          "prefill_ms": 663.5758,
+          "prefill_tps": 42.195631606818694,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0011,
+          "sampling_and_sync_ms": 73.19789999999999,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 23,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 3784.0649,
+          "total_including_cleanup_ms": 5000.0097,
+          "total_ms": 4971.6294,
+          "ttft_ms": 665.1576,
+          "verification_steps": 23
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 28,
+          "total_tokens": 82
+        }
+      }
+    },
+    {
+      "name": "unrelated_request",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:36.747762+00:00",
+      "http_status": 200,
+      "http_seconds": 0.9126336999906925,
+      "request_sha256": "b64caeb1e7be5276aa8338792b1deeb5c6548ca51b78924895eb253fcb00ae4a",
+      "request_bytes": 203,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 48
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "17",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776075,
+        "id": "chatcmpl-70256-9",
+        "metrics": {
+          "accepted_draft_tokens": 1,
+          "available_physical_bytes": 65049935872,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.7083,
+          "decode_ms": 188.6837,
+          "decode_tokens": 2,
+          "decode_tps": 10.599749739908642,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.25,
+          "draft_ms": 19.8644,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 669.6255,
+          "prefill_tps": 47.7879053291728,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 4.269,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 165.554,
+          "total_including_cleanup_ms": 887.9712,
+          "total_ms": 860.2437,
+          "ttft_ms": 671.56,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 32,
+          "total_tokens": 35
+        }
+      }
+    },
+    {
+      "name": "deterministic_B_after_unrelated",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:41.764846+00:00",
+      "http_status": 200,
+      "http_seconds": 5.015230999997584,
+      "request_sha256": "711da13972da2ac9ddd7c1b291a5e600027794c1e7684945ff3ef9701667451b",
+      "request_bytes": 211,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "It eliminates the daily hassle of writing down items from scratch.\nHouse members can easily add or check off products as they shop.\nThis reduces duplicate purchases and saves money on groceries.\nUltimately, it streamlines errands to save valuable time for the family.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776076,
+        "id": "chatcmpl-70256-10",
+        "metrics": {
+          "accepted_draft_tokens": 30,
+          "available_physical_bytes": 65021218816,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.8591,
+          "decode_ms": 4312.8531,
+          "decode_tokens": 53,
+          "decode_tps": 12.288848882889148,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.32608695652173914,
+          "draft_ms": 455.6353,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 92,
+          "mtp_draft": 0,
+          "prefill_ms": 658.8558,
+          "prefill_tps": 42.49791836089171,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0006,
+          "sampling_and_sync_ms": 81.47089999999999,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 23,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 3772.269999999999,
+          "total_including_cleanup_ms": 5001.493,
+          "total_ms": 4973.6221,
+          "ttft_ms": 660.769,
+          "verification_steps": 23
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 28,
+          "total_tokens": 82
+        }
+      }
+    },
+    {
+      "name": "sampled_seed_A",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:54:54.185054+00:00",
+      "http_status": 200,
+      "http_seconds": 12.417652700009057,
+      "request_sha256": "36a9a0b542685e040348ae9fd23eaebc1598c98a6f7fb133b6eaa4993bc4609a",
+      "request_bytes": 341,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 192,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 0.3,
+        "frequency_penalty": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Elias wiped the damp earth from his hands, his fingers finally still after hours of coaxing new life from the stubborn soil. As he leaned against the gnarled roots of the ancient oak, a sliver of polished mahogany caught the late afternoon sun, nestled just above the ground. He crouched down, brushing away a layer of fallen leaves to reveal a handle no larger than a thimble, tarnished with age but gleaming with an impossible sheen. The air around the door seemed to hum with a quiet, expectant energy, distinct from the usual rustle of the garden. With a trembling hand, he reached out, his heart pounding against his ribs as he turned the tiny key in the lock.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776081,
+        "id": "chatcmpl-70256-11",
+        "metrics": {
+          "accepted_draft_tokens": 84,
+          "available_physical_bytes": 65176756224,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.9363,
+          "decode_ms": 12135.1325,
+          "decode_tokens": 148,
+          "decode_tps": 12.195993739664566,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.3230769230769231,
+          "draft_ms": 1278.1263000000004,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 260,
+          "mtp_draft": 0,
+          "prefill_ms": 237.9074,
+          "prefill_tps": 147.11606280426756,
+          "rejection_verification_steps": 65,
+          "reset_before_ms": 0.0004,
+          "sampling_and_sync_ms": 212.0879,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 65,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 10633.3482,
+          "total_including_cleanup_ms": 12402.7991,
+          "total_ms": 12374.8482,
+          "ttft_ms": 239.7157,
+          "verification_steps": 65
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 149,
+          "prompt_tokens": 35,
+          "total_tokens": 184
+        }
+      }
+    },
+    {
+      "name": "sampled_seed_B",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:06.611027+00:00",
+      "http_status": 200,
+      "http_seconds": 12.425303399999393,
+      "request_sha256": "36a9a0b542685e040348ae9fd23eaebc1598c98a6f7fb133b6eaa4993bc4609a",
+      "request_bytes": 341,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 192,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 0.3,
+        "frequency_penalty": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Elias wiped the damp earth from his hands, his fingers finally still after hours of coaxing new life from the stubborn soil. As he leaned against the gnarled roots of the ancient oak, a sliver of polished mahogany caught the late afternoon sun, nestled just above the ground. He crouched down, brushing away a layer of fallen leaves to reveal a handle no larger than a thimble, tarnished with age but gleaming with an impossible sheen. The air around the door seemed to hum with a quiet, expectant energy, distinct from the usual rustle of the garden. With a trembling hand, he reached out, his heart pounding against his ribs as he turned the tiny key in the lock.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776094,
+        "id": "chatcmpl-70256-12",
+        "metrics": {
+          "accepted_draft_tokens": 84,
+          "available_physical_bytes": 65181667328,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.5585,
+          "decode_ms": 12138.0667,
+          "decode_tokens": 148,
+          "decode_tps": 12.193045536650413,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.3230769230769231,
+          "draft_ms": 1247.8571000000006,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 260,
+          "mtp_draft": 0,
+          "prefill_ms": 243.2502,
+          "prefill_tps": 143.88477378435866,
+          "rejection_verification_steps": 65,
+          "reset_before_ms": 0.0014,
+          "sampling_and_sync_ms": 235.76369999999997,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 65,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 10645.9435,
+          "total_including_cleanup_ms": 12410.378,
+          "total_ms": 12382.7975,
+          "ttft_ms": 244.7308,
+          "verification_steps": 65
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 149,
+          "prompt_tokens": 35,
+          "total_tokens": 184
+        }
+      }
+    },
+    {
+      "name": "stream_equivalence",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:11.604931+00:00",
+      "request_sha256": "204127cc38d1c2ce9139217f900afe4c9dcf3b265ebf179a4174bd076fdfb97e",
+      "request_bytes": 270,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "It eliminates the daily hassle of writing down items from scratch.\nHouse members can easily add or check off products as they shop.\nThis reduces duplicate purchases and saves money on groceries.\nUltimately, it streamlines errands to save valuable time for the family.",
+      "text_sha256": "5aa632dfd10a5022d1e81ab7b8571f61ba2459fd0dbf1492203fbf270e30dab7",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 54,
+        "prompt_tokens": 28,
+        "total_tokens": 82
+      },
+      "metrics": {
+        "accepted_draft_tokens": 30,
+        "available_physical_bytes": 65194848256,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 27.7797,
+        "decode_ms": 4304.4005,
+        "decode_tokens": 53,
+        "decode_tps": 12.312980634585468,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.32608695652173914,
+        "draft_ms": 440.8532,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 92,
+        "mtp_draft": 0,
+        "prefill_ms": 656.1329,
+        "prefill_tps": 42.674281384152515,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0002,
+        "sampling_and_sync_ms": 61.3607,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 23,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 3799.8023,
+        "total_including_cleanup_ms": 4989.6929,
+        "total_ms": 4961.9001,
+        "ttft_ms": 657.4996,
+        "verification_steps": 23
+      },
+      "client_ttft_seconds": 0.6590676000050735,
+      "client_last_content_seconds": 4.963141000000178,
+      "http_seconds": 4.99094370000239,
+      "delta_count": 53,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.6590081000031205,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776106,
+            "id": "chatcmpl-70256-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.6590676000050735,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "It"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776106,
+            "id": "chatcmpl-70256-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.849145000000135,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " eliminates"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776106,
+            "id": "chatcmpl-70256-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 4.990792099997634,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "stop",
+                "index": 0
+              }
+            ],
+            "created": 1794776106,
+            "id": "chatcmpl-70256-13",
+            "metrics": {
+              "accepted_draft_tokens": 30,
+              "available_physical_bytes": 65194848256,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 27.7797,
+              "decode_ms": 4304.4005,
+              "decode_tokens": 53,
+              "decode_tps": 12.312980634585468,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.32608695652173914,
+              "draft_ms": 440.8532,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 92,
+              "mtp_draft": 0,
+              "prefill_ms": 656.1329,
+              "prefill_tps": 42.674281384152515,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0002,
+              "sampling_and_sync_ms": 61.3607,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 23,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 3799.8023,
+              "total_including_cleanup_ms": 4989.6929,
+              "total_ms": 4961.9001,
+              "ttft_ms": 657.4996,
+              "verification_steps": 23
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 4.99081259999366,
+          "data": {
+            "choices": [],
+            "created": 1794776106,
+            "id": "chatcmpl-70256-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 54,
+              "prompt_tokens": 28,
+              "total_tokens": 82
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "stop_nonstream",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:14.325141+00:00",
+      "http_status": 200,
+      "http_seconds": 2.7175624999945285,
+      "request_sha256": "4234004a4d029ec555d510107ee6f1bdeda3ba2578f5234453a8279c93f7bedc",
+      "request_bytes": 242,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128,
+        "stop": [
+          "ly add or check o"
+        ]
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "It eliminates the daily hassle of writing down items from scratch.\nHouse members can easi",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776111,
+        "id": "chatcmpl-70256-14",
+        "metrics": {
+          "accepted_draft_tokens": 9,
+          "available_physical_bytes": 65204428800,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 28.1357,
+          "decode_ms": 2020.0775,
+          "decode_tokens": 20,
+          "decode_tps": 9.900610248864211,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.20454545454545456,
+          "draft_ms": 208.7526,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 44,
+          "mtp_draft": 0,
+          "prefill_ms": 654.4485,
+          "prefill_tps": 42.78411517483805,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0012,
+          "sampling_and_sync_ms": 25.0456,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 11,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1785.7147,
+          "total_including_cleanup_ms": 2704.2509,
+          "total_ms": 2676.0928,
+          "ttft_ms": 656.0153,
+          "verification_steps": 11
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 21,
+          "prompt_tokens": 28,
+          "total_tokens": 49
+        }
+      }
+    },
+    {
+      "name": "stop_stream",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:17.099979+00:00",
+      "request_sha256": "111e1683c0a68508be6c112230c99fbf48826ed05369fb72d9eeaf805491e178",
+      "request_bytes": 301,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128,
+        "stop": [
+          "ly add or check o"
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "It eliminates the daily hassle of writing down items from scratch.\nHouse members can easi",
+      "text_sha256": "99cca5ce03e218bf7f6d38f52c2a3dadd99983afc329d5c839006d8cd004a6c6",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 21,
+        "prompt_tokens": 28,
+        "total_tokens": 49
+      },
+      "metrics": {
+        "accepted_draft_tokens": 9,
+        "available_physical_bytes": 65210060800,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 26.219,
+        "decode_ms": 2067.6516,
+        "decode_tokens": 20,
+        "decode_tps": 9.672809481055705,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.20454545454545456,
+        "draft_ms": 210.7455,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 44,
+        "mtp_draft": 0,
+        "prefill_ms": 657.9089,
+        "prefill_tps": 42.55908378804421,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0005,
+        "sampling_and_sync_ms": 25.022,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 11,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 1831.1193,
+        "total_including_cleanup_ms": 2753.283,
+        "total_ms": 2727.0519,
+        "ttft_ms": 659.4003,
+        "verification_steps": 11
+      },
+      "client_ttft_seconds": 0.6796974000026239,
+      "client_last_content_seconds": 2.1996772000129567,
+      "http_seconds": 2.7734520000085467,
+      "delta_count": 17,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.6796549999999115,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776114,
+            "id": "chatcmpl-70256-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.6796974000026239,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "It"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776114,
+            "id": "chatcmpl-70256-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.8693555000063498,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " eliminates"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776114,
+            "id": "chatcmpl-70256-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 2.7732811000023503,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "stop",
+                "index": 0
+              }
+            ],
+            "created": 1794776114,
+            "id": "chatcmpl-70256-15",
+            "metrics": {
+              "accepted_draft_tokens": 9,
+              "available_physical_bytes": 65210060800,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 26.219,
+              "decode_ms": 2067.6516,
+              "decode_tokens": 20,
+              "decode_tps": 9.672809481055705,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.20454545454545456,
+              "draft_ms": 210.7455,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 44,
+              "mtp_draft": 0,
+              "prefill_ms": 657.9089,
+              "prefill_tps": 42.55908378804421,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0005,
+              "sampling_and_sync_ms": 25.022,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 11,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 1831.1193,
+              "total_including_cleanup_ms": 2753.283,
+              "total_ms": 2727.0519,
+              "ttft_ms": 659.4003,
+              "verification_steps": 11
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 2.7733197000052314,
+          "data": {
+            "choices": [],
+            "created": 1794776114,
+            "id": "chatcmpl-70256-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 21,
+              "prompt_tokens": 28,
+              "total_tokens": 49
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "raw_completion",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T20:55:19.761950+00:00",
+      "http_status": 200,
+      "http_seconds": 2.658699499996146,
+      "request_sha256": "a8e002154947a62345fb9f45593aaf088238973feb8f3562325409dedde4a32b",
+      "request_bytes": 156,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 32,
+        "temperature": 0,
+        "seed": 2026
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "logprobs": null,
+            "text": " 8, 10,\n\n12, 14, 16, 18, 20, ...\n\nThe sequence consists"
+          }
+        ],
+        "created": 1794776117,
+        "id": "cmpl-70256-16",
+        "metrics": {
+          "accepted_draft_tokens": 20,
+          "available_physical_bytes": 64288804864,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 29.7353,
+          "decode_ms": 1984.0113,
+          "decode_tokens": 31,
+          "decode_tps": 15.6249110073113,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.625,
+          "draft_ms": 159.0652,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 32,
+          "mtp_draft": 0,
+          "prefill_ms": 642.6813,
+          "prefill_tps": 28.0076610288801,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0003,
+          "sampling_and_sync_ms": 26.2493,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 11,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1797.5039000000004,
+          "total_including_cleanup_ms": 2657.1638,
+          "total_ms": 2627.4171,
+          "ttft_ms": 643.4058,
+          "verification_steps": 8
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "text_completion",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 18,
+          "total_tokens": 50
+        }
+      }
+    },
+    {
+      "name": "raw_completion_stream",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T20:55:22.502026+00:00",
+      "request_sha256": "226e71528eb875378c36fc8e5ef294e52f71a36e426914c890ca7fd00585bd66",
+      "request_bytes": 215,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 32,
+        "temperature": 0,
+        "seed": 2026,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": " 8, 10,\n\n12, 14, 16, 18, 20, ...\n\nThe sequence consists",
+      "text_sha256": "d7b06f741348adf5add00e4d94a23e1c9906b66971532040d0ef8bdf0edaad4a",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 18,
+        "total_tokens": 50
+      },
+      "metrics": {
+        "accepted_draft_tokens": 20,
+        "available_physical_bytes": 62944509952,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 33.6874,
+        "decode_ms": 2043.6788,
+        "decode_tokens": 31,
+        "decode_tps": 15.168724165460835,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.625,
+        "draft_ms": 162.9484,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 32,
+        "mtp_draft": 0,
+        "prefill_ms": 656.245,
+        "prefill_tps": 27.428780409755504,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0011,
+        "sampling_and_sync_ms": 27.995099999999997,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 11,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 1851.2936999999995,
+        "total_including_cleanup_ms": 2734.6246,
+        "total_ms": 2700.9195,
+        "ttft_ms": 657.2407,
+        "verification_steps": 8
+      },
+      "client_ttft_seconds": 0.6589861000102246,
+      "client_last_content_seconds": 2.7025678000063635,
+      "http_seconds": 2.7369854999997187,
+      "delta_count": 32,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.6589861000102246,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": null,
+                "index": 0,
+                "logprobs": null,
+                "text": " "
+              }
+            ],
+            "created": 1794776119,
+            "id": "cmpl-70256-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.84888669999782,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": null,
+                "index": 0,
+                "logprobs": null,
+                "text": "8"
+              }
+            ],
+            "created": 1794776119,
+            "id": "cmpl-70256-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.8489499999996042,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": null,
+                "index": 0,
+                "logprobs": null,
+                "text": ","
+              }
+            ],
+            "created": 1794776119,
+            "id": "cmpl-70256-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 2.7367301000049338,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": "length",
+                "index": 0,
+                "logprobs": null,
+                "text": ""
+              }
+            ],
+            "created": 1794776119,
+            "id": "cmpl-70256-17",
+            "metrics": {
+              "accepted_draft_tokens": 20,
+              "available_physical_bytes": 62944509952,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 33.6874,
+              "decode_ms": 2043.6788,
+              "decode_tokens": 31,
+              "decode_tps": 15.168724165460835,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.625,
+              "draft_ms": 162.9484,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 32,
+              "mtp_draft": 0,
+              "prefill_ms": 656.245,
+              "prefill_tps": 27.428780409755504,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0011,
+              "sampling_and_sync_ms": 27.995099999999997,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 11,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 1851.2936999999995,
+              "total_including_cleanup_ms": 2734.6246,
+              "total_ms": 2700.9195,
+              "ttft_ms": 657.2407,
+              "verification_steps": 8
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 2.7367809999996098,
+          "data": {
+            "choices": [],
+            "created": 1794776119,
+            "id": "cmpl-70256-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": {
+              "completion_tokens": 32,
+              "prompt_tokens": 18,
+              "total_tokens": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "busy_rejection",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:22.831900+00:00",
+      "http_status": 429,
+      "http_seconds": 0.020908499995130114,
+      "request_sha256": "7ec61d6bd138e9831e40438334da3aaf735f4e474445782a0f9cdab5ada5a0fa",
+      "request_bytes": 141,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "one inference is active; no waiting queue",
+          "param": null,
+          "type": "rate_limit_error"
+        }
+      }
+    },
+    {
+      "name": "after_disconnect_recovery",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:23.949202+00:00",
+      "http_status": 200,
+      "http_seconds": 0.8803442000062205,
+      "request_sha256": "08f91350407359d062ed3422aa9ba115da5da931125720842f16c7a1a762b0db",
+      "request_bytes": 175,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 64
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "42",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776123,
+        "id": "chatcmpl-70256-19",
+        "metrics": {
+          "accepted_draft_tokens": 1,
+          "available_physical_bytes": 62804238336,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.4926,
+          "decode_ms": 187.8185,
+          "decode_tokens": 2,
+          "decode_tps": 10.648578281692163,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.25,
+          "draft_ms": 18.3313,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 661.6914,
+          "prefill_tps": 42.31579857317172,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0013,
+          "sampling_and_sync_ms": 2.7642,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 167.392,
+          "total_including_cleanup_ms": 878.6775,
+          "total_ms": 851.1704,
+          "ttft_ms": 663.3519,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 28,
+          "total_tokens": 31
+        }
+      }
+    },
+    {
+      "name": "after_prefill_disconnect_recovery",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:27.658094+00:00",
+      "http_status": 200,
+      "http_seconds": 0.8817408000031719,
+      "request_sha256": "622082fe48d82e68c7b0e037d64da7136395df67b58d3d1ab5d1f24a11da028c",
+      "request_bytes": 173,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 48
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "56",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776126,
+        "id": "chatcmpl-70256-21",
+        "metrics": {
+          "accepted_draft_tokens": 1,
+          "available_physical_bytes": 62869368832,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 25.2063,
+          "decode_ms": 185.9381,
+          "decode_tokens": 2,
+          "decode_tps": 10.75626781170723,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.25,
+          "draft_ms": 18.4044,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 653.7527,
+          "prefill_tps": 39.77039024083572,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0014,
+          "sampling_and_sync_ms": 3.0658000000000003,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 165.1393,
+          "total_including_cleanup_ms": 866.4039,
+          "total_ms": 841.1786,
+          "ttft_ms": 655.2405,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 26,
+          "total_tokens": 29
+        }
+      }
+    },
+    {
+      "name": "overflow_calibration",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T20:55:28.176999+00:00",
+      "http_status": 200,
+      "http_seconds": 0.5155462999973679,
+      "request_sha256": "6f251a72f3ac45d8d43e0a2fd47b3a794b1c541388e8eee5d6599f586dd54ec3",
+      "request_bytes": 974,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 1,
+        "temperature": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "text": ""
+          }
+        ],
+        "created": 1794776127,
+        "id": "cmpl-70256-22",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 62768492544,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 28.3498,
+          "decode_ms": 0.0049,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 476.3327,
+          "prefill_tps": 270.8191144550857,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0007,
+          "sampling_and_sync_ms": 0.5845,
+          "seed": 4294967295,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 0,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 0.0,
+          "total_including_cleanup_ms": 505.6178,
+          "total_ms": 477.2525,
+          "ttft_ms": 477.2476,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "text_completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 129,
+          "total_tokens": 130
+        }
+      }
+    },
+    {
+      "name": "context_overflow",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T20:55:28.220734+00:00",
+      "http_status": 400,
+      "http_seconds": 0.040884700007154606,
+      "request_sha256": "ffaf64ce2e83411d93b36623e52c712ac23518c7ba151d6e20ededb9789c95c3",
+      "request_bytes": 234795,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 1,
+        "temperature": 0
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "Prompt tokens (33532) plus max_tokens exceed context (32768)",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "after_overflow_recovery",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:29.100399+00:00",
+      "http_status": 200,
+      "http_seconds": 0.8773068000009516,
+      "request_sha256": "ce1418e64104adb8dc64b4f95e4b9004b9d890ba3bf4a8cb56c71d7e75dd3fa2",
+      "request_bytes": 148,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 16
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "READY",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776128,
+        "id": "chatcmpl-70256-24",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 62758969344,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 28.4652,
+          "decode_ms": 186.3851,
+          "decode_tokens": 1,
+          "decode_tps": 5.36523574041058,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 18.6726,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 645.8714,
+          "prefill_tps": 26.321029232754384,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0006,
+          "sampling_and_sync_ms": 3.1593,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 165.2141,
+          "total_including_cleanup_ms": 862.2091,
+          "total_ms": 833.7268,
+          "ttft_ms": 647.3417,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 17,
+          "total_tokens": 19
+        }
+      }
+    },
+    {
+      "name": "benchmark_warmup",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:55:37.109923+00:00",
+      "http_status": 200,
+      "http_seconds": 7.985487400001148,
+      "request_sha256": "930fddda9e65b9e5362ad78152a96dca31d2846ca5ec19a9971c6ea2982c4f3c",
+      "request_bytes": 198,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Organizing a small tool cabinet is less about having massive storage space and more about maximizing visibility and accessibility. Since space is limited, every inch must serve a purpose. Here are three practical ways to label and organize your tools:\n\n### 1. Use Shadow Boards or Pegboards with Silhouettes\nInstead of just placing tools in drawers, consider installing a **shadow board** (a foam or plastic panel with cutouts) on the inside of the cabinet door or on the",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776129,
+        "id": "chatcmpl-70256-25",
+        "metrics": {
+          "accepted_draft_tokens": 55,
+          "available_physical_bytes": 63015931904,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 26.391,
+          "decode_ms": 7283.2616,
+          "decode_tokens": 95,
+          "decode_tps": 13.043606726964194,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.3819444444444444,
+          "draft_ms": 703.3438,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 144,
+          "mtp_draft": 0,
+          "prefill_ms": 658.2103,
+          "prefill_tps": 39.50105308288248,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0015,
+          "sampling_and_sync_ms": 132.67799999999997,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 40,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 6441.941899999999,
+          "total_including_cleanup_ms": 7969.5001,
+          "total_ms": 7943.0913,
+          "ttft_ms": 659.8297,
+          "verification_steps": 36
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 26,
+          "total_tokens": 122
+        }
+      }
+    },
+    {
+      "name": "short_decode_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:56:06.104648+00:00",
+      "request_sha256": "b86ef6b4d16b2ea04b1ba708e09f05500db7003d937ef3fd27be9a553f90eeea",
+      "request_bytes": 563,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rain-Resistant Door: A Practical Handbook for Wooden Exterior Maintenance\n\nWooden exterior doors are architectural statements, offering warmth and character that synthetic materials cannot replicate. However, in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Without a rigorous maintenance protocol, even the highest-grade hardwoods will degrade rapidly. This handbook provides a comprehensive, step-by-step guide to keeping your wooden door functional, secure, and aesthetically pleasing despite persistent precipitation.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous process. In wet climates, you should perform a visual check monthly and a deep-dive inspection twice a year (early spring and late autumn).\n\n**The \"Tap Test\" for Rot**\nRot often begins internally or at the bottom of the door where it meets the threshold. Use a screwdriver or a dedicated awl to gently tap the surface of the door, paying close attention to the bottom six inches and the edges near the hinges.\n*   **Healthy Wood:** Produces a solid, sharp *thock* sound.\n*   **Spongy Wood:** Feels soft or compresses slightly under pressure. If the tool sinks in easily, the wood fibers have likely rotted.\n*   **Action:** Mark any spongy areas with painter’s tape. Do not ignore these spots, as rot spreads invisibly beneath the surface.\n\n**Checking for Warping and Swelling**\nRain causes wood to absorb moisture and expand. When the weather dries, it contracts. This cycle leads to warping.\n*   **Diagonal Check:** Place a straightedge diagonally across the door from corner to corner. If there is a gap larger than 1/8 inch between the straight",
+      "text_sha256": "2fb19f1197d615867bb71f4273059d2552327e0786443f2d6bac5f5062b5e9dc",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "accepted_draft_tokens": 230,
+        "available_physical_bytes": 62291116032,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 25.5058,
+        "decode_ms": 28601.4841,
+        "decode_tokens": 383,
+        "decode_tps": 13.390913515568236,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.3859060402684564,
+        "draft_ms": 2899.9412000000007,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 596,
+        "mtp_draft": 0,
+        "prefill_ms": 352.9658,
+        "prefill_tps": 226.6508539920865,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0006,
+        "sampling_and_sync_ms": 704.2280999999999,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 153,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 24974.46950000001,
+        "total_including_cleanup_ms": 28982.0452,
+        "total_ms": 28956.5259,
+        "ttft_ms": 355.0418,
+        "verification_steps": 149
+      },
+      "client_ttft_seconds": 0.3682272000005469,
+      "client_last_content_seconds": 28.969250199996168,
+      "http_seconds": 28.9953383999964,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.3681825999956345,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776137,
+            "id": "chatcmpl-70256-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.3682272000005469,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776137,
+            "id": "chatcmpl-70256-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.5570698999945307,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776137,
+            "id": "chatcmpl-70256-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 28.99510630000441,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794776137,
+            "id": "chatcmpl-70256-26",
+            "metrics": {
+              "accepted_draft_tokens": 230,
+              "available_physical_bytes": 62291116032,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 25.5058,
+              "decode_ms": 28601.4841,
+              "decode_tokens": 383,
+              "decode_tps": 13.390913515568236,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.3859060402684564,
+              "draft_ms": 2899.9412000000007,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 596,
+              "mtp_draft": 0,
+              "prefill_ms": 352.9658,
+              "prefill_tps": 226.6508539920865,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0006,
+              "sampling_and_sync_ms": 704.2280999999999,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 153,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 24974.46950000001,
+              "total_including_cleanup_ms": 28982.0452,
+              "total_ms": 28956.5259,
+              "ttft_ms": 355.0418,
+              "verification_steps": 149
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 28.995149599999422,
+          "data": {
+            "choices": [],
+            "created": 1794776137,
+            "id": "chatcmpl-70256-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "short_decode_2",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:56:35.383291+00:00",
+      "request_sha256": "b86ef6b4d16b2ea04b1ba708e09f05500db7003d937ef3fd27be9a553f90eeea",
+      "request_bytes": 563,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rain-Resistant Door: A Practical Handbook for Wooden Exterior Maintenance\n\nWooden exterior doors are architectural statements, offering warmth and character that synthetic materials cannot replicate. However, in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Without a rigorous maintenance protocol, even the highest-grade hardwoods will degrade rapidly. This handbook provides a comprehensive, step-by-step guide to keeping your wooden door functional, secure, and aesthetically pleasing despite persistent precipitation.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous process. In wet climates, you should perform a visual check monthly and a deep-dive inspection twice a year (early spring and late autumn).\n\n**The \"Tap Test\" for Rot**\nRot often begins internally or at the bottom of the door where it meets the threshold. Use a screwdriver or a dedicated awl to gently tap the surface of the door, paying close attention to the bottom six inches and the edges near the hinges.\n*   **Healthy Wood:** Produces a solid, sharp *thock* sound.\n*   **Spongy Wood:** Feels soft or compresses slightly under pressure. If the tool sinks in easily, the wood fibers have likely rotted.\n*   **Action:** Mark any spongy areas with painter’s tape. Do not ignore these spots, as rot spreads invisibly beneath the surface.\n\n**Checking for Warping and Swelling**\nRain causes wood to absorb moisture and expand. When the weather dries, it contracts. This cycle leads to warping.\n*   **Diagonal Check:** Place a straightedge diagonally across the door from corner to corner. If there is a gap larger than 1/8 inch between the straight",
+      "text_sha256": "2fb19f1197d615867bb71f4273059d2552327e0786443f2d6bac5f5062b5e9dc",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "accepted_draft_tokens": 230,
+        "available_physical_bytes": 61552164864,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 31.1929,
+        "decode_ms": 28815.0645,
+        "decode_tokens": 383,
+        "decode_tps": 13.29165860447753,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.3859060402684564,
+        "draft_ms": 2927.8382999999976,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 596,
+        "mtp_draft": 0,
+        "prefill_ms": 417.3909,
+        "prefill_tps": 191.6668523439299,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0009,
+        "sampling_and_sync_ms": 735.6654,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 153,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 25125.491000000016,
+        "total_including_cleanup_ms": 29265.8243,
+        "total_ms": 29234.6203,
+        "ttft_ms": 419.5558,
+        "verification_steps": 149
+      },
+      "client_ttft_seconds": 0.43175769998924807,
+      "client_last_content_seconds": 29.24662150000222,
+      "http_seconds": 29.278388499995344,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.43173309999110643,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776166,
+            "id": "chatcmpl-70256-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.43175769998924807,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776166,
+            "id": "chatcmpl-70256-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.623350499998196,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776166,
+            "id": "chatcmpl-70256-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 29.278131400002167,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794776166,
+            "id": "chatcmpl-70256-27",
+            "metrics": {
+              "accepted_draft_tokens": 230,
+              "available_physical_bytes": 61552164864,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 31.1929,
+              "decode_ms": 28815.0645,
+              "decode_tokens": 383,
+              "decode_tps": 13.29165860447753,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.3859060402684564,
+              "draft_ms": 2927.8382999999976,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 596,
+              "mtp_draft": 0,
+              "prefill_ms": 417.3909,
+              "prefill_tps": 191.6668523439299,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0009,
+              "sampling_and_sync_ms": 735.6654,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 153,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 25125.491000000016,
+              "total_including_cleanup_ms": 29265.8243,
+              "total_ms": 29234.6203,
+              "ttft_ms": 419.5558,
+              "verification_steps": 149
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 29.278176699997857,
+          "data": {
+            "choices": [],
+            "created": 1794776166,
+            "id": "chatcmpl-70256-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "context_4096_calibration",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:56:39.755097+00:00",
+      "http_status": 200,
+      "http_seconds": 4.364063899993198,
+      "request_sha256": "0c3670df64a9a2e030dca15e4761c51b60b9fdc97c25245fa4e4ac4a68bf5fed",
+      "request_bytes": 3542,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "MAP",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776195,
+        "id": "chatcmpl-70256-28",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 61201207296,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 34.2989,
+          "decode_ms": 0.0733,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 4323.1932,
+          "prefill_tps": 363.38880251754654,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0008,
+          "sampling_and_sync_ms": 3.6929,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 0,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 0.0,
+          "total_including_cleanup_ms": 4362.4747,
+          "total_ms": 4328.1564,
+          "ttft_ms": 4328.0831,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1571,
+          "total_tokens": 1572
+        }
+      }
+    },
+    {
+      "name": "retrieval_target_4096",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:56:52.261825+00:00",
+      "http_status": 200,
+      "http_seconds": 12.504595200007316,
+      "request_sha256": "ac5f10154b6175502198658b786d4c9286c472c7ed832adbd16dfba8424b5f82",
+      "request_bytes": 8784,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776199,
+        "id": "chatcmpl-70256-29",
+        "metrics": {
+          "accepted_draft_tokens": 17,
+          "available_physical_bytes": 62289735680,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 31.5542,
+          "decode_ms": 1213.145,
+          "decode_tokens": 23,
+          "decode_tps": 18.958986765802933,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.7083333333333334,
+          "draft_ms": 125.2895,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 24,
+          "mtp_draft": 0,
+          "prefill_ms": 11253.1755,
+          "prefill_tps": 362.74205445387395,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 27.2637,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 6,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1061.7419,
+          "total_including_cleanup_ms": 12503.0153,
+          "total_ms": 12471.4494,
+          "ttft_ms": 11258.3044,
+          "verification_steps": 6
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 24,
+          "prompt_tokens": 4082,
+          "total_tokens": 4106
+        }
+      }
+    },
+    {
+      "name": "populated_4096_decode",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:57:31.022855+00:00",
+      "request_sha256": "7a1a58f0d36cec017762e9ef1af670775e57adc61de5fb26a0ad995b20811ee3",
+      "request_bytes": 8952,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "MAPLE-7319 BRASS-4826 CEDAR-9052\n\n# The Comprehensive Guide to Auditing a Warehouse Stock Ledger\n\nAuditing a warehouse stock ledger is not merely an administrative task; it is the backbone of operational integrity, financial accuracy, and supply chain reliability. A robust audit process ensures that the digital records in your inventory management system (IMS) accurately reflect the physical reality on the warehouse floor. Discrepancies between these two sources can lead to overstocking, stockouts, financial misreporting, and customer dissatisfaction. This guide provides a detailed, step-by-step framework for conducting a thorough warehouse stock audit, covering receiving, counting, reconciliation, damage assessment, and record updating. By following these concrete steps, warehouse managers and auditors can establish a culture of precision and accountability.\n\n## Phase 1: Preparation and Receiving Verification\n\nBefore any physical counting begins, the foundation of the audit must be laid through rigorous preparation and verification of incoming goods. Many inventory errors originate at the point of receipt, where discrepancies between purchase orders (POs), packing slips, and actual delivered items are often overlooked.\n\n**Step 1: Pre-Audit Data Freeze**\nFirst, initiate a \"data freeze\" in the IMS. No new transactions should be processed during the audit window to prevent moving targets. Export the current stock ledger, including item descriptions, SKUs, quantities, bin locations, and last updated timestamps. This snapshot serves as the baseline against which physical counts will be compared.\n\n**Step 2: Receiving Protocol Audit**\nAudit the receiving dock procedures. Verify that every incoming shipment has been cross-checked against the PO and the supplier’s packing slip. Common pitfalls include accepting partial shipments without noting them or failing to scan barcodes upon entry. Ensure that all received items are immediately assigned to a staging area rather than being placed directly into",
+      "text_sha256": "3223c6a79fdaf51b3233c9dda55fb84c21276e315fc27958d10a7f0d53b14fca",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 4100,
+        "total_tokens": 4484
+      },
+      "metrics": {
+        "accepted_draft_tokens": 242,
+        "available_physical_bytes": 62374416384,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 32.5624,
+        "decode_ms": 27271.8585,
+        "decode_tokens": 383,
+        "decode_tps": 14.043780697967469,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.4352517985611511,
+        "draft_ms": 2906.4465999999993,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 556,
+        "mtp_draft": 0,
+        "prefill_ms": 11450.9584,
+        "prefill_tps": 358.0486328550456,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0004,
+        "sampling_and_sync_ms": 746.6057999999999,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 141,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 23593.631099999988,
+        "total_including_cleanup_ms": 38759.8702,
+        "total_ms": 38727.2959,
+        "ttft_ms": 11455.4374,
+        "verification_steps": 139
+      },
+      "client_ttft_seconds": 11.457156700009364,
+      "client_last_content_seconds": 38.728475100011565,
+      "http_seconds": 38.76176750000741,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 11.45711420000589,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776212,
+            "id": "chatcmpl-70256-30",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 11.457156700009364,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "MAP"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776212,
+            "id": "chatcmpl-70256-30",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 11.659504399998696,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "LE"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794776212,
+            "id": "chatcmpl-70256-30",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 38.761501100001624,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794776212,
+            "id": "chatcmpl-70256-30",
+            "metrics": {
+              "accepted_draft_tokens": 242,
+              "available_physical_bytes": 62374416384,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 32.5624,
+              "decode_ms": 27271.8585,
+              "decode_tokens": 383,
+              "decode_tps": 14.043780697967469,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.4352517985611511,
+              "draft_ms": 2906.4465999999993,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 556,
+              "mtp_draft": 0,
+              "prefill_ms": 11450.9584,
+              "prefill_tps": 358.0486328550456,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0004,
+              "sampling_and_sync_ms": 746.6057999999999,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 141,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 23593.631099999988,
+              "total_including_cleanup_ms": 38759.8702,
+              "total_ms": 38727.2959,
+              "ttft_ms": 11455.4374,
+              "verification_steps": 139
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 38.76155140000628,
+          "data": {
+            "choices": [],
+            "created": 1794776212,
+            "id": "chatcmpl-70256-30",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 4100,
+              "total_tokens": 4484
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "context_30000_calibration",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:57:35.587039+00:00",
+      "http_status": 200,
+      "http_seconds": 4.559322200002498,
+      "request_sha256": "0c3670df64a9a2e030dca15e4761c51b60b9fdc97c25245fa4e4ac4a68bf5fed",
+      "request_bytes": 3542,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "MAP",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776251,
+        "id": "chatcmpl-70256-31",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 61872484352,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 38.9342,
+          "decode_ms": 0.0794,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 4501.0267,
+          "prefill_tps": 349.03147764042365,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.001,
+          "sampling_and_sync_ms": 3.7359,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 0,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 0.0,
+          "total_including_cleanup_ms": 4545.2145,
+          "total_ms": 4506.2605,
+          "ttft_ms": 4506.1811,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1571,
+          "total_tokens": 1572
+        }
+      }
+    },
+    {
+      "name": "retrieval_target_30000",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:59:48.331572+00:00",
+      "http_status": 200,
+      "http_seconds": 132.75225199999113,
+      "request_sha256": "6858b0693461ce892b996cb3e8edccf85fd18bc0d26573928cafbb0cf2aa0944",
+      "request_bytes": 65018,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794776255,
+        "id": "chatcmpl-70256-32",
+        "metrics": {
+          "accepted_draft_tokens": 17,
+          "available_physical_bytes": 64128438272,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 50.3793,
+          "decode_ms": 1509.0046,
+          "decode_tokens": 23,
+          "decode_tps": 15.241835578234818,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.6071428571428571,
+          "draft_ms": 153.0375,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 28,
+          "mtp_draft": 0,
+          "prefill_ms": 131151.0596,
+          "prefill_tps": 236.47540549493203,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0014,
+          "sampling_and_sync_ms": 39.4401,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 7,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1315.8715,
+          "total_including_cleanup_ms": 132725.8648,
+          "total_ms": 132675.4671,
+          "ttft_ms": 131166.4625,
+          "verification_steps": 7
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 24,
+          "prompt_tokens": 31014,
+          "total_tokens": 31038
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "arithmetic_invoice",
+      "passed": true,
+      "seconds": 0.6767533999955049,
+      "detail": {
+        "expected": "428.50",
+        "observed": "428.50"
+      }
+    },
+    {
+      "name": "structured_instruction",
+      "passed": true,
+      "seconds": 0.6722930999967502,
+      "detail": {
+        "expected": "{\"color\":\"blue\",\"count\":3}",
+        "observed": "{\"color\":\"blue\",\"count\":3}"
+      }
+    },
+    {
+      "name": "unicode",
+      "passed": true,
+      "seconds": 0.677485299995169,
+      "detail": {
+        "expected": "Café — 東京 🪵",
+        "observed": "Café — 東京 🪵"
+      }
+    },
+    {
+      "name": "instruction_summary",
+      "passed": true,
+      "seconds": 1.2938233000022592,
+      "detail": {
+        "expected": "<=20 words; usable9 damaged3",
+        "observed": "Nine usable and three damaged doors were received, with the nine passing inspection."
+      }
+    },
+    {
+      "name": "multi_turn_inventory",
+      "passed": true,
+      "seconds": 0.612619600011385,
+      "detail": {
+        "expected": "22",
+        "observed": "22"
+      }
+    },
+    {
+      "name": "coding_clamp_fixtures",
+      "passed": true,
+      "seconds": 1.356718600000022,
+      "detail": {
+        "source": "def clamp(value, low, high):\n    return max(low, min(high, value))",
+        "fixtures_passed": 8,
+        "execution_safety": "AST allowlist with only min/max calls; no imports, attributes, loops or arbitrary builtins"
+      }
+    },
+    {
+      "name": "thinking_opt_in_arithmetic",
+      "passed": true,
+      "seconds": 12.902734699993744,
+      "detail": {
+        "observed": "<think>\nWe need answer user: Compute 37*24. Check arithmetic, then final product and one short sentence explaining calculation. Need final concise. Compute: 37*24 = 37*20 + 37*4 = 740+148=888. Or 24*37 = 24*30+24*7=720+168=888. Need final product and one short sentence. Could say \"888. I split 24 into 20 and 4, then added 37×20=740 and 37×4=148.\" That's one sentence? It includes final product maybe separate? User: \"then give the final product and one short sentence explaining the calculation.\" Could output: \"888 — I split 24 into 20 and 4, then added 740 and 148.\" That's final product and one sentence. Ensure short.\n</think>\n\n888 — I split 24 into 20 and 4, then added 37×20 = 740 and 37×4 = 148.",
+        "raw_thinking_tags_present": true,
+        "usage": {
+          "completion_tokens": 266,
+          "prompt_tokens": 79,
+          "total_tokens": 345
+        },
+        "scope": "Explicit thinking request with a bounded arithmetic check; not a reasoning benchmark"
+      }
+    },
+    {
+      "name": "strict_request_validation",
+      "passed": true,
+      "seconds": 0.20089480000024196,
+      "detail": {
+        "invalid_requests_rejected": 15
+      }
+    },
+    {
+      "name": "greedy_repeat_request_isolation",
+      "passed": true,
+      "seconds": 10.93601979999221,
+      "detail": {
+        "text_sha256": "5aa632dfd10a5022d1e81ab7b8571f61ba2459fd0dbf1492203fbf270e30dab7",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 28,
+          "total_tokens": 82
+        }
+      }
+    },
+    {
+      "name": "sampled_fixed_seed_repeat",
+      "passed": true,
+      "seconds": 24.847108299989486,
+      "detail": {
+        "temperature": 0.7,
+        "seed": 2026,
+        "text_sha256": "a1c52f947f3b6b12878af1f0048f2ea6253a27b79f22105d825ae9e2501f852f",
+        "usage": {
+          "completion_tokens": 149,
+          "prompt_tokens": 35,
+          "total_tokens": 184
+        }
+      }
+    },
+    {
+      "name": "stream_nonstream_equivalence",
+      "passed": true,
+      "seconds": 4.992633399990154,
+      "detail": {
+        "text_sha256": "5aa632dfd10a5022d1e81ab7b8571f61ba2459fd0dbf1492203fbf270e30dab7",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 28,
+          "total_tokens": 82
+        }
+      }
+    },
+    {
+      "name": "stop_buffering_stream_and_nonstream",
+      "passed": true,
+      "seconds": 5.494789900010801,
+      "detail": {
+        "stop": "ly add or check o",
+        "prefix_sha256": "99cca5ce03e218bf7f6d38f52c2a3dadd99983afc329d5c839006d8cd004a6c6",
+        "usage": {
+          "completion_tokens": 21,
+          "prompt_tokens": 28,
+          "total_tokens": 49
+        }
+      }
+    },
+    {
+      "name": "raw_completion_and_stream",
+      "passed": true,
+      "seconds": 5.402385800000047,
+      "detail": {
+        "text": " 8, 10,\n\n12, 14, 16, 18, 20, ...\n\nThe sequence consists",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 18,
+          "total_tokens": 50
+        }
+      }
+    },
+    {
+      "name": "busy_disconnect_cancellation_recovery",
+      "passed": true,
+      "seconds": 1.443573299999116,
+      "detail": {
+        "cancellation_cleanup_seconds": 0.22296289999212604,
+        "cancelled_before": 0,
+        "cancelled_after": 1,
+        "saw_content_before_disconnect": true
+      }
+    },
+    {
+      "name": "prefill_disconnect_cancellation_recovery",
+      "passed": true,
+      "seconds": 3.707747599997674,
+      "detail": {
+        "request_sha256": "0a7f2767b0cfe826d8d7ce81874d476292d7d4b883cfe3664e618d1fbb374e50",
+        "request_bytes": 28421,
+        "seconds_before_disconnect": 1.0,
+        "cancellation_cleanup_seconds": 1.782215700004599,
+        "cancelled_before": 1,
+        "cancelled_after": 2,
+        "scope": "Disconnect one second after busy admission during a populated prompt, without reading response headers"
+      }
+    },
+    {
+      "name": "context_overflow_and_recovery",
+      "passed": true,
+      "seconds": 1.441367999999784,
+      "detail": {
+        "configured_context": 32768,
+        "probe_tokens": 129,
+        "overflow_repetitions": 33531
+      }
+    },
+    {
+      "name": "warm_repeated_decode_benchmark",
+      "passed": true,
+      "seconds": 66.29066189999867,
+      "detail": {
+        "repeats": 2,
+        "temperature": 0.0,
+        "prompt_tokens": 80,
+        "completion_tokens_each": [
+          384,
+          384
+        ],
+        "median_decode_tps": 13.341286060022883,
+        "median_prefill_tps": 209.1588531680082,
+        "median_client_ttft_seconds": 0.39999244999489747,
+        "median_http_seconds": 29.13686344999587,
+        "text_sha256": "2fb19f1197d615867bb71f4273059d2552327e0786443f2d6bac5f5062b5e9dc"
+      }
+    },
+    {
+      "name": "populated_context_4096_retrieval",
+      "passed": true,
+      "seconds": 55.639570600003935,
+      "detail": {
+        "target_tokens": 4096,
+        "actual_prompt_tokens": 4082,
+        "rows": 169,
+        "expected": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "observed": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "metrics": {
+          "accepted_draft_tokens": 17,
+          "available_physical_bytes": 62289735680,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 31.5542,
+          "decode_ms": 1213.145,
+          "decode_tokens": 23,
+          "decode_tps": 18.958986765802933,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.7083333333333334,
+          "draft_ms": 125.2895,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 24,
+          "mtp_draft": 0,
+          "prefill_ms": 11253.1755,
+          "prefill_tps": 362.74205445387395,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 27.2637,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 6,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1061.7419,
+          "total_including_cleanup_ms": 12503.0153,
+          "total_ms": 12471.4494,
+          "ttft_ms": 11258.3044,
+          "verification_steps": 6
+        },
+        "scope": "One three-key retrieval at front/middle/end; not general long-context quality validation",
+        "populated_decode": {
+          "usage": {
+            "completion_tokens": 384,
+            "prompt_tokens": 4100,
+            "total_tokens": 4484
+          },
+          "metrics": {
+            "accepted_draft_tokens": 242,
+            "available_physical_bytes": 62374416384,
+            "benchmark_timing_valid": true,
+            "cleanup_ms": 32.5624,
+            "decode_ms": 27271.8585,
+            "decode_tokens": 383,
+            "decode_tps": 14.043780697967469,
+            "dflash_draft": 4,
+            "draft_acceptance": 0.4352517985611511,
+            "draft_ms": 2906.4465999999993,
+            "draft_sampling": "greedy",
+            "drafted_tokens": 556,
+            "mtp_draft": 0,
+            "prefill_ms": 11450.9584,
+            "prefill_tps": 358.0486328550456,
+            "rejection_verification_steps": 0,
+            "reset_before_ms": 0.0004,
+            "sampling_and_sync_ms": 746.6057999999999,
+            "seed": 2026,
+            "speculative_verifier": "upstream-target-sample-and-match",
+            "target_decode_calls": 141,
+            "target_logits_trace": false,
+            "target_submit_and_catchup_ms": 23593.631099999988,
+            "total_including_cleanup_ms": 38759.8702,
+            "total_ms": 38727.2959,
+            "ttft_ms": 11455.4374,
+            "verification_steps": 139
+          },
+          "client_ttft_seconds": 11.457156700009364,
+          "text_sha256": "3223c6a79fdaf51b3233c9dda55fb84c21276e315fc27958d10a7f0d53b14fca"
+        }
+      }
+    },
+    {
+      "name": "populated_context_30000_retrieval",
+      "passed": true,
+      "seconds": 137.3179930000042,
+      "detail": {
+        "target_tokens": 30000,
+        "actual_prompt_tokens": 31014,
+        "rows": 1296,
+        "expected": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "observed": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "metrics": {
+          "accepted_draft_tokens": 17,
+          "available_physical_bytes": 64128438272,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 50.3793,
+          "decode_ms": 1509.0046,
+          "decode_tokens": 23,
+          "decode_tps": 15.241835578234818,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.6071428571428571,
+          "draft_ms": 153.0375,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 28,
+          "mtp_draft": 0,
+          "prefill_ms": 131151.0596,
+          "prefill_tps": 236.47540549493203,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0014,
+          "sampling_and_sync_ms": 39.4401,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 7,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1315.8715,
+          "total_including_cleanup_ms": 132725.8648,
+          "total_ms": 132675.4671,
+          "ttft_ms": 131166.4625,
+          "verification_steps": 7
+        },
+        "scope": "One three-key retrieval at front/middle/end; not general long-context quality validation"
+      }
+    }
+  ],
+  "passed": true,
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 0,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "always_clear_experiment": false,
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "batch_logit_capacity_experiment": false,
+      "context": 32768,
+      "context_quality_validated_by_boot": false,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "dflash_draft": 4,
+      "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+      "draft_model_tensor_bytes": 2045465600,
+      "draft_quantization": "Q8_0",
+      "draft_sampling": "probabilistic",
+      "flash_attention": true,
+      "gguf_file_type": "7",
+      "gpu_budget_free_bytes": 73269675972,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 63001477120,
+      "max_logit_outputs": 5,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 29105393664,
+      "mtp": false,
+      "mtp_draft": 0,
+      "native_context_limit": 262144,
+      "quantization": "Q8_0",
+      "recurrent_snapshots": 4,
+      "single_clear_request_state": true,
+      "speculative_type": "draft-dflash2",
+      "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+      "startup_warmup_ms": 701.2591,
+      "startup_warmup_tokens": 128,
+      "target_logits_trace": false,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": null,
+    "pid": 70256,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "models": {
+    "data": [
+      {
+        "created": 0,
+        "id": "Qwen/Qwen3.8-27B",
+        "object": "model",
+        "owned_by": "Qwen"
+      }
+    ],
+    "object": "list"
+  },
+  "benchmark_summary": {
+    "repeats": 2,
+    "temperature": 0.0,
+    "prompt_tokens": 80,
+    "completion_tokens_each": [
+      384,
+      384
+    ],
+    "median_decode_tps": 13.341286060022883,
+    "median_prefill_tps": 209.1588531680082,
+    "median_client_ttft_seconds": 0.39999244999489747,
+    "median_http_seconds": 29.13686344999587,
+    "text_sha256": "2fb19f1197d615867bb71f4273059d2552327e0786443f2d6bac5f5062b5e9dc"
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 2,
+    "completed_requests": 29,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "always_clear_experiment": false,
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "batch_logit_capacity_experiment": false,
+      "context": 32768,
+      "context_quality_validated_by_boot": false,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "dflash_draft": 4,
+      "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+      "draft_model_tensor_bytes": 2045465600,
+      "draft_quantization": "Q8_0",
+      "draft_sampling": "probabilistic",
+      "flash_attention": true,
+      "gguf_file_type": "7",
+      "gpu_budget_free_bytes": 73269675972,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 63001477120,
+      "max_logit_outputs": 5,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 29105393664,
+      "mtp": false,
+      "mtp_draft": 0,
+      "native_context_limit": 262144,
+      "quantization": "Q8_0",
+      "recurrent_snapshots": 4,
+      "single_clear_request_state": true,
+      "speculative_type": "draft-dflash2",
+      "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+      "startup_warmup_ms": 701.2591,
+      "startup_warmup_tokens": 128,
+      "target_logits_trace": false,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-70256-32",
+      "metrics": {
+        "accepted_draft_tokens": 17,
+        "available_physical_bytes": 64128438272,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 50.3793,
+        "decode_ms": 1509.0046,
+        "decode_tokens": 23,
+        "decode_tps": 15.241835578234818,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.6071428571428571,
+        "draft_ms": 153.0375,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 28,
+        "mtp_draft": 0,
+        "prefill_ms": 131151.0596,
+        "prefill_tps": 236.47540549493203,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0014,
+        "sampling_and_sync_ms": 39.4401,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 7,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 1315.8715,
+        "total_including_cleanup_ms": 132725.8648,
+        "total_ms": 132675.4671,
+        "ttft_ms": 131166.4625,
+        "verification_steps": 7
+      },
+      "outcome": "completed"
+    },
+    "pid": 70256,
+    "queue_capacity": 0,
+    "request_limits": {
+      "body_bytes": 1114112,
+      "deadline_seconds": 3600
+    },
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T20:59:48.348741+00:00"
+}

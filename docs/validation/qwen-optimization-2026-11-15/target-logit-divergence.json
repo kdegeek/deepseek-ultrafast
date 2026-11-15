@@ -1,0 +1,420 @@
+{
+  "scope": "First divergence is already in target raw logits on an identical accepted-token prefix. Both verifiers select their own penalized target argmax at that step. This localizes observed divergence before verification; it is not a broad numerical equivalence or quality proof. Diagnostic timings are excluded.",
+  "assumed_request_presence_penalty": 1.5,
+  "results": [
+    {
+      "candidate": {
+        "trace": {
+          "diagnostic_only": true,
+          "output_index": 88,
+          "retained_history_size": 167,
+          "selected_raw_logit": 18.73234748840332,
+          "selected_token": 62788,
+          "target_row": 0,
+          "top16_raw_logits": [
+            [
+              62788,
+              18.73234748840332
+            ],
+            [
+              15170,
+              18.686382293701172
+            ],
+            [
+              303,
+              17.912532806396484
+            ],
+            [
+              1968,
+              17.77045440673828
+            ],
+            [
+              6037,
+              17.400177001953125
+            ],
+            [
+              21094,
+              17.231103897094727
+            ],
+            [
+              56696,
+              17.022808074951172
+            ],
+            [
+              3221,
+              16.5988712310791
+            ],
+            [
+              31883,
+              16.479507446289062
+            ],
+            [
+              25293,
+              16.213489532470703
+            ],
+            [
+              9038,
+              16.206960678100586
+            ],
+            [
+              524,
+              15.848968505859375
+            ],
+            [
+              8785,
+              15.440322875976562
+            ],
+            [
+              28078,
+              15.40277099609375
+            ],
+            [
+              23016,
+              15.192071914672852
+            ],
+            [
+              9475,
+              15.02334976196289
+            ]
+          ],
+          "type": "target_logits_trace",
+          "verification_prefix": [
+            5817
+          ]
+        },
+        "penalty_adjusted_top4": [
+          [
+            62788,
+            18.73234748840332
+          ],
+          [
+            15170,
+            18.686382293701172
+          ],
+          [
+            1968,
+            17.77045440673828
+          ],
+          [
+            6037,
+            17.400177001953125
+          ]
+        ],
+        "top2_margin": 0.04596519470214844,
+        "selected_matches_adjusted_argmax": true
+      },
+      "first_divergent_output_index": 88,
+      "common_selected_prefix_equal": true,
+      "common_prefix_sha256": "b41bc61e92e4d13d2074af08dd1d6da2078e97a9ad70f7e9baf7ac001a57241d",
+      "ordinary": {
+        "trace": {
+          "diagnostic_only": true,
+          "output_index": 88,
+          "retained_history_size": 167,
+          "selected_raw_logit": 18.76012420654297,
+          "selected_token": 15170,
+          "target_row": 0,
+          "top16_raw_logits": [
+            [
+              15170,
+              18.76012420654297
+            ],
+            [
+              62788,
+              18.703832626342773
+            ],
+            [
+              303,
+              17.860488891601562
+            ],
+            [
+              1968,
+              17.716217041015625
+            ],
+            [
+              6037,
+              17.453689575195312
+            ],
+            [
+              21094,
+              17.287830352783203
+            ],
+            [
+              56696,
+              17.04859733581543
+            ],
+            [
+              3221,
+              16.627750396728516
+            ],
+            [
+              31883,
+              16.474191665649414
+            ],
+            [
+              9038,
+              16.222545623779297
+            ],
+            [
+              25293,
+              16.214519500732422
+            ],
+            [
+              524,
+              15.903133392333984
+            ],
+            [
+              8785,
+              15.404949188232422
+            ],
+            [
+              28078,
+              15.358747482299805
+            ],
+            [
+              23016,
+              15.186705589294434
+            ],
+            [
+              9475,
+              15.119575500488281
+            ]
+          ],
+          "type": "target_logits_trace",
+          "verification_prefix": [
+            5817
+          ]
+        },
+        "penalty_adjusted_top4": [
+          [
+            15170,
+            18.76012420654297
+          ],
+          [
+            62788,
+            18.703832626342773
+          ],
+          [
+            1968,
+            17.716217041015625
+          ],
+          [
+            6037,
+            17.453689575195312
+          ]
+        ],
+        "top2_margin": 0.05629158020019531,
+        "selected_matches_adjusted_argmax": true
+      },
+      "shared_top16_max_abs_raw_logit_delta": 0.09622573852539062,
+      "candidate_profile": "mtp1"
+    },
+    {
+      "candidate": {
+        "trace": {
+          "diagnostic_only": true,
+          "output_index": 23,
+          "retained_history_size": 102,
+          "selected_raw_logit": 23.19744300842285,
+          "selected_token": 11,
+          "target_row": 0,
+          "top16_raw_logits": [
+            [
+              11,
+              23.19744300842285
+            ],
+            [
+              421,
+              23.145397186279297
+            ],
+            [
+              314,
+              22.32891845703125
+            ],
+            [
+              321,
+              20.834604263305664
+            ],
+            [
+              13,
+              19.60158920288086
+            ],
+            [
+              2218,
+              18.85776138305664
+            ],
+            [
+              430,
+              17.879661560058594
+            ],
+            [
+              26,
+              17.832382202148438
+            ],
+            [
+              67728,
+              16.94631576538086
+            ],
+            [
+              9708,
+              16.898178100585938
+            ],
+            [
+              303,
+              16.017250061035156
+            ],
+            [
+              4598,
+              15.660490036010742
+            ],
+            [
+              1298,
+              15.51487922668457
+            ],
+            [
+              364,
+              15.510822296142578
+            ],
+            [
+              4364,
+              15.392349243164062
+            ],
+            [
+              440,
+              14.91597843170166
+            ]
+          ],
+          "type": "target_logits_trace",
+          "verification_prefix": [
+            11889
+          ]
+        },
+        "penalty_adjusted_top4": [
+          [
+            11,
+            23.19744300842285
+          ],
+          [
+            421,
+            23.145397186279297
+          ],
+          [
+            314,
+            22.32891845703125
+          ],
+          [
+            321,
+            20.834604263305664
+          ]
+        ],
+        "top2_margin": 0.05204582214355469,
+        "selected_matches_adjusted_argmax": true
+      },
+      "first_divergent_output_index": 23,
+      "common_selected_prefix_equal": true,
+      "common_prefix_sha256": "2f8217d7948bd0b59d82f16951042dc77d3764c008d0472e1741b946a567093f",
+      "ordinary": {
+        "trace": {
+          "diagnostic_only": true,
+          "output_index": 23,
+          "retained_history_size": 102,
+          "selected_raw_logit": 23.198074340820312,
+          "selected_token": 421,
+          "target_row": 0,
+          "top16_raw_logits": [
+            [
+              421,
+              23.198074340820312
+            ],
+            [
+              11,
+              23.197765350341797
+            ],
+            [
+              314,
+              22.272422790527344
+            ],
+            [
+              321,
+              20.888526916503906
+            ],
+            [
+              13,
+              19.560867309570312
+            ],
+            [
+              2218,
+              18.783803939819336
+            ],
+            [
+              430,
+              18.0281925201416
+            ],
+            [
+              26,
+              17.75653076171875
+            ],
+            [
+              9708,
+              16.90843963623047
+            ],
+            [
+              67728,
+              16.83829116821289
+            ],
+            [
+              303,
+              16.054691314697266
+            ],
+            [
+              4598,
+              15.705665588378906
+            ],
+            [
+              1298,
+              15.486126899719238
+            ],
+            [
+              364,
+              15.48068618774414
+            ],
+            [
+              4364,
+              15.411763191223145
+            ],
+            [
+              440,
+              14.960489273071289
+            ]
+          ],
+          "type": "target_logits_trace",
+          "verification_prefix": [
+            11889
+          ]
+        },
+        "penalty_adjusted_top4": [
+          [
+            421,
+            23.198074340820312
+          ],
+          [
+            11,
+            23.197765350341797
+          ],
+          [
+            314,
+            22.272422790527344
+          ],
+          [
+            321,
+            20.888526916503906
+          ]
+        ],
+        "top2_margin": 0.000308990478515625,
+        "selected_matches_adjusted_argmax": true
+      },
+      "shared_top16_max_abs_raw_logit_delta": 0.1485309600830078,
+      "candidate_profile": "dflash4"
+    }
+  ]
+}

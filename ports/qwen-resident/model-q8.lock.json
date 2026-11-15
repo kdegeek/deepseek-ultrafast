@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "model_id": "Qwen/Qwen3.8-27B",
+  "source_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+  "quantization": "Q8_0",
+  "repository": "bartowski/Qwen3.8-27B-GGUF",
+  "revision": "87410e7b9a5c21e6ca70c0c9cc5237de909fe621",
+  "filename": "Qwen3.8-27B-Q8_0.gguf",
+  "size_bytes": 29116388960,
+  "sha256": "a830e736efa71ce29589ff20b8713333a427e0d46ab774723be23800ad54362d",
+  "metadata_verified_utc_date": "2026-11-15",
+  "acceptance_status": "selected; download and hardware validation pending"
+}

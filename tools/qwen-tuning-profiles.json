@@ -1,0 +1,6 @@
+[
+  {"name":"vulkan-dflash4-ub512","parameters":{"Backend":"Vulkan","DFlashDraft":4}},
+  {"name":"vulkan-dflash4-ub1024","parameters":{"Backend":"Vulkan","DFlashDraft":4,"UBatch":1024}},
+  {"name":"vulkan-dflash4-ub2048","parameters":{"Backend":"Vulkan","DFlashDraft":4,"UBatch":2048}},
+  {"name":"vulkan-dflash4-f16","parameters":{"Backend":"Vulkan","DFlashDraft":4,"KvType":"f16"}}
+]

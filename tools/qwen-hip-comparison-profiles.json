@@ -1,0 +1,7 @@
+[
+  {"name":"hip-single-clear","parameters":{"Backend":"HIP"}},
+  {"name":"hip-always-clear","always_clear":true,"parameters":{"Backend":"HIP"}},
+  {"name":"hip-graphs-disabled","disable_hip_graphs":true,"parameters":{"Backend":"HIP"}},
+  {"name":"hip-dflash4-graphs-enabled","parameters":{"Backend":"HIP","DFlashDraft":4}},
+  {"name":"hip-dflash4-graphs-disabled","disable_hip_graphs":true,"parameters":{"Backend":"HIP","DFlashDraft":4}}
+]

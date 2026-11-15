@@ -1,0 +1,3 @@
+[
+  {"name":"hip-dflash4-probabilistic","disable_hip_graphs":true,"parameters":{"Backend":"HIP","DFlashDraft":4,"DraftSampling":"probabilistic"}}
+]

@@ -25,15 +25,25 @@ type Destroy = unsafe extern "C" fn(Handle);
 unsafe extern "system" {
     fn LoadLibraryExW(path: *const u16, file: Handle, flags: u32) -> Handle;
     fn GetProcAddress(module: Handle, name: *const u8) -> *mut c_void;
+    fn AddDllDirectory(path: *const u16) -> Handle;
+}
+
+fn loader_path(path: &Path) -> Vec<u16> {
+    let mut wide = path.as_os_str().encode_wide().collect::<Vec<_>>();
+    // Rust canonicalizes drive paths to the verbatim namespace. ROCm derives
+    // kernel-data paths from GetModuleFileName and joins them with forward
+    // slashes, which Windows rejects inside that namespace. Keep an absolute
+    // drive path while preserving every UTF-16 code unit. Leave UNC unchanged.
+    if wide.len() > 6 && wide.starts_with(&[92, 92, 63, 92]) && wide[5] == 58 {
+        wide.drain(..4);
+    }
+    wide.push(0);
+    wide
 }
 
 fn library(path: &Path) -> Result<Handle> {
     let path = path.canonicalize().context("resolve native library")?;
-    let wide = path
-        .as_os_str()
-        .encode_wide()
-        .chain(Some(0))
-        .collect::<Vec<_>>();
+    let wide = loader_path(&path);
     // DLL_LOAD_DIR | DEFAULT_DIRS: dependencies come from this isolated build,
     // the executable, and Windows system directories; do not alter PATH.
     let module = unsafe { LoadLibraryExW(wide.as_ptr(), ptr::null_mut(), 0x100 | 0x1000) };
@@ -74,6 +84,30 @@ pub(crate) struct NativeEngine {
 }
 impl NativeEngine {
     pub(crate) fn open(config: Config) -> Result<Box<dyn Engine>> {
+        for directory in &config.dll_directories {
+            let directory = directory
+                .canonicalize()
+                .context("resolve private DLL directory")?;
+            ensure!(
+                directory.is_dir(),
+                "DLL directory is not a directory: {}",
+                directory.display()
+            );
+            let wide = loader_path(&directory);
+            let cookie = unsafe { AddDllDirectory(wide.as_ptr()) };
+            ensure!(
+                !cookie.is_null(),
+                "add private DLL directory {}: {}",
+                directory.display(),
+                std::io::Error::last_os_error()
+            );
+            // GGML may load lazily during later requests. Retain the search
+            // directory and modules for this process lifetime, never global PATH.
+        }
+        for preload in &config.preload_libraries {
+            library(preload)
+                .with_context(|| format!("preload exact runtime {}", preload.display()))?;
+        }
         let module = library(&config.library)?;
         let (create, identity, generate, destroy): (Create, Identity, Generate, Destroy) = unsafe {
             (
@@ -239,5 +273,30 @@ impl Engine for NativeEngine {
             2 => Err(RequestFailure(error_text(&error)).into()),
             _ => bail!("native generation failed ({code}): {}", error_text(&error)),
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn dll_paths_avoid_verbatim_drive_namespace_for_rocm() {
+        let expected = "C:\\private\\café\\rocblas.dll\0"
+            .encode_utf16()
+            .collect::<Vec<_>>();
+        assert_eq!(
+            loader_path(Path::new(r"\\?\C:\private\café\rocblas.dll")),
+            expected
+        );
+        assert_eq!(
+            loader_path(Path::new(r"C:\private\café\rocblas.dll")),
+            expected
+        );
+        let unc = r"\\?\UNC\server\share\file.dll";
+        assert_eq!(
+            loader_path(Path::new(unc)),
+            unc.encode_utf16().chain(Some(0)).collect::<Vec<_>>()
+        );
     }
 }

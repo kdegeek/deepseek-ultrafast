@@ -1,0 +1,71 @@
+{
+  "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+  "gpu_operations": 0,
+  "tracked_compile_inputs_changed": false,
+  "native_candidate_cpu_compile": "passed",
+  "ctest_passed": 1,
+  "ctest_failed": 0,
+  "ctest_seconds": 0.06,
+  "empirical_trials": 5000,
+  "worst_standard_errors": 2.655,
+  "support_violations": 0,
+  "cases": [
+    {
+      "trials": 1000,
+      "q": "equal",
+      "accepted": 1000,
+      "worst_standard_errors": 1.905
+    },
+    {
+      "trials": 1000,
+      "q": "disjoint",
+      "accepted": 0,
+      "worst_standard_errors": 1.905
+    },
+    {
+      "trials": 1000,
+      "q": "point-mass",
+      "accepted": 143,
+      "worst_standard_errors": 2.062
+    },
+    {
+      "trials": 1000,
+      "q": "selector-like-16",
+      "accepted": 681,
+      "worst_standard_errors": 2.451
+    },
+    {
+      "trials": 1000,
+      "q": "random-dense",
+      "accepted": 208,
+      "worst_standard_errors": 2.655
+    }
+  ],
+  "cpu_build_windows_utc": [
+    {
+      "start": "2026-11-15T17:28:15.0216523Z",
+      "log": "test-cpu.log",
+      "end": "2026-11-15T17:30:25.4810007Z"
+    },
+    {
+      "start": "2026-11-15T17:31:24.0073640Z",
+      "log": "test-cpu-final.log",
+      "end": "2026-11-15T17:31:32.0873681Z"
+    },
+    {
+      "start": "2026-11-15T17:32:32.4002635Z",
+      "log": "test-cpu-final2.log",
+      "end": "2026-11-15T17:32:40.9037492Z"
+    }
+  ],
+  "binaries": [
+    {
+      "sha256": "af7313cd2b7f05bdde3d832aeed45536a6c395b9782c17b042ef2f88c9d285aa",
+      "file": "qwen_native.dll"
+    },
+    {
+      "sha256": "e074e47bd923c52ad234e546218083558d4c483e86f7128afa7065b61c4a30e2",
+      "file": "qwen_speculative_sampling_test.exe"
+    }
+  ]
+}

@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T18:21:57.173632+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "extended",
+  "script_sha256": "37b838d0933e0e146fc3e555fddb8bd8a1bc6345211ff58edf5b08b8bc084790",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "calibrate_ledger_rows",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T18:22:15.719550+00:00",
+      "http_status": 200,
+      "http_seconds": 18.521579599997494,
+      "request_sha256": "dfb854bedd3accf3b5fb642fa5ec606a98510804bfcf618ea5a2ac10c55a3711",
+      "request_bytes": 13931,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1,
+        "presence_penalty": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "{",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794766917,
+        "id": "chatcmpl-70184-1",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 61332250624,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 83.156,
+          "decode_ms": 0.0849,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 18416.626,
+          "prefill_tps": 354.24512611593457,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0008,
+          "sampling_and_sync_ms": 2.2391,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 0,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 0.0,
+          "total_including_cleanup_ms": 18506.5841,
+          "total_ms": 18423.4118,
+          "ttft_ms": 18423.3269,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 6524,
+          "total_tokens": 6525
+        }
+      }
+    },
+    {
+      "name": "random_retrieval_ledger_and_sustained_decode",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T18:45:04.325757+00:00",
+      "request_sha256": "f5de8c0125e4200702bbf29e81f88e3612052710909b18f1b382184334dcc972",
+      "request_bytes": 252707,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "presence_penalty": 0,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "{\"front\": \"GGWNLSWLUASG\", \"middle\": \"YASSWUMSHUSP\", \"end\": \"TMTJYBHUPNQW\", \"closing_stock\": 125}\n\n### Comprehensive Warehouse Audit Procedure for Special SKU Reconciliation\n\nIn high-volume distribution environments, the integrity of inventory data is paramount. This document outlines a rigorous, step-by-step audit procedure designed to verify the physical and digital accuracy of stock levels, with a specific focus on reconciling special SKUs like \"ZX\" against ledger entries. The procedure covers the entire lifecycle of an audit: preparation, physical counting, discrepancy analysis, damage verification, and final sign-off. By adhering to these protocols, warehouse managers can ensure that financial records align with physical reality, minimizing shrinkage and operational inefficiencies.\n\n#### Phase 1: Pre-Audit Preparation and Data Extraction\n\nBefore any physical counting begins, the audit team must establish a baseline. The first step is to extract the current digital ledger for the target SKU. For SKU ZX, the system indicates an opening stock of 126 units. This figure serves as the starting point for all subsequent calculations. The audit team must print or generate a digital checklist that includes the opening balance, all incoming receipts, all outgoing shipments, and any recorded adjustments such as scrap or damage.\n\nSimultaneously, the team must identify the specific storage locations for SKU ZX. In this scenario, the ledger notes that ZX is a special item, distinct from the standard \"oak trim\" rows that populate the rest of the warehouse. The auditor must isolate the bins or pallets designated for ZX to prevent cross-contamination of data with other products. It is critical to freeze all transactions for SKU ZX during the audit window. No goods should be received, shipped, or moved until the physical count is complete. This \"cut-off\" period ensures that",
+      "text_sha256": "90a52ba364c1ac8bf7f4aaead9331115a44522f22906f81bffa8e7b616105b9f",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 123299,
+        "total_tokens": 123683
+      },
+      "metrics": {
+        "accepted_draft_tokens": 241,
+        "available_physical_bytes": 59377967104,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 136.428,
+        "decode_ms": 42711.1131,
+        "decode_tokens": 383,
+        "decode_tps": 8.967221226552393,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.4303571428571429,
+        "draft_ms": 3204.3552999999993,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 560,
+        "mtp_draft": 0,
+        "prefill_ms": 1325845.6144,
+        "prefill_tps": 92.99649873322385,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0007,
+        "sampling_and_sync_ms": 324.15919999999994,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 142,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 39128.1159,
+        "total_including_cleanup_ms": 1368736.0249,
+        "total_ms": 1368599.5832,
+        "ttft_ms": 1325888.4701,
+        "verification_steps": 140
+      },
+      "client_ttft_seconds": 1325.9004511999956,
+      "client_last_content_seconds": 1368.6112797999958,
+      "http_seconds": 1368.748433899993,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 1325.900424499996,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794766935,
+            "id": "chatcmpl-70184-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 1325.9004511999956,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "{\""
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794766935,
+            "id": "chatcmpl-70184-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 1326.189724099997,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "front"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794766935,
+            "id": "chatcmpl-70184-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 1368.7481352000032,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794766935,
+            "id": "chatcmpl-70184-2",
+            "metrics": {
+              "accepted_draft_tokens": 241,
+              "available_physical_bytes": 59377967104,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 136.428,
+              "decode_ms": 42711.1131,
+              "decode_tokens": 383,
+              "decode_tps": 8.967221226552393,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.4303571428571429,
+              "draft_ms": 3204.3552999999993,
+              "draft_sampling": "greedy",
+              "drafted_tokens": 560,
+              "mtp_draft": 0,
+              "prefill_ms": 1325845.6144,
+              "prefill_tps": 92.99649873322385,
+              "rejection_verification_steps": 0,
+              "reset_before_ms": 0.0007,
+              "sampling_and_sync_ms": 324.15919999999994,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-sample-and-match",
+              "target_decode_calls": 142,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 39128.1159,
+              "total_including_cleanup_ms": 1368736.0249,
+              "total_ms": 1368599.5832,
+              "ttft_ms": 1325888.4701,
+              "verification_steps": 140
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 1368.7481715999893,
+          "data": {
+            "choices": [],
+            "created": 1794766935,
+            "id": "chatcmpl-70184-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 123299,
+              "total_tokens": 123683
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "extended",
+      "passed": true,
+      "seconds": 1387.2782460999879,
+      "detail": {
+        "target_tokens": 125000,
+        "actual_prompt_tokens": 123299,
+        "expected": {
+          "front": "GGWNLSWLUASG",
+          "middle": "YASSWUMSHUSP",
+          "end": "TMTJYBHUPNQW",
+          "closing_stock": 125
+        },
+        "observed": {
+          "front": "GGWNLSWLUASG",
+          "middle": "YASSWUMSHUSP",
+          "end": "TMTJYBHUPNQW",
+          "closing_stock": 125
+        },
+        "usage": {
+          "completion_tokens": 384,
+          "prompt_tokens": 123299,
+          "total_tokens": 123683
+        },
+        "metrics": {
+          "accepted_draft_tokens": 241,
+          "available_physical_bytes": 59377967104,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 136.428,
+          "decode_ms": 42711.1131,
+          "decode_tokens": 383,
+          "decode_tps": 8.967221226552393,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.4303571428571429,
+          "draft_ms": 3204.3552999999993,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 560,
+          "mtp_draft": 0,
+          "prefill_ms": 1325845.6144,
+          "prefill_tps": 92.99649873322385,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0007,
+          "sampling_and_sync_ms": 324.15919999999994,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 142,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 39128.1159,
+          "total_including_cleanup_ms": 1368736.0249,
+          "total_ms": 1368599.5832,
+          "ttft_ms": 1325888.4701,
+          "verification_steps": 140
+        },
+        "client_ttft_seconds": 1325.9004511999956,
+        "scope": "One randomized three-depth retrieval plus multi-record arithmetic and sustained procedural output; not broad long-context quality."
+      }
+    }
+  ],
+  "passed": true,
+  "optimization_script_sha256": "35b124bfed0c269bdd5a03ed8372554bd5760210faf3b60f874b634e76e6e92a",
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 0,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "always_clear_experiment": false,
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "batch_logit_capacity_experiment": false,
+      "context": 131072,
+      "context_quality_validated_by_boot": false,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "dflash_draft": 4,
+      "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+      "draft_model_tensor_bytes": 2045465600,
+      "draft_quantization": "Q8_0",
+      "draft_sampling": "probabilistic",
+      "flash_attention": true,
+      "gguf_file_type": "7",
+      "gpu_budget_free_bytes": 68488185800,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 61275103232,
+      "max_logit_outputs": 5,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 29105393664,
+      "mtp": false,
+      "mtp_draft": 0,
+      "native_context_limit": 262144,
+      "quantization": "Q8_0",
+      "recurrent_snapshots": 4,
+      "single_clear_request_state": true,
+      "speculative_type": "draft-dflash2",
+      "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+      "startup_warmup_ms": 772.4603,
+      "startup_warmup_tokens": 128,
+      "target_logits_trace": false,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": null,
+    "pid": 70184,
+    "queue_capacity": 0,
+    "request_limits": {
+      "body_bytes": 4259840,
+      "deadline_seconds": 10800
+    },
+    "state": "ready"
+  },
+  "fixture": {
+    "generator": "ledger_v1",
+    "seed": 20261116,
+    "rows": 4946,
+    "target_tokens": 125000,
+    "target_positions_rows": [
+      107,
+      2643,
+      4846
+    ],
+    "target_depth_fractions": [
+      0.02163364334816013,
+      0.5343712090578245,
+      0.9797816417306915
+    ],
+    "expected": {
+      "front": "GGWNLSWLUASG",
+      "middle": "YASSWUMSHUSP",
+      "end": "TMTJYBHUPNQW",
+      "closing_stock": 125
+    },
+    "request_sha256": "bf45b035b470433e84fd096e6416f766b9f61b94d2e661401341372c894b48a3"
+  },
+  "extended_summary": {
+    "target_tokens": 125000,
+    "actual_prompt_tokens": 123299,
+    "expected": {
+      "front": "GGWNLSWLUASG",
+      "middle": "YASSWUMSHUSP",
+      "end": "TMTJYBHUPNQW",
+      "closing_stock": 125
+    },
+    "observed": {
+      "front": "GGWNLSWLUASG",
+      "middle": "YASSWUMSHUSP",
+      "end": "TMTJYBHUPNQW",
+      "closing_stock": 125
+    },
+    "usage": {
+      "completion_tokens": 384,
+      "prompt_tokens": 123299,
+      "total_tokens": 123683
+    },
+    "metrics": {
+      "accepted_draft_tokens": 241,
+      "available_physical_bytes": 59377967104,
+      "benchmark_timing_valid": true,
+      "cleanup_ms": 136.428,
+      "decode_ms": 42711.1131,
+      "decode_tokens": 383,
+      "decode_tps": 8.967221226552393,
+      "dflash_draft": 4,
+      "draft_acceptance": 0.4303571428571429,
+      "draft_ms": 3204.3552999999993,
+      "draft_sampling": "greedy",
+      "drafted_tokens": 560,
+      "mtp_draft": 0,
+      "prefill_ms": 1325845.6144,
+      "prefill_tps": 92.99649873322385,
+      "rejection_verification_steps": 0,
+      "reset_before_ms": 0.0007,
+      "sampling_and_sync_ms": 324.15919999999994,
+      "seed": 2026,
+      "speculative_verifier": "upstream-target-sample-and-match",
+      "target_decode_calls": 142,
+      "target_logits_trace": false,
+      "target_submit_and_catchup_ms": 39128.1159,
+      "total_including_cleanup_ms": 1368736.0249,
+      "total_ms": 1368599.5832,
+      "ttft_ms": 1325888.4701,
+      "verification_steps": 140
+    },
+    "client_ttft_seconds": 1325.9004511999956,
+    "scope": "One randomized three-depth retrieval plus multi-record arithmetic and sustained procedural output; not broad long-context quality."
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 2,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "always_clear_experiment": false,
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "batch_logit_capacity_experiment": false,
+      "context": 131072,
+      "context_quality_validated_by_boot": false,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "dflash_draft": 4,
+      "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+      "draft_model_tensor_bytes": 2045465600,
+      "draft_quantization": "Q8_0",
+      "draft_sampling": "probabilistic",
+      "flash_attention": true,
+      "gguf_file_type": "7",
+      "gpu_budget_free_bytes": 68488185800,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 61275103232,
+      "max_logit_outputs": 5,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 29105393664,
+      "mtp": false,
+      "mtp_draft": 0,
+      "native_context_limit": 262144,
+      "quantization": "Q8_0",
+      "recurrent_snapshots": 4,
+      "single_clear_request_state": true,
+      "speculative_type": "draft-dflash2",
+      "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+      "startup_warmup_ms": 772.4603,
+      "startup_warmup_tokens": 128,
+      "target_logits_trace": false,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-70184-2",
+      "metrics": {
+        "accepted_draft_tokens": 241,
+        "available_physical_bytes": 59377967104,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 136.428,
+        "decode_ms": 42711.1131,
+        "decode_tokens": 383,
+        "decode_tps": 8.967221226552393,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.4303571428571429,
+        "draft_ms": 3204.3552999999993,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 560,
+        "mtp_draft": 0,
+        "prefill_ms": 1325845.6144,
+        "prefill_tps": 92.99649873322385,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0007,
+        "sampling_and_sync_ms": 324.15919999999994,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 142,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 39128.1159,
+        "total_including_cleanup_ms": 1368736.0249,
+        "total_ms": 1368599.5832,
+        "ttft_ms": 1325888.4701,
+        "verification_steps": 140
+      },
+      "outcome": "completed"
+    },
+    "pid": 70184,
+    "queue_capacity": 0,
+    "request_limits": {
+      "body_bytes": 4259840,
+      "deadline_seconds": 10800
+    },
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T18:45:04.330163+00:00"
+}

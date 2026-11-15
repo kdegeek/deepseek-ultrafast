@@ -2,3 +2,5 @@
 ports/strix-reference/upstream/encoding.py text eol=lf
 # Preserve the supplied Qwen model-selection lock bytes across Windows checkouts.
 ports/qwen-resident/model.lock.json text eol=lf
+ports/qwen-resident/model-q8.lock.json text eol=lf
+ports/qwen-resident/model-dflash2.lock.json text eol=lf

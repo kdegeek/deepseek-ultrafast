@@ -1,0 +1,6 @@
+[
+  {"name":"vulkan-ordinary","parameters":{"Backend":"Vulkan"}},
+  {"name":"vulkan-mtp2","parameters":{"Backend":"Vulkan","MtpDraft":2}},
+  {"name":"vulkan-dflash4-greedy","parameters":{"Backend":"Vulkan","DFlashDraft":4}},
+  {"name":"vulkan-dflash4-probabilistic","parameters":{"Backend":"Vulkan","DFlashDraft":4},"draft_sampling":"probabilistic"}
+]

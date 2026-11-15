@@ -12,7 +12,7 @@ Use a new output path for each load/idle/decode observation window.
 param(
     [int]$ServerPid = 0,
     [ValidateRange(1, 65535)][int]$Port = 18083,
-    [ValidateRange(1, 3600)][int]$DurationSeconds = 120,
+    [ValidateRange(1, 21600)][int]$DurationSeconds = 120,
     [ValidateRange(0.25, 30)][double]$IntervalSeconds = 1,
     [ValidateRange(1, 100)][double]$MinimumAvailableGiB = 20,
     [Parameter(Mandatory = $true)][string]$Output,
@@ -90,11 +90,13 @@ $counterPaths = @(
     '\Memory\Committed Bytes', '\Memory\Commit Limit',
     '\Memory\Page Reads/sec', '\Memory\Page Writes/sec',
     '\Memory\Pages Input/sec', '\Memory\Pages Output/sec'
+    '\Processor(_Total)\% Processor Time'
 )
 $gpuPaths = @(
     '\GPU Process Memory(*)\Dedicated Usage',
     '\GPU Process Memory(*)\Shared Usage',
     '\GPU Process Memory(*)\Total Committed'
+    '\GPU Engine(*)\Utilization Percentage'
 )
 $gpuAvailable = $true
 $gpuError = $null
@@ -182,6 +184,7 @@ try {
                 page_write_operations_raw = Get-RawCounterValue $counters '\memory\page writes/sec'
                 pages_input_raw = Get-RawCounterValue $counters '\memory\pages input/sec'
                 pages_output_raw = Get-RawCounterValue $counters '\memory\pages output/sec'
+                cpu_utilization_percent = ($counters | Where-Object { $_.Path.EndsWith('\processor(_total)\% processor time',[StringComparison]::OrdinalIgnoreCase) } | Select-Object -First 1).CookedValue
             }
             process = [ordered]@{
                 working_set_bytes = $processMemory.WorkingSetSize.ToUInt64()
@@ -194,11 +197,13 @@ try {
                 other_bytes_raw = $processIo.OtherTransferCount
                 read_operations_raw = $processIo.ReadOperationCount
                 write_operations_raw = $processIo.WriteOperationCount
+                cpu_time_ms = $observedProcess.TotalProcessorTime.TotalMilliseconds
             }
             gpu = [ordered]@{
                 dedicated_usage_bytes = Get-GpuCounterValue $counters '\dedicated usage'
                 shared_usage_bytes = Get-GpuCounterValue $counters '\shared usage'
                 total_committed_bytes = Get-GpuCounterValue $counters '\total committed'
+                busiest_engine_utilization_percent = ($counters | Where-Object { $_.Path -match "(?i)gpu engine\(pid_${ServerPid}_" } | Measure-Object -Property CookedValue -Maximum).Maximum
             }
             below_memory_reserve = ($systemMemory.AvailablePhysical -lt $MinimumAvailableGiB * 1GB)
         }
@@ -232,6 +237,7 @@ finally {
             maximum_gpu_dedicated_gib = Get-MaximumGiB @($report.samples | ForEach-Object { $_.gpu.dedicated_usage_bytes })
             maximum_gpu_shared_gib = Get-MaximumGiB @($report.samples | ForEach-Object { $_.gpu.shared_usage_bytes })
             maximum_gpu_committed_gib = Get-MaximumGiB @($report.samples | ForEach-Object { $_.gpu.total_committed_bytes })
+            maximum_gpu_engine_utilization_percent = ($report.samples | ForEach-Object { $_.gpu.busiest_engine_utilization_percent } | Measure-Object -Maximum).Maximum
             window_process_read_bytes = [decimal]$last.process.read_bytes_raw - [decimal]$first.process.read_bytes_raw
             window_process_write_bytes = [decimal]$last.process.write_bytes_raw - [decimal]$first.process.write_bytes_raw
             window_process_page_faults = [decimal]$last.process.page_faults_raw - [decimal]$first.process.page_faults_raw

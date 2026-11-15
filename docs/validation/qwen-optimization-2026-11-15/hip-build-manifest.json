@@ -1,0 +1,132 @@
+{
+  "built_utc": "2026-11-15T17:46:03.3621735Z",
+  "backend_revision": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+  "backend": "HIP",
+  "cmake_version": "cmake version 4.4.3",
+  "rust_built": false,
+  "files": [
+    {
+      "path": "C:\\Users\\ncrawford\\Documents\\Codex\\2026-10-24\\ca\\work\\Strata\\.rocm-win\\Lib\\site-packages\\cmake\\data\\bin\\cmake.exe",
+      "bytes": 13465680,
+      "sha256": "ab8247ca4554871e5d75c0ee118ee8663727bd6fdf37ad76b17e9cc8d5f286a8"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\Documents\\Codex\\2026-10-24\\ca\\work\\Strata\\.rocm-win\\Scripts\\ninja.exe",
+      "bytes": 604160,
+      "sha256": "a7f084e8ee37bff0872aa8bd3d17cc19632d2a37734f6c242dd3dee22d77c0b4"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\tools\\build-qwen.ps1",
+      "bytes": 10087,
+      "sha256": "31aa52e31fd8aab6f45f946cfca0879fca4a028282d084be68a0e36bba150eeb"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\tools\\qwen-hip-sdk.py",
+      "bytes": 5657,
+      "sha256": "8fe871eeb66afff2c2681bf2de73eccd35e4ddfd8ce602d194dd83c6f773190e"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\receipt.json",
+      "bytes": 399,
+      "sha256": "17566c83da1eed8575ab0cc35dfa3d3045c3fc49c3bc41aacbbd81514d305413"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\lib\\llvm\\bin\\clang++.exe",
+      "bytes": 109728256,
+      "sha256": "a1a8ea725205ca3587038a137bdcffe66ce69205f638c862b0d670885c89def0"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\include\\hip\\hip_version.h",
+      "bytes": 424,
+      "sha256": "c192432bd263636596600e59e4520411b71ca200a929ba06b2f8c8b59098ca98"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\amdhip64_7.dll",
+      "bytes": 22084096,
+      "sha256": "b4b4799f5deafb81ff735e077b0efe95fb98abe728a2a98efa713b1c6f8bd1a2"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\amd_comgr.dll",
+      "bytes": 120767488,
+      "sha256": "0a890dbdcd12e6a10dd9ddb48370d592ec3592d6d9a5d4b167c86b7f49c17b34"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\hipblas.dll",
+      "bytes": 801280,
+      "sha256": "a2b58f20529f768b22bcde18b0cdbc7ae58b112b9bd1171bdd23197c4fafd27c"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\rocblas.dll",
+      "bytes": 20873728,
+      "sha256": "94b0e371b584e7963f6a3231bd254804a8b08418b7686e718b26983dcdbd936f"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\rocsolver.dll",
+      "bytes": 23884800,
+      "sha256": "bc78997831f6e68362e541e0eb14a6d08b71ee923e5cae7dd7d27d3a3349fa87"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\libhipblaslt.dll",
+      "bytes": 6535680,
+      "sha256": "625fd875c2fc1d7096b61056d349eaf2ec9f021706a99ad14966e138dead8423"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\rocm-7.14\\_rocm_sdk_devel\\bin\\rocm_kpack.dll",
+      "bytes": 181248,
+      "sha256": "97b59ca4e7b5edfcda72d66c5b6643f557168b3c60091cf5c6fe9bb226597bf1"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\backend.lock.json",
+      "bytes": 812,
+      "sha256": "ee2b829ba261883e54934504345b2674385c2d6745644df6e88453f5943b0be7"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\CMakeLists.txt",
+      "bytes": 1958,
+      "sha256": "749106b3b4bd36e948bcd8865ff22e0eb5772745d858cd0de5333495df98d7bd"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\qwen_native.cpp",
+      "bytes": 45479,
+      "sha256": "520dee3562979a544d5efcfdce4b8fbe80a04756a63bb63bedcfeb412f5a2de0"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\speculative_sampling_test.cpp",
+      "bytes": 12591,
+      "sha256": "fded34c4df79549d3d0d1c4c649f033193bc67688142657b249053bbb21487b6"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\stream_test.cpp",
+      "bytes": 1266,
+      "sha256": "54b8e101a3a3849ef7b140fabfabdc8e0b8d94cdff40d1221d7c57c780655a75"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\stream.h",
+      "bytes": 3171,
+      "sha256": "9a82e642087cfcc2ac06c149ea1545a6c305693fccdf7f40c811da14450fb29d"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\build-hip\\bin\\Release\\qwen_native.dll",
+      "bytes": 88456704,
+      "sha256": "93d2a48e19f9ca26412027e40377f95f5c2e02390ada7b50ebddcb218223c79e"
+    }
+  ],
+  "hip": {
+    "sdk": "C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/rocm-7.14/_rocm_sdk_devel",
+    "gpu_targets": "gfx1151",
+    "graphs": "ON",
+    "force_mmq": false,
+    "mmq_mfma": "ON",
+    "no_vmm": "ON",
+    "openmp": false
+  },
+  "runtime": {
+    "dll_directories": [
+      "C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/rocm-7.14/_rocm_sdk_devel/bin"
+    ],
+    "preload_libraries": [
+      "C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/rocm-7.14/_rocm_sdk_devel/bin/amd_comgr.dll",
+      "C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/rocm-7.14/_rocm_sdk_devel/bin/amdhip64_7.dll"
+    ]
+  }
+}

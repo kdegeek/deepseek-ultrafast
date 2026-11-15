@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "model_id": "incoai/Qwen3.8-27B-DFlash2",
+  "target_model_id": "Qwen/Qwen3.8-27B",
+  "repository": "incoai/Qwen3.8-27B-DFlash2-GGUF",
+  "revision": "144eb06583b4fb0b6e54bc814b16a206a240f4d2",
+  "filename": "Qwen3.8-27B-DFlash2-Q8_0.gguf",
+  "size_bytes": 2056414816,
+  "sha256": "651a1b2930c9825080480f79cf38057e681c9b175d580a357c14f67cf77ccf49",
+  "quantization": "Q8_0",
+  "license": "apache-2.0",
+  "status": "pinned candidate; hardware acceptance recorded separately",
+  "metadata_source": "https://huggingface.co/api/models/incoai/Qwen3.8-27B-DFlash2-GGUF?blobs=true"
+}

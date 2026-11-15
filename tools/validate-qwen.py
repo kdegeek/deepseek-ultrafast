@@ -23,6 +23,7 @@ import traceback
 MODEL = "Qwen/Qwen3.8-27B"
 ROOT = Path(__file__).resolve().parents[1]
 SEED = 2026
+BENCHMARK_PROMPT = "Write a detailed practical handbook for maintaining wooden exterior doors in a rainy climate. Explain inspection, cleaning, finish repair, hardware adjustment, weather sealing, seasonal scheduling, and when professional repairs are needed. Give concrete steps and examples in every section. Keep writing until all sections are thoroughly covered; aim for at least 1500 words."
 
 
 def utc():
@@ -474,8 +475,8 @@ def test_contract(harness):
 
 
 def test_benchmark(harness):
-    prompt = "Write a detailed practical handbook for maintaining wooden exterior doors in a rainy climate. Explain inspection, cleaning, finish repair, hardware adjustment, weather sealing, seasonal scheduling, and when professional repairs are needed. Give concrete steps and examples in every section. Keep writing until all sections are thoroughly covered; aim for at least 1500 words."
-    body = chat(prompt, harness.args.decode_tokens)
+    check(not harness.health()["identity"].get("target_logits_trace", False), "diagnostic tracing invalidates benchmark timing")
+    body = chat(BENCHMARK_PROMPT, harness.args.decode_tokens, temperature=harness.args.benchmark_temperature)
     warm = harness.request("benchmark_warmup", chat("Explain three practical ways to label and organize a small tool cabinet.", 96))
     check(answer(warm).strip(), "empty benchmark warmup")
     samples = []
@@ -487,6 +488,7 @@ def test_benchmark(harness):
     check(len({sample["text_sha256"] for sample in samples}) == 1, "benchmark repeats changed greedy output")
     summary = {
         "repeats": len(samples),
+        "temperature": harness.args.benchmark_temperature,
         "prompt_tokens": samples[0]["usage"]["prompt_tokens"],
         "completion_tokens_each": [sample["usage"]["completion_tokens"] for sample in samples],
         "median_decode_tps": statistics.median(sample["metrics"]["decode_tps"] for sample in samples),
@@ -560,10 +562,13 @@ def main():
     parser.add_argument("--context", type=int, default=32768)
     parser.add_argument("--repeats", type=int, default=3)
     parser.add_argument("--decode-tokens", type=int, default=384)
+    parser.add_argument("--benchmark-temperature", type=float, default=0)
     parser.add_argument("--long-targets", type=int, nargs="+", default=[4096, 30000])
     args = parser.parse_args()
     if not 1 <= args.port <= 65535 or not 1 <= args.repeats <= 10 or not 256 <= args.decode_tokens <= 4096:
         parser.error("port/repeats/decode-tokens outside bounded range")
+    if not 0 <= args.benchmark_temperature <= 2:
+        parser.error("benchmark-temperature must be0..2")
     if args.output.exists():
         parser.error("output exists; choose a new report path to preserve prior evidence")
     if any(value < 256 or value > args.context - 1024 for value in args.long_targets):

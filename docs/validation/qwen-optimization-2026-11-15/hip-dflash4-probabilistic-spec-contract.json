@@ -1,0 +1,1657 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T20:30:57.888778+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "spec-contract",
+  "script_sha256": "37b838d0933e0e146fc3e555fddb8bd8a1bc6345211ff58edf5b08b8bc084790",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "filtered_penalties_before",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:31:09.757827+00:00",
+      "http_status": 200,
+      "http_seconds": 11.86436349998985,
+      "request_sha256": "f6db509969f941d9232cc32f384b9518fd07c22b0cd54fac6fca83ec621a38bf",
+      "request_bytes": 318,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 128,
+        "top_k": 20,
+        "top_p": 0.8,
+        "presence_penalty": 1.5,
+        "frequency_penalty": 0.3,
+        "repeat_penalty": 1.05
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Inspecting a wooden exterior door is critical because it serves as both a security barrier and the primary defense against weather, moisture, and energy loss. Wood is hygroscopic (it absorbs water), so most failures in exterior doors stem from moisture intrusion or physical wear over time.\n\nHere are practical inspection steps with concrete examples of what to look for:\n\n### 1. Check for Moisture Damage and Rot\nWood deteriorates when exposed to sustained moisture. Focus on areas that trap water or contact the ground.\n\n*   **Step:** Visually inspect the bottom rail (bottom horizontal piece) and corners where vertical stiles meet horizontal",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774657,
+        "id": "chatcmpl-72652-33",
+        "metrics": {
+          "accepted_draft_tokens": 76,
+          "available_physical_bytes": 66812723200,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2853.1788,
+          "decode_ms": 8737.7105,
+          "decode_tokens": 127,
+          "decode_tps": 14.534699907944994,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.40425531914893614,
+          "draft_ms": 1168.2501999999995,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 188,
+          "mtp_draft": 0,
+          "prefill_ms": 270.8692,
+          "prefill_tps": 95.98728832957016,
+          "rejection_verification_steps": 47,
+          "reset_before_ms": 0.0012,
+          "sampling_and_sync_ms": 90.40160000000004,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 51,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 7473.150200000001,
+          "total_including_cleanup_ms": 11863.0826,
+          "total_ms": 9009.895,
+          "ttft_ms": 272.1845,
+          "verification_steps": 47
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 128,
+          "prompt_tokens": 26,
+          "total_tokens": 154
+        }
+      }
+    },
+    {
+      "name": "filtered_penalties_interleaved_other_request",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:31:20.160799+00:00",
+      "http_status": 200,
+      "http_seconds": 10.40318280000065,
+      "request_sha256": "2950795cde49db099d3d355cda970fad1524386734e93f71e0c0f3cf5110bb99",
+      "request_bytes": 213,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.9,
+        "seed": 12345,
+        "max_tokens": 96,
+        "presence_penalty": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "The wind off the North Atlantic didn’t just blow; it screamed. It battered the glass of the lantern room, rattling the brass fittings until they sang a discordant, metallic song. Elias adjusted his grip on the polishing cloth, his knuckles white, and wiped a smudge from the Fresnel lens. For thirty years, the rhythm of the light—*click, turn, beam*—had been his heartbeat. But tonight, the storm felt different. Heavier",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774669,
+        "id": "chatcmpl-72652-34",
+        "metrics": {
+          "accepted_draft_tokens": 52,
+          "available_physical_bytes": 66832121856,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2824.3149,
+          "decode_ms": 7311.7345,
+          "decode_tokens": 95,
+          "decode_tps": 12.992813127993092,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.325,
+          "draft_ms": 997.0720999999998,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 160,
+          "mtp_draft": 0,
+          "prefill_ms": 249.696,
+          "prefill_tps": 100.12174804562348,
+          "rejection_verification_steps": 40,
+          "reset_before_ms": 0.0019,
+          "sampling_and_sync_ms": 22.4329,
+          "seed": 12345,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 43,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 6286.2930000000015,
+          "total_including_cleanup_ms": 10387.4045,
+          "total_ms": 7563.0724,
+          "ttft_ms": 251.3379,
+          "verification_steps": 40
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 25,
+          "total_tokens": 121
+        }
+      }
+    },
+    {
+      "name": "filtered_penalties_after",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:31:31.962477+00:00",
+      "http_status": 200,
+      "http_seconds": 11.802303500007838,
+      "request_sha256": "f6db509969f941d9232cc32f384b9518fd07c22b0cd54fac6fca83ec621a38bf",
+      "request_bytes": 318,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 128,
+        "top_k": 20,
+        "top_p": 0.8,
+        "presence_penalty": 1.5,
+        "frequency_penalty": 0.3,
+        "repeat_penalty": 1.05
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Inspecting a wooden exterior door is critical because it serves as both a security barrier and the primary defense against weather, moisture, and energy loss. Wood is hygroscopic (it absorbs water), so most failures in exterior doors stem from moisture intrusion or physical wear over time.\n\nHere are practical inspection steps with concrete examples of what to look for:\n\n### 1. Check for Moisture Damage and Rot\nWood deteriorates when exposed to sustained moisture. Focus on areas that trap water or contact the ground.\n\n*   **Step:** Visually inspect the bottom rail (bottom horizontal piece) and corners where vertical stiles meet horizontal",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774680,
+        "id": "chatcmpl-72652-35",
+        "metrics": {
+          "accepted_draft_tokens": 76,
+          "available_physical_bytes": 66831904768,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2800.4749,
+          "decode_ms": 8741.6187,
+          "decode_tokens": 127,
+          "decode_tps": 14.528201739112689,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.40425531914893614,
+          "draft_ms": 1175.7036,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 188,
+          "mtp_draft": 0,
+          "prefill_ms": 245.937,
+          "prefill_tps": 105.71813106608604,
+          "rejection_verification_steps": 47,
+          "reset_before_ms": 0.0011,
+          "sampling_and_sync_ms": 87.20880000000001,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 51,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 7472.513900000001,
+          "total_including_cleanup_ms": 11789.7301,
+          "total_ms": 8989.2439,
+          "ttft_ms": 247.6252,
+          "verification_steps": 47
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 128,
+          "prompt_tokens": 26,
+          "total_tokens": 154
+        }
+      }
+    },
+    {
+      "name": "filtered_penalties_stream",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:31:44.146494+00:00",
+      "request_sha256": "f1f23cac2e2aaa9cb1c3f2089999d8724ad6e6ea628b883da27f979a695aa7ff",
+      "request_bytes": 377,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 128,
+        "top_k": 20,
+        "top_p": 0.8,
+        "presence_penalty": 1.5,
+        "frequency_penalty": 0.3,
+        "repeat_penalty": 1.05,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "Inspecting a wooden exterior door is critical because it serves as both a security barrier and the primary defense against weather, moisture, and energy loss. Wood is hygroscopic (it absorbs water), so most failures in exterior doors stem from moisture intrusion or physical wear over time.\n\nHere are practical inspection steps with concrete examples of what to look for:\n\n### 1. Check for Moisture Damage and Rot\nWood deteriorates when exposed to sustained moisture. Focus on areas that trap water or contact the ground.\n\n*   **Step:** Visually inspect the bottom rail (bottom horizontal piece) and corners where vertical stiles meet horizontal",
+      "text_sha256": "60954b2c142f1ad2862ce100a855ed945c93c7d40135e6064b9d47c09ba6babf",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 128,
+        "prompt_tokens": 26,
+        "total_tokens": 154
+      },
+      "metrics": {
+        "accepted_draft_tokens": 76,
+        "available_physical_bytes": 66602840064,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 3159.4697,
+        "decode_ms": 8761.9673,
+        "decode_tokens": 127,
+        "decode_tps": 14.49446176317047,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.40425531914893614,
+        "draft_ms": 1163.0592,
+        "draft_sampling": "probabilistic",
+        "drafted_tokens": 188,
+        "mtp_draft": 0,
+        "prefill_ms": 250.3368,
+        "prefill_tps": 103.86007970062732,
+        "rejection_verification_steps": 47,
+        "reset_before_ms": 0.0006,
+        "sampling_and_sync_ms": 89.17729999999999,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-rejection",
+        "target_decode_calls": 51,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 7503.391,
+        "total_including_cleanup_ms": 12173.1159,
+        "total_ms": 9013.6258,
+        "ttft_ms": 251.6585,
+        "verification_steps": 47
+      },
+      "client_ttft_seconds": 0.2631163000041852,
+      "client_last_content_seconds": 9.024831500006258,
+      "http_seconds": 12.184841499998583,
+      "delta_count": 128,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.26308679999783635,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794774691,
+            "id": "chatcmpl-72652-36",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.2631163000041852,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "Inspect"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794774691,
+            "id": "chatcmpl-72652-36",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.44427429999632295,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "ing"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794774691,
+            "id": "chatcmpl-72652-36",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 12.18461880000541,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794774691,
+            "id": "chatcmpl-72652-36",
+            "metrics": {
+              "accepted_draft_tokens": 76,
+              "available_physical_bytes": 66602840064,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 3159.4697,
+              "decode_ms": 8761.9673,
+              "decode_tokens": 127,
+              "decode_tps": 14.49446176317047,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.40425531914893614,
+              "draft_ms": 1163.0592,
+              "draft_sampling": "probabilistic",
+              "drafted_tokens": 188,
+              "mtp_draft": 0,
+              "prefill_ms": 250.3368,
+              "prefill_tps": 103.86007970062732,
+              "rejection_verification_steps": 47,
+              "reset_before_ms": 0.0006,
+              "sampling_and_sync_ms": 89.17729999999999,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-rejection",
+              "target_decode_calls": 51,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 7503.391,
+              "total_including_cleanup_ms": 12173.1159,
+              "total_ms": 9013.6258,
+              "ttft_ms": 251.6585,
+              "verification_steps": 47
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 12.184657200006768,
+          "data": {
+            "choices": [],
+            "created": 1794774691,
+            "id": "chatcmpl-72652-36",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 128,
+              "prompt_tokens": 26,
+              "total_tokens": 154
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "unfiltered_before",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:31:57.041218+00:00",
+      "http_status": 200,
+      "http_seconds": 12.895251599999028,
+      "request_sha256": "68b481c40f30c51066d8c5acf77f534b91cd354445147b9f77c275c825bc7ef8",
+      "request_bytes": 265,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.8,
+        "seed": 2026,
+        "max_tokens": 128,
+        "top_k": 0,
+        "top_p": 1.0,
+        "presence_penalty": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Inspecting a wooden exterior door is crucial because it is the primary barrier against weather, pests, and security breaches. Unlike interior doors, exterior wooden doors are exposed to extreme temperature fluctuations, humidity, and UV radiation.\n\nHere are practical inspection steps with concrete examples:\n\n### 1. Check for Rot and Soft Spots\nWood rot is the most common failure point. Look for discoloration (dark, soft, or crumbly areas), especially near the bottom of the door where it’s closest to the ground and moisture.\n\n*   **How to inspect:** Use a screwdriver or a sturdy key to gently probe the",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774704,
+        "id": "chatcmpl-72652-37",
+        "metrics": {
+          "accepted_draft_tokens": 82,
+          "available_physical_bytes": 66298982400,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2884.0927,
+          "decode_ms": 9745.0747,
+          "decode_tokens": 127,
+          "decode_tps": 13.032224370737763,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.5,
+          "draft_ms": 1118.847,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 164,
+          "mtp_draft": 0,
+          "prefill_ms": 246.0612,
+          "prefill_tps": 105.66476957764978,
+          "rejection_verification_steps": 41,
+          "reset_before_ms": 0.0011,
+          "sampling_and_sync_ms": 1948.0104,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 45,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 6671.993199999999,
+          "total_including_cleanup_ms": 12877.0569,
+          "total_ms": 9992.9513,
+          "ttft_ms": 247.8766,
+          "verification_steps": 41
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 128,
+          "prompt_tokens": 26,
+          "total_tokens": 154
+        }
+      }
+    },
+    {
+      "name": "unfiltered_interleaved_other_request",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:07.693636+00:00",
+      "http_status": 200,
+      "http_seconds": 10.652823100012029,
+      "request_sha256": "2950795cde49db099d3d355cda970fad1524386734e93f71e0c0f3cf5110bb99",
+      "request_bytes": 213,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.9,
+        "seed": 12345,
+        "max_tokens": 96,
+        "presence_penalty": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "The wind off the North Atlantic didn’t just blow; it screamed. It battered the glass of the lantern room, rattling the brass fittings until they sang a discordant, metallic song. Elias adjusted his grip on the polishing cloth, his knuckles white, and wiped a smudge from the Fresnel lens. For thirty years, the rhythm of the light—*click, turn, beam*—had been his heartbeat. But tonight, the storm felt different. Heavier",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774717,
+        "id": "chatcmpl-72652-38",
+        "metrics": {
+          "accepted_draft_tokens": 52,
+          "available_physical_bytes": 66240094208,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2963.376,
+          "decode_ms": 7416.9459,
+          "decode_tokens": 95,
+          "decode_tps": 12.808506530969844,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.325,
+          "draft_ms": 1000.5132,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 160,
+          "mtp_draft": 0,
+          "prefill_ms": 269.9964,
+          "prefill_tps": 92.59382717695496,
+          "rejection_verification_steps": 40,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 32.1505,
+          "seed": 12345,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 43,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 6377.394800000001,
+          "total_including_cleanup_ms": 10651.4222,
+          "total_ms": 7688.0315,
+          "ttft_ms": 271.0856,
+          "verification_steps": 40
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 25,
+          "total_tokens": 121
+        }
+      }
+    },
+    {
+      "name": "unfiltered_after",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:20.475128+00:00",
+      "http_status": 200,
+      "http_seconds": 12.781599300011294,
+      "request_sha256": "68b481c40f30c51066d8c5acf77f534b91cd354445147b9f77c275c825bc7ef8",
+      "request_bytes": 265,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.8,
+        "seed": 2026,
+        "max_tokens": 128,
+        "top_k": 0,
+        "top_p": 1.0,
+        "presence_penalty": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Inspecting a wooden exterior door is crucial because it is the primary barrier against weather, pests, and security breaches. Unlike interior doors, exterior wooden doors are exposed to extreme temperature fluctuations, humidity, and UV radiation.\n\nHere are practical inspection steps with concrete examples:\n\n### 1. Check for Rot and Soft Spots\nWood rot is the most common failure point. Look for discoloration (dark, soft, or crumbly areas), especially near the bottom of the door where it’s closest to the ground and moisture.\n\n*   **How to inspect:** Use a screwdriver or a sturdy key to gently probe the",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774727,
+        "id": "chatcmpl-72652-39",
+        "metrics": {
+          "accepted_draft_tokens": 82,
+          "available_physical_bytes": 66288484352,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2847.5005,
+          "decode_ms": 9659.7402,
+          "decode_tokens": 127,
+          "decode_tps": 13.147351519867998,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.5,
+          "draft_ms": 1088.7556,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 164,
+          "mtp_draft": 0,
+          "prefill_ms": 248.3463,
+          "prefill_tps": 104.69252008183732,
+          "rejection_verification_steps": 41,
+          "reset_before_ms": 0.0018,
+          "sampling_and_sync_ms": 1891.4168,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 45,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 6673.4781,
+          "total_including_cleanup_ms": 12757.5153,
+          "total_ms": 9909.9987,
+          "ttft_ms": 250.2585,
+          "verification_steps": 41
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 128,
+          "prompt_tokens": 26,
+          "total_tokens": 154
+        }
+      }
+    },
+    {
+      "name": "unfiltered_stream",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:33.873492+00:00",
+      "request_sha256": "15aa9f95f2a2f72a74bb99b94d5e7f1bff89a612ae515ecf633ad28ce0c1968e",
+      "request_bytes": 324,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.8,
+        "seed": 2026,
+        "max_tokens": 128,
+        "top_k": 0,
+        "top_p": 1.0,
+        "presence_penalty": 0,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "Inspecting a wooden exterior door is crucial because it is the primary barrier against weather, pests, and security breaches. Unlike interior doors, exterior wooden doors are exposed to extreme temperature fluctuations, humidity, and UV radiation.\n\nHere are practical inspection steps with concrete examples:\n\n### 1. Check for Rot and Soft Spots\nWood rot is the most common failure point. Look for discoloration (dark, soft, or crumbly areas), especially near the bottom of the door where it’s closest to the ground and moisture.\n\n*   **How to inspect:** Use a screwdriver or a sturdy key to gently probe the",
+      "text_sha256": "57fc4a7c606710242f7d8f90b44aaee190855ae710602ce71152cce7c3dd4214",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 128,
+        "prompt_tokens": 26,
+        "total_tokens": 154
+      },
+      "metrics": {
+        "accepted_draft_tokens": 82,
+        "available_physical_bytes": 66549932032,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 3161.5224,
+        "decode_ms": 9970.7098,
+        "decode_tokens": 127,
+        "decode_tps": 12.737307829378404,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.5,
+        "draft_ms": 1345.4789000000003,
+        "draft_sampling": "probabilistic",
+        "drafted_tokens": 164,
+        "mtp_draft": 0,
+        "prefill_ms": 249.0189,
+        "prefill_tps": 104.40974560565483,
+        "rejection_verification_steps": 41,
+        "reset_before_ms": 0.001,
+        "sampling_and_sync_ms": 1947.233,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-rejection",
+        "target_decode_calls": 45,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 6672.2875,
+        "total_including_cleanup_ms": 13383.0813,
+        "total_ms": 10221.5495,
+        "ttft_ms": 250.8397,
+        "verification_steps": 41
+      },
+      "client_ttft_seconds": 0.2667463999969186,
+      "client_last_content_seconds": 10.237313399993582,
+      "http_seconds": 13.399241199993412,
+      "delta_count": 128,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.26672400000097696,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794774740,
+            "id": "chatcmpl-72652-40",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.2667463999969186,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "Inspect"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794774740,
+            "id": "chatcmpl-72652-40",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.5064711000013631,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "ing"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794774740,
+            "id": "chatcmpl-72652-40",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 13.39902979999897,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794774740,
+            "id": "chatcmpl-72652-40",
+            "metrics": {
+              "accepted_draft_tokens": 82,
+              "available_physical_bytes": 66549932032,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 3161.5224,
+              "decode_ms": 9970.7098,
+              "decode_tokens": 127,
+              "decode_tps": 12.737307829378404,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.5,
+              "draft_ms": 1345.4789000000003,
+              "draft_sampling": "probabilistic",
+              "drafted_tokens": 164,
+              "mtp_draft": 0,
+              "prefill_ms": 249.0189,
+              "prefill_tps": 104.40974560565483,
+              "rejection_verification_steps": 41,
+              "reset_before_ms": 0.001,
+              "sampling_and_sync_ms": 1947.233,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-rejection",
+              "target_decode_calls": 45,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 6672.2875,
+              "total_including_cleanup_ms": 13383.0813,
+              "total_ms": 10221.5495,
+              "ttft_ms": 250.8397,
+              "verification_steps": 41
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 13.399066799989669,
+          "data": {
+            "choices": [],
+            "created": 1794774740,
+            "id": "chatcmpl-72652-40",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 128,
+              "prompt_tokens": 26,
+              "total_tokens": 154
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "output_budget_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:36.948936+00:00",
+      "http_status": 200,
+      "http_seconds": 3.0739763000019593,
+      "request_sha256": "5e2b487455ae6ff3d094c18dcd6c00bada3cef4a5b76eaa3f07e61331d91fb85",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "#",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774753,
+        "id": "chatcmpl-72652-41",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 66578116608,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2807.5821,
+          "decode_ms": 0.0275,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 245.191,
+          "prefill_tps": 110.11823435607344,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0016,
+          "sampling_and_sync_ms": 0.8814,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 0,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 0.0,
+          "total_including_cleanup_ms": 3054.8655,
+          "total_ms": 247.2637,
+          "ttft_ms": 247.2362,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 27,
+          "total_tokens": 28
+        }
+      }
+    },
+    {
+      "name": "output_budget_2",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:40.188699+00:00",
+      "http_status": 200,
+      "http_seconds": 3.2386472999933176,
+      "request_sha256": "2d1d12c3f85145a466520a32473aa085cc9e0cd32a4a782a7e56795cc9200202",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 2
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774756,
+        "id": "chatcmpl-72652-42",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 66608488448,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2840.643,
+          "decode_ms": 138.1548,
+          "decode_tokens": 1,
+          "decode_tps": 7.23825737506044,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 243.6484,
+          "prefill_tps": 110.8154209098028,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0006,
+          "sampling_and_sync_ms": 1.4104,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 137.5173,
+          "total_including_cleanup_ms": 3223.8505,
+          "total_ms": 383.1987,
+          "ttft_ms": 245.0439,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 27,
+          "total_tokens": 29
+        }
+      }
+    },
+    {
+      "name": "output_budget_3",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:43.627339+00:00",
+      "http_status": 200,
+      "http_seconds": 3.437610399996629,
+      "request_sha256": "cae491f7b951baeba63c4372ad378fe6f93bb946f9708feaae7fe347d9b4ed52",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 3
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774760,
+        "id": "chatcmpl-72652-43",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 66619101184,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2909.8811,
+          "decode_ms": 275.8375,
+          "decode_tokens": 2,
+          "decode_tps": 7.250645760638057,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 244.8409,
+          "prefill_tps": 110.27569331757888,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0007,
+          "sampling_and_sync_ms": 2.1575,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 274.4587,
+          "total_including_cleanup_ms": 3432.3919,
+          "total_ms": 522.4979,
+          "ttft_ms": 246.6604,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 27,
+          "total_tokens": 30
+        }
+      }
+    },
+    {
+      "name": "output_budget_4",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:47.132804+00:00",
+      "http_status": 200,
+      "http_seconds": 3.504386799992062,
+      "request_sha256": "6ec975a6c29a4ffafcf3bb018c00b3a7d09b994643b59fcebba859cb6e15befb",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 4
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive Guide",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774763,
+        "id": "chatcmpl-72652-44",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 66648985600,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2808.2437,
+          "decode_ms": 413.0864,
+          "decode_tokens": 3,
+          "decode_tps": 7.262403216373136,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 270.2659,
+          "prefill_tps": 99.90161540912116,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0004,
+          "sampling_and_sync_ms": 2.9546,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 3,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 410.85300000000007,
+          "total_including_cleanup_ms": 3493.5566,
+          "total_ms": 685.3002,
+          "ttft_ms": 272.2138,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 4,
+          "prompt_tokens": 27,
+          "total_tokens": 31
+        }
+      }
+    },
+    {
+      "name": "output_budget_5",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:50.766419+00:00",
+      "http_status": 200,
+      "http_seconds": 3.632613299996592,
+      "request_sha256": "a7cd50c16a439edddf2a813ad92dfb4ddee7e5e108d66d098e05a461ed64104c",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 5
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive Guide to",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774767,
+        "id": "chatcmpl-72652-45",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 66655186944,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2819.2884,
+          "decode_ms": 550.2939,
+          "decode_tokens": 4,
+          "decode_tps": 7.268843067313666,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 246.3012,
+          "prefill_tps": 109.6218776035196,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0006,
+          "sampling_and_sync_ms": 3.2052,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 4,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 547.7877,
+          "total_including_cleanup_ms": 3617.5755,
+          "total_ms": 798.2738,
+          "ttft_ms": 247.9799,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 5,
+          "prompt_tokens": 27,
+          "total_tokens": 32
+        }
+      }
+    },
+    {
+      "name": "output_budget_6",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:54.581005+00:00",
+      "http_status": 200,
+      "http_seconds": 3.8135366999922553,
+      "request_sha256": "0356b3995314e1c002ac5fdc1ca4ebf7d0b1355b617f1d27c94ed28242e6c586",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 6
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive Guide to Exterior",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774770,
+        "id": "chatcmpl-72652-46",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 66667687936,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2822.0342,
+          "decode_ms": 722.4398,
+          "decode_tokens": 5,
+          "decode_tps": 6.920991894411133,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.0,
+          "draft_ms": 27.1579,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 246.1555,
+          "prefill_tps": 109.68676304206082,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.001,
+          "sampling_and_sync_ms": 3.6122,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 5,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 692.1871,
+          "total_including_cleanup_ms": 3792.5995,
+          "total_ms": 970.5491,
+          "ttft_ms": 248.1093,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 6,
+          "prompt_tokens": 27,
+          "total_tokens": 33
+        }
+      }
+    },
+    {
+      "name": "output_budget_7",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:32:58.013211+00:00",
+      "http_status": 200,
+      "http_seconds": 3.4310119000001578,
+      "request_sha256": "da58b41a7f36cd15edbc8f3800071c84d41be0e687decaaad2c7dca0f6fd312c",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 7
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive Guide to Exterior Door",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774774,
+        "id": "chatcmpl-72652-47",
+        "metrics": {
+          "accepted_draft_tokens": 4,
+          "available_physical_bytes": 66677915648,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2827.4116,
+          "decode_ms": 349.4221,
+          "decode_tokens": 6,
+          "decode_tps": 17.171209262379225,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.5,
+          "draft_ms": 51.1469,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 246.5162,
+          "prefill_tps": 109.52627048445498,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0013,
+          "sampling_and_sync_ms": 3.8464,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 294.9034,
+          "total_including_cleanup_ms": 3424.9551,
+          "total_ms": 597.5276,
+          "ttft_ms": 248.1055,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 7,
+          "prompt_tokens": 27,
+          "total_tokens": 34
+        }
+      }
+    },
+    {
+      "name": "output_budget_8",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:33:01.619750+00:00",
+      "http_status": 200,
+      "http_seconds": 3.605577900001663,
+      "request_sha256": "c897c7ef0f4ed6aa1473faa08d709168f3cc6f5725a14af4f9b8ce9dfb6c19e2",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive Guide to Exterior Door Maintenance",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774778,
+        "id": "chatcmpl-72652-48",
+        "metrics": {
+          "accepted_draft_tokens": 4,
+          "available_physical_bytes": 66676195328,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2850.3774,
+          "decode_ms": 487.2638,
+          "decode_tokens": 7,
+          "decode_tps": 14.365934838582303,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.5,
+          "draft_ms": 51.1737,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 259.537,
+          "prefill_tps": 104.03140977972312,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0011,
+          "sampling_and_sync_ms": 4.3268,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 3,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 432.22350000000006,
+          "total_including_cleanup_ms": 3598.6927,
+          "total_ms": 748.2982,
+          "ttft_ms": 261.0344,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 8,
+          "prompt_tokens": 27,
+          "total_tokens": 35
+        }
+      }
+    },
+    {
+      "name": "output_budget_9",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T20:33:05.390299+00:00",
+      "http_status": 200,
+      "http_seconds": 3.769238300010329,
+      "request_sha256": "6846e43af2b0ac1884bf8a5c718b3b99a98e9b4fcaa88609c306207c0a0f917c",
+      "request_bytes": 192,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 9
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "# The Comprehensive Guide to Exterior Door Maintenance:",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794774781,
+        "id": "chatcmpl-72652-49",
+        "metrics": {
+          "accepted_draft_tokens": 4,
+          "available_physical_bytes": 66662408192,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 2872.5308,
+          "decode_ms": 626.936,
+          "decode_tokens": 8,
+          "decode_tps": 12.76047315834471,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.5,
+          "draft_ms": 49.9177,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 245.2409,
+          "prefill_tps": 110.09582822441118,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0005,
+          "sampling_and_sync_ms": 5.0195,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 4,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 572.2432,
+          "total_including_cleanup_ms": 3746.4049,
+          "total_ms": 873.86,
+          "ttft_ms": 246.924,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 9,
+          "prompt_tokens": 27,
+          "total_tokens": 36
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "spec-contract",
+      "passed": true,
+      "seconds": 127.5195226000069,
+      "detail": {
+        "sampling_cases": [
+          {
+            "case": "filtered_penalties",
+            "text_sha256": "60954b2c142f1ad2862ce100a855ed945c93c7d40135e6064b9d47c09ba6babf",
+            "usage": {
+              "completion_tokens": 128,
+              "prompt_tokens": 26,
+              "total_tokens": 154
+            },
+            "metrics": {
+              "accepted_draft_tokens": 76,
+              "available_physical_bytes": 66812723200,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 2853.1788,
+              "decode_ms": 8737.7105,
+              "decode_tokens": 127,
+              "decode_tps": 14.534699907944994,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.40425531914893614,
+              "draft_ms": 1168.2501999999995,
+              "draft_sampling": "probabilistic",
+              "drafted_tokens": 188,
+              "mtp_draft": 0,
+              "prefill_ms": 270.8692,
+              "prefill_tps": 95.98728832957016,
+              "rejection_verification_steps": 47,
+              "reset_before_ms": 0.0012,
+              "sampling_and_sync_ms": 90.40160000000004,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-rejection",
+              "target_decode_calls": 51,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 7473.150200000001,
+              "total_including_cleanup_ms": 11863.0826,
+              "total_ms": 9009.895,
+              "ttft_ms": 272.1845,
+              "verification_steps": 47
+            }
+          },
+          {
+            "case": "unfiltered",
+            "text_sha256": "57fc4a7c606710242f7d8f90b44aaee190855ae710602ce71152cce7c3dd4214",
+            "usage": {
+              "completion_tokens": 128,
+              "prompt_tokens": 26,
+              "total_tokens": 154
+            },
+            "metrics": {
+              "accepted_draft_tokens": 82,
+              "available_physical_bytes": 66298982400,
+              "benchmark_timing_valid": true,
+              "cleanup_ms": 2884.0927,
+              "decode_ms": 9745.0747,
+              "decode_tokens": 127,
+              "decode_tps": 13.032224370737763,
+              "dflash_draft": 4,
+              "draft_acceptance": 0.5,
+              "draft_ms": 1118.847,
+              "draft_sampling": "probabilistic",
+              "drafted_tokens": 164,
+              "mtp_draft": 0,
+              "prefill_ms": 246.0612,
+              "prefill_tps": 105.66476957764978,
+              "rejection_verification_steps": 41,
+              "reset_before_ms": 0.0011,
+              "sampling_and_sync_ms": 1948.0104,
+              "seed": 2026,
+              "speculative_verifier": "upstream-target-rejection",
+              "target_decode_calls": 45,
+              "target_logits_trace": false,
+              "target_submit_and_catchup_ms": 6671.993199999999,
+              "total_including_cleanup_ms": 12877.0569,
+              "total_ms": 9992.9513,
+              "ttft_ms": 247.8766,
+              "verification_steps": 41
+            }
+          }
+        ],
+        "output_budgets": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "scope": "Within-mode reproducibility, request isolation, streaming equivalence, output accounting and draft-tail boundaries; distribution testing is separate."
+      }
+    }
+  ],
+  "passed": true,
+  "optimization_script_sha256": "35b124bfed0c269bdd5a03ed8372554bd5760210faf3b60f874b634e76e6e92a",
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 2,
+    "completed_requests": 29,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "always_clear_experiment": false,
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "batch_logit_capacity_experiment": false,
+      "context": 32768,
+      "context_quality_validated_by_boot": false,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "ROCm0",
+      "dflash_draft": 4,
+      "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+      "draft_model_tensor_bytes": 2045465600,
+      "draft_quantization": "Q8_0",
+      "draft_sampling": "probabilistic",
+      "flash_attention": true,
+      "gguf_file_type": "7",
+      "gpu_budget_free_bytes": 46987264000,
+      "gpu_budget_total_bytes": 89108070400,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 63470608384,
+      "max_logit_outputs": 5,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 29105393664,
+      "mtp": false,
+      "mtp_draft": 0,
+      "native_context_limit": 262144,
+      "quantization": "Q8_0",
+      "recurrent_snapshots": 4,
+      "single_clear_request_state": true,
+      "speculative_type": "draft-dflash2",
+      "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+      "startup_warmup_ms": 3854.0839,
+      "startup_warmup_tokens": 128,
+      "target_logits_trace": false,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-72652-32",
+      "metrics": {
+        "accepted_draft_tokens": 17,
+        "available_physical_bytes": 66709299200,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 3182.6151,
+        "decode_ms": 1640.9254,
+        "decode_tokens": 23,
+        "decode_tps": 14.016481187993069,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.6071428571428571,
+        "draft_ms": 268.559,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 28,
+        "mtp_draft": 0,
+        "prefill_ms": 99632.7296,
+        "prefill_tps": 311.28325124196937,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0007,
+        "sampling_and_sync_ms": 24.008699999999997,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 7,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 1348.8498,
+        "total_including_cleanup_ms": 104467.6903,
+        "total_ms": 101285.0606,
+        "ttft_ms": 99644.1352,
+        "verification_steps": 7
+      },
+      "outcome": "completed"
+    },
+    "pid": 72652,
+    "queue_capacity": 0,
+    "request_limits": {
+      "body_bytes": 1114112,
+      "deadline_seconds": 3600
+    },
+    "state": "ready"
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 2,
+    "completed_requests": 46,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "always_clear_experiment": false,
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "batch_logit_capacity_experiment": false,
+      "context": 32768,
+      "context_quality_validated_by_boot": false,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "ROCm0",
+      "dflash_draft": 4,
+      "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+      "draft_model_tensor_bytes": 2045465600,
+      "draft_quantization": "Q8_0",
+      "draft_sampling": "probabilistic",
+      "flash_attention": true,
+      "gguf_file_type": "7",
+      "gpu_budget_free_bytes": 46987264000,
+      "gpu_budget_total_bytes": 89108070400,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 63470608384,
+      "max_logit_outputs": 5,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 29105393664,
+      "mtp": false,
+      "mtp_draft": 0,
+      "native_context_limit": 262144,
+      "quantization": "Q8_0",
+      "recurrent_snapshots": 4,
+      "single_clear_request_state": true,
+      "speculative_type": "draft-dflash2",
+      "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+      "startup_warmup_ms": 3854.0839,
+      "startup_warmup_tokens": 128,
+      "target_logits_trace": false,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-72652-49",
+      "metrics": {
+        "accepted_draft_tokens": 4,
+        "available_physical_bytes": 66662408192,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 2872.5308,
+        "decode_ms": 626.936,
+        "decode_tokens": 8,
+        "decode_tps": 12.76047315834471,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.5,
+        "draft_ms": 49.9177,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 8,
+        "mtp_draft": 0,
+        "prefill_ms": 245.2409,
+        "prefill_tps": 110.09582822441118,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0005,
+        "sampling_and_sync_ms": 5.0195,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 4,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 572.2432,
+        "total_including_cleanup_ms": 3746.4049,
+        "total_ms": 873.86,
+        "ttft_ms": 246.924,
+        "verification_steps": 2
+      },
+      "outcome": "completed"
+    },
+    "pid": 72652,
+    "queue_capacity": 0,
+    "request_limits": {
+      "body_bytes": 1114112,
+      "deadline_seconds": 3600
+    },
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T20:33:05.417853+00:00"
+}

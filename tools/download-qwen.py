@@ -16,6 +16,21 @@ import urllib.request
 
 
 ROOT = Path(__file__).resolve().parents[1]
+LOCKS = {"q4": "model.lock.json", "q8": "model-q8.lock.json"}
+
+
+def selected_lock(quant: str | None = None, path: Path | None = None) -> tuple[Path, dict]:
+    """Select one receipt-bound lock without changing the existing Q4 lock."""
+    lock_path = path or ROOT / "ports/qwen-resident" / LOCKS[quant or "q8"]
+    lock = json.loads(lock_path.read_text(encoding="utf-8-sig"))
+    filename = lock["filename"]
+    if Path(filename).name != filename or "/" in filename or "\\" in filename:
+        raise ValueError("lock filename must be a single GGUF filename")
+    if not filename.endswith(".gguf") or lock["size_bytes"] <= 0:
+        raise ValueError("invalid pinned GGUF filename or size")
+    if len(lock["sha256"]) != 64 or any(c not in "0123456789abcdef" for c in lock["sha256"]):
+        raise ValueError("lock requires a lowercase SHA256")
+    return lock_path, lock
 
 
 def sha256(path: Path) -> str:
@@ -41,9 +56,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--verify-only", action="store_true")
     parser.add_argument("--attempts", type=int, default=12)
+    selector = parser.add_mutually_exclusive_group()
+    selector.add_argument("--quant", choices=LOCKS, help="pinned quantization (default: q8)")
+    selector.add_argument("--lock", type=Path, help="explicit pinned model lock JSON")
     args = parser.parse_args()
-    lock_path = ROOT / "ports/qwen-resident/model.lock.json"
-    lock = json.loads(lock_path.read_text(encoding="utf-8-sig"))
+    if args.attempts < 1:
+        parser.error("--attempts must be positive")
+    lock_path, lock = selected_lock(args.quant, args.lock)
     dest = ROOT / "target/models/Qwen3.8-27B" / lock["filename"]
     dest.parent.mkdir(parents=True, exist_ok=True)
     partial = dest.with_suffix(dest.suffix + ".part")

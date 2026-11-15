@@ -1,0 +1,5 @@
+[
+  {"name":"q8-ordinary-a1","parameters":{"Quant":"q8","Backend":"Vulkan","MtpDraft":0,"DFlashDraft":0}},
+  {"name":"q8-dflash4-probabilistic","parameters":{"Quant":"q8","Backend":"Vulkan","DFlashDraft":4,"DraftSampling":"probabilistic"}},
+  {"name":"q8-ordinary-a2","parameters":{"Quant":"q8","Backend":"Vulkan","MtpDraft":0,"DFlashDraft":0}}
+]

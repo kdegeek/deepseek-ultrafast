@@ -1,0 +1,58 @@
+[
+  {
+    "name": "vulkan-mtp1",
+    "parameters": {
+      "Backend": "Vulkan",
+      "MtpDraft": 1
+    }
+  },
+  {
+    "name": "vulkan-mtp2",
+    "parameters": {
+      "Backend": "Vulkan",
+      "MtpDraft": 2
+    }
+  },
+  {
+    "name": "vulkan-mtp3",
+    "parameters": {
+      "Backend": "Vulkan",
+      "MtpDraft": 3
+    }
+  },
+  {
+    "name": "vulkan-dflash2",
+    "parameters": {
+      "Backend": "Vulkan",
+      "DFlashDraft": 2
+    }
+  },
+  {
+    "name": "vulkan-dflash4",
+    "parameters": {
+      "Backend": "Vulkan",
+      "DFlashDraft": 4
+    }
+  },
+  {
+    "name": "vulkan-dflash7",
+    "parameters": {
+      "Backend": "Vulkan",
+      "DFlashDraft": 7
+    }
+  },
+  {
+    "name": "hip-mtp1",
+    "parameters": {
+      "Backend": "HIP",
+      "MtpDraft": 1
+    }
+  },
+  {
+    "name": "hip-dflash4",
+    "parameters": {
+      "Backend": "HIP",
+      "DFlashDraft": 4
+    }
+  }
+]

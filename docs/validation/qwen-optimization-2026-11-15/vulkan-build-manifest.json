@@ -1,0 +1,114 @@
+{
+  "built_utc": "2026-11-15T17:46:06.7777961Z",
+  "backend_revision": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+  "backend": "Vulkan",
+  "cmake_version": "cmake version 4.4.3",
+  "rust_built": true,
+  "files": [
+    {
+      "path": "C:\\Users\\ncrawford\\Documents\\Codex\\2026-10-24\\ca\\work\\Strata\\.rocm-win\\Lib\\site-packages\\cmake\\data\\bin\\cmake.exe",
+      "bytes": 13465680,
+      "sha256": "ab8247ca4554871e5d75c0ee118ee8663727bd6fdf37ad76b17e9cc8d5f286a8"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\Documents\\Codex\\2026-10-24\\ca\\work\\Strata\\.rocm-win\\Scripts\\ninja.exe",
+      "bytes": 604160,
+      "sha256": "a7f084e8ee37bff0872aa8bd3d17cc19632d2a37734f6c242dd3dee22d77c0b4"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\tools\\build-qwen.ps1",
+      "bytes": 10087,
+      "sha256": "31aa52e31fd8aab6f45f946cfca0879fca4a028282d084be68a0e36bba150eeb"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\vulkan-sdk\\1.4.363.1\\Bin\\glslc.exe",
+      "bytes": 5297080,
+      "sha256": "b4d69417987eca95533af6424b4003d62cd0b000a3d6f39809af68c1606e1e63"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\vulkan-sdk\\1.4.363.1\\Lib\\vulkan-1.lib",
+      "bytes": 66154,
+      "sha256": "02caa31b8665a79f327cbfe97286fd7d0017c0b1f9b39eb78687b7a509de52b3"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\backend.lock.json",
+      "bytes": 812,
+      "sha256": "ee2b829ba261883e54934504345b2674385c2d6745644df6e88453f5943b0be7"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\CMakeLists.txt",
+      "bytes": 1958,
+      "sha256": "749106b3b4bd36e948bcd8865ff22e0eb5772745d858cd0de5333495df98d7bd"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\qwen_native.cpp",
+      "bytes": 45479,
+      "sha256": "520dee3562979a544d5efcfdce4b8fbe80a04756a63bb63bedcfeb412f5a2de0"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\speculative_sampling_test.cpp",
+      "bytes": 12591,
+      "sha256": "fded34c4df79549d3d0d1c4c649f033193bc67688142657b249053bbb21487b6"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\stream_test.cpp",
+      "bytes": 1266,
+      "sha256": "54b8e101a3a3849ef7b140fabfabdc8e0b8d94cdff40d1221d7c57c780655a75"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\ports\\qwen-resident\\stream.h",
+      "bytes": 3171,
+      "sha256": "9a82e642087cfcc2ac06c149ea1545a6c305693fccdf7f40c811da14450fb29d"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\build\\bin\\Release\\qwen_native.dll",
+      "bytes": 53805568,
+      "sha256": "e52de042f698e87d3476aa693eecab36791b0dedc27577515d52e61a30664f55"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\Cargo.toml",
+      "bytes": 688,
+      "sha256": "e56b6669ca979965a9172f1e7e34d4ceb31b948199d8ca607ec76d84c91960dc"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\Cargo.lock",
+      "bytes": 108577,
+      "sha256": "7cbc7c671d3e5083aba785baea44c5a94e7bfc3fc5ebac63ec99cd47022ea943"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\qwen-resident\\Cargo.toml",
+      "bytes": 735,
+      "sha256": "4b4a7adf86de4ded4d1b3ac73cdad3da818a6cdf981a36bb71b1b079bf5e8d46"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\qwen-resident.exe",
+      "bytes": 1728000,
+      "sha256": "bdb4c268cc9e308649c9a96885abed31efa658a23022766f2f4a3fe13e0bc14a"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\qwen-resident\\src\\contract.rs",
+      "bytes": 10709,
+      "sha256": "fa8eaf94d0b9c81a82f032e9f153c22736614c046e956e889ebc75c474d32d70"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\qwen-resident\\src\\lib.rs",
+      "bytes": 203,
+      "sha256": "b1782254bf70b2534b6dbbcad5be37d0a926d972a4293c01ef61613241535062"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\qwen-resident\\src\\main.rs",
+      "bytes": 3506,
+      "sha256": "aa9a51ec30639c941c986a7d0ce9168f613030bb1714e162463951b4886930fa"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\qwen-resident\\src\\native.rs",
+      "bytes": 11261,
+      "sha256": "55769a37ae2f52071d2278957d6694e2016ae813b2dd875be876cfb808394cf3"
+    },
+    {
+      "path": "C:\\Users\\ncrawford\\deepseek-ultrafast\\crates\\qwen-resident\\src\\serving.rs",
+      "bytes": 43275,
+      "sha256": "c39abffbe6aaa130e96408050ed481243ae68a8903cc07128ba1e227fb522c8e"
+    }
+  ]
+}

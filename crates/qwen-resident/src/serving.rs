@@ -33,8 +33,8 @@ use std::{
 };
 use tokio::sync::mpsc::{UnboundedReceiver, UnboundedSender, unbounded_channel};
 
-const MAX_BODY: usize = 1024 * 1024;
-const REQUEST_TIMEOUT: Duration = Duration::from_secs(3600);
+const MIN_BODY: usize = 1024 * 1024;
+const MAX_BODY: usize = 16 * 1024 * 1024;
 static NEXT_REQUEST: AtomicU64 = AtomicU64::new(1);
 
 #[derive(Clone, Debug, serde::Serialize)]
@@ -51,14 +51,25 @@ pub struct Config {
     pub gpu_layers: usize,
     pub flash_attention: bool,
     pub kv_type: String,
+    pub mtp_draft: usize,
+    pub dflash_draft: usize,
+    pub draft_sampling: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub draft_model_path: Option<PathBuf>,
+    #[serde(skip)]
+    pub request_timeout_seconds: u64,
+    #[serde(skip)]
+    pub dll_directories: Vec<PathBuf>,
+    #[serde(skip)]
+    pub preload_libraries: Vec<PathBuf>,
 }
 
 impl Config {
     pub fn validate(&self) -> Result<()> {
         ensure!(self.port != 0, "port must be nonzero");
         ensure!(
-            (512..=32768).contains(&self.context),
-            "context must be 512..=32768; only measured lengths are validated"
+            (512..=262144).contains(&self.context),
+            "context must be 512..=262144 (native capacity; see measured profile acceptance)"
         );
         ensure!(
             (32..=8192).contains(&self.batch) && self.batch <= self.context,
@@ -81,7 +92,38 @@ impl Config {
             self.flash_attention || self.kv_type == "f16",
             "quantized KV requires flash attention"
         );
+        ensure!(self.mtp_draft <= 3, "mtp_draft must be 0..=3");
+        ensure!(self.dflash_draft <= 7, "dflash_draft must be 0..=7");
+        ensure!(
+            matches!(self.draft_sampling.as_str(), "greedy" | "probabilistic"),
+            "draft_sampling must be greedy or probabilistic"
+        );
+        ensure!(
+            self.draft_sampling != "probabilistic" || self.dflash_draft > 0,
+            "probabilistic drafting requires DFlash2"
+        );
+        ensure!(
+            self.mtp_draft == 0 || self.dflash_draft == 0,
+            "MTP and DFlash2 are mutually exclusive"
+        );
+        ensure!(
+            (self.dflash_draft > 0) == self.draft_model_path.is_some(),
+            "DFlash2 requires both draft_model_path and dflash_draft > 0"
+        );
+        ensure!(
+            (1..=21600).contains(&self.request_timeout_seconds),
+            "request_timeout_seconds must be 1..=21600"
+        );
         Ok(())
+    }
+
+    pub fn max_body_bytes(&self) -> usize {
+        // Bounded JSON escaping and Unicode allowance for populated contexts.
+        // The native tokenizer remains the authority for actual token admission.
+        self.context
+            .saturating_mul(32)
+            .saturating_add(65536)
+            .clamp(MIN_BODY, MAX_BODY)
     }
 }
 
@@ -265,6 +307,7 @@ impl Drop for Worker {
 struct App {
     worker: Arc<Worker>,
     timeout: Duration,
+    max_body_bytes: usize,
 }
 
 fn error_value(message: impl AsRef<str>, kind: &str) -> Value {
@@ -315,7 +358,10 @@ async fn local_only(request: HttpRequest, next: Next) -> Response {
 }
 
 async fn health(State(app): State<App>) -> Json<Value> {
-    Json(app.worker.snapshot())
+    let mut state = app.worker.snapshot();
+    state["request_limits"] =
+        json!({"body_bytes":app.max_body_bytes,"deadline_seconds":app.timeout.as_secs()});
+    Json(state)
 }
 async fn ready(State(app): State<App>) -> Response {
     let state = app.worker.snapshot();
@@ -518,7 +564,7 @@ async fn generate(app: App, request: HttpRequest, chat: bool) -> Response {
     }
     let bytes = match tokio::time::timeout(
         Duration::from_secs(10),
-        to_bytes(request.into_body(), MAX_BODY),
+        to_bytes(request.into_body(), app.max_body_bytes),
     )
     .await
     {
@@ -526,7 +572,10 @@ async fn generate(app: App, request: HttpRequest, chat: bool) -> Response {
         Ok(Err(_)) => {
             return error(
                 StatusCode::PAYLOAD_TOO_LARGE,
-                "request body exceeds 1 MiB or could not be read",
+                format!(
+                    "request body exceeds {} bytes or could not be read",
+                    app.max_body_bytes
+                ),
             );
         }
         Err(_) => return error(StatusCode::REQUEST_TIMEOUT, "request body timed out"),
@@ -678,7 +727,7 @@ pub fn run(config: Config) -> Result<()> {
             let listener = tokio::net::TcpListener::bind((std::net::Ipv4Addr::LOCALHOST,config.port)).await.context("loopback listener")?;
             let engine_config = config.clone();
             let worker = Arc::new(Worker::start(move || crate::native::NativeEngine::open(engine_config))?);
-            let app = App {worker:worker.clone(),timeout:REQUEST_TIMEOUT};
+            let app = App {worker:worker.clone(),timeout:Duration::from_secs(config.request_timeout_seconds),max_body_bytes:config.max_body_bytes()};
             eprintln!("Qwen native API: http://127.0.0.1:{}/v1; /readyz reports model loading; context {}",config.port,config.context);
             let signal_worker = worker.clone();
             let result = axum::serve(listener,router(app)).with_graceful_shutdown(async move {
@@ -771,6 +820,7 @@ mod tests {
             App {
                 worker,
                 timeout: Duration::from_secs(4),
+                max_body_bytes: MIN_BODY,
             },
             fixture,
         )
@@ -815,7 +865,7 @@ mod tests {
             (
                 request(
                     "/v1/completions",
-                    json!({"model":MODEL,"prompt":"x".repeat(MAX_BODY)}),
+                    json!({"model":MODEL,"prompt":"x".repeat(MIN_BODY)}),
                 ),
                 StatusCode::PAYLOAD_TOO_LARGE,
             ),
@@ -847,6 +897,80 @@ mod tests {
             StatusCode::UNSUPPORTED_MEDIA_TYPE
         );
         assert_eq!(fixture.entered.load(Ordering::Acquire), 0);
+    }
+
+    #[test]
+    fn native_context_and_deadline_admission() {
+        let mut config = Config {
+            model_path: "fixture.gguf".into(),
+            library: "fixture.dll".into(),
+            port: 18083,
+            context: 262144,
+            batch: 2048,
+            ubatch: 512,
+            threads: 8,
+            gpu_layers: 999,
+            flash_attention: true,
+            kv_type: "q8_0".into(),
+            mtp_draft: 3,
+            dflash_draft: 0,
+            draft_sampling: "greedy".into(),
+            draft_model_path: None,
+            request_timeout_seconds: 10800,
+            dll_directories: Vec::new(),
+            preload_libraries: Vec::new(),
+        };
+        assert!(config.validate().is_ok());
+        assert!(config.max_body_bytes() > 8 * 1024 * 1024);
+        config.draft_sampling = "probabilistic".into();
+        assert!(config.validate().is_err());
+        config.draft_sampling = "greedy".into();
+        config.context = 262145;
+        assert!(config.validate().is_err());
+        config.context = 32768;
+        config.mtp_draft = 4;
+        assert!(config.validate().is_err());
+        config.mtp_draft = 0;
+        config.dflash_draft = 4;
+        assert!(config.validate().is_err());
+        config.draft_model_path = Some("draft.gguf".into());
+        assert!(config.validate().is_ok());
+        config.draft_sampling = "probabilistic".into();
+        assert!(config.validate().is_ok());
+        config.draft_sampling = "unchecked".into();
+        assert!(config.validate().is_err());
+        config.draft_sampling = "greedy".into();
+        config.mtp_draft = 1;
+        assert!(config.validate().is_err());
+        config.mtp_draft = 0;
+        config.request_timeout_seconds = 21601;
+        assert!(config.validate().is_err());
+    }
+
+    #[tokio::test]
+    async fn extended_body_limit_and_overflow_are_enforced() {
+        let (mut app, fixture) = setup().await;
+        app.max_body_bytes = 2 * MIN_BODY;
+        fixture.finish.store(true, Ordering::Release);
+        let service = router(app.clone());
+        let accepted = service
+            .clone()
+            .oneshot(request(
+                "/v1/completions",
+                json!({"model":MODEL,"prompt":"x".repeat(MIN_BODY + 64)}),
+            ))
+            .await
+            .unwrap();
+        assert_eq!(accepted.status(), StatusCode::OK);
+        let rejected = service
+            .oneshot(request(
+                "/v1/completions",
+                json!({"model":MODEL,"prompt":"x".repeat(app.max_body_bytes)}),
+            ))
+            .await
+            .unwrap();
+        assert_eq!(rejected.status(), StatusCode::PAYLOAD_TOO_LARGE);
+        assert_eq!(fixture.entered.load(Ordering::Acquire), 1);
     }
 
     #[tokio::test]
@@ -1005,6 +1129,7 @@ mod tests {
         let app = App {
             worker,
             timeout: Duration::from_secs(1),
+            max_body_bytes: MIN_BODY,
         };
         let response = router(app.clone()).oneshot(get("/readyz")).await.unwrap();
         assert_eq!(response.status(), StatusCode::SERVICE_UNAVAILABLE);
