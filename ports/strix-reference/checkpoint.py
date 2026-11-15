@@ -14,6 +14,7 @@ import json
 from pathlib import Path
 import sys
 import threading
+import time
 import types
 
 import torch
@@ -129,12 +130,16 @@ class _Parameter:
 
 
 class LazyCheckpoint:
-    def __init__(self, model, checkpoint_dir, device, cache_bytes):
+    def __init__(self, model, checkpoint_dir, device, cache_bytes, retain_bytes=0):
         if not isinstance(cache_bytes, int) or cache_bytes <= 0:
             raise ValueError("cache_bytes must be a positive integer")
         self.model = model
         self.device = torch.device(device)
         self.cache_bytes = cache_bytes
+        if not isinstance(retain_bytes, int) or not 0 <= retain_bytes <= cache_bytes // 2:
+            raise ValueError("retain_bytes must be between zero and half the weight cache")
+        self.retain_bytes = retain_bytes
+        self.retained = set()
         self.store = CheckpointStore(checkpoint_dir)
         self.cache = OrderedDict()
         self.specs = {}
@@ -147,6 +152,9 @@ class LazyCheckpoint:
         self.loads = 0
         self.cache_hits = 0
         self.engram_rows = 0
+        self.loaded_bytes = 0
+        self.hit_bytes = 0
+        self.load_seconds = 0.0
         self.closed = False
         try:
             self._attach()
@@ -174,6 +182,13 @@ class LazyCheckpoint:
                 module._parameters[attribute] = meta
                 keys.append(name)
             scopes[module] = keys
+        # Reserve a bounded subset of frequently reused non-routed parameters.
+        # Smallest first avoids a large head displacing hundreds of shared weights.
+        remaining = self.retain_bytes
+        for name, spec in sorted(self.specs.items(), key=lambda item: (item[1].size, item[0])):
+            if ".experts." not in name and spec.size <= remaining:
+                self.retained.add(name)
+                remaining -= spec.size
         # The official Attention path accesses wo_a.weight directly for einsum,
         # so wo_a's own __call__ hooks are not invoked.
         for prefix, module in modules.items():
@@ -214,9 +229,10 @@ class LazyCheckpoint:
         if required > self.cache_bytes:
             raise MemoryError(f"parameter needs {required} bytes, above {self.cache_bytes}-byte weight cache")
         while self.resident_bytes + required > self.cache_bytes:
-            victim = next((key for key in self.cache if self.pins.get(key, 0) == 0), None)
+            victim = next((key for key in self.cache
+                           if key not in self.retained and self.pins.get(key, 0) == 0), None)
             if victim is None:
-                raise MemoryError("active forward parameters exceed the weight cache budget")
+                raise MemoryError("active or retained parameters exceed the weight cache budget; lower retention or increase cache")
             spec = self.specs[victim]
             spec.module._parameters[spec.attribute] = spec.meta
             # Drop the extra reference carried by quantized weight.scale.
@@ -262,10 +278,14 @@ class LazyCheckpoint:
         spec = self.specs[name]
         if name in self.cache:
             self.cache_hits += 1
+            self.hit_bytes += spec.size
             self.cache.move_to_end(name)
         else:
             self._evict(spec.size)
+            started = time.perf_counter()
             value = self._materialize(name, spec)
+            self.load_seconds += time.perf_counter() - started
+            self.loaded_bytes += spec.size
             self.cache[name] = value
             self.resident_bytes += spec.size
             self.peak_resident_bytes = max(self.peak_resident_bytes, self.resident_bytes)
@@ -317,7 +337,11 @@ class LazyCheckpoint:
     def stats(self):
         return {"cache_budget_bytes": self.cache_bytes, "resident_weight_bytes": self.resident_bytes,
                 "peak_resident_weight_bytes": self.peak_resident_bytes, "parameter_loads": self.loads,
-                "cache_hits": self.cache_hits, "engram_rows_read": self.engram_rows}
+                "cache_hits": self.cache_hits, "engram_rows_read": self.engram_rows,
+                "loaded_weight_bytes": self.loaded_bytes, "cache_hit_bytes": self.hit_bytes,
+                "load_seconds": self.load_seconds, "retain_budget_bytes": self.retain_bytes,
+                "retained_parameter_bytes": sum(self.specs[n].size for n in self.retained),
+                "resident_retained_bytes": sum(self.specs[n].size for n in self.retained if n in self.cache)}
 
     def close(self):
         if self.closed:
@@ -334,9 +358,9 @@ class LazyCheckpoint:
         self.store.close()
 
 
-def attach_hooks(model, checkpoint_dir, device, cache_bytes):
+def attach_hooks(model, checkpoint_dir, device, cache_bytes, retain_bytes=0):
     """Attach to an already constructed model; caller owns nonparameter buffers."""
-    return LazyCheckpoint(model, checkpoint_dir, device, cache_bytes)
+    return LazyCheckpoint(model, checkpoint_dir, device, cache_bytes, retain_bytes)
 
 
 _construction_lock = threading.Lock()
@@ -366,7 +390,7 @@ def _meta_parameter_factories():
             torch.empty, torch.ones = empty, ones
 
 
-def build_lazy_model(args, tokenizer, checkpoint_dir, device, cache_bytes):
+def build_lazy_model(args, tokenizer, checkpoint_dir, device, cache_bytes, retain_bytes=0):
     """Construct the official Transformer without allocating its weight payload.
 
     The runner must import the official module defining ``type(args)`` first.
@@ -393,5 +417,5 @@ def build_lazy_model(args, tokenizer, checkpoint_dir, device, cache_bytes):
                     moved[key] = buffer.to(device)
             owner._buffers[name] = moved[key]
     model.eval()
-    manager = attach_hooks(model, checkpoint_dir, device, cache_bytes)
+    manager = attach_hooks(model, checkpoint_dir, device, cache_bytes, retain_bytes)
     return model, manager

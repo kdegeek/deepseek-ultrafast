@@ -1,0 +1,2 @@
+# Preserve the pinned official encoder's published bytes on Windows checkouts.
+ports/strix-reference/upstream/encoding.py text eol=lf

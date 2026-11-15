@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT))
 import checkpoint
 import model as official
 from run import tiny_args
+from engine import reset_request_state
 
 
 def parameter(shape, dtype=torch.float32):
@@ -75,6 +76,28 @@ class CheckpointTests(unittest.TestCase):
             path.write_text(json.dumps({"weight_map": {"weight": filename}}))
             with self.assertRaises(error):
                 checkpoint.CheckpointStore(self.directory)
+
+    def test_retained_shared_weights_reuse_within_total_budget(self):
+        model = torch.nn.Module()
+        model.shared = torch.nn.Linear(2, 2, bias=False, device="meta")
+        model.experts = torch.nn.ModuleList([torch.nn.Linear(4, 4, bias=False, device="meta") for _ in range(3)])
+        # The real model's routed names contain .experts.; put fixture under a layer.
+        wrapper = torch.nn.Module()
+        wrapper.layer = model
+        self.save({"layer.shared.weight": torch.eye(2), **{
+            f"layer.experts.{i}.weight": torch.eye(4) for i in range(3)}})
+        manager = checkpoint.attach_hooks(wrapper, self.directory, "cpu", 96, 32)
+        try:
+            for _ in range(2):
+                torch.testing.assert_close(model.shared(torch.ones(1, 2)), torch.ones(1, 2))
+                for expert in model.experts:
+                    expert(torch.ones(1, 4))
+            self.assertEqual(manager.stats()["cache_hits"], 1)
+            self.assertEqual(manager.stats()["retained_parameter_bytes"], 16)
+            self.assertLessEqual(manager.peak_resident_bytes, 96)
+            self.assertFalse(any(manager.pins.values()))
+        finally:
+            manager.close()
 
     def test_invalid_safetensors_rejected(self):
         (self.directory / "bad.safetensors").write_bytes(b"not safetensors")
@@ -326,6 +349,24 @@ class CheckpointTests(unittest.TestCase):
                         self.assertGreater(manager.loads, len(manager.cache))
                         self.assertGreater(manager.engram_rows, 0)
                         self.assertFalse(any(manager.pins.values()))
+                        # Reuse this model for a different short prompt, then A
+                        # again. Poisoned future slots must not survive a reset.
+                        reset_request_state(lazy, official)
+                        with torch.inference_mode(), torch.device(device):
+                            lazy(torch.tensor([[21, 6]], device=device), 0)
+                            lazy(torch.tensor([[17]], device=device), 2)
+                        reset_request_state(lazy, official)
+                        self.assertIsNone(official.shared_attn.compress_kv)
+                        self.assertTrue((lazy.engram_hash.cache == -1).all())
+                        for name, buffer in lazy.named_buffers():
+                            if name.endswith("score_state"):
+                                self.assertTrue(torch.isneginf(buffer).all())
+                            elif name.endswith(("kv_state", "k_cache", "kv_cache")):
+                                self.assertTrue((buffer == 0).all())
+                        with torch.inference_mode(), torch.device(device):
+                            again = lazy(tokens.to(device), 0)[1].cpu()
+                        torch.testing.assert_close(again, expected_prefill, rtol=0.03, atol=0.01)
+                        self.assertTrue(torch.equal(again.argmax(-1), expected_prefill.argmax(-1)))
                     finally:
                         manager.close()
         finally:

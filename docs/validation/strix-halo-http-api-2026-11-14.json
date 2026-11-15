@@ -1,0 +1,1473 @@
+{
+  "accepted": true,
+  "checked_utc": "2026-11-15T02:07:05.714293+00:00",
+  "base_commit": "38f64ec4003e1f73163ba667584406d362fcea0f",
+  "scope": "Local Python/HIP reference API on the real original model; not a native Rust decoder or broad model-quality acceptance.",
+  "identity": {
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "device": "AMD Radeon(TM) 8060S Graphics",
+    "torch": "2.11.0+rocm7.14.0",
+    "hip": "7.14.60850",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "context": 256,
+    "prefill_batch": 16,
+    "initialization_seconds": 8.588582100004714,
+    "encoding_sha256": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2",
+    "tokenizer_sha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+    "provenance_sha256": {
+      "source-manifest.json": "e65948fd2f76031eb2b423d7b9190616b12635e70a508ed3af1b8b9a5a90c277",
+      "download-verified.json": "e7323187b0e230b306f504cf0fefe870c9822a0f4465775eefd1b45dd6cc1dff",
+      "inference/config.json": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809",
+      "tokenizer_config.json": "6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547"
+    },
+    "weight_cache": {
+      "cache_budget_bytes": 8589934592,
+      "resident_weight_bytes": 0,
+      "peak_resident_weight_bytes": 0,
+      "parameter_loads": 0,
+      "cache_hits": 0,
+      "engram_rows_read": 0,
+      "loaded_weight_bytes": 0,
+      "cache_hit_bytes": 0,
+      "load_seconds": 0.0,
+      "retain_budget_bytes": 0,
+      "retained_parameter_bytes": 0,
+      "resident_retained_bytes": 0
+    }
+  },
+  "checkpoint": {
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "shards": 48,
+    "shard_file_bytes": 510296708312,
+    "existing_sha256_verification": "strix-original-checkpoint.json",
+    "weights_replaced_or_downloaded": false
+  },
+  "implementation_sha256": {
+    "ports/strix-reference/engine.py": "3adfca9f58e08143978481ac8a3d8955769887b1fd5982cd4af00c8ba689f735",
+    "ports/strix-reference/serve.py": "a1ddbb3407b2712d64b9868eedc684815da85328912ff3b69d16e2c6b3f5ad28",
+    "ports/strix-reference/checkpoint.py": "6dfa3c9c2db1c54229b04da868f49115a536726748f1a4d86183a58ddd3f37e4",
+    "ports/strix-reference/upstream/encoding.py": "13231c592e958fb39e2af6001dae69d90e7a36b265702b9b390236fb387599e2",
+    "ports/strix-reference/tests/test_api.py": "baa14060b841f5bc23d0989bbccca3799299a2bfadc0bf311f98f3f03404f05a",
+    "ports/strix-reference/tests/test_checkpoint.py": "d2e99f8ae17b8f33ffa99525ff37becfa7f3e378a03e215b45d3c0432b64a2f8",
+    "tools/validate-strix-api.py": "5e26f737c6077f0b4bdb0a63eccac6c1a6b46c8fb9345313a7a0926fa809a4eb"
+  },
+  "measurements": [
+    {
+      "name": "HTTP baseline before: 8 GiB LRU, prefill 1",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 164.36158010000509,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589922760,
+        "parameter_loads": 18253,
+        "cache_hits": 0,
+        "engram_rows_read": 336,
+        "loaded_weight_bytes": 119366627392,
+        "cache_hit_bytes": 0,
+        "load_seconds": 54.23240189985518,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 18253,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 119366627392,
+        "cache_hit_bytes": 0,
+        "load_seconds": 54.23240189985518,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8749762048,
+        "peak_reserved_bytes": 14237564928,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671
+          ],
+          "next_token_id": 455,
+          "logits_finite": true,
+          "logits_min": -17.312639236450195,
+          "logits_max": 15.576796531677246,
+          "seconds": 25.003736200000276
+        },
+        {
+          "stage": "prefill",
+          "position": 1,
+          "input_tokens": [
+            6102
+          ],
+          "next_token_id": 294,
+          "logits_finite": true,
+          "logits_min": -14.648179054260254,
+          "logits_max": 19.558956146240234,
+          "seconds": 22.96957050000492
+        },
+        {
+          "stage": "prefill",
+          "position": 2,
+          "input_tokens": [
+            294
+          ],
+          "next_token_id": 8760,
+          "logits_finite": true,
+          "logits_min": -20.774782180786133,
+          "logits_max": 19.791078567504883,
+          "seconds": 22.840437899998506
+        },
+        {
+          "stage": "prefill",
+          "position": 3,
+          "input_tokens": [
+            8760
+          ],
+          "next_token_id": 344,
+          "logits_finite": true,
+          "logits_min": -11.718766212463379,
+          "logits_max": 24.365917205810547,
+          "seconds": 23.613999299996067
+        },
+        {
+          "stage": "prefill",
+          "position": 4,
+          "input_tokens": [
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -12.7695951461792,
+          "logits_max": 20.959896087646484,
+          "seconds": 24.36126140000124
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -15.426828384399414,
+          "logits_max": 21.816930770874023,
+          "seconds": 22.83797870000126
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -15.6617431640625,
+          "logits_max": 18.86962127685547,
+          "seconds": 22.657056499992905
+        }
+      ]
+    },
+    {
+      "name": "Retention trial: same 8 GiB total, 4 GiB protected, prefill 1",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 164.37187460000132,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8584480192,
+        "peak_resident_weight_bytes": 8589933624,
+        "parameter_loads": 11704,
+        "cache_hits": 6549,
+        "engram_rows_read": 336,
+        "loaded_weight_bytes": 93751772608,
+        "cache_hit_bytes": 25614854784,
+        "load_seconds": 46.432129100001475,
+        "retain_budget_bytes": 4294967296,
+        "retained_parameter_bytes": 4272195008,
+        "resident_retained_bytes": 4272195008
+      },
+      "cache_delta": {
+        "parameter_loads": 11704,
+        "cache_hits": 6549,
+        "loaded_weight_bytes": 93751772608,
+        "cache_hit_bytes": 25614854784,
+        "load_seconds": 46.432129100001475,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8772712960,
+        "peak_reserved_bytes": 14329839616,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671
+          ],
+          "next_token_id": 455,
+          "logits_finite": true,
+          "logits_min": -17.312639236450195,
+          "logits_max": 15.576796531677246,
+          "seconds": 27.771874899997783
+        },
+        {
+          "stage": "prefill",
+          "position": 1,
+          "input_tokens": [
+            6102
+          ],
+          "next_token_id": 294,
+          "logits_finite": true,
+          "logits_min": -14.648179054260254,
+          "logits_max": 19.558956146240234,
+          "seconds": 25.70070140000462
+        },
+        {
+          "stage": "prefill",
+          "position": 2,
+          "input_tokens": [
+            294
+          ],
+          "next_token_id": 8760,
+          "logits_finite": true,
+          "logits_min": -20.774782180786133,
+          "logits_max": 19.791078567504883,
+          "seconds": 21.53642010000476
+        },
+        {
+          "stage": "prefill",
+          "position": 3,
+          "input_tokens": [
+            8760
+          ],
+          "next_token_id": 344,
+          "logits_finite": true,
+          "logits_min": -11.718766212463379,
+          "logits_max": 24.365917205810547,
+          "seconds": 21.801582499996584
+        },
+        {
+          "stage": "prefill",
+          "position": 4,
+          "input_tokens": [
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -12.7695951461792,
+          "logits_max": 20.959896087646484,
+          "seconds": 22.13051099999575
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -15.426828384399414,
+          "logits_max": 21.816930770874023,
+          "seconds": 21.923614899998938
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -15.6617431640625,
+          "logits_max": 18.86962127685547,
+          "seconds": 23.423634000006132
+        }
+      ]
+    },
+    {
+      "name": "Batched trial: 8 GiB LRU, prefill up to 16",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 105.82046059999993,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589923008,
+        "parameter_loads": 10905,
+        "cache_hits": 0,
+        "engram_rows_read": 336,
+        "loaded_weight_bytes": 60790506048,
+        "cache_hit_bytes": 0,
+        "load_seconds": 33.31276040004013,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 10905,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 60790506048,
+        "cache_hit_bytes": 0,
+        "load_seconds": 33.31276040004013,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8728689664,
+        "peak_reserved_bytes": 16854810624,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -14.509654998779297,
+          "logits_max": 21.998579025268555,
+          "seconds": 51.20700420000503
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -13.601090431213379,
+          "logits_max": 20.235095977783203,
+          "seconds": 26.070179700000153
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -14.364339828491211,
+          "logits_max": 17.257022857666016,
+          "seconds": 28.443155599998136
+        }
+      ]
+    },
+    {
+      "name": "raw A",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 122.25265180000133,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589923008,
+        "parameter_loads": 10905,
+        "cache_hits": 0,
+        "engram_rows_read": 336,
+        "loaded_weight_bytes": 60790506048,
+        "cache_hit_bytes": 0,
+        "load_seconds": 37.31955760002893,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 10905,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 60790506048,
+        "cache_hit_bytes": 0,
+        "load_seconds": 37.31955760002893,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8728689664,
+        "peak_reserved_bytes": 16854810624,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -14.509654998779297,
+          "logits_max": 21.998579025268555,
+          "seconds": 63.50457859999733
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -13.601090431213379,
+          "logits_max": 20.235095977783203,
+          "seconds": 28.562036199997237
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -14.364339828491211,
+          "logits_max": 17.257022857666016,
+          "seconds": 30.105101100001775
+        }
+      ]
+    },
+    {
+      "name": "official chat B streamed",
+      "output": {
+        "text": "OK",
+        "message": {
+          "role": "assistant",
+          "content": "OK"
+        },
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 9,
+          "completion_tokens": 2,
+          "total_tokens": 11
+        }
+      },
+      "prompt_token_ids": [
+        0,
+        128803,
+        19905,
+        418,
+        1353,
+        20370,
+        16,
+        128804,
+        128822
+      ],
+      "sampled_token_ids": [
+        11932,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 115.50877739999851,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589932832,
+        "parameter_loads": 22121,
+        "cache_hits": 0,
+        "engram_rows_read": 816,
+        "loaded_weight_bytes": 113663528384,
+        "cache_hit_bytes": 0,
+        "load_seconds": 70.72365819956758,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 11216,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 52873022336,
+        "cache_hit_bytes": 0,
+        "load_seconds": 33.40410059953865,
+        "engram_rows_read": 480
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8730706432,
+        "peak_reserved_bytes": 16911433728,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            0,
+            128803,
+            19905,
+            418,
+            1353,
+            20370,
+            16,
+            128804,
+            128822
+          ],
+          "next_token_id": 11932,
+          "logits_finite": true,
+          "logits_min": -22.355575561523438,
+          "logits_max": 34.747135162353516,
+          "seconds": 87.92247309999948
+        },
+        {
+          "stage": "decode",
+          "position": 9,
+          "input_tokens": [
+            11932
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -27.23702049255371,
+          "logits_max": 34.941017150878906,
+          "seconds": 27.506498800001282
+        }
+      ]
+    },
+    {
+      "name": "raw A after chat B",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 107.84336079999775,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589932832,
+        "parameter_loads": 33026,
+        "cache_hits": 0,
+        "engram_rows_read": 1152,
+        "loaded_weight_bytes": 174454034432,
+        "cache_hit_bytes": 0,
+        "load_seconds": 103.22592579999764,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 10905,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 60790506048,
+        "cache_hit_bytes": 0,
+        "load_seconds": 32.50226760043006,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8734239232,
+        "peak_reserved_bytes": 16911433728,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -14.509654998779297,
+          "logits_max": 21.998579025268555,
+          "seconds": 54.855575900000986
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -13.601090431213379,
+          "logits_max": 20.235095977783203,
+          "seconds": 24.659068599998136
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -14.364339828491211,
+          "logits_max": 17.257022857666016,
+          "seconds": 28.20698260000063
+        }
+      ]
+    },
+    {
+      "name": "raw stream stop sequence",
+      "output": {
+        "text": " Paris",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 2,
+          "total_tokens": 7
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16
+      ],
+      "seconds_including_prefill_and_cleanup": 94.45393579999654,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589932832,
+        "parameter_loads": 41326,
+        "cache_hits": 0,
+        "engram_rows_read": 1440,
+        "loaded_weight_bytes": 218189945728,
+        "cache_hit_bytes": 0,
+        "load_seconds": 130.0902823003562,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 8300,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 43735911296,
+        "cache_hit_bytes": 0,
+        "load_seconds": 26.864356500358554,
+        "engram_rows_read": 288
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8733321728,
+        "peak_reserved_bytes": 16911433728,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -14.509654998779297,
+          "logits_max": 21.998579025268555,
+          "seconds": 62.569798500000616
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -13.601090431213379,
+          "logits_max": 20.235095977783203,
+          "seconds": 31.74928070000169
+        }
+      ]
+    },
+    {
+      "name": "raw max_tokens=1",
+      "output": {
+        "text": " Paris",
+        "message": null,
+        "finish_reason": "length",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 1,
+          "total_tokens": 6
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111
+      ],
+      "seconds_including_prefill_and_cleanup": 54.98864969999704,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8583898264,
+        "peak_resident_weight_bytes": 8589932832,
+        "parameter_loads": 47012,
+        "cache_hits": 0,
+        "engram_rows_read": 1680,
+        "loaded_weight_bytes": 244870865216,
+        "cache_hit_bytes": 0,
+        "load_seconds": 145.14710840050247,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 5686,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 26680919488,
+        "cache_hit_bytes": 0,
+        "load_seconds": 15.056826100146282,
+        "engram_rows_read": 240
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8734632448,
+        "peak_reserved_bytes": 16911433728,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -14.509654998779297,
+          "logits_max": 21.998579025268555,
+          "seconds": 54.86168980000366
+        }
+      ]
+    },
+    {
+      "name": "raw A after disconnect",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 117.06737979999889,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589932832,
+        "parameter_loads": 57917,
+        "cache_hits": 7,
+        "engram_rows_read": 2016,
+        "loaded_weight_bytes": 305661371264,
+        "cache_hit_bytes": 1327759576,
+        "load_seconds": 180.7194509003166,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 10898,
+        "cache_hits": 7,
+        "loaded_weight_bytes": 59462746472,
+        "cache_hit_bytes": 1327759576,
+        "load_seconds": 35.01065569981438,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8731224576,
+        "peak_reserved_bytes": 16911433728,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671,
+            6102,
+            294,
+            8760,
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -14.509654998779297,
+          "logits_max": 21.998579025268555,
+          "seconds": 58.03306549999979
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -13.601090431213379,
+          "logits_max": 20.235095977783203,
+          "seconds": 31.00569379999797
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -14.364339828491211,
+          "logits_max": 17.257022857666016,
+          "seconds": 27.93901629999891
+        }
+      ]
+    },
+    {
+      "name": "official chat nonstream",
+      "output": {
+        "text": "OK",
+        "message": {
+          "role": "assistant",
+          "content": "OK"
+        },
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 9,
+          "completion_tokens": 2,
+          "total_tokens": 11
+        }
+      },
+      "prompt_token_ids": [
+        0,
+        128803,
+        19905,
+        418,
+        1353,
+        20370,
+        16,
+        128804,
+        128822
+      ],
+      "sampled_token_ids": [
+        11932,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 101.37140139999974,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589932832,
+        "parameter_loads": 69127,
+        "cache_hits": 7,
+        "engram_rows_read": 2496,
+        "loaded_weight_bytes": 358515592960,
+        "cache_hit_bytes": 1327759576,
+        "load_seconds": 207.22117570022965,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 11210,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 52854221696,
+        "cache_hit_bytes": 0,
+        "load_seconds": 26.501724799913063,
+        "engram_rows_read": 480
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8727560704,
+        "peak_reserved_bytes": 16911433728,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            0,
+            128803,
+            19905,
+            418,
+            1353,
+            20370,
+            16,
+            128804,
+            128822
+          ],
+          "next_token_id": 11932,
+          "logits_finite": true,
+          "logits_min": -22.355575561523438,
+          "logits_max": 34.747135162353516,
+          "seconds": 76.64596619999793
+        },
+        {
+          "stage": "decode",
+          "position": 9,
+          "input_tokens": [
+            11932
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -27.23702049255371,
+          "logits_max": 34.941017150878906,
+          "seconds": 24.620596900000237
+        }
+      ]
+    },
+    {
+      "name": "HTTP baseline after: 8 GiB LRU, prefill 1",
+      "output": {
+        "text": " Paris.",
+        "message": null,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5,
+          "completion_tokens": 3,
+          "total_tokens": 8
+        }
+      },
+      "prompt_token_ids": [
+        671,
+        6102,
+        294,
+        8760,
+        344
+      ],
+      "sampled_token_ids": [
+        11111,
+        16,
+        1
+      ],
+      "seconds_including_prefill_and_cleanup": 190.083183200004,
+      "weight_cache": {
+        "cache_budget_bytes": 8589934592,
+        "resident_weight_bytes": 8561612848,
+        "peak_resident_weight_bytes": 8589922760,
+        "parameter_loads": 18253,
+        "cache_hits": 0,
+        "engram_rows_read": 336,
+        "loaded_weight_bytes": 119366627392,
+        "cache_hit_bytes": 0,
+        "load_seconds": 59.33643530054542,
+        "retain_budget_bytes": 0,
+        "retained_parameter_bytes": 0,
+        "resident_retained_bytes": 0
+      },
+      "cache_delta": {
+        "parameter_loads": 18253,
+        "cache_hits": 0,
+        "loaded_weight_bytes": 119366627392,
+        "cache_hit_bytes": 0,
+        "load_seconds": 59.33643530054542,
+        "engram_rows_read": 336
+      },
+      "device_memory": {
+        "peak_allocated_bytes": 8749762048,
+        "peak_reserved_bytes": 14237564928,
+        "total_device_bytes": 89108070400
+      },
+      "forwards": [
+        {
+          "stage": "prefill",
+          "position": 0,
+          "input_tokens": [
+            671
+          ],
+          "next_token_id": 455,
+          "logits_finite": true,
+          "logits_min": -17.312639236450195,
+          "logits_max": 15.576796531677246,
+          "seconds": 26.25307569999859
+        },
+        {
+          "stage": "prefill",
+          "position": 1,
+          "input_tokens": [
+            6102
+          ],
+          "next_token_id": 294,
+          "logits_finite": true,
+          "logits_min": -14.648179054260254,
+          "logits_max": 19.558956146240234,
+          "seconds": 27.06221849999565
+        },
+        {
+          "stage": "prefill",
+          "position": 2,
+          "input_tokens": [
+            294
+          ],
+          "next_token_id": 8760,
+          "logits_finite": true,
+          "logits_min": -20.774782180786133,
+          "logits_max": 19.791078567504883,
+          "seconds": 25.33264529999724
+        },
+        {
+          "stage": "prefill",
+          "position": 3,
+          "input_tokens": [
+            8760
+          ],
+          "next_token_id": 344,
+          "logits_finite": true,
+          "logits_min": -11.718766212463379,
+          "logits_max": 24.365917205810547,
+          "seconds": 22.915955999997095
+        },
+        {
+          "stage": "prefill",
+          "position": 4,
+          "input_tokens": [
+            344
+          ],
+          "next_token_id": 11111,
+          "logits_finite": true,
+          "logits_min": -12.7695951461792,
+          "logits_max": 20.959896087646484,
+          "seconds": 27.749337399996875
+        },
+        {
+          "stage": "decode",
+          "position": 5,
+          "input_tokens": [
+            11111
+          ],
+          "next_token_id": 16,
+          "logits_finite": true,
+          "logits_min": -15.426828384399414,
+          "logits_max": 21.816930770874023,
+          "seconds": 30.350915399998485
+        },
+        {
+          "stage": "decode",
+          "position": 6,
+          "input_tokens": [
+            16
+          ],
+          "next_token_id": 1,
+          "logits_finite": true,
+          "logits_min": -15.6617431640625,
+          "logits_max": 18.86962127685547,
+          "seconds": 30.31298119999701
+        }
+      ]
+    }
+  ],
+  "http_acceptance": {
+    "listener": "127.0.0.1:18080",
+    "initialized_models": 1,
+    "health_while_busy": {
+      "status": 200,
+      "busy": true,
+      "seconds": 0.0021791000035591424
+    },
+    "busy_rejection": {
+      "status": 429,
+      "body": {
+        "error": {
+          "message": "one inference is active; no waiting queue",
+          "type": "rate_limit_error",
+          "param": null,
+          "code": "engine_busy"
+        }
+      }
+    },
+    "stream_records": [
+      {
+        "name": "chat_B_stream",
+        "text": "OK",
+        "events": [
+          {
+            "seconds": 0.040602799999760464,
+            "data": {
+              "id": "chatcmpl-28a87ae80d134c4db673494b7029d4ae",
+              "created": 1794707563,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "choices": [
+                {
+                  "index": 0,
+                  "finish_reason": null,
+                  "delta": {
+                    "role": "assistant",
+                    "content": ""
+                  }
+                }
+              ],
+              "usage": null
+            }
+          },
+          {
+            "seconds": 87.96220310000353,
+            "data": {
+              "id": "chatcmpl-28a87ae80d134c4db673494b7029d4ae",
+              "created": 1794707563,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "choices": [
+                {
+                  "index": 0,
+                  "finish_reason": null,
+                  "delta": {
+                    "content": "OK"
+                  }
+                }
+              ],
+              "usage": null
+            }
+          },
+          {
+            "seconds": 115.5114379000006,
+            "data": {
+              "id": "chatcmpl-28a87ae80d134c4db673494b7029d4ae",
+              "created": 1794707563,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "choices": [
+                {
+                  "index": 0,
+                  "finish_reason": "stop",
+                  "delta": {}
+                }
+              ],
+              "usage": null
+            }
+          },
+          {
+            "seconds": 115.51157960000273,
+            "data": {
+              "id": "chatcmpl-28a87ae80d134c4db673494b7029d4ae",
+              "created": 1794707563,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "chat.completion.chunk",
+              "choices": [],
+              "usage": {
+                "prompt_tokens": 9,
+                "completion_tokens": 2,
+                "total_tokens": 11
+              }
+            }
+          },
+          {
+            "seconds": 115.51161250000587,
+            "data": "[DONE]"
+          }
+        ]
+      },
+      {
+        "name": "raw_stream_user_stop",
+        "text": " Paris",
+        "events": [
+          {
+            "seconds": 62.64082979999512,
+            "data": {
+              "id": "cmpl-f1b948dd7e0e43eab35b13d85d1f41a1",
+              "created": 1794707786,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "choices": [
+                {
+                  "index": 0,
+                  "finish_reason": null,
+                  "text": " Paris",
+                  "logprobs": null
+                }
+              ],
+              "usage": null
+            }
+          },
+          {
+            "seconds": 94.45721309999499,
+            "data": {
+              "id": "cmpl-f1b948dd7e0e43eab35b13d85d1f41a1",
+              "created": 1794707786,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "choices": [
+                {
+                  "index": 0,
+                  "finish_reason": "stop",
+                  "text": "",
+                  "logprobs": null
+                }
+              ],
+              "usage": null
+            }
+          },
+          {
+            "seconds": 94.4572915999961,
+            "data": {
+              "id": "cmpl-f1b948dd7e0e43eab35b13d85d1f41a1",
+              "created": 1794707786,
+              "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+              "object": "text_completion",
+              "choices": [],
+              "usage": {
+                "prompt_tokens": 5,
+                "completion_tokens": 2,
+                "total_tokens": 7
+              }
+            }
+          },
+          {
+            "seconds": 94.45731779999915,
+            "data": "[DONE]"
+          }
+        ]
+      }
+    ],
+    "context_limit_rejected": {
+      "error": {
+        "message": "prompt (301) plus max_tokens exceeds context 256",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": null
+      }
+    },
+    "disconnect_cleanup_seconds": 0.6880998999986332,
+    "cancelled_request": {
+      "utc": "2026-11-15T01:58:56.623253+00:00",
+      "event": "request",
+      "id": "cmpl-2e101a7992a24e828a412b0fc23a064e",
+      "chat": true,
+      "outcome": "cancelled",
+      "result": null,
+      "metrics": {
+        "prompt_token_ids": [
+          0,
+          128803,
+          19905,
+          418,
+          1353,
+          20370,
+          16,
+          128804,
+          128822
+        ],
+        "sampled_token_ids": [],
+        "text": "",
+        "stop_reason": "cancelled",
+        "cancelled": true,
+        "seconds": 0.6929094999941299,
+        "steps": [],
+        "weight_cache": {
+          "cache_budget_bytes": 8589934592,
+          "resident_weight_bytes": 8587793088,
+          "peak_resident_weight_bytes": 8589932832,
+          "parameter_loads": 47019,
+          "cache_hits": 0,
+          "engram_rows_read": 1680,
+          "loaded_weight_bytes": 246198624792,
+          "cache_hit_bytes": 0,
+          "load_seconds": 145.7087952005022,
+          "retain_budget_bytes": 0,
+          "retained_parameter_bytes": 0,
+          "resident_retained_bytes": 0
+        },
+        "cache_delta": {
+          "parameter_loads": 7,
+          "cache_hits": 0,
+          "loaded_weight_bytes": 1327759576,
+          "cache_hit_bytes": 0,
+          "load_seconds": 0.5616867999997339,
+          "engram_rows_read": 0
+        },
+        "memory": {
+          "peak_allocated_bytes": 8662371328,
+          "peak_reserved_bytes": 16911433728,
+          "total_device_bytes": 89108070400
+        }
+      }
+    },
+    "A_B_A_and_post_cancel_tokens_and_recorded_logit_extrema_identical": true,
+    "listener_closed": true
+  },
+  "client_readback": {
+    "passed": true,
+    "openai_version": "3.2.0",
+    "validated_objects": 12,
+    "method": "Nonstream schema validation and SDK stream-consumer replay of captured real HTTP SSE; no additional inference."
+  },
+  "validation": {
+    "python_tests_passed": 43,
+    "python_tests_skipped": 0,
+    "test_command": "python -m unittest discover -s ports/strix-reference/tests -v",
+    "test_log": "target/strix-api-final-tests.log",
+    "fixtures": "API contract tests use a fixture worker; checkpoint/kernel tests also exercise AMD and reduced synthetic architecture.",
+    "real_generation": "All measurements above are actual original-model HTTP requests, separate from fixtures.",
+    "architecture_sources_modified": false
+  },
+  "decisions": {
+    "default_cache_gib": 8,
+    "default_retain_gib": 0,
+    "default_prefill_batch": 16,
+    "retention": "Fewer loads and 6549 hits, but no elapsed improvement; optional, disabled by default.",
+    "prefill": "Only first chunk batched. Same greedy raw tokens on these runs; logits differ from single-token prefill.",
+    "precision": "Unchanged original checkpoint and existing reference dtypes.",
+    "timing_scope": "Generation including prefill and cleanup; initialization separate. Short runs, no general tokens/s claim.",
+    "byte_counter_scope": "Materialized device weight bytes; excludes extra CPU staging/dequantization reads."
+  },
+  "recovery_notes": [
+    "An initial harness PID check rejected the Windows venv redirector child before inference; parent-child ownership checking corrected.",
+    "Say hi. produced Hi! waving-hand emoji How can I help at the eight-token cap, with correct length finish and 15 total usage. An EOS-only test assumption was corrected; the final chat prompt produces OK then EOS.",
+    "Early immediate listener probes raced Windows process-tree teardown. Old PIDs independently verified gone; final harness retries and confirms listener closure.",
+    "Raw SSE intermediate finish_reason=null is standard; OpenAI 3.2.0 streaming consumer accepts it although strict Completion.model_validate on intermediate raw chunks rejects null. Validated actual SDK stream consumption instead."
+  ],
+  "unverified_or_unsupported": [
+    "Native Rust decoder and native AMD server integration",
+    "DSpark",
+    "Vision and image input",
+    "Tools, thinking, stochastic sampling, multiple completions",
+    "Long context and 1M context",
+    "Broad answer quality or throughput",
+    "Numerical equivalence of batched prefill for arbitrary prompts",
+    "Late-decode disconnect on the original model (early-prefill disconnect and fixture cancellation tested)",
+    "Multi-GPU, network exposure and production service hardening"
+  ],
+  "raw_evidence_files": [
+    "target/strix-http-baseline.json",
+    "target/strix-http-retained-v2.json",
+    "target/strix-http-batched.json",
+    "target/strix-http-acceptance.json",
+    "target/strix-http-baseline-after.json"
+  ],
+  "process_cleanup": {
+    "final_validation_server_stopped": true,
+    "final_listener_closed": true
+  }
+}

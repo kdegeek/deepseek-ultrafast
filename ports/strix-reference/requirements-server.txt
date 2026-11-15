@@ -1,0 +1,5 @@
+# Serving additions only. Preserve the existing AMD torch environment.
+# Versions verified on the Strix acceptance machine; no package install is needed there.
+uvicorn==0.52.1
+# Needed only for tools/validate-strix-api.py, not by the server.
+httpx==0.28.1

@@ -5,8 +5,12 @@
 This fork is developing native Windows AMD support. The Vulkan compute backend
 and AMD PyTorch correctness reference are implemented and hardware-tested on a
 Ryzen AI Max+ 395 / Radeon 8060S. The original 510 GB checkpoint now completes a
-short target-only text prompt on AMD with an 8 GiB weight cache. Native Rust
-decoding and AMD server integration remain to be ported; performance tuning is pending.
+short target-only text prompt on AMD with an 8 GiB weight cache. A persistent
+Python/HIP reference server now exposes local OpenAI-compatible completions and
+officially encoded text chat, including incremental SSE streaming, at
+`http://127.0.0.1:18080/v1`. Bounded initial prefill reduces measured short-prompt
+latency; this remains a slow correctness reference. Native Rust decoding and
+native AMD server integration remain to be ported.
 See [the Strix Halo guide](docs/STRIX_HALO.md) for commands, evidence, and limits.
 
 ## Upstream engine
