@@ -187,6 +187,19 @@ difference was present in target logits before verification; the diagnostic does
 not establish broad numerical equivalence or model quality. Trace timings are
 explicitly invalid for benchmarking.
 
+An independent post-run check asked: "A cabinet shop starts with 48 drawer fronts,
+makes 17 more, and ships 29. Return only the number remaining." The expected
+answer is 36. With seed 2026 and thinking disabled, both ordinary Q8 and selected
+DFlash4 returned the same incorrect answers: 46 at temperature .7 and 16 at
+temperature zero. Enabling thinking produced the correct final answer, 36, in
+both modes. This failure is retained in the
+[independent check](validation/qwen-optimization-parent-review-2026-11-15.json).
+It is not specific to speculative decoding on this prompt, but the comparison
+does not isolate whether the model, quantization or shared backend caused it.
+Passing the earlier bounded suite does not establish reliable arithmetic or
+general quality in non-thinking mode. No sampling defaults or acceptance
+thresholds were changed to hide this result.
+
 An independent source review found the retained-prefix calculation, target/draft
 KV rollback, MTP hidden-row selection and recurrent snapshot bound consistent
 with the pinned upstream server. CPU tests call the real upstream rejection

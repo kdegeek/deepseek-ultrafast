@@ -3,19 +3,24 @@
 ## Strix Halo fork
 
 This fork adds Windows AMD support for the Ryzen AI Max+ 395 / Radeon 8060S.
-For a model that fits in this machine's RAM, the new **Qwen3.8-27B Q4_K_M**
+For a model that fits in this machine's RAM, the **Qwen3.8-27B Q8_0**
 backend embeds pinned llama.cpp/GGML directly in a native library and serves
 through Rust/Axum. It uses resident packed weights, GPU batched prefill, the
-GGUF chat template, and a 32K context. Build and start it with:
+GGUF chat template, and DFlash2 acceleration. The interactive default is 32K;
+explicit extended profiles support native 256K capacity. Build and start it with:
 
 ```powershell
 pwsh -NoProfile -File tools/build-qwen.ps1 -DownloadModel
+& "$env:USERPROFILE/.unsloth/studio/unsloth_studio/Scripts/python.exe" tools/download-qwen.py `
+  --lock ports/qwen-resident/model-dflash2.lock.json
 pwsh -NoProfile -File tools/serve-qwen.ps1
 ```
 
 Qwen base URL: **`http://127.0.0.1:18083/v1`**, model **`Qwen/Qwen3.8-27B`**.
 See [Qwen on Strix Halo](docs/QWEN_STRIX.md) for measured performance and RAM,
 hardware acceptance, supported API parameters, and exact reproducible commands.
+The [optimization report](docs/QWEN_OPTIMIZATION.md) records speed gains, long
+prefill times, numerical/quality limitations, and the preserved Q4 fallback.
 
 The original 510 GB checkpoint runs with bounded disk reads and an 8 GiB weight
 cache. The native Rust/C++ ATen/HIP path uses the installed native libraries

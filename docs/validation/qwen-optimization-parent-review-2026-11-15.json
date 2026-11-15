@@ -1,0 +1,551 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-11-15T21:24:15.4261421Z",
+  "implementation_commit": "80d66162b5cf41e863cb84497dcf5640d33d16b6",
+  "scope": "One independently selected arithmetic prompt, identical requests compared serially on ordinary Q8 and selected DFlash2 depth4; not a general model-quality evaluation.",
+  "expected_answer": "36",
+  "non_thinking_arithmetic_passed": false,
+  "thinking_final_answer_passed": true,
+  "ordinary": [
+    {
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "46",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794777786,
+        "id": "chatcmpl-73696-1",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 70597541888,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 23.5853,
+          "decode_ms": 266.554,
+          "decode_tokens": 2,
+          "decode_tps": 7.503170089362756,
+          "dflash_draft": 0,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 279.9584,
+          "prefill_tps": 146.45032976327911,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0008,
+          "sampling_and_sync_ms": 255.6123,
+          "seed": 2026,
+          "speculative_verifier": "none",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 11.6796,
+          "total_including_cleanup_ms": 571.8328,
+          "total_ms": 548.2308,
+          "ttft_ms": 281.6768,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 41,
+          "total_tokens": 44
+        }
+      },
+      "label": "sampled_repeat",
+      "request": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "messages": [
+          {
+            "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+            "role": "user"
+          }
+        ],
+        "max_tokens": 24,
+        "seed": 2026
+      }
+    },
+    {
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "16",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794777787,
+        "id": "chatcmpl-73696-2",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 70590062592,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 23.6173,
+          "decode_ms": 265.8744,
+          "decode_tokens": 2,
+          "decode_tps": 7.522348898577675,
+          "dflash_draft": 0,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 229.7755,
+          "prefill_tps": 178.43503767808144,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0008,
+          "sampling_and_sync_ms": 256.38779999999997,
+          "seed": 2026,
+          "speculative_verifier": "none",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 10.2625,
+          "total_including_cleanup_ms": 520.7852,
+          "total_ms": 497.155,
+          "ttft_ms": 231.2806,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 41,
+          "total_tokens": 44
+        }
+      },
+      "label": "greedy",
+      "request": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "messages": [
+          {
+            "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+            "role": "user"
+          }
+        ],
+        "max_tokens": 24,
+        "seed": 2026
+      }
+    },
+    {
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "<think>\nWe need answer simple arithmetic. Compute: 48 + 17 - 29 = 65 - 29 = 36. User asks return only number remaining. Final just 36.\n</think>\n\n36",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794777787,
+        "id": "chatcmpl-73696-3",
+        "metrics": {
+          "accepted_draft_tokens": 0,
+          "available_physical_bytes": 70674616320,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 23.5832,
+          "decode_ms": 6606.7054,
+          "decode_tokens": 50,
+          "decode_tps": 7.5680686473472845,
+          "dflash_draft": 0,
+          "draft_acceptance": 0.0,
+          "draft_ms": 0.0,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 0,
+          "mtp_draft": 0,
+          "prefill_ms": 341.8059,
+          "prefill_tps": 236.9765998772988,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0001,
+          "sampling_and_sync_ms": 6382.423400000003,
+          "seed": 2026,
+          "speculative_verifier": "none",
+          "target_decode_calls": 50,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 222.26370000000003,
+          "total_including_cleanup_ms": 6973.8087,
+          "total_ms": 6950.2141,
+          "ttft_ms": 343.5087,
+          "verification_steps": 0
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 51,
+          "prompt_tokens": 81,
+          "total_tokens": 132
+        }
+      },
+      "label": "thinking",
+      "request": {
+        "temperature": 0.7,
+        "messages": [
+          {
+            "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+            "role": "user"
+          }
+        ],
+        "max_tokens": 256,
+        "enable_thinking": true,
+        "model": "Qwen/Qwen3.8-27B",
+        "seed": 2026
+      }
+    }
+  ],
+  "dflash": [
+    {
+      "label": "sampled_repeat",
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "46",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794777721,
+        "id": "chatcmpl-60736-3",
+        "metrics": {
+          "accepted_draft_tokens": 1,
+          "available_physical_bytes": 66639446016,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.9034,
+          "decode_ms": 368.9969,
+          "decode_tokens": 2,
+          "decode_tps": 5.420099735255229,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.125,
+          "draft_ms": 37.105599999999995,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 8,
+          "mtp_draft": 0,
+          "prefill_ms": 241.9334,
+          "prefill_tps": 169.4681263521283,
+          "rejection_verification_steps": 2,
+          "reset_before_ms": 0.0011,
+          "sampling_and_sync_ms": 4.170400000000001,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 2,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 328.1834,
+          "total_including_cleanup_ms": 640.2237,
+          "total_ms": 612.3058,
+          "ttft_ms": 243.3089,
+          "verification_steps": 2
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 41,
+          "total_tokens": 44
+        }
+      },
+      "request": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "messages": [
+          {
+            "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+            "role": "user"
+          }
+        ],
+        "max_tokens": 24,
+        "seed": 2026
+      }
+    },
+    {
+      "label": "greedy",
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "16",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794777721,
+        "id": "chatcmpl-60736-4",
+        "metrics": {
+          "accepted_draft_tokens": 1,
+          "available_physical_bytes": 66646544384,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 27.4061,
+          "decode_ms": 186.0375,
+          "decode_tokens": 2,
+          "decode_tps": 10.75052072834778,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.25,
+          "draft_ms": 18.3343,
+          "draft_sampling": "greedy",
+          "drafted_tokens": 4,
+          "mtp_draft": 0,
+          "prefill_ms": 237.1652,
+          "prefill_tps": 172.87527849785718,
+          "rejection_verification_steps": 0,
+          "reset_before_ms": 0.0009,
+          "sampling_and_sync_ms": 3.0444,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-sample-and-match",
+          "target_decode_calls": 1,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 165.3308,
+          "total_including_cleanup_ms": 452.0809,
+          "total_ms": 424.6594,
+          "ttft_ms": 238.6219,
+          "verification_steps": 1
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 41,
+          "total_tokens": 44
+        }
+      },
+      "request": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "messages": [
+          {
+            "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+            "role": "user"
+          }
+        ],
+        "max_tokens": 24,
+        "seed": 2026
+      }
+    },
+    {
+      "label": "thinking",
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "<think>\nWe need answer simple arithmetic. We called. Now compute: starts 48, makes 17 -> 65, ships 29 -> 36. Return only number.\n</think>\n\n36",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794777722,
+        "id": "chatcmpl-60736-5",
+        "metrics": {
+          "accepted_draft_tokens": 34,
+          "available_physical_bytes": 66646802432,
+          "benchmark_timing_valid": true,
+          "cleanup_ms": 26.8541,
+          "decode_ms": 2015.2756,
+          "decode_tokens": 44,
+          "decode_tps": 21.833242063765372,
+          "dflash_draft": 4,
+          "draft_acceptance": 0.7727272727272727,
+          "draft_ms": 209.61980000000003,
+          "draft_sampling": "probabilistic",
+          "drafted_tokens": 44,
+          "mtp_draft": 0,
+          "prefill_ms": 403.5105,
+          "prefill_tps": 200.7382707513187,
+          "rejection_verification_steps": 11,
+          "reset_before_ms": 0.0006,
+          "sampling_and_sync_ms": 20.3925,
+          "seed": 2026,
+          "speculative_verifier": "upstream-target-rejection",
+          "target_decode_calls": 11,
+          "target_logits_trace": false,
+          "target_submit_and_catchup_ms": 1784.1707,
+          "total_including_cleanup_ms": 2447.2887,
+          "total_ms": 2420.4185,
+          "ttft_ms": 405.1429,
+          "verification_steps": 11
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 45,
+          "prompt_tokens": 81,
+          "total_tokens": 126
+        }
+      },
+      "request": {
+        "temperature": 0.7,
+        "messages": [
+          {
+            "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+            "role": "user"
+          }
+        ],
+        "max_tokens": 256,
+        "enable_thinking": true,
+        "model": "Qwen/Qwen3.8-27B",
+        "seed": 2026
+      }
+    }
+  ],
+  "interpretation": "Both modes reproduced incorrect non-thinking answers and correct thinking final answers. This does not isolate the model, quantization or shared backend as the cause. No acceptance threshold or default changed.",
+  "independent_software_checks": {
+    "launcher_live_read_only_combinations": 10,
+    "downloader_offline_tests": 7,
+    "launcher_offline_passed": true,
+    "qwen_feature_tests": 17,
+    "native_ctest_passed": 2
+  },
+  "fresh_selected_process_greedy": {
+    "request": {
+      "max_tokens": 24,
+      "seed": 2026,
+      "model": "Qwen/Qwen3.8-27B",
+      "temperature": 0,
+      "messages": [
+        {
+          "content": "A cabinet shop starts with 48 drawer fronts, makes 17 more, and ships 29. Return only the number remaining.",
+          "role": "user"
+        }
+      ]
+    },
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "16",
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1794777896,
+      "id": "chatcmpl-74648-1",
+      "metrics": {
+        "accepted_draft_tokens": 1,
+        "available_physical_bytes": 66584768512,
+        "benchmark_timing_valid": true,
+        "cleanup_ms": 24.7957,
+        "decode_ms": 187.4112,
+        "decode_tokens": 2,
+        "decode_tps": 10.671720793634533,
+        "dflash_draft": 4,
+        "draft_acceptance": 0.25,
+        "draft_ms": 18.3589,
+        "draft_sampling": "greedy",
+        "drafted_tokens": 4,
+        "mtp_draft": 0,
+        "prefill_ms": 294.2843,
+        "prefill_tps": 139.32105790217148,
+        "rejection_verification_steps": 0,
+        "reset_before_ms": 0.0016,
+        "sampling_and_sync_ms": 3.0911,
+        "seed": 2026,
+        "speculative_verifier": "upstream-target-sample-and-match",
+        "target_decode_calls": 1,
+        "target_logits_trace": false,
+        "target_submit_and_catchup_ms": 166.6618,
+        "total_including_cleanup_ms": 508.4766,
+        "total_ms": 483.6643,
+        "ttft_ms": 296.2531,
+        "verification_steps": 1
+      },
+      "model": "Qwen/Qwen3.8-27B",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 3,
+        "prompt_tokens": 41,
+        "total_tokens": 44
+      }
+    }
+  },
+  "restored_server": {
+    "pid": 74648,
+    "start_time_utc": "2026-11-15T21:23:46.552614Z",
+    "executable": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\qwen-resident.exe",
+    "port": 18083,
+    "run_directory": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\runs\\20261115-212346-532",
+    "library": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\build\\bin\\Release\\qwen_native.dll",
+    "executable_sha256": "bdb4c268cc9e308649c9a96885abed31efa658a23022766f2f4a3fe13e0bc14a",
+    "library_sha256": "e52de042f698e87d3476aa693eecab36791b0dedc27577515d52e61a30664f55",
+    "build_manifest_sha256": "8dc246ae9a5631cd30748af4058ec8b411cf49c15d788ec2bc2a71dbed449b03",
+    "model_sha256": "a830e736efa71ce29589ff20b8713333a427e0d46ab774723be23800ad54362d",
+    "health": {
+      "busy": false,
+      "cancelled_requests": 0,
+      "completed_requests": 0,
+      "engine": "native-rust-llama-cpp",
+      "error": null,
+      "experimental": true,
+      "identity": {
+        "always_clear_experiment": false,
+        "architecture": "qwen35",
+        "backend": "embedded-llama.cpp-ggml",
+        "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+        "batch": 2048,
+        "batch_logit_capacity_experiment": false,
+        "context": 32768,
+        "context_quality_validated_by_boot": false,
+        "device": "AMD Radeon(TM) 8060S Graphics",
+        "device_backend": "Vulkan0",
+        "dflash_draft": 4,
+        "draft_model_path": "\\\\?\\C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\models\\Qwen3.8-27B\\Qwen3.8-27B-DFlash2-Q8_0.gguf",
+        "draft_model_tensor_bytes": 2045465600,
+        "draft_quantization": "Q8_0",
+        "draft_sampling": "probabilistic",
+        "flash_attention": true,
+        "gguf_file_type": "7",
+        "gpu_budget_free_bytes": 73269675972,
+        "gpu_budget_total_bytes": 113084137472,
+        "gpu_layers_requested": 999,
+        "kv_type": "q8_0",
+        "lazy_weights": false,
+        "load_available_physical_bytes": 66532941824,
+        "max_logit_outputs": 5,
+        "mmap": false,
+        "model_id": "Qwen/Qwen3.8-27B",
+        "model_parameters": 27320697856,
+        "model_tensor_bytes": 29105393664,
+        "mtp": false,
+        "mtp_draft": 0,
+        "native_context_limit": 262144,
+        "quantization": "Q8_0",
+        "recurrent_snapshots": 4,
+        "single_clear_request_state": true,
+        "speculative_type": "draft-dflash2",
+        "speculative_verifier": "upstream-rejection-if-temperature-positive-otherwise-match",
+        "startup_warmup_ms": 675.7001,
+        "startup_warmup_tokens": 128,
+        "target_logits_trace": false,
+        "thinking_supported": true,
+        "threads": 8,
+        "ubatch": 512,
+        "vulkan_fa_flip_disabled": true
+      },
+      "last_request": null,
+      "pid": 74648,
+      "queue_capacity": 0,
+      "request_limits": {
+        "body_bytes": 1114112,
+        "deadline_seconds": 3600
+      },
+      "state": "ready"
+    },
+    "base_url": "http://127.0.0.1:18083/v1"
+  }
+}
