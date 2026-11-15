@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "verified_utc": "2026-11-15T15:43:51Z",
+  "model_id": "Qwen/Qwen3.8-27B",
+  "repository": "bartowski/Qwen3.8-27B-GGUF",
+  "revision": "87410e7b9a5c21e6ca70c0c9cc5237de909fe621",
+  "filename": "Qwen3.8-27B-Q4_K_M.gguf",
+  "size_bytes": 17442399968,
+  "sha256": "880a52af8317974f7b4b064a6bc29ff49e188b91aa218e08eea3078b6b1cc673",
+  "file_mtime_ns": 1794757380214002400,
+  "file_mtime_100ns": 17947573802140024,
+  "lock_sha256": "767c0740c12abfbeb60756a74ff91880fbb407a643edbd6e8ada7dc68921f38a"
+}

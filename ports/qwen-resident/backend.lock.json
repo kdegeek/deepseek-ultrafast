@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "backend": "llama.cpp / GGML native C API and common chat template library",
+  "repository": "https://github.com/ggml-org/llama.cpp.git",
+  "revision": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+  "license": "MIT",
+  "primary_backend": "Vulkan",
+  "source_directory": "target/qwen-resident/llama.cpp",
+  "vulkan_sdk": {
+    "version": "1.4.363.1",
+    "url": "https://sdk.lunarg.com/sdk/download/1.4.363.1/windows/vulkan_sdk.exe",
+    "size_bytes": 303066832,
+    "sha256": "c02932bd9a968b22d404536108adaacac908c081cd6b0113f5bfefc523dd0a6a",
+    "authenticode_publisher": "LunarG, Inc.",
+    "setup_mode": "copy_only=1; no registry, layer registration or persistent PATH changes",
+    "documentation": "https://vulkan.lunarg.com/doc/view/1.4.363.1/windows/getting_started.html"
+  }
+}

@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T16:06:52.976573+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "bench",
+  "script_sha256": "2cc2dad10f4ff72e409a68185128b84d5a44634d0c330a0a391810fc6454f50c",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "benchmark_warmup",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:07:01.597748+00:00",
+      "http_status": 200,
+      "http_seconds": 8.602698300004704,
+      "request_sha256": "930fddda9e65b9e5362ad78152a96dca31d2846ca5ec19a9971c6ea2982c4f3c",
+      "request_bytes": 198,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Organizing a small tool cabinet is less about having massive storage space and more about maximizing visibility and accessibility. Since space is limited, every inch must serve a purpose. Here are three practical ways to label and organize your tools:\n\n### 1. Use Shadow Boards or Pegboards with Silhouettes\nInstead of just placing tools in drawers, consider using **shadow boards** (acrylic or foam sheets) on the inside of cabinet doors or on the back panel if you have",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758813,
+        "id": "chatcmpl-66964-1",
+        "metrics": {
+          "available_physical_bytes": 76162306048,
+          "decode_ms": 8171.9613,
+          "decode_tokens": 95,
+          "decode_tps": 11.625116237395789,
+          "prefill_ms": 365.2087,
+          "prefill_tps": 71.19217039462642,
+          "seed": 2026,
+          "total_ms": 8538.7062,
+          "ttft_ms": 366.7449
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 26,
+          "total_tokens": 122
+        }
+      }
+    },
+    {
+      "name": "short_decode_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:07:34.647744+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 76960354304,
+        "decode_ms": 32624.2745,
+        "decode_tokens": 383,
+        "decode_tps": 11.739724664222036,
+        "prefill_ms": 363.6782,
+        "prefill_tps": 219.97469191169552,
+        "seed": 2026,
+        "total_ms": 32990.2676,
+        "ttft_ms": 365.9931
+      },
+      "client_ttft_seconds": 0.4021589000039967,
+      "client_last_content_seconds": 33.02628160000313,
+      "http_seconds": 33.05118520000542,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.40212710000923835,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758821,
+            "id": "chatcmpl-66964-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.4021589000039967,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758821,
+            "id": "chatcmpl-66964-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.4938324999966426,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758821,
+            "id": "chatcmpl-66964-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.05098260000523,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758821,
+            "id": "chatcmpl-66964-2",
+            "metrics": {
+              "available_physical_bytes": 76960354304,
+              "decode_ms": 32624.2745,
+              "decode_tokens": 383,
+              "decode_tps": 11.739724664222036,
+              "prefill_ms": 363.6782,
+              "prefill_tps": 219.97469191169552,
+              "seed": 2026,
+              "total_ms": 32990.2676,
+              "ttft_ms": 365.9931
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.051009100003284,
+          "data": {
+            "choices": [],
+            "created": 1794758821,
+            "id": "chatcmpl-66964-2",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "short_decode_2",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:08:08.556713+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 75669553152,
+        "decode_ms": 33487.9013,
+        "decode_tokens": 383,
+        "decode_tps": 11.436966341034935,
+        "prefill_ms": 356.1018,
+        "prefill_tps": 224.654859930503,
+        "seed": 2026,
+        "total_ms": 33847.0042,
+        "ttft_ms": 359.1029
+      },
+      "client_ttft_seconds": 0.3958850000053644,
+      "client_last_content_seconds": 33.88305240000773,
+      "http_seconds": 33.91054989999975,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.3956587000138825,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758854,
+            "id": "chatcmpl-66964-3",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.3958850000053644,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758854,
+            "id": "chatcmpl-66964-3",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.4896417000127258,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758854,
+            "id": "chatcmpl-66964-3",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.910307800004375,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758854,
+            "id": "chatcmpl-66964-3",
+            "metrics": {
+              "available_physical_bytes": 75669553152,
+              "decode_ms": 33487.9013,
+              "decode_tokens": 383,
+              "decode_tps": 11.436966341034935,
+              "prefill_ms": 356.1018,
+              "prefill_tps": 224.654859930503,
+              "seed": 2026,
+              "total_ms": 33847.0042,
+              "ttft_ms": 359.1029
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.91035250001005,
+          "data": {
+            "choices": [],
+            "created": 1794758854,
+            "id": "chatcmpl-66964-3",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "short_decode_3",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:08:42.250765+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 76238237696,
+        "decode_ms": 33231.9524,
+        "decode_tokens": 383,
+        "decode_tps": 11.525052617733046,
+        "prefill_ms": 392.9881,
+        "prefill_tps": 203.56850500053312,
+        "seed": 2026,
+        "total_ms": 33627.8016,
+        "ttft_ms": 395.8492
+      },
+      "client_ttft_seconds": 0.43961440000566654,
+      "client_last_content_seconds": 33.671339300010004,
+      "http_seconds": 33.69519739999669,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.4395751999982167,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758888,
+            "id": "chatcmpl-66964-4",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.43961440000566654,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758888,
+            "id": "chatcmpl-66964-4",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.5331424000032712,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758888,
+            "id": "chatcmpl-66964-4",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.69497029999911,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758888,
+            "id": "chatcmpl-66964-4",
+            "metrics": {
+              "available_physical_bytes": 76238237696,
+              "decode_ms": 33231.9524,
+              "decode_tokens": 383,
+              "decode_tps": 11.525052617733046,
+              "prefill_ms": 392.9881,
+              "prefill_tps": 203.56850500053312,
+              "seed": 2026,
+              "total_ms": 33627.8016,
+              "ttft_ms": 395.8492
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.69500639999751,
+          "data": {
+            "choices": [],
+            "created": 1794758888,
+            "id": "chatcmpl-66964-4",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "warm_repeated_decode_benchmark",
+      "passed": true,
+      "seconds": 109.26761989999795,
+      "detail": {
+        "repeats": 3,
+        "prompt_tokens": 80,
+        "completion_tokens_each": [
+          384,
+          384,
+          384
+        ],
+        "median_decode_tps": 11.525052617733046,
+        "median_prefill_tps": 219.97469191169552,
+        "median_client_ttft_seconds": 0.4021589000039967,
+        "median_http_seconds": 33.69519739999669,
+        "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+      }
+    }
+  ],
+  "passed": true,
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 0,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 77040750592,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 624.5917,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 16,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": null,
+    "pid": 66964,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "models": {
+    "data": [
+      {
+        "created": 0,
+        "id": "Qwen/Qwen3.8-27B",
+        "object": "model",
+        "owned_by": "Qwen"
+      }
+    ],
+    "object": "list"
+  },
+  "benchmark_summary": {
+    "repeats": 3,
+    "prompt_tokens": 80,
+    "completion_tokens_each": [
+      384,
+      384,
+      384
+    ],
+    "median_decode_tps": 11.525052617733046,
+    "median_prefill_tps": 219.97469191169552,
+    "median_client_ttft_seconds": 0.4021589000039967,
+    "median_http_seconds": 33.69519739999669,
+    "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 4,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 77040750592,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 624.5917,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 16,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-66964-4",
+      "metrics": {
+        "available_physical_bytes": 76238237696,
+        "decode_ms": 33231.9524,
+        "decode_tokens": 383,
+        "decode_tps": 11.525052617733046,
+        "prefill_ms": 392.9881,
+        "prefill_tps": 203.56850500053312,
+        "seed": 2026,
+        "total_ms": 33627.8016,
+        "ttft_ms": 395.8492
+      },
+      "outcome": "completed"
+    },
+    "pid": 66964,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T16:08:42.256512+00:00"
+}

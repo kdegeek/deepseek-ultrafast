@@ -1,0 +1,51 @@
+   Compiling deepseek-ultrafast-qwen v0.1.0 (C:\Users\ncrawford\deepseek-ultrafast\crates\qwen-resident)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.55s
+     Running unittests src\lib.rs (target\debug\deps\deepseek_ultrafast_qwen-1c18a7c86a3961aa.exe)
+
+running 14 tests
+test contract::tests::unsupported_and_malformed_fields_fail ... ok
+test contract::tests::sampling_defaults_and_explicit_options ... ok
+test contract::tests::streaming_options_and_message_shapes ... ok
+test contract::tests::gguf_receives_unmodified_multiturn_unicode ... ok
+test contract::tests::thinking_and_non_thinking_sampling_defaults ... ok
+test serving::tests::initialization_failure_remains_unready ... ok
+test serving::tests::engine_failure_is_closed_and_readiness_reports_it ... ok
+test serving::tests::http_contract_admission_and_limits ... ok
+test serving::tests::request_output_error_cleans_up_and_allows_next_request ... ok
+test serving::tests::incremental_sse_busy_usage_and_isolation ... ok
+test serving::tests::streaming_native_validation_error_keeps_http_400 ... ok
+test serving::tests::dropped_stream_cancels_before_readmission ... ok
+test serving::tests::deadline_cancels_worker ... ok
+test serving::tests::real_tcp_disconnect_cancels_stream_and_nonstream ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
+     Running unittests src\main.rs (target\debug\deps\qwen_resident-2504b6bc24909adb.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests deepseek_ultrafast_qwen
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.15s
+     Running unittests src\lib.rs (target\debug\deps\deepseek_ultrafast_qwen-7b395e4f6516b014.exe)
+
+running 5 tests
+test contract::tests::sampling_defaults_and_explicit_options ... ok
+test contract::tests::gguf_receives_unmodified_multiturn_unicode ... ok
+test contract::tests::streaming_options_and_message_shapes ... ok
+test contract::tests::unsupported_and_malformed_fields_fail ... ok
+test contract::tests::thinking_and_non_thinking_sampling_defaults ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests deepseek_ultrafast_qwen
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

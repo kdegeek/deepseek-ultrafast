@@ -1,0 +1,52 @@
+'vswhere.exe' is not recognized as an internal or external command,
+operable program or batch file.
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.0
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+-- llama.cpp version: 1.0.0-dev
+CMAKE_BUILD_TYPE=
+-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: AMD64
+-- CMAKE_GENERATOR_PLATFORM:
+-- GGML_SYSTEM_ARCH: x86
+-- Including CPU backend
+-- x86 detected
+-- Adding CPU backend variant ggml-cpu: /arch:AVX512 GGML_AVX512
+-- Vulkan found
+-- GL_KHR_cooperative_matrix supported by glslc
+-- GL_NV_cooperative_matrix2 supported by glslc
+-- GL_NV_cooperative_matrix_decode_vector supported by glslc
+-- GL_EXT_integer_dot_product supported by glslc
+-- GL_EXT_bfloat16 supported by glslc
+-- GL_EXT_float_e2m1 supported by glslc
+-- GL_EXT_float_e4m3 supported by glslc
+-- Including Vulkan backend
+-- ggml version: 1.0.0
+-- ggml commit:  b54752d
+-- Configuring done (1.0s)
+-- Generating done (0.3s)
+-- Build files have been written to: C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/build
+[0/2] Re-checking globbed directories...
+[1/6] Performing build step for 'vulkan-shaders-gen'
+ninja: no work to do.
+[2/6] Performing install step for 'vulkan-shaders-gen'
+-- Up-to-date: C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/build/Release/vulkan-shaders-gen.exe
+[3/6] Completed 'vulkan-shaders-gen'
+[4/6] Building CXX object CMakeFiles\qwen_native.dir\Release\qwen_native.cpp.obj
+C:\Users\ncrawford\deepseek-ultrafast\target\qwen-resident\llama.cpp\common\common.h(459): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\ncrawford\deepseek-ultrafast\target\qwen-resident\llama.cpp\common\common.h(469): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+C:\Users\ncrawford\deepseek-ultrafast\target\qwen-resident\llama.cpp\common\jinja\lexer.h(50): warning C4505: 'jinja::type_to_string': unreferenced function with internal linkage has been removed
+C:\Users\ncrawford\deepseek-ultrafast\target\qwen-resident\llama.cpp\common\jinja\runtime.h(770): warning C4505: 'jinja::render_string_parts': unreferenced function with internal linkage has been removed
+[5/6] Linking CXX shared library bin\Release\qwen_native.dll
+Test project C:/Users/ncrawford/deepseek-ultrafast/target/qwen-resident/build
+    Start 1: qwen_stream
+1/1 Test #1: qwen_stream ......................   Passed    0.01 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   0.02 sec
+   Compiling deepseek-ultrafast-qwen v0.1.0 (C:\Users\ncrawford\deepseek-ultrafast\crates\qwen-resident)
+    Finished `release` profile [optimized + debuginfo] target(s) in 1.28s
+Built Qwen native backend: C:\Users\ncrawford\deepseek-ultrafast\target\qwen-resident\build/bin/Release/qwen_native.dll

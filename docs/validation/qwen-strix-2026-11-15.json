@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-15",
+  "model": "Qwen/Qwen3.8-27B",
+  "quantization": "Q4_K_M",
+  "backend": "Rust/Axum + embedded native llama.cpp/GGML Vulkan",
+  "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+  "default_context": 32768,
+  "default_threads": 8,
+  "default_batch": 2048,
+  "default_ubatch": 512,
+  "default_kv_type": "q8_0",
+  "vulkan_fa_flip_disabled": true,
+  "hardware": {
+    "cpu": "AMD Ryzen AI Max+ 395",
+    "gpu": "AMD Radeon 8060S",
+    "installed_ram_gib": 128,
+    "os_visible_ram_bytes": 119880355840,
+    "display_driver": "32.0.32015.7029",
+    "vulkan_loader": "1.4.357.0"
+  },
+  "acceptance": {
+    "passed": true,
+    "checks": 19,
+    "delivery_contract_passed": true,
+    "delivery_contract_checks": 9,
+    "largest_populated_prompt_tokens": 31014,
+    "full_report": "qwen-strix-2026-11-15/acceptance-t8.json",
+    "delivery_contract": "qwen-strix-2026-11-15/delivery-contract.json"
+  },
+  "performance": {
+    "threads8": {
+      "repeats": 3,
+      "prompt_tokens": 80,
+      "completion_tokens_each": [
+        384,
+        384,
+        384
+      ],
+      "median_decode_tps": 12.03701344549173,
+      "median_prefill_tps": 223.54529991815448,
+      "median_client_ttft_seconds": 0.4073649000056321,
+      "median_http_seconds": 32.26585789999808,
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+    },
+    "threads16": {
+      "repeats": 3,
+      "prompt_tokens": 80,
+      "completion_tokens_each": [
+        384,
+        384,
+        384
+      ],
+      "median_decode_tps": 11.525052617733046,
+      "median_prefill_tps": 219.97469191169552,
+      "median_client_ttft_seconds": 0.4021589000039967,
+      "median_http_seconds": 33.69519739999669,
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+    },
+    "outputs_match": true,
+    "populated_context_checks": [
+      {
+        "target_tokens": 4096,
+        "actual_prompt_tokens": 4082,
+        "rows": 169,
+        "expected": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "observed": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "metrics": {
+          "available_physical_bytes": 76547899392,
+          "decode_ms": 1988.1077,
+          "decode_tokens": 23,
+          "decode_tps": 11.568789759226826,
+          "prefill_ms": 13268.2768,
+          "prefill_tps": 307.65110357058575,
+          "seed": 2026,
+          "total_ms": 15262.5713,
+          "ttft_ms": 13274.4636
+        },
+        "scope": "One three-key retrieval at front/middle/end; not general long-context quality validation",
+        "populated_decode": {
+          "usage": {
+            "completion_tokens": 384,
+            "prompt_tokens": 4100,
+            "total_tokens": 4484
+          },
+          "metrics": {
+            "available_physical_bytes": 76194357248,
+            "decode_ms": 33350.3521,
+            "decode_tokens": 383,
+            "decode_tps": 11.484136624752455,
+            "prefill_ms": 14111.0497,
+            "prefill_tps": 290.55244557745414,
+            "seed": 2026,
+            "total_ms": 47464.3519,
+            "ttft_ms": 14113.9998
+          },
+          "client_ttft_seconds": 14.162528600005317,
+          "text_sha256": "5fddca25a9cfb0713b14980caa2da3b43aa998db4b12d5359f3e1707096798a0"
+        }
+      },
+      {
+        "target_tokens": 30000,
+        "actual_prompt_tokens": 31014,
+        "rows": 1296,
+        "expected": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "observed": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "metrics": {
+          "available_physical_bytes": 76198772736,
+          "decode_ms": 2084.913,
+          "decode_tokens": 23,
+          "decode_tps": 11.031635372794932,
+          "prefill_ms": 141439.8344,
+          "prefill_tps": 219.27344677377536,
+          "seed": 2026,
+          "total_ms": 143543.0351,
+          "ttft_ms": 141458.1221
+        },
+        "scope": "One three-key retrieval at front/middle/end; not general long-context quality validation"
+      }
+    ],
+    "threads8_return": {
+      "repeats": 1,
+      "prompt_tokens": 80,
+      "completion_tokens_each": [
+        384
+      ],
+      "median_decode_tps": 12.042160326461394,
+      "median_prefill_tps": 225.46262111570175,
+      "median_client_ttft_seconds": 0.39878860001044814,
+      "median_http_seconds": 32.226877799999784,
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+    },
+    "return_output_matches": true
+  },
+  "memory": {
+    "samples": 144,
+    "minimum_available_gib": 69.388,
+    "maximum_system_commit_gib": 65.262,
+    "maximum_process_working_set_gib": 4.315,
+    "maximum_process_private_commit_gib": 19.296,
+    "maximum_gpu_dedicated_gib": 14.327,
+    "maximum_gpu_shared_gib": 4.084,
+    "maximum_gpu_committed_gib": 18.41,
+    "window_process_read_bytes": 0.0,
+    "window_process_write_bytes": 0.0,
+    "window_process_page_faults": 50594.0,
+    "window_system_page_read_operations": 15967.0,
+    "window_system_page_write_operations": 0.0,
+    "window_system_pages_input": 98749.0,
+    "window_system_pages_output": 0.0,
+    "pressure_observed": false
+  },
+  "memory_seconds": 433.338,
+  "memory_report": "qwen-strix-2026-11-15/memory-t8.json",
+  "static_checks": {
+    "qwen_feature_tests": 14,
+    "qwen_no_feature_tests": 5,
+    "native_ctest": 1,
+    "deepseek_lib_passed": 45,
+    "deepseek_lib_ignored": 3,
+    "deepseek_math_passed": 1,
+    "qwen_fmt": "pass",
+    "qwen_clippy": "pass",
+    "strix_clippy": "pass",
+    "git_diff_check": "pass",
+    "workspace_fmt": "fails on pre-existing untouched CUDA/engine/server formatting; scoped new-crate fmt passes"
+  },
+  "limits": [
+    "Single-user text-only API; unsupported fields rejected",
+    "31,014-token three-key retrieval is not broad long-context quality",
+    "384-token sustained generation tested short and at4,100 prompt tokens",
+    "No guarantee of zero future Windows paging; system-wide page-ins were observed",
+    "HIP, MTP, Q6, vision and context beyond32K unverified"
+  ],
+  "preservation": {
+    "fallback_config_sha256": "34a2c5043d6d6146cfb47ff3b4918429638f2865df7f727d4bafded6513b1449",
+    "fallback_binary_sha256": "0e465cb9f92b3d9a51231354300620a13b2365c2494a3852e262b32756215933",
+    "user_and_machine_environment_before_after_sha256": "c2cd568e75f90c157814bb0f55be6e781fc6464d6cad99241578850db203f380",
+    "codex_port8081_pid": 21640,
+    "original_model_lock_sha256": "767c0740c12abfbeb60756a74ff91880fbb407a643edbd6e8ada7dc68921f38a"
+  }
+}

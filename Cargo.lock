@@ -773,6 +773,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "deepseek-ultrafast-qwen"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "axum",
+ "futures-core",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tokio-stream",
+ "tower",
+]
+
+[[package]]
 name = "deepseek-ultrafast-server"
 version = "0.1.0"
 dependencies = [

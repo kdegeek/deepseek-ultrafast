@@ -1,0 +1,25 @@
+[package]
+name = "deepseek-ultrafast-qwen"
+edition.workspace = true
+version.workspace = true
+
+[features]
+# No native SDK or runtime is needed for the default contract build/tests.
+native-qwen = ["dep:axum", "dep:tokio", "dep:futures-core"]
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+axum = { version = "0.8", optional = true }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "net", "signal", "time", "io-util"], optional = true }
+futures-core = { version = "0.3", optional = true }
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
+tokio-stream = "0.1"
+
+[[bin]]
+name = "qwen-resident"
+path = "src/main.rs"
+required-features = ["native-qwen"]

@@ -1,2 +1,4 @@
 # Preserve the pinned official encoder's published bytes on Windows checkouts.
 ports/strix-reference/upstream/encoding.py text eol=lf
+# Preserve the supplied Qwen model-selection lock bytes across Windows checkouts.
+ports/qwen-resident/model.lock.json text eol=lf

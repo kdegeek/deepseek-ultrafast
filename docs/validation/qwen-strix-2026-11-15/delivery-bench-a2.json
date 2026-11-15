@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T16:11:33.114749+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "bench",
+  "script_sha256": "2cc2dad10f4ff72e409a68185128b84d5a44634d0c330a0a391810fc6454f50c",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "benchmark_warmup",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:11:41.289952+00:00",
+      "http_status": 200,
+      "http_seconds": 8.157358700002078,
+      "request_sha256": "930fddda9e65b9e5362ad78152a96dca31d2846ca5ec19a9971c6ea2982c4f3c",
+      "request_bytes": 198,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Organizing a small tool cabinet is less about having massive storage space and more about maximizing visibility and accessibility. Since space is limited, every inch must serve a purpose. Here are three practical ways to label and organize your tools:\n\n### 1. Use Shadow Boards or Pegboards with Silhouettes\nInstead of just placing tools in drawers, consider using **shadow boards** (acrylic or foam sheets) on the inside of cabinet doors or on the back panel if you have",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794759093,
+        "id": "chatcmpl-55636-18",
+        "metrics": {
+          "available_physical_bytes": 77288169472,
+          "decode_ms": 7774.3832,
+          "decode_tokens": 95,
+          "decode_tps": 12.219618914591193,
+          "prefill_ms": 315.6325,
+          "prefill_tps": 82.3742802151236,
+          "seed": 2026,
+          "total_ms": 8091.4116,
+          "ttft_ms": 317.0284
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 26,
+          "total_tokens": 122
+        }
+      }
+    },
+    {
+      "name": "short_decode_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:12:13.515857+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 77332668416,
+        "decode_ms": 31804.9245,
+        "decode_tokens": 383,
+        "decode_tps": 12.042160326461394,
+        "prefill_ms": 354.826,
+        "prefill_tps": 225.46262111570175,
+        "seed": 2026,
+        "total_ms": 32161.2985,
+        "ttft_ms": 356.374
+      },
+      "client_ttft_seconds": 0.39878860001044814,
+      "client_last_content_seconds": 32.20335310000519,
+      "http_seconds": 32.226877799999784,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.39872890000697225,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794759101,
+            "id": "chatcmpl-55636-19",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.39878860001044814,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794759101,
+            "id": "chatcmpl-55636-19",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.48486500000581145,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794759101,
+            "id": "chatcmpl-55636-19",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 32.226683000000776,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794759101,
+            "id": "chatcmpl-55636-19",
+            "metrics": {
+              "available_physical_bytes": 77332668416,
+              "decode_ms": 31804.9245,
+              "decode_tokens": 383,
+              "decode_tps": 12.042160326461394,
+              "prefill_ms": 354.826,
+              "prefill_tps": 225.46262111570175,
+              "seed": 2026,
+              "total_ms": 32161.2985,
+              "ttft_ms": 356.374
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 32.22670539999672,
+          "data": {
+            "choices": [],
+            "created": 1794759101,
+            "id": "chatcmpl-55636-19",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "warm_repeated_decode_benchmark",
+      "passed": true,
+      "seconds": 40.38832709999406,
+      "detail": {
+        "repeats": 1,
+        "prompt_tokens": 80,
+        "completion_tokens_each": [
+          384
+        ],
+        "median_decode_tps": 12.042160326461394,
+        "median_prefill_tps": 225.46262111570175,
+        "median_client_ttft_seconds": 0.39878860001044814,
+        "median_http_seconds": 32.226877799999784,
+        "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+      }
+    }
+  ],
+  "passed": true,
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 2,
+    "completed_requests": 14,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 77344583680,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 627.2962,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-55636-17",
+      "metrics": {
+        "available_physical_bytes": 77584572416,
+        "decode_ms": 85.3951,
+        "decode_tokens": 1,
+        "decode_tps": 11.710273774490574,
+        "prefill_ms": 338.952,
+        "prefill_tps": 50.154594160825134,
+        "seed": 2026,
+        "total_ms": 425.6118,
+        "ttft_ms": 340.2167
+      },
+      "outcome": "completed"
+    },
+    "pid": 55636,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "models": {
+    "data": [
+      {
+        "created": 0,
+        "id": "Qwen/Qwen3.8-27B",
+        "object": "model",
+        "owned_by": "Qwen"
+      }
+    ],
+    "object": "list"
+  },
+  "benchmark_summary": {
+    "repeats": 1,
+    "prompt_tokens": 80,
+    "completion_tokens_each": [
+      384
+    ],
+    "median_decode_tps": 12.042160326461394,
+    "median_prefill_tps": 225.46262111570175,
+    "median_client_ttft_seconds": 0.39878860001044814,
+    "median_http_seconds": 32.226877799999784,
+    "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 2,
+    "completed_requests": 16,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 77344583680,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 627.2962,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-55636-19",
+      "metrics": {
+        "available_physical_bytes": 77332668416,
+        "decode_ms": 31804.9245,
+        "decode_tokens": 383,
+        "decode_tps": 12.042160326461394,
+        "prefill_ms": 354.826,
+        "prefill_tps": 225.46262111570175,
+        "seed": 2026,
+        "total_ms": 32161.2985,
+        "ttft_ms": 356.374
+      },
+      "outcome": "completed"
+    },
+    "pid": 55636,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T16:12:13.528139+00:00"
+}

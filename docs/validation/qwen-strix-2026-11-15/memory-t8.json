@@ -1,0 +1,4797 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T15:59:12.7092754Z",
+  "process_id": 63268,
+  "process_started_utc": "2026-11-15T15:58:37.5947284Z",
+  "executable": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\qwen-resident.exe",
+  "executable_sha256": "99caf32b3c91515b9169094dd5dde591ed0b1591753b60d3991180de39ab0be3",
+  "initial_health": null,
+  "requested_duration_seconds": 600,
+  "interval_seconds": 3.0,
+  "minimum_available_gib": 20.0,
+  "gpu_counters_available": true,
+  "gpu_counter_error": null,
+  "interpretation": [
+    "System page I/O counters include unrelated processes; page faults include soft faults.",
+    "Process I/O counters include all process file/device I/O, not just the model file.",
+    "GPU committed/dedicated/shared usage may overlap physical/process accounting on UMA; never add these views together.",
+    "Allocation counts, capacity headroom and observed I/O are evidence for this window, not a guarantee against future Windows paging.",
+    "No process, pagefile, driver, service, or OS configuration is changed by this observer."
+  ],
+  "samples": [
+    {
+      "utc": "2026-11-15T15:59:14.8031987Z",
+      "elapsed_seconds": 2.083,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77087756288,
+        "memory_load_percent": 35,
+        "committed_bytes": 60698611712,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199874,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224465927,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4541804544,
+        "peak_working_set_bytes": 4542160896,
+        "private_committed_bytes": 20295409664,
+        "pagefile_usage_bytes": 20295409664,
+        "page_faults_raw": 1152577,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 198904,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15205351424,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19589042176
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:17.7641308Z",
+      "elapsed_seconds": 5.044,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77088509952,
+        "memory_load_percent": 35,
+        "committed_bytes": 60710686720,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199876,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224465936,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4541804544,
+        "peak_working_set_bytes": 4542160896,
+        "private_committed_bytes": 20295409664,
+        "pagefile_usage_bytes": 20295409664,
+        "page_faults_raw": 1152577,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 198904,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15205351424,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19589042176
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:20.7719255Z",
+      "elapsed_seconds": 8.052,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77082779648,
+        "memory_load_percent": 35,
+        "committed_bytes": 60700225536,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199886,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224465968,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4541804544,
+        "peak_working_set_bytes": 4542160896,
+        "private_committed_bytes": 20295409664,
+        "pagefile_usage_bytes": 20295409664,
+        "page_faults_raw": 1152577,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 198904,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15205351424,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19589042176
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:23.7541077Z",
+      "elapsed_seconds": 11.034,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77091774464,
+        "memory_load_percent": 35,
+        "committed_bytes": 60701372416,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199893,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224465985,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4541804544,
+        "peak_working_set_bytes": 4542160896,
+        "private_committed_bytes": 20295409664,
+        "pagefile_usage_bytes": 20295409664,
+        "page_faults_raw": 1152577,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 198904,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:26.7767809Z",
+      "elapsed_seconds": 14.057,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77082423296,
+        "memory_load_percent": 35,
+        "committed_bytes": 60711038976,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199906,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466051,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542550016,
+        "peak_working_set_bytes": 4542550016,
+        "private_committed_bytes": 20310134784,
+        "pagefile_usage_bytes": 20310134784,
+        "page_faults_raw": 1153495,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 202824,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:29.7790675Z",
+      "elapsed_seconds": 17.06,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77101846528,
+        "memory_load_percent": 35,
+        "committed_bytes": 60697546752,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199908,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466068,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542599168,
+        "peak_working_set_bytes": 4542599168,
+        "private_committed_bytes": 20310659072,
+        "pagefile_usage_bytes": 20310659072,
+        "page_faults_raw": 1154969,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203328,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:32.7998562Z",
+      "elapsed_seconds": 20.081,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77105119232,
+        "memory_load_percent": 35,
+        "committed_bytes": 60702879744,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199911,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466093,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542623744,
+        "peak_working_set_bytes": 4542623744,
+        "private_committed_bytes": 20309479424,
+        "pagefile_usage_bytes": 20309479424,
+        "page_faults_raw": 1154975,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203328,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:35.8020592Z",
+      "elapsed_seconds": 23.084,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77101846528,
+        "memory_load_percent": 35,
+        "committed_bytes": 60705763328,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199919,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466108,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542689280,
+        "peak_working_set_bytes": 4542689280,
+        "private_committed_bytes": 20309479424,
+        "pagefile_usage_bytes": 20309479424,
+        "page_faults_raw": 1155721,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203556,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:38.8114440Z",
+      "elapsed_seconds": 26.093,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77103493120,
+        "memory_load_percent": 35,
+        "committed_bytes": 60698779648,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199920,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466109,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542689280,
+        "peak_working_set_bytes": 4542689280,
+        "private_committed_bytes": 20309479424,
+        "pagefile_usage_bytes": 20309479424,
+        "page_faults_raw": 1155721,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203556,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:41.8245881Z",
+      "elapsed_seconds": 29.107,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77097099264,
+        "memory_load_percent": 35,
+        "committed_bytes": 60709302272,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199922,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466118,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542668800,
+        "peak_working_set_bytes": 4542689280,
+        "private_committed_bytes": 20309446656,
+        "pagefile_usage_bytes": 20309446656,
+        "page_faults_raw": 1155721,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203556,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:44.8219085Z",
+      "elapsed_seconds": 32.104,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77093003264,
+        "memory_load_percent": 35,
+        "committed_bytes": 60729270272,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199933,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466179,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542668800,
+        "peak_working_set_bytes": 4542689280,
+        "private_committed_bytes": 20309446656,
+        "pagefile_usage_bytes": 20309446656,
+        "page_faults_raw": 1155721,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203556,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:47.8249639Z",
+      "elapsed_seconds": 35.108,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77092732928,
+        "memory_load_percent": 35,
+        "committed_bytes": 60729208832,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199934,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466187,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542697472,
+        "peak_working_set_bytes": 4542697472,
+        "private_committed_bytes": 20309446656,
+        "pagefile_usage_bytes": 20309446656,
+        "page_faults_raw": 1156458,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:50.8406199Z",
+      "elapsed_seconds": 38.124,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77035507712,
+        "memory_load_percent": 35,
+        "committed_bytes": 60727762944,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199975,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466473,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542697472,
+        "peak_working_set_bytes": 4542697472,
+        "private_committed_bytes": 20309446656,
+        "pagefile_usage_bytes": 20309446656,
+        "page_faults_raw": 1156458,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:53.8595938Z",
+      "elapsed_seconds": 41.143,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77102383104,
+        "memory_load_percent": 35,
+        "committed_bytes": 60720226304,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199976,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466474,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542697472,
+        "peak_working_set_bytes": 4542697472,
+        "private_committed_bytes": 20309446656,
+        "pagefile_usage_bytes": 20309446656,
+        "page_faults_raw": 1156458,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:56.8530839Z",
+      "elapsed_seconds": 44.137,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77101256704,
+        "memory_load_percent": 35,
+        "committed_bytes": 60711215104,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199978,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466483,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542697472,
+        "peak_working_set_bytes": 4542697472,
+        "private_committed_bytes": 20309446656,
+        "pagefile_usage_bytes": 20309446656,
+        "page_faults_raw": 1156458,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 203784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T15:59:59.8592735Z",
+      "elapsed_seconds": 47.144,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77096812544,
+        "memory_load_percent": 35,
+        "committed_bytes": 60712202240,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199980,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466500,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542849024,
+        "peak_working_set_bytes": 4542849024,
+        "private_committed_bytes": 20309569536,
+        "pagefile_usage_bytes": 20309569536,
+        "page_faults_raw": 1157225,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 204060,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:02.8625242Z",
+      "elapsed_seconds": 50.147,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77092274176,
+        "memory_load_percent": 35,
+        "committed_bytes": 60732088320,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9199982,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224466509,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542881792,
+        "peak_working_set_bytes": 4542881792,
+        "private_committed_bytes": 20309569536,
+        "pagefile_usage_bytes": 20309569536,
+        "page_faults_raw": 1157963,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 204304,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:05.8863422Z",
+      "elapsed_seconds": 53.171,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77067173888,
+        "memory_load_percent": 35,
+        "committed_bytes": 60737720320,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9208120,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224481974,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542959616,
+        "peak_working_set_bytes": 4542959616,
+        "private_committed_bytes": 20309618688,
+        "pagefile_usage_bytes": 20309618688,
+        "page_faults_raw": 1159443,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 204792,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:08.8815930Z",
+      "elapsed_seconds": 56.167,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77079523328,
+        "memory_load_percent": 35,
+        "committed_bytes": 60730011648,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9208125,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224481986,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4542980096,
+        "peak_working_set_bytes": 4542980096,
+        "private_committed_bytes": 20309618688,
+        "pagefile_usage_bytes": 20309618688,
+        "page_faults_raw": 1160178,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 205036,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15218720768,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19602411520
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:11.8846066Z",
+      "elapsed_seconds": 59.17,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77109522432,
+        "memory_load_percent": 35,
+        "committed_bytes": 60716609536,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9208136,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224482025,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4540092416,
+        "peak_working_set_bytes": 4543066112,
+        "private_committed_bytes": 20306673664,
+        "pagefile_usage_bytes": 20306673664,
+        "page_faults_raw": 1160931,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 206972,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:14.9050319Z",
+      "elapsed_seconds": 62.191,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77090955264,
+        "memory_load_percent": 35,
+        "committed_bytes": 60728778752,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9208140,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224482036,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549484544,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168236,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209540,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:17.9148911Z",
+      "elapsed_seconds": 65.201,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77097426944,
+        "memory_load_percent": 35,
+        "committed_bytes": 60732694528,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9208142,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224482045,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549509120,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168242,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209540,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:20.9399717Z",
+      "elapsed_seconds": 68.227,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77096435712,
+        "memory_load_percent": 35,
+        "committed_bytes": 60797022208,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9208144,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224482054,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549509120,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168242,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209540,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:23.9438454Z",
+      "elapsed_seconds": 71.231,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76848697344,
+        "memory_load_percent": 35,
+        "committed_bytes": 61611257856,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9209625,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224508313,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:26.9384466Z",
+      "elapsed_seconds": 74.226,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77026074624,
+        "memory_load_percent": 35,
+        "committed_bytes": 60727529472,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210690,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525407,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:29.9602490Z",
+      "elapsed_seconds": 77.248,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77042712576,
+        "memory_load_percent": 35,
+        "committed_bytes": 60722278400,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210691,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525408,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:32.9681692Z",
+      "elapsed_seconds": 80.256,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77051408384,
+        "memory_load_percent": 35,
+        "committed_bytes": 60718903296,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210693,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525432,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:35.9762312Z",
+      "elapsed_seconds": 83.264,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77048999936,
+        "memory_load_percent": 35,
+        "committed_bytes": 60729028608,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210696,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525457,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:38.9847306Z",
+      "elapsed_seconds": 86.273,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77062905856,
+        "memory_load_percent": 35,
+        "committed_bytes": 60714573824,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210697,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525458,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:42.0114281Z",
+      "elapsed_seconds": 89.3,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77071204352,
+        "memory_load_percent": 35,
+        "committed_bytes": 60717400064,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210699,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525467,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549550080,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323495936,
+        "pagefile_usage_bytes": 20323495936,
+        "page_faults_raw": 1168983,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:45.0095053Z",
+      "elapsed_seconds": 92.298,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77073711104,
+        "memory_load_percent": 35,
+        "committed_bytes": 60725612544,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210700,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525468,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549554176,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323500032,
+        "pagefile_usage_bytes": 20323500032,
+        "page_faults_raw": 1168984,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:48.0243477Z",
+      "elapsed_seconds": 95.314,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77079089152,
+        "memory_load_percent": 35,
+        "committed_bytes": 60728922112,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210712,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525554,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549554176,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323500032,
+        "pagefile_usage_bytes": 20323500032,
+        "page_faults_raw": 1168984,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:51.0294453Z",
+      "elapsed_seconds": 98.319,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77070508032,
+        "memory_load_percent": 35,
+        "committed_bytes": 60738228224,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210722,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525620,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549554176,
+        "peak_working_set_bytes": 4549574656,
+        "private_committed_bytes": 20323500032,
+        "pagefile_usage_bytes": 20323500032,
+        "page_faults_raw": 1168984,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:54.0392567Z",
+      "elapsed_seconds": 101.329,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77092900864,
+        "memory_load_percent": 35,
+        "committed_bytes": 60700786688,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210724,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525629,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549545984,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1168993,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 209784,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:00:57.0740268Z",
+      "elapsed_seconds": 104.364,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77105664000,
+        "memory_load_percent": 35,
+        "committed_bytes": 60713373696,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210726,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525638,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:00.0791499Z",
+      "elapsed_seconds": 107.37,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77099864064,
+        "memory_load_percent": 35,
+        "committed_bytes": 60703240192,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210727,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525639,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:03.0642152Z",
+      "elapsed_seconds": 110.355,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77110464512,
+        "memory_load_percent": 35,
+        "committed_bytes": 60699324416,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210728,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525647,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:06.0626543Z",
+      "elapsed_seconds": 113.354,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77109014528,
+        "memory_load_percent": 35,
+        "committed_bytes": 60695658496,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210729,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525648,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15223439360,
+        "shared_usage_bytes": 3309948928,
+        "total_committed_bytes": 19607130112
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:09.0765055Z",
+      "elapsed_seconds": 116.368,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77098311680,
+        "memory_load_percent": 35,
+        "committed_bytes": 60703313920,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210758,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525740,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:12.0848334Z",
+      "elapsed_seconds": 119.376,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77102088192,
+        "memory_load_percent": 35,
+        "committed_bytes": 60710502400,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210760,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525749,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:15.1027020Z",
+      "elapsed_seconds": 122.395,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77103546368,
+        "memory_load_percent": 35,
+        "committed_bytes": 60719423488,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210764,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525774,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:18.1116404Z",
+      "elapsed_seconds": 125.404,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77047332864,
+        "memory_load_percent": 35,
+        "committed_bytes": 60732620800,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210767,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525784,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:21.1191394Z",
+      "elapsed_seconds": 128.412,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77090230272,
+        "memory_load_percent": 35,
+        "committed_bytes": 60734283776,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210768,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525785,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:24.1099860Z",
+      "elapsed_seconds": 131.403,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77086711808,
+        "memory_load_percent": 35,
+        "committed_bytes": 60722798592,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210772,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525796,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549578752,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1169732,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210028,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:27.1264997Z",
+      "elapsed_seconds": 134.419,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77104259072,
+        "memory_load_percent": 35,
+        "committed_bytes": 60712271872,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210776,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525821,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4546600960,
+        "peak_working_set_bytes": 4549586944,
+        "private_committed_bytes": 20320415744,
+        "pagefile_usage_bytes": 20320415744,
+        "page_faults_raw": 1169733,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:30.1548396Z",
+      "elapsed_seconds": 137.448,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 77097656320,
+        "memory_load_percent": 35,
+        "committed_bytes": 61021016064,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210778,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224525838,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549619712,
+        "peak_working_set_bytes": 4549619712,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1170473,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:33.1598851Z",
+      "elapsed_seconds": 140.453,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76183343104,
+        "memory_load_percent": 36,
+        "committed_bytes": 62297411584,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9210896,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224526457,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549619712,
+        "peak_working_set_bytes": 4549619712,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1170473,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:36.1610452Z",
+      "elapsed_seconds": 143.455,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76337479680,
+        "memory_load_percent": 36,
+        "committed_bytes": 61464219648,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211023,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224527454,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549619712,
+        "peak_working_set_bytes": 4549619712,
+        "private_committed_bytes": 20323409920,
+        "pagefile_usage_bytes": 20323409920,
+        "page_faults_raw": 1170473,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:39.1982621Z",
+      "elapsed_seconds": 146.492,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76764631040,
+        "memory_load_percent": 35,
+        "committed_bytes": 65871945728,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211091,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224527789,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:42.1790428Z",
+      "elapsed_seconds": 149.473,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76603379712,
+        "memory_load_percent": 36,
+        "committed_bytes": 62066274304,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211136,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528037,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:45.1896259Z",
+      "elapsed_seconds": 152.484,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76584349696,
+        "memory_load_percent": 36,
+        "committed_bytes": 62556303360,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211189,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528328,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:48.2115399Z",
+      "elapsed_seconds": 155.507,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76718477312,
+        "memory_load_percent": 36,
+        "committed_bytes": 62129500160,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211193,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528346,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:51.2156160Z",
+      "elapsed_seconds": 158.511,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76795506688,
+        "memory_load_percent": 35,
+        "committed_bytes": 61594832896,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211194,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528347,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:54.2229729Z",
+      "elapsed_seconds": 161.519,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76049715200,
+        "memory_load_percent": 36,
+        "committed_bytes": 62895697920,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211247,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528646,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:01:57.2322569Z",
+      "elapsed_seconds": 164.528,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76262465536,
+        "memory_load_percent": 36,
+        "committed_bytes": 62674825216,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211249,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528648,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4549627904,
+        "peak_working_set_bytes": 4549627904,
+        "private_committed_bytes": 20323418112,
+        "pagefile_usage_bytes": 20323418112,
+        "page_faults_raw": 1170475,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210272,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15225667584,
+        "shared_usage_bytes": 4383690752,
+        "total_committed_bytes": 19609358336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:00.2267199Z",
+      "elapsed_seconds": 167.523,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76427345920,
+        "memory_load_percent": 36,
+        "committed_bytes": 62452297728,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211251,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528657,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4550184960,
+        "peak_working_set_bytes": 4551798784,
+        "private_committed_bytes": 20347568128,
+        "pagefile_usage_bytes": 20347568128,
+        "page_faults_raw": 1174725,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210500,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15252869120,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19637608448
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:03.2512309Z",
+      "elapsed_seconds": 170.548,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76347318272,
+        "memory_load_percent": 36,
+        "committed_bytes": 62120943616,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211265,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528720,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4605251584,
+        "peak_working_set_bytes": 4605251584,
+        "private_committed_bytes": 20408283136,
+        "pagefile_usage_bytes": 20408283136,
+        "page_faults_raw": 1188204,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210500,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15254966272,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19639705600
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:06.2586779Z",
+      "elapsed_seconds": 173.555,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76396433408,
+        "memory_load_percent": 36,
+        "committed_bytes": 62148636672,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211266,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528721,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614029312,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20423532544,
+        "pagefile_usage_bytes": 20423532544,
+        "page_faults_raw": 1191413,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210744,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15254966272,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19639705600
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:09.2608080Z",
+      "elapsed_seconds": 176.558,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76338249728,
+        "memory_load_percent": 36,
+        "committed_bytes": 62190702592,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211272,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528741,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614037504,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20419334144,
+        "pagefile_usage_bytes": 20419334144,
+        "page_faults_raw": 1191417,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210744,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15257063424,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19641802752
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:12.2661962Z",
+      "elapsed_seconds": 179.564,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76313157632,
+        "memory_load_percent": 36,
+        "committed_bytes": 62276308992,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211273,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224528742,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614041600,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20427739136,
+        "pagefile_usage_bytes": 20427739136,
+        "page_faults_raw": 1191429,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210744,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15261257728,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19645997056
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:15.2641796Z",
+      "elapsed_seconds": 182.562,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75474448384,
+        "memory_load_percent": 37,
+        "committed_bytes": 65780502528,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211329,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529065,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614057984,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20444549120,
+        "pagefile_usage_bytes": 20444549120,
+        "page_faults_raw": 1191455,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210744,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15263354880,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19648094208
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:18.2938123Z",
+      "elapsed_seconds": 185.592,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76135575552,
+        "memory_load_percent": 36,
+        "committed_bytes": 62863683584,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211331,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529067,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614066176,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20457156608,
+        "pagefile_usage_bytes": 20457156608,
+        "page_faults_raw": 1191488,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210744,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:21.2994399Z",
+      "elapsed_seconds": 188.598,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76550987776,
+        "memory_load_percent": 36,
+        "committed_bytes": 61878509568,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211336,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529094,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614074368,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20429840384,
+        "pagefile_usage_bytes": 20429840384,
+        "page_faults_raw": 1192219,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:24.3074357Z",
+      "elapsed_seconds": 191.606,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76534251520,
+        "memory_load_percent": 36,
+        "committed_bytes": 61855387648,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211338,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529103,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614074368,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20429840384,
+        "pagefile_usage_bytes": 20429840384,
+        "page_faults_raw": 1192220,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:27.3134441Z",
+      "elapsed_seconds": 194.612,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76523618304,
+        "memory_load_percent": 36,
+        "committed_bytes": 61830336512,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211339,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529104,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614078464,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20429840384,
+        "pagefile_usage_bytes": 20429840384,
+        "page_faults_raw": 1192225,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:30.3236988Z",
+      "elapsed_seconds": 197.623,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76646490112,
+        "memory_load_percent": 36,
+        "committed_bytes": 61741043712,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211342,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529114,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614082560,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20429840384,
+        "pagefile_usage_bytes": 20429840384,
+        "page_faults_raw": 1192227,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:33.3227599Z",
+      "elapsed_seconds": 200.622,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76602183680,
+        "memory_load_percent": 36,
+        "committed_bytes": 61862404096,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211388,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529233,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4614090752,
+        "peak_working_set_bytes": 4618338304,
+        "private_committed_bytes": 20429840384,
+        "pagefile_usage_bytes": 20429840384,
+        "page_faults_raw": 1192230,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:36.3502838Z",
+      "elapsed_seconds": 203.65,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76567973888,
+        "memory_load_percent": 36,
+        "committed_bytes": 61759774720,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211446,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529562,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:39.3431013Z",
+      "elapsed_seconds": 206.643,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76599066624,
+        "memory_load_percent": 36,
+        "committed_bytes": 61774843904,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211449,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529572,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:42.3519802Z",
+      "elapsed_seconds": 209.652,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76652036096,
+        "memory_load_percent": 36,
+        "committed_bytes": 61774233600,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211450,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224529573,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:45.3795767Z",
+      "elapsed_seconds": 212.68,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76658671616,
+        "memory_load_percent": 36,
+        "committed_bytes": 66838626304,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211521,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224530010,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:48.3751061Z",
+      "elapsed_seconds": 215.676,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76348690432,
+        "memory_load_percent": 36,
+        "committed_bytes": 61967028224,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211800,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224532504,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:51.3778368Z",
+      "elapsed_seconds": 218.679,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76707352576,
+        "memory_load_percent": 36,
+        "committed_bytes": 61719728128,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211806,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224532547,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:54.3991970Z",
+      "elapsed_seconds": 221.701,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76117196800,
+        "memory_load_percent": 36,
+        "committed_bytes": 61912248320,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9211980,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224533879,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:02:57.4100735Z",
+      "elapsed_seconds": 224.712,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76629078016,
+        "memory_load_percent": 36,
+        "committed_bytes": 61620715520,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212022,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224534086,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:00.4261770Z",
+      "elapsed_seconds": 227.728,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76710244352,
+        "memory_load_percent": 36,
+        "committed_bytes": 62426939392,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212082,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224534708,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:03.4429510Z",
+      "elapsed_seconds": 230.745,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76532875264,
+        "memory_load_percent": 36,
+        "committed_bytes": 66453741568,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212205,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224535774,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:06.4408171Z",
+      "elapsed_seconds": 233.743,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75643408384,
+        "memory_load_percent": 36,
+        "committed_bytes": 64289726464,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212334,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224536982,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633653248,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20436115456,
+        "pagefile_usage_bytes": 20436115456,
+        "page_faults_raw": 1197010,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 210988,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:09.4445118Z",
+      "elapsed_seconds": 236.747,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76458192896,
+        "memory_load_percent": 36,
+        "committed_bytes": 62316638208,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212341,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224537011,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630675456,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1197011,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211216,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:12.4738135Z",
+      "elapsed_seconds": 239.777,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76581220352,
+        "memory_load_percent": 36,
+        "committed_bytes": 61382766592,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212344,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224537036,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630683648,
+        "peak_working_set_bytes": 4633653248,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1197013,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211216,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:15.5300533Z",
+      "elapsed_seconds": 242.833,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76712779776,
+        "memory_load_percent": 36,
+        "committed_bytes": 67119796224,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212446,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224537848,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630712320,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1197994,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:18.5117518Z",
+      "elapsed_seconds": 245.815,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 74504568832,
+        "memory_load_percent": 37,
+        "committed_bytes": 67110502400,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212765,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224541863,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630720512,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1197997,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:21.5155334Z",
+      "elapsed_seconds": 248.82,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75510255616,
+        "memory_load_percent": 37,
+        "committed_bytes": 65085947904,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9212998,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224544844,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630712320,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1197998,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:24.5277530Z",
+      "elapsed_seconds": 251.832,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75758829568,
+        "memory_load_percent": 36,
+        "committed_bytes": 64652419072,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213132,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224546600,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1198000,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15265521664,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19650260992
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:27.5177888Z",
+      "elapsed_seconds": 254.822,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75800924160,
+        "memory_load_percent": 36,
+        "committed_bytes": 63328702464,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213267,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224548292,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630712320,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20433129472,
+        "pagefile_usage_bytes": 20433129472,
+        "page_faults_raw": 1198001,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15267618816,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19652358144
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:30.5383438Z",
+      "elapsed_seconds": 257.843,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76447035392,
+        "memory_load_percent": 36,
+        "committed_bytes": 62177599488,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213348,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224549264,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20473053184,
+        "pagefile_usage_bytes": 20473053184,
+        "page_faults_raw": 1198041,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15271813120,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19656552448
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:33.5347750Z",
+      "elapsed_seconds": 260.84,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76559884288,
+        "memory_load_percent": 36,
+        "committed_bytes": 62159302656,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213379,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224549639,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630708224,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20485660672,
+        "pagefile_usage_bytes": 20485660672,
+        "page_faults_raw": 1198087,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15276007424,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19660746752
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:36.5581211Z",
+      "elapsed_seconds": 263.864,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76559638528,
+        "memory_load_percent": 36,
+        "committed_bytes": 62212714496,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213422,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550198,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630704128,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20468850688,
+        "pagefile_usage_bytes": 20468850688,
+        "page_faults_raw": 1198113,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15280271360,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19665010688
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:39.5731607Z",
+      "elapsed_seconds": 266.879,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76634038272,
+        "memory_load_percent": 36,
+        "committed_bytes": 61844123648,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213431,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550223,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630704128,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20477255680,
+        "pagefile_usage_bytes": 20477255680,
+        "page_faults_raw": 1198172,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15282298880,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19667038208
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:42.5729094Z",
+      "elapsed_seconds": 269.879,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76592402432,
+        "memory_load_percent": 36,
+        "committed_bytes": 61864345600,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213435,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550243,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630892544,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20548796416,
+        "pagefile_usage_bytes": 20548796416,
+        "page_faults_raw": 1198316,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:45.5818255Z",
+      "elapsed_seconds": 272.888,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76597948416,
+        "memory_load_percent": 36,
+        "committed_bytes": 61969702912,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213436,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550244,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630892544,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550897664,
+        "pagefile_usage_bytes": 20550897664,
+        "page_faults_raw": 1198381,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:48.5814140Z",
+      "elapsed_seconds": 275.888,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76665532416,
+        "memory_load_percent": 36,
+        "committed_bytes": 61854498816,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213438,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550253,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630880256,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618137600,
+        "pagefile_usage_bytes": 20618137600,
+        "page_faults_raw": 1198510,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:51.5944552Z",
+      "elapsed_seconds": 278.901,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76692246528,
+        "memory_load_percent": 36,
+        "committed_bytes": 61928550400,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213440,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550262,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630876160,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550893568,
+        "pagefile_usage_bytes": 20550893568,
+        "page_faults_raw": 1198572,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:54.6092581Z",
+      "elapsed_seconds": 281.916,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76690030592,
+        "memory_load_percent": 36,
+        "committed_bytes": 61855608832,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213440,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550262,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630867968,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618133504,
+        "pagefile_usage_bytes": 20618133504,
+        "page_faults_raw": 1198698,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:03:57.6039887Z",
+      "elapsed_seconds": 284.911,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75944079360,
+        "memory_load_percent": 36,
+        "committed_bytes": 64493535232,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213524,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550800,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630859776,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550893568,
+        "pagefile_usage_bytes": 20550893568,
+        "page_faults_raw": 1198760,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:00.6272137Z",
+      "elapsed_seconds": 287.935,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76196421632,
+        "memory_load_percent": 36,
+        "committed_bytes": 63257300992,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213527,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550803,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630855680,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618133504,
+        "pagefile_usage_bytes": 20618133504,
+        "page_faults_raw": 1198886,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:03.6093430Z",
+      "elapsed_seconds": 290.917,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76417462272,
+        "memory_load_percent": 36,
+        "committed_bytes": 62473830400,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213529,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550812,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630851584,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550893568,
+        "pagefile_usage_bytes": 20550893568,
+        "page_faults_raw": 1198948,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:06.6183723Z",
+      "elapsed_seconds": 293.927,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76546347008,
+        "memory_load_percent": 36,
+        "committed_bytes": 62295777280,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213532,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550822,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630847488,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550897664,
+        "pagefile_usage_bytes": 20550897664,
+        "page_faults_raw": 1199012,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:09.6421395Z",
+      "elapsed_seconds": 296.951,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76541423616,
+        "memory_load_percent": 36,
+        "committed_bytes": 61893832704,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213537,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224550841,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630843392,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550893568,
+        "pagefile_usage_bytes": 20550893568,
+        "page_faults_raw": 1199136,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:12.6478092Z",
+      "elapsed_seconds": 299.957,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75455979520,
+        "memory_load_percent": 37,
+        "committed_bytes": 68820877312,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213682,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224551429,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630839296,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550897664,
+        "pagefile_usage_bytes": 20550897664,
+        "page_faults_raw": 1199200,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15315922944,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19700662272
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:15.6561974Z",
+      "elapsed_seconds": 302.965,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 74654797824,
+        "memory_load_percent": 37,
+        "committed_bytes": 70074470400,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213732,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224551973,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630839296,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20550897664,
+        "pagefile_usage_bytes": 20550897664,
+        "page_faults_raw": 1199262,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:18.6764541Z",
+      "elapsed_seconds": 305.986,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 74563801088,
+        "memory_load_percent": 37,
+        "committed_bytes": 68727287808,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213812,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224552127,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630835200,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20584521728,
+        "pagefile_usage_bytes": 20584521728,
+        "page_faults_raw": 1199358,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:21.6711378Z",
+      "elapsed_seconds": 308.981,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 74626744320,
+        "memory_load_percent": 37,
+        "committed_bytes": 67156373504,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213884,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224552557,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630831104,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618137600,
+        "pagefile_usage_bytes": 20618137600,
+        "page_faults_raw": 1199454,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211460,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:24.6956263Z",
+      "elapsed_seconds": 312.006,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75081981952,
+        "memory_load_percent": 37,
+        "committed_bytes": 65890770944,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213905,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224552765,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630831104,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20718997504,
+        "pagefile_usage_bytes": 20718997504,
+        "page_faults_raw": 1199647,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:27.7146316Z",
+      "elapsed_seconds": 315.025,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75302739968,
+        "memory_load_percent": 37,
+        "committed_bytes": 65131212800,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213916,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224552843,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630831104,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618137600,
+        "pagefile_usage_bytes": 20618137600,
+        "page_faults_raw": 1199744,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:30.7353137Z",
+      "elapsed_seconds": 318.046,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75290304512,
+        "memory_load_percent": 37,
+        "committed_bytes": 65339744256,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213922,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224552894,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630827008,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618137600,
+        "pagefile_usage_bytes": 20618137600,
+        "page_faults_raw": 1199838,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:33.7396544Z",
+      "elapsed_seconds": 321.051,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75618910208,
+        "memory_load_percent": 36,
+        "committed_bytes": 64562548736,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213935,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553049,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630827008,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618133504,
+        "pagefile_usage_bytes": 20618133504,
+        "page_faults_raw": 1199932,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:36.7235944Z",
+      "elapsed_seconds": 324.035,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75617927168,
+        "memory_load_percent": 36,
+        "committed_bytes": 64582930432,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213944,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553178,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630818816,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20718993408,
+        "pagefile_usage_bytes": 20718993408,
+        "page_faults_raw": 1200122,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:39.7510264Z",
+      "elapsed_seconds": 327.063,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75582509056,
+        "memory_load_percent": 36,
+        "committed_bytes": 64600997888,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213950,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553236,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630818816,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618133504,
+        "pagefile_usage_bytes": 20618133504,
+        "page_faults_raw": 1200216,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:42.7347354Z",
+      "elapsed_seconds": 330.047,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75558678528,
+        "memory_load_percent": 36,
+        "committed_bytes": 64122900480,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213952,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553245,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630814720,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618137600,
+        "pagefile_usage_bytes": 20618137600,
+        "page_faults_raw": 1200312,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:45.7504802Z",
+      "elapsed_seconds": 333.063,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75689582592,
+        "memory_load_percent": 36,
+        "committed_bytes": 64291647488,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213953,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553246,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630802432,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618137600,
+        "pagefile_usage_bytes": 20618137600,
+        "page_faults_raw": 1200406,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:48.7583481Z",
+      "elapsed_seconds": 336.071,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75629850624,
+        "memory_load_percent": 36,
+        "committed_bytes": 64270401536,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213956,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553271,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630798336,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618133504,
+        "pagefile_usage_bytes": 20618133504,
+        "page_faults_raw": 1200500,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:51.7892091Z",
+      "elapsed_seconds": 339.102,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75629510656,
+        "memory_load_percent": 36,
+        "committed_bytes": 64325545984,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213958,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553273,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630794240,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20718993408,
+        "pagefile_usage_bytes": 20718993408,
+        "page_faults_raw": 1200690,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:54.7946458Z",
+      "elapsed_seconds": 342.108,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75595902976,
+        "memory_load_percent": 36,
+        "committed_bytes": 64363175936,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213962,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553299,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630786048,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20618133504,
+        "pagefile_usage_bytes": 20618133504,
+        "page_faults_raw": 1200784,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15349547008,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19734286336
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:04:57.7988869Z",
+      "elapsed_seconds": 345.112,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75508518912,
+        "memory_load_percent": 37,
+        "committed_bytes": 64432881664,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213968,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553350,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630786048,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20651757568,
+        "pagefile_usage_bytes": 20651757568,
+        "page_faults_raw": 1200912,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:00.8218280Z",
+      "elapsed_seconds": 348.135,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75627380736,
+        "memory_load_percent": 36,
+        "committed_bytes": 64370245632,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9213975,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553364,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630781952,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685377536,
+        "pagefile_usage_bytes": 20685377536,
+        "page_faults_raw": 1201040,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:03.8299283Z",
+      "elapsed_seconds": 351.144,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75619348480,
+        "memory_load_percent": 36,
+        "committed_bytes": 64412237824,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214013,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553844,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630777856,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685377536,
+        "pagefile_usage_bytes": 20685377536,
+        "page_faults_raw": 1201168,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:06.8539436Z",
+      "elapsed_seconds": 354.168,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75621855232,
+        "memory_load_percent": 36,
+        "committed_bytes": 64432685056,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214020,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553851,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630773760,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685373440,
+        "pagefile_usage_bytes": 20685373440,
+        "page_faults_raw": 1201296,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:09.8423167Z",
+      "elapsed_seconds": 357.157,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76026040320,
+        "memory_load_percent": 36,
+        "committed_bytes": 63422976000,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214031,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553876,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630769664,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685373440,
+        "pagefile_usage_bytes": 20685373440,
+        "page_faults_raw": 1201422,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:12.8306665Z",
+      "elapsed_seconds": 360.145,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76028276736,
+        "memory_load_percent": 36,
+        "committed_bytes": 62024531968,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214036,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553881,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630765568,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685373440,
+        "pagefile_usage_bytes": 20685373440,
+        "page_faults_raw": 1201550,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:15.8326140Z",
+      "elapsed_seconds": 363.148,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76621996032,
+        "memory_load_percent": 36,
+        "committed_bytes": 62030217216,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214041,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224553930,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630761472,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685373440,
+        "pagefile_usage_bytes": 20685373440,
+        "page_faults_raw": 1201676,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:18.8544308Z",
+      "elapsed_seconds": 366.17,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75368611840,
+        "memory_load_percent": 37,
+        "committed_bytes": 69148233728,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214794,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224556116,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630777856,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685373440,
+        "pagefile_usage_bytes": 20685373440,
+        "page_faults_raw": 1201808,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:21.8505720Z",
+      "elapsed_seconds": 369.166,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75153276928,
+        "memory_load_percent": 37,
+        "committed_bytes": 69098012672,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214881,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224556606,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630720512,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685275136,
+        "pagefile_usage_bytes": 20685275136,
+        "page_faults_raw": 1201934,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:24.8669829Z",
+      "elapsed_seconds": 372.183,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75253534720,
+        "memory_load_percent": 37,
+        "committed_bytes": 67319812096,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9214967,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224557227,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685275136,
+        "pagefile_usage_bytes": 20685275136,
+        "page_faults_raw": 1202062,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:27.8748393Z",
+      "elapsed_seconds": 375.191,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75271430144,
+        "memory_load_percent": 37,
+        "committed_bytes": 65484247040,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215081,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224558100,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685275136,
+        "pagefile_usage_bytes": 20685275136,
+        "page_faults_raw": 1202188,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:30.8984394Z",
+      "elapsed_seconds": 378.215,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75637547008,
+        "memory_load_percent": 36,
+        "committed_bytes": 64185118720,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215130,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224558361,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685275136,
+        "pagefile_usage_bytes": 20685275136,
+        "page_faults_raw": 1202316,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:33.8996107Z",
+      "elapsed_seconds": 381.216,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76159500288,
+        "memory_load_percent": 36,
+        "committed_bytes": 63296471040,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215181,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224558541,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633669632,
+        "private_committed_bytes": 20685275136,
+        "pagefile_usage_bytes": 20685275136,
+        "page_faults_raw": 1202442,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:36.8903189Z",
+      "elapsed_seconds": 384.207,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76199485440,
+        "memory_load_percent": 36,
+        "committed_bytes": 62700392448,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215202,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224558614,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4633698304,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20553785344,
+        "pagefile_usage_bytes": 20553785344,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211704,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:39.9064892Z",
+      "elapsed_seconds": 387.224,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76230701056,
+        "memory_load_percent": 36,
+        "committed_bytes": 62782414848,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215205,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224558624,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:42.9220147Z",
+      "elapsed_seconds": 390.239,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76349538304,
+        "memory_load_percent": 36,
+        "committed_bytes": 62351183872,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215209,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224558640,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:45.9226621Z",
+      "elapsed_seconds": 393.24,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76241608704,
+        "memory_load_percent": 36,
+        "committed_bytes": 62099533824,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215340,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560233,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:48.9200829Z",
+      "elapsed_seconds": 396.238,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76351991808,
+        "memory_load_percent": 36,
+        "committed_bytes": 62127693824,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215342,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560241,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:51.9375311Z",
+      "elapsed_seconds": 399.256,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76323483648,
+        "memory_load_percent": 36,
+        "committed_bytes": 62132314112,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215344,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560250,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:54.9349765Z",
+      "elapsed_seconds": 402.253,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76318736384,
+        "memory_load_percent": 36,
+        "committed_bytes": 62215737344,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215347,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560260,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:05:57.9559249Z",
+      "elapsed_seconds": 405.275,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76335558656,
+        "memory_load_percent": 36,
+        "committed_bytes": 62118068224,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215348,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560261,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:00.9469402Z",
+      "elapsed_seconds": 408.266,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76350021632,
+        "memory_load_percent": 36,
+        "committed_bytes": 62642003968,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215390,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560553,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:03.9570701Z",
+      "elapsed_seconds": 411.276,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76800483328,
+        "memory_load_percent": 35,
+        "committed_bytes": 61730390016,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215392,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560570,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:06.9492168Z",
+      "elapsed_seconds": 414.269,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76900335616,
+        "memory_load_percent": 35,
+        "committed_bytes": 61642514432,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215395,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224560595,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:09.9829035Z",
+      "elapsed_seconds": 417.303,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75642052608,
+        "memory_load_percent": 36,
+        "committed_bytes": 66074075136,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215637,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224562695,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:12.9993386Z",
+      "elapsed_seconds": 420.319,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75394453504,
+        "memory_load_percent": 37,
+        "committed_bytes": 65647370240,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215664,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224563028,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:16.0259360Z",
+      "elapsed_seconds": 423.346,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 75892195328,
+        "memory_load_percent": 36,
+        "committed_bytes": 63408623616,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215701,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224563490,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:19.0260314Z",
+      "elapsed_seconds": 426.346,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76362194944,
+        "memory_load_percent": 36,
+        "committed_bytes": 61943287808,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215736,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224563974,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:22.0355696Z",
+      "elapsed_seconds": 429.356,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76718821376,
+        "memory_load_percent": 36,
+        "committed_bytes": 61939150848,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215753,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224564109,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    },
+    {
+      "utc": "2026-11-15T16:06:25.0309066Z",
+      "elapsed_seconds": 432.352,
+      "system": {
+        "physical_total_bytes": 119880355840,
+        "physical_available_bytes": 76537819136,
+        "memory_load_percent": 36,
+        "committed_bytes": 62606073856,
+        "commit_limit_bytes": 137060225024,
+        "page_read_operations_raw": 9215841,
+        "page_write_operations_raw": 299,
+        "pages_input_raw": 224564676,
+        "pages_output_raw": 74159
+      },
+      "process": {
+        "working_set_bytes": 4630716416,
+        "peak_working_set_bytes": 4633698304,
+        "private_committed_bytes": 20550795264,
+        "pagefile_usage_bytes": 20550795264,
+        "page_faults_raw": 1203171,
+        "read_bytes_raw": 17203475850,
+        "write_bytes_raw": 12889,
+        "other_bytes_raw": 211980,
+        "read_operations_raw": 18897,
+        "write_operations_raw": 288
+      },
+      "gpu": {
+        "dedicated_usage_bytes": 15383171072,
+        "shared_usage_bytes": 4384739328,
+        "total_committed_bytes": 19767910400
+      },
+      "below_memory_reserve": false
+    }
+  ],
+  "pressure_observed": false,
+  "stop_reason": "stop_file",
+  "finished_utc": "2026-11-15T16:06:26.0161637Z",
+  "elapsed_seconds": 433.338,
+  "summary": {
+    "samples": 144,
+    "minimum_available_gib": 69.388,
+    "maximum_system_commit_gib": 65.262,
+    "maximum_process_working_set_gib": 4.315,
+    "maximum_process_private_commit_gib": 19.296,
+    "maximum_gpu_dedicated_gib": 14.327,
+    "maximum_gpu_shared_gib": 4.084,
+    "maximum_gpu_committed_gib": 18.41,
+    "window_process_read_bytes": 0.0,
+    "window_process_write_bytes": 0.0,
+    "window_process_page_faults": 50594.0,
+    "window_system_page_read_operations": 15967.0,
+    "window_system_page_write_operations": 0.0,
+    "window_system_pages_input": 98749.0,
+    "window_system_pages_output": 0.0,
+    "pressure_observed": false
+  }
+}

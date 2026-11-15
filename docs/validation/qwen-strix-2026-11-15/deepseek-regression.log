@@ -1,0 +1,68 @@
+    Blocking waiting for file lock on package cache
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.38s
+     Running unittests src\lib.rs (target\debug\deps\deepseek_ultrafast_strix-58519648eff66c15.exe)
+
+running 48 tests
+test aten::tests::hip_ffi_lifecycle_and_errors ... ignored, requires explicitly configured native ATen/HIP shim and Radeon 8060S
+test decoder::tests::amd_reduced_decoder_oracle ... ignored, requires AMD Vulkan; independent five-layer CPU checkpoint oracle
+test aten::tests::missing_runtime_fails_without_fallback ... ok
+test checkpoint::tests::budget_includes_scales_and_rejects_overflow ... ok
+test engram::tests::checkpoint_constants ... ok
+test reference::tests::bf16_and_f32_allow_odd_widths ... ok
+test decoder::routing_diagnostic::tests::accepts_only_legal_sorted_topk_with_exact_ties ... ok
+test reference::tests::fp4_low_nibble_precedes_high_nibble_across_words ... ok
+test aten::tests::rejects_python_and_preloaded_dll_conflicts ... ok
+test math::tests::quantized_scales_and_zero ... ok
+test checkpoint::tests::reports_storage_and_extracts_dense_matrix ... ok
+test checkpoint::tests::extracts_fp4_and_fp8_with_distinct_scale_shapes ... ok
+test math::tests::rounding_ties_and_saturation ... ok
+test reference::tests::all_fp4_codes_and_signed_zero ... ok
+test reference::tests::all_fp8_codes_have_expected_spacing_and_sign ... ok
+test reference::tests::fp4_scales_are_per_row_and_32_columns ... ok
+test checkpoint::tests::rejects_malformed_header_and_tensor_size ... ok
+test reference::tests::fp8_scales_are_per_32_by_32_block_with_row_tail ... ok
+test reference::tests::malformed_buffers_and_nonfinite_values_are_rejected ... ok
+test reference::tests::little_endian_packing_and_partial_word ... ok
+test engram::tests::primes ... ok
+test math::tests::attention_scalar_multiply_bf16_boundary ... ok
+test math::tests::hyperconnection_axes ... ok
+test reference::tests::rms_norm_rows_and_zero_input ... ok
+test reference::tests::silu_extreme_finite_values_and_length_errors ... ok
+test math::tests::sink_is_zero_value ... ok
+test verification::tests::amd_hardware_acceptance ... ignored, requires an AMD hardware Vulkan adapter; run explicitly
+test engram::tests::numpy_streams ... ok
+test reference::tests::scale_convention_matches_upstream ... ok
+test serving::tests::greedy_rejects_nonfinite_and_chooses_first_tie ... ok
+test serving_contract::tests::strict_request_subset ... ok
+test checkpoint::tests::rejects_missing_shards_and_incorrect_index_entries ... ok
+test serving::tests::undersized_cache_fails_before_loading_runtime_or_checkpoint ... ok
+test checkpoint::tests::rejects_duplicate_tensors_across_shards ... ok
+test checkpoint::tests::rejects_ambiguous_packing_and_wrong_scales ... ok
+test serving_contract::tests::pinned_official_encoder_fixtures ... ok
+test checkpoint::tests::extracts_released_i8_expert_layout_with_verified_configuration ... ok
+test serving_contract::tests::withheld_stops_unicode_and_controls ... ok
+test verification::tests::comparison_rejects_nan_and_wrong_shapes ... ok
+test weights::tests::bounded_reader_and_immutable_handle ... ok
+test serving::tests::engine_failure_is_closed_and_readiness_reports_it ... ok
+test weights::tests::rejects_header_shape_payload_and_path_errors ... ok
+test serving::tests::http_contract_admission_and_limits ... ok
+test serving::tests::incremental_sse_busy_usage_and_isolation ... ok
+test serving::tests::dropped_stream_cancels_before_readmission ... ok
+test serving::tests::request_output_error_cleans_up_and_allows_next_request ... ok
+test serving::tests::real_tcp_disconnect_cancels_stream_and_nonstream ... ok
+test serving::tests::deadline_cancels_worker ... ok
+
+test result: ok. 45 passed; 0 failed; 3 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running unittests src\main.rs (target\debug\deps\strix-7413e108a8c37732.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\native_math.rs (target\debug\deps\native_math-5554b48c8de182d6.exe)
+
+running 1 test
+test independent_pytorch_cpu_equations ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

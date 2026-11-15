@@ -1,0 +1,2899 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-15T15:58:46.310976+00:00",
+  "base_url": "http://127.0.0.1:18083",
+  "suite": "all",
+  "script_sha256": "d66c79548323a98115d8b2e8431c782cc2593a01a250d1bd8464974247d20daf",
+  "scope": "Bounded API, task-quality and timing checks; not a broad model-quality benchmark.",
+  "records": [
+    {
+      "name": "arithmetic_invoice",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:58:47.175493+00:00",
+      "http_status": 200,
+      "http_seconds": 0.8187062999932095,
+      "request_sha256": "925ed6ec6261a0329c8b51c20d1f08fa6ca52fd61fa8aa273080ff8df579e0e9",
+      "request_bytes": 286,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "428.50",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758326,
+        "id": "chatcmpl-63268-1",
+        "metrics": {
+          "available_physical_bytes": 76729712640,
+          "decode_ms": 502.6536,
+          "decode_tokens": 6,
+          "decode_tps": 11.936649812117132,
+          "prefill_ms": 252.1076,
+          "prefill_tps": 218.1608170479589,
+          "seed": 2026,
+          "total_ms": 756.3347,
+          "ttft_ms": 253.6811
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 7,
+          "prompt_tokens": 55,
+          "total_tokens": 62
+        }
+      }
+    },
+    {
+      "name": "structured_instruction",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:58:48.492242+00:00",
+      "http_status": 200,
+      "http_seconds": 1.3137725999986287,
+      "request_sha256": "cbbc7a2235e73c7eb40948e5640fee0a84ec11af39f522f52fac6d6866cbcfed",
+      "request_bytes": 257,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"color\": \"blue\", \"count\": 3}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758327,
+        "id": "chatcmpl-63268-2",
+        "metrics": {
+          "available_physical_bytes": 76760666112,
+          "decode_ms": 1006.9903,
+          "decode_tokens": 12,
+          "decode_tps": 11.91669870106991,
+          "prefill_ms": 252.6323,
+          "prefill_tps": 178.12449160301355,
+          "seed": 2026,
+          "total_ms": 1261.6121,
+          "ttft_ms": 254.6218
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 13,
+          "prompt_tokens": 45,
+          "total_tokens": 58
+        }
+      }
+    },
+    {
+      "name": "unicode",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:58:49.562048+00:00",
+      "http_status": 200,
+      "http_seconds": 1.0673020999965956,
+      "request_sha256": "2ef06b529bcb32bf3497cb986fbcdbfd725eb507cec5b5632d535e02f1f74d1f",
+      "request_bytes": 220,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Café — 東京 🪵",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758328,
+        "id": "chatcmpl-63268-3",
+        "metrics": {
+          "available_physical_bytes": 76765208576,
+          "decode_ms": 756.8278,
+          "decode_tokens": 9,
+          "decode_tps": 11.891740763222492,
+          "prefill_ms": 242.4578,
+          "prefill_tps": 136.10615950487053,
+          "seed": 2026,
+          "total_ms": 1001.2972,
+          "ttft_ms": 244.4694
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 10,
+          "prompt_tokens": 33,
+          "total_tokens": 43
+        }
+      }
+    },
+    {
+      "name": "instruction_summary",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:58:51.286786+00:00",
+      "http_status": 200,
+      "http_seconds": 1.7220017999934498,
+      "request_sha256": "c594e89c82dff36be3df77806e64f0679037bff6c7dec74f6ca70a98834f334b",
+      "request_bytes": 354,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Nine usable and three damaged doors were received, with the former ready for collection.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758329,
+        "id": "chatcmpl-63268-4",
+        "metrics": {
+          "available_physical_bytes": 76846145536,
+          "decode_ms": 1352.0275,
+          "decode_tokens": 16,
+          "decode_tps": 11.834078818663082,
+          "prefill_ms": 308.0222,
+          "prefill_tps": 191.54463541913535,
+          "seed": 2026,
+          "total_ms": 1662.1749,
+          "ttft_ms": 310.1474
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 17,
+          "prompt_tokens": 59,
+          "total_tokens": 76
+        }
+      }
+    },
+    {
+      "name": "multi_turn_inventory",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:58:51.888937+00:00",
+      "http_status": 200,
+      "http_seconds": 0.5991221000003861,
+      "request_sha256": "1f8211a79db475463e149dd1c408eeecdb98bdb0847015df6f52b6202e24d325",
+      "request_bytes": 476,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "22",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758331,
+        "id": "chatcmpl-63268-5",
+        "metrics": {
+          "available_physical_bytes": 77051920384,
+          "decode_ms": 168.7817,
+          "decode_tokens": 2,
+          "decode_tps": 11.849625877686975,
+          "prefill_ms": 377.9649,
+          "prefill_tps": 251.346090602593,
+          "seed": 2026,
+          "total_ms": 548.8513,
+          "ttft_ms": 380.0696
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 95,
+          "total_tokens": 98
+        }
+      }
+    },
+    {
+      "name": "coding_clamp",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:58:53.881808+00:00",
+      "http_status": 200,
+      "http_seconds": 1.9901228999951854,
+      "request_sha256": "2697257f4659047ffe8619b83bfff9aff42cf33fa2c3d58619a5a96e3a2a5336",
+      "request_bytes": 419,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 160
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "def clamp(value, low, high):\n    return max(low, min(high, value))",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758331,
+        "id": "chatcmpl-63268-6",
+        "metrics": {
+          "available_physical_bytes": 77097369600,
+          "decode_ms": 1580.3181,
+          "decode_tokens": 19,
+          "decode_tps": 12.022895896718516,
+          "prefill_ms": 358.2073,
+          "prefill_tps": 212.16764705800247,
+          "seed": 2026,
+          "total_ms": 1940.4543,
+          "ttft_ms": 360.1362
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 20,
+          "prompt_tokens": 76,
+          "total_tokens": 96
+        }
+      }
+    },
+    {
+      "name": "thinking_opt_in",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.893779+00:00",
+      "http_status": 200,
+      "http_seconds": 28.011652300003334,
+      "request_sha256": "803fe8d2e8d581bc8c8aa46af02b34dec0daec462d498b0afe1be836d73c4e07",
+      "request_bytes": 281,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "enable_thinking": true
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "<think>\nWe need answer user: Compute 37*24. Check arithmetic, then final product and one short sentence explaining calculation. Need final concise. Compute: 37*24 = 37*20 + 37*4 = 740+148=888. Or 24*37 = 24*30+24*7=720+168=888. Need include check? User says Check arithmetic, then give final product and one short sentence explaining calculation. Could say: 37 × 24 = 888. Check: 37×20=740 and 37×4=148; 740+148=888. But they ask final product and one short sentence explaining calculation. Maybe final: 888 — 37×24 = (37×20)+(37×4)=740+148=888. That's one sentence? It includes check. Need maybe \"The product is 888, since 37×24 = 37×20 + 37×4 = 740 + 148 = 888.\" That's one sentence. Ensure final product clear.\n</think>\n\nThe product is 888, since 37 × 24 = 37 × 20 + 37 × 4 = 740 + 148 = 888.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758333,
+        "id": "chatcmpl-63268-7",
+        "metrics": {
+          "available_physical_bytes": 77089460224,
+          "decode_ms": 27582.7921,
+          "decode_tokens": 336,
+          "decode_tps": 12.181507904705558,
+          "prefill_ms": 353.8228,
+          "prefill_tps": 223.2756057551973,
+          "seed": 2026,
+          "total_ms": 27938.7133,
+          "ttft_ms": 355.9212
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 337,
+          "prompt_tokens": 79,
+          "total_tokens": 416
+        }
+      }
+    },
+    {
+      "name": "reject_0",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.912052+00:00",
+      "http_status": 400,
+      "http_seconds": 0.01588110000011511,
+      "request_sha256": "a5ae35835c37383ebf06389c917c213e0656e82553439df5f62b90173b9c0a32",
+      "request_bytes": 129,
+      "parameters": {
+        "model": "wrong/model",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "model must be Qwen/Qwen3.8-27B",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.928309+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014980799998738803,
+      "request_sha256": "0f297128da279e8310a19c0b13dd1f1c2c0e8c74cbba04cecd8558a7622d9b23",
+      "request_bytes": 135,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": -1,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "temperature must be a finite number in [0, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_2",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.944656+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014382900000782683,
+      "request_sha256": "64873c94ce91eda6c1f34270ca05498900662805ed7b52c121407d92ed7173a7",
+      "request_bytes": 136,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": "0",
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "temperature must be a finite number in [0, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_3",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.960632+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014249900006689131,
+      "request_sha256": "45d746ed1889fd768d1b3906e6c2d69b97a1ccd4fcd9f24974650ac4236cdbdd",
+      "request_bytes": 134,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 0
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "max_tokens must be an integer in [1, 8192]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_4",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.976162+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014108600007602945,
+      "request_sha256": "f33d69a37d5b74e6d48b56870e4da0f9e98625ce7a2be0ab777e01c527b015bf",
+      "request_bytes": 136,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1.5
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "max_tokens must be an integer in [1, 8192]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_5",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:21.993195+00:00",
+      "http_status": 400,
+      "http_seconds": 0.015594600001350045,
+      "request_sha256": "1debb351c16b097244bf9b67c64af485f3cebb8a49b9b01c991ee8671a90110a",
+      "request_bytes": 148,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "top_p": 1.1
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "top_p must be a finite number in [0.000001, 1]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_6",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.009017+00:00",
+      "http_status": 400,
+      "http_seconds": 0.013921199992182665,
+      "request_sha256": "7d3b7925c0365024df52582c2e73a13ab9d20deb6bdc4a61c14aa4d8c93ef66f",
+      "request_bytes": 142,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "n": 2
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "n must be an integer in [1, 1]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_7",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.024820+00:00",
+      "http_status": 400,
+      "http_seconds": 0.013302000006660819,
+      "request_sha256": "75ad3c285ddcfe662c9c99d9b4d5c12c99179ee13b5f26dbb44b9d9dec0c1c74",
+      "request_bytes": 147,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "tools": []
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: tools",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_8",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.040705+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014007999998284504,
+      "request_sha256": "47057ea1eef4bde63fed8743a57919a72d67a35f79b9e5b927f1b00ac4f944d3",
+      "request_bytes": 152,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "logprobs": true
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: logprobs",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_9",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.056939+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014398100000107661,
+      "request_sha256": "1bd7ae6b0c5c7df426e135fea433164d9f0957f385a8cdd5dff7898f9e2b6edc",
+      "request_bytes": 178,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: response_format",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_10",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.073532+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014750300004379824,
+      "request_sha256": "3482f13034ad172ff8b208fc1d0cb9c015d335adb9bef3a858981989df49fd74",
+      "request_bytes": 159,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "presence_penalty": 2.1
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "presence_penalty must be a finite number in [-2, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_11",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.090691+00:00",
+      "http_status": 400,
+      "http_seconds": 0.014485400010016747,
+      "request_sha256": "f9045db55faab4d8ad78abd39d7e204b36eee9c6a73523c0ecc5e1677f5ab2a8",
+      "request_bytes": 161,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "frequency_penalty": -2.1
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "frequency_penalty must be a finite number in [-2, 2]",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_12",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.105085+00:00",
+      "http_status": 400,
+      "http_seconds": 0.01187440000649076,
+      "request_sha256": "4265264ccdaa5ee9a2ff9f918c9b5677831fdc65b5eb4121c39e9a8cd2a4447f",
+      "request_bytes": 148,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "stop": [
+          ""
+        ]
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "stop supports at most four nonempty strings of at most 256 UTF-8 bytes without NUL",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_13",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.107420+00:00",
+      "http_status": 400,
+      "http_seconds": 0.000556500002858229,
+      "request_sha256": "3e35c69ba4d9bb7cdb99792768f8f6c7b61418a43b6199b866020baf76a2c20b",
+      "request_bytes": 171,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "stream_options": {
+          "unknown": true
+        }
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "stream_options requires stream=true",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "reject_14",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:22.122031+00:00",
+      "http_status": 400,
+      "http_seconds": 0.013575099990703166,
+      "request_sha256": "1b3e55474337375089210bc6182cb1f4ae46cfeb5a96b0ea87777486f444d569",
+      "request_bytes": 162,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8,
+        "unsupported_option": true
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "unsupported field: unsupported_option",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "deterministic_A",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:26.722483+00:00",
+      "http_status": 200,
+      "http_seconds": 4.598305600011372,
+      "request_sha256": "711da13972da2ac9ddd7c1b291a5e600027794c1e7684945ff3ef9701667451b",
+      "request_bytes": 211,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "It eliminates the daily hassle of writing down items from scratch.\nYou can easily update and organize categories to ensure nothing is forgotten.\nThis saves valuable time during hectic grocery runs.\nUltimately, it reduces stress by keeping your shopping routine efficient and consistent.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758362,
+        "id": "chatcmpl-63268-8",
+        "metrics": {
+          "available_physical_bytes": 77098024960,
+          "decode_ms": 4216.401,
+          "decode_tokens": 51,
+          "decode_tps": 12.095623732182968,
+          "prefill_ms": 318.8393,
+          "prefill_tps": 87.81853428984445,
+          "seed": 2026,
+          "total_ms": 4536.6141,
+          "ttft_ms": 320.2131
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 28,
+          "total_tokens": 80
+        }
+      }
+    },
+    {
+      "name": "unrelated_request",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:27.281254+00:00",
+      "http_status": 200,
+      "http_seconds": 0.5572185999917565,
+      "request_sha256": "b64caeb1e7be5276aa8338792b1deeb5c6548ca51b78924895eb253fcb00ae4a",
+      "request_bytes": 203,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 48
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "17",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758366,
+        "id": "chatcmpl-63268-9",
+        "metrics": {
+          "available_physical_bytes": 77096943616,
+          "decode_ms": 167.0698,
+          "decode_tokens": 2,
+          "decode_tps": 11.971044437714058,
+          "prefill_ms": 320.4529,
+          "prefill_tps": 99.85866877784537,
+          "seed": 2026,
+          "total_ms": 488.9074,
+          "ttft_ms": 321.8376
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 32,
+          "total_tokens": 35
+        }
+      }
+    },
+    {
+      "name": "deterministic_B_after_unrelated",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:31.870265+00:00",
+      "http_status": 200,
+      "http_seconds": 4.588079499997548,
+      "request_sha256": "711da13972da2ac9ddd7c1b291a5e600027794c1e7684945ff3ef9701667451b",
+      "request_bytes": 211,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "It eliminates the daily hassle of writing down items from scratch.\nYou can easily update and organize categories to ensure nothing is forgotten.\nThis saves valuable time during hectic grocery runs.\nUltimately, it reduces stress by keeping your shopping routine efficient and consistent.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758367,
+        "id": "chatcmpl-63268-10",
+        "metrics": {
+          "available_physical_bytes": 77101285376,
+          "decode_ms": 4203.6926,
+          "decode_tokens": 51,
+          "decode_tps": 12.132190636394297,
+          "prefill_ms": 316.6662,
+          "prefill_tps": 88.42118293648012,
+          "seed": 2026,
+          "total_ms": 4521.7224,
+          "ttft_ms": 318.0298
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 28,
+          "total_tokens": 80
+        }
+      }
+    },
+    {
+      "name": "sampled_seed_A",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:43.356680+00:00",
+      "http_status": 200,
+      "http_seconds": 11.485066799999913,
+      "request_sha256": "36a9a0b542685e040348ae9fd23eaebc1598c98a6f7fb133b6eaa4993bc4609a",
+      "request_bytes": 341,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 192,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 0.3,
+        "frequency_penalty": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Elias wiped the damp earth from his knees, his eyes catching the faint glint of polished brass nestled against the gnarled roots of the ancient oak. He brushed away the accumulated moss and leaves, revealing a handle no larger than a thimble set into a door that was barely wider than his palm. With trembling fingers, he turned the tiny knob, which clicked with a sound far too loud for the quiet morning. A sliver of warm, golden light spilled out from the crack, carrying the scent of cinnamon and old paper. Elias held his breath, watching as the miniature door slowly creaked open to reveal a staircase descending into the heart of the tree.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758371,
+        "id": "chatcmpl-63268-11",
+        "metrics": {
+          "available_physical_bytes": 77094838272,
+          "decode_ms": 11194.1913,
+          "decode_tokens": 136,
+          "decode_tps": 12.149158108455769,
+          "prefill_ms": 240.7078,
+          "prefill_tps": 145.4045111957319,
+          "seed": 2026,
+          "total_ms": 11436.4135,
+          "ttft_ms": 242.2222
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 137,
+          "prompt_tokens": 35,
+          "total_tokens": 172
+        }
+      }
+    },
+    {
+      "name": "sampled_seed_B",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:54.853096+00:00",
+      "http_status": 200,
+      "http_seconds": 11.495799499985878,
+      "request_sha256": "36a9a0b542685e040348ae9fd23eaebc1598c98a6f7fb133b6eaa4993bc4609a",
+      "request_bytes": 341,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0.7,
+        "seed": 2026,
+        "max_tokens": 192,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 0.3,
+        "frequency_penalty": 0.0,
+        "repeat_penalty": 1.0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "Elias wiped the damp earth from his knees, his eyes catching the faint glint of polished brass nestled against the gnarled roots of the ancient oak. He brushed away the accumulated moss and leaves, revealing a handle no larger than a thimble set into a door that was barely wider than his palm. With trembling fingers, he turned the tiny knob, which clicked with a sound far too loud for the quiet morning. A sliver of warm, golden light spilled out from the crack, carrying the scent of cinnamon and old paper. Elias held his breath, watching as the miniature door slowly creaked open to reveal a staircase descending into the heart of the tree.",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758383,
+        "id": "chatcmpl-63268-12",
+        "metrics": {
+          "available_physical_bytes": 77101256704,
+          "decode_ms": 11205.1961,
+          "decode_tokens": 136,
+          "decode_tps": 12.137226228463776,
+          "prefill_ms": 240.1678,
+          "prefill_tps": 145.73144276626593,
+          "seed": 2026,
+          "total_ms": 11447.1179,
+          "ttft_ms": 241.9218
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 137,
+          "prompt_tokens": 35,
+          "total_tokens": 172
+        }
+      }
+    },
+    {
+      "name": "stream_equivalence",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T15:59:59.444888+00:00",
+      "request_sha256": "204127cc38d1c2ce9139217f900afe4c9dcf3b265ebf179a4174bd076fdfb97e",
+      "request_bytes": 270,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "It eliminates the daily hassle of writing down items from scratch.\nYou can easily update and organize categories to ensure nothing is forgotten.\nThis saves valuable time during hectic grocery runs.\nUltimately, it reduces stress by keeping your shopping routine efficient and consistent.",
+      "text_sha256": "3131c1363052a2e5674a9d8b8fc02b0213071845914d2199e45553446cd9ee67",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 52,
+        "prompt_tokens": 28,
+        "total_tokens": 80
+      },
+      "metrics": {
+        "available_physical_bytes": 77096869888,
+        "decode_ms": 4209.3097,
+        "decode_tokens": 51,
+        "decode_tps": 12.116000873017256,
+        "prefill_ms": 318.8019,
+        "prefill_tps": 87.82883665373387,
+        "seed": 2026,
+        "total_ms": 4529.6468,
+        "ttft_ms": 320.3371
+      },
+      "client_ttft_seconds": 0.356071799993515,
+      "client_last_content_seconds": 4.483474299995578,
+      "http_seconds": 4.589474899999914,
+      "delta_count": 51,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.3560123999923235,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758394,
+            "id": "chatcmpl-63268-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.356071799993515,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "It"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758394,
+            "id": "chatcmpl-63268-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.44091959999059327,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " eliminates"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758394,
+            "id": "chatcmpl-63268-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 4.589281699998537,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "stop",
+                "index": 0
+              }
+            ],
+            "created": 1794758394,
+            "id": "chatcmpl-63268-13",
+            "metrics": {
+              "available_physical_bytes": 77096869888,
+              "decode_ms": 4209.3097,
+              "decode_tokens": 51,
+              "decode_tps": 12.116000873017256,
+              "prefill_ms": 318.8019,
+              "prefill_tps": 87.82883665373387,
+              "seed": 2026,
+              "total_ms": 4529.6468,
+              "ttft_ms": 320.3371
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 4.589315799996257,
+          "data": {
+            "choices": [],
+            "created": 1794758394,
+            "id": "chatcmpl-63268-13",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 52,
+              "prompt_tokens": 28,
+              "total_tokens": 80
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "stop_nonstream",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:01.402179+00:00",
+      "http_status": 200,
+      "http_seconds": 1.9549556999991182,
+      "request_sha256": "e6c2559a94831963424cb01b4121b785baefd4de3cd71e8dd70e4c376e84b63c",
+      "request_bytes": 242,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128,
+        "stop": [
+          "ganize categories"
+        ]
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "It eliminates the daily hassle of writing down items from scratch.\nYou can easily update and or",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758399,
+        "id": "chatcmpl-63268-14",
+        "metrics": {
+          "available_physical_bytes": 77080719360,
+          "decode_ms": 1586.6869,
+          "decode_tokens": 19,
+          "decode_tps": 11.974637214185105,
+          "prefill_ms": 317.7332,
+          "prefill_tps": 88.12425015705,
+          "seed": 2026,
+          "total_ms": 1905.8876,
+          "ttft_ms": 319.2007
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 20,
+          "prompt_tokens": 28,
+          "total_tokens": 48
+        }
+      }
+    },
+    {
+      "name": "stop_stream",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:03.358045+00:00",
+      "request_sha256": "12e21eff81a3ee6e3d8c89f0de17d4242caac3290cbed836e68e5f21b07eb717",
+      "request_bytes": 301,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 128,
+        "stop": [
+          "ganize categories"
+        ],
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "It eliminates the daily hassle of writing down items from scratch.\nYou can easily update and or",
+      "text_sha256": "c7a9e8e9528c767a72b936f21dc63580e24b63dd6c14d9e55ac9595f44aaf19a",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 20,
+        "prompt_tokens": 28,
+        "total_tokens": 48
+      },
+      "metrics": {
+        "available_physical_bytes": 76908023808,
+        "decode_ms": 1563.7632,
+        "decode_tokens": 19,
+        "decode_tps": 12.150177213532071,
+        "prefill_ms": 317.025,
+        "prefill_tps": 88.32111032252978,
+        "seed": 2026,
+        "total_ms": 1882.3361,
+        "ttft_ms": 318.5729
+      },
+      "client_ttft_seconds": 0.36749330000020564,
+      "client_last_content_seconds": 1.8491513999906601,
+      "http_seconds": 1.9543750000011642,
+      "delta_count": 19,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.3674505999952089,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758401,
+            "id": "chatcmpl-63268-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.36749330000020564,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "It"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758401,
+            "id": "chatcmpl-63268-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.4524378999922192,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " eliminates"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758401,
+            "id": "chatcmpl-63268-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 1.9541683999996167,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "stop",
+                "index": 0
+              }
+            ],
+            "created": 1794758401,
+            "id": "chatcmpl-63268-15",
+            "metrics": {
+              "available_physical_bytes": 76908023808,
+              "decode_ms": 1563.7632,
+              "decode_tokens": 19,
+              "decode_tps": 12.150177213532071,
+              "prefill_ms": 317.025,
+              "prefill_tps": 88.32111032252978,
+              "seed": 2026,
+              "total_ms": 1882.3361,
+              "ttft_ms": 318.5729
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 1.9542059999948833,
+          "data": {
+            "choices": [],
+            "created": 1794758401,
+            "id": "chatcmpl-63268-15",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 20,
+              "prompt_tokens": 28,
+              "total_tokens": 48
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "raw_completion",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T16:00:06.320933+00:00",
+      "http_status": 200,
+      "http_seconds": 2.9601658999890788,
+      "request_sha256": "a8e002154947a62345fb9f45593aaf088238973feb8f3562325409dedde4a32b",
+      "request_bytes": 156,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 32,
+        "temperature": 0,
+        "seed": 2026
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "logprobs": null,
+            "text": " 8, 10,\n\nThe sequence provided consists of consecutive positive even integers, where each number is exactly 2 greater than the previous one. Following"
+          }
+        ],
+        "created": 1794758403,
+        "id": "cmpl-63268-16",
+        "metrics": {
+          "available_physical_bytes": 77079724032,
+          "decode_ms": 2579.2003,
+          "decode_tokens": 31,
+          "decode_tps": 12.019229371212464,
+          "prefill_ms": 309.1715,
+          "prefill_tps": 58.22011407907909,
+          "seed": 2026,
+          "total_ms": 2889.1101,
+          "ttft_ms": 309.9098
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "text_completion",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 18,
+          "total_tokens": 50
+        }
+      }
+    },
+    {
+      "name": "raw_completion_stream",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T16:00:09.209842+00:00",
+      "request_sha256": "226e71528eb875378c36fc8e5ef294e52f71a36e426914c890ca7fd00585bd66",
+      "request_bytes": 215,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 32,
+        "temperature": 0,
+        "seed": 2026,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": " 8, 10,\n\nThe sequence provided consists of consecutive positive even integers, where each number is exactly 2 greater than the previous one. Following",
+      "text_sha256": "7f38df61f8240808be159eb38d5acfc99e648a3f5a0bd9252b9e533796698f37",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 18,
+        "total_tokens": 50
+      },
+      "metrics": {
+        "available_physical_bytes": 77101187072,
+        "decode_ms": 2516.1818,
+        "decode_tokens": 31,
+        "decode_tps": 12.32025444266388,
+        "prefill_ms": 315.1566,
+        "prefill_tps": 57.11446309548967,
+        "seed": 2026,
+        "total_ms": 2832.0961,
+        "ttft_ms": 315.9143
+      },
+      "client_ttft_seconds": 0.34826139999495354,
+      "client_last_content_seconds": 2.8640811999939615,
+      "http_seconds": 2.8876088999968488,
+      "delta_count": 32,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.34826139999495354,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": null,
+                "index": 0,
+                "logprobs": null,
+                "text": " "
+              }
+            ],
+            "created": 1794758406,
+            "id": "cmpl-63268-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.43253819999517873,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": null,
+                "index": 0,
+                "logprobs": null,
+                "text": "8"
+              }
+            ],
+            "created": 1794758406,
+            "id": "cmpl-63268-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.5133945999987191,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": null,
+                "index": 0,
+                "logprobs": null,
+                "text": ","
+              }
+            ],
+            "created": 1794758406,
+            "id": "cmpl-63268-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 2.8874435999896377,
+          "data": {
+            "choices": [
+              {
+                "finish_reason": "length",
+                "index": 0,
+                "logprobs": null,
+                "text": ""
+              }
+            ],
+            "created": 1794758406,
+            "id": "cmpl-63268-17",
+            "metrics": {
+              "available_physical_bytes": 77101187072,
+              "decode_ms": 2516.1818,
+              "decode_tokens": 31,
+              "decode_tps": 12.32025444266388,
+              "prefill_ms": 315.1566,
+              "prefill_tps": 57.11446309548967,
+              "seed": 2026,
+              "total_ms": 2832.0961,
+              "ttft_ms": 315.9143
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 2.88746589999937,
+          "data": {
+            "choices": [],
+            "created": 1794758406,
+            "id": "cmpl-63268-17",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "text_completion",
+            "usage": {
+              "completion_tokens": 32,
+              "prompt_tokens": 18,
+              "total_tokens": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "busy_rejection",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:09.563199+00:00",
+      "http_status": 429,
+      "http_seconds": 0.014520099997753277,
+      "request_sha256": "7ec61d6bd138e9831e40438334da3aaf735f4e474445782a0f9cdab5ada5a0fa",
+      "request_bytes": 141,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 8
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "one inference is active; no waiting queue",
+          "param": null,
+          "type": "rate_limit_error"
+        }
+      }
+    },
+    {
+      "name": "after_disconnect_recovery",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:10.255763+00:00",
+      "http_status": 200,
+      "http_seconds": 0.5325015000125859,
+      "request_sha256": "08f91350407359d062ed3422aa9ba115da5da931125720842f16c7a1a762b0db",
+      "request_bytes": 175,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 64
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "42",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758409,
+        "id": "chatcmpl-63268-19",
+        "metrics": {
+          "available_physical_bytes": 77111574528,
+          "decode_ms": 166.5742,
+          "decode_tokens": 2,
+          "decode_tps": 12.006661295686849,
+          "prefill_ms": 316.7603,
+          "prefill_tps": 88.39491565073023,
+          "seed": 2026,
+          "total_ms": 484.7228,
+          "ttft_ms": 318.1486
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 28,
+          "total_tokens": 31
+        }
+      }
+    },
+    {
+      "name": "after_prefill_disconnect_recovery",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:10.994873+00:00",
+      "http_status": 200,
+      "http_seconds": 0.5728224999911617,
+      "request_sha256": "622082fe48d82e68c7b0e037d64da7136395df67b58d3d1ab5d1f24a11da028c",
+      "request_bytes": 173,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 48
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "56",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758410,
+        "id": "chatcmpl-63268-21",
+        "metrics": {
+          "available_physical_bytes": 77107290112,
+          "decode_ms": 167.0143,
+          "decode_tokens": 2,
+          "decode_tps": 11.97502249807352,
+          "prefill_ms": 355.6707,
+          "prefill_tps": 73.10132659226639,
+          "seed": 2026,
+          "total_ms": 524.0504,
+          "ttft_ms": 357.0361
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 3,
+          "prompt_tokens": 26,
+          "total_tokens": 29
+        }
+      }
+    },
+    {
+      "name": "overflow_calibration",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T16:00:11.597051+00:00",
+      "http_status": 200,
+      "http_seconds": 0.5980406999879051,
+      "request_sha256": "6f251a72f3ac45d8d43e0a2fd47b3a794b1c541388e8eee5d6599f586dd54ec3",
+      "request_bytes": 974,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 1,
+        "temperature": 0
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "logprobs": null,
+            "text": "<think>"
+          }
+        ],
+        "created": 1794758411,
+        "id": "cmpl-63268-22",
+        "metrics": {
+          "available_physical_bytes": 77108195328,
+          "decode_ms": 0.04,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "prefill_ms": 531.0314,
+          "prefill_tps": 242.92348814024936,
+          "seed": 4294967295,
+          "total_ms": 532.0519,
+          "ttft_ms": 532.0119
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "text_completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 129,
+          "total_tokens": 130
+        }
+      }
+    },
+    {
+      "name": "context_overflow",
+      "path": "/v1/completions",
+      "utc": "2026-11-15T16:00:11.724277+00:00",
+      "http_status": 400,
+      "http_seconds": 0.12456270000257064,
+      "request_sha256": "ffaf64ce2e83411d93b36623e52c712ac23518c7ba151d6e20ededb9789c95c3",
+      "request_bytes": 234795,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "max_tokens": 1,
+        "temperature": 0
+      },
+      "response": {
+        "error": {
+          "code": null,
+          "message": "Prompt tokens (33532) plus max_tokens exceed context (32768)",
+          "param": null,
+          "type": "invalid_request_error"
+        }
+      }
+    },
+    {
+      "name": "after_overflow_recovery",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:12.186291+00:00",
+      "http_status": 200,
+      "http_seconds": 0.45904040000459645,
+      "request_sha256": "ce1418e64104adb8dc64b4f95e4b9004b9d890ba3bf4a8cb56c71d7e75dd3fa2",
+      "request_bytes": 148,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 16
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "READY",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758411,
+        "id": "chatcmpl-63268-24",
+        "metrics": {
+          "available_physical_bytes": 77098037248,
+          "decode_ms": 89.3205,
+          "decode_tokens": 1,
+          "decode_tps": 11.19563817936532,
+          "prefill_ms": 307.287,
+          "prefill_tps": 55.32287405585007,
+          "seed": 2026,
+          "total_ms": 398.4828,
+          "ttft_ms": 309.1623
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 2,
+          "prompt_tokens": 17,
+          "total_tokens": 19
+        }
+      }
+    },
+    {
+      "name": "benchmark_warmup",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:20.416000+00:00",
+      "http_status": 200,
+      "http_seconds": 8.227059900003951,
+      "request_sha256": "930fddda9e65b9e5362ad78152a96dca31d2846ca5ec19a9971c6ea2982c4f3c",
+      "request_bytes": 198,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "Organizing a small tool cabinet is less about having massive storage space and more about maximizing visibility and accessibility. Since space is limited, every inch must serve a purpose. Here are three practical ways to label and organize your tools:\n\n### 1. Use Shadow Boards or Pegboards with Silhouettes\nInstead of just placing tools in drawers, consider using **shadow boards** (acrylic or foam sheets) on the inside of cabinet doors or on the back panel if you have",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758412,
+        "id": "chatcmpl-63268-25",
+        "metrics": {
+          "available_physical_bytes": 76925112320,
+          "decode_ms": 7841.0863,
+          "decode_tokens": 95,
+          "decode_tps": 12.115668207860434,
+          "prefill_ms": 312.8074,
+          "prefill_tps": 83.11823825139687,
+          "seed": 2026,
+          "total_ms": 8155.6053,
+          "ttft_ms": 314.519
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 96,
+          "prompt_tokens": 26,
+          "total_tokens": 122
+        }
+      }
+    },
+    {
+      "name": "short_decode_1",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:00:52.680510+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 77093146624,
+        "decode_ms": 31818.5239,
+        "decode_tokens": 383,
+        "decode_tps": 12.03701344549173,
+        "prefill_ms": 386.5167,
+        "prefill_tps": 206.97682661577105,
+        "seed": 2026,
+        "total_ms": 32206.6838,
+        "ttft_ms": 388.1599
+      },
+      "client_ttft_seconds": 0.42306999998982064,
+      "client_last_content_seconds": 32.241505399986636,
+      "http_seconds": 32.26585789999808,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.42305269998905715,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758420,
+            "id": "chatcmpl-63268-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.42306999998982064,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758420,
+            "id": "chatcmpl-63268-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.5089889999944717,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758420,
+            "id": "chatcmpl-63268-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 32.265641699996195,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758420,
+            "id": "chatcmpl-63268-26",
+            "metrics": {
+              "available_physical_bytes": 77093146624,
+              "decode_ms": 31818.5239,
+              "decode_tokens": 383,
+              "decode_tps": 12.03701344549173,
+              "prefill_ms": 386.5167,
+              "prefill_tps": 206.97682661577105,
+              "seed": 2026,
+              "total_ms": 32206.6838,
+              "ttft_ms": 388.1599
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 32.265663899990614,
+          "data": {
+            "choices": [],
+            "created": 1794758420,
+            "id": "chatcmpl-63268-26",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "short_decode_2",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:01:24.871024+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 77100072960,
+        "decode_ms": 31760.1988,
+        "decode_tokens": 383,
+        "decode_tps": 12.059118471260955,
+        "prefill_ms": 357.8693,
+        "prefill_tps": 223.54529991815448,
+        "seed": 2026,
+        "total_ms": 32119.7066,
+        "ttft_ms": 359.5078
+      },
+      "client_ttft_seconds": 0.4073649000056321,
+      "client_last_content_seconds": 32.16747580000083,
+      "http_seconds": 32.1915611000004,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.4073483000101987,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758452,
+            "id": "chatcmpl-63268-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.4073649000056321,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758452,
+            "id": "chatcmpl-63268-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.49376440000196453,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758452,
+            "id": "chatcmpl-63268-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 32.191371699998854,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758452,
+            "id": "chatcmpl-63268-27",
+            "metrics": {
+              "available_physical_bytes": 77100072960,
+              "decode_ms": 31760.1988,
+              "decode_tokens": 383,
+              "decode_tps": 12.059118471260955,
+              "prefill_ms": 357.8693,
+              "prefill_tps": 223.54529991815448,
+              "seed": 2026,
+              "total_ms": 32119.7066,
+              "ttft_ms": 359.5078
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 32.191391800006386,
+          "data": {
+            "choices": [],
+            "created": 1794758452,
+            "id": "chatcmpl-63268-27",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "short_decode_3",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:01:57.950444+00:00",
+      "request_sha256": "517474db230f01ab2a84b93bcf016584e1c3ed64cd26015130146194f784b3be",
+      "request_bytes": 561,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "# The Rainy Climate Wood Door Preservation Handbook\n\nWooden exterior doors are architectural statements that offer warmth and character, but in a rainy climate, they are under constant siege. Moisture is the primary enemy of wood; it causes swelling, warping, rot, and finish failure. Unlike arid regions where dryness cracks wood, wet climates demand a proactive strategy focused on moisture management. This handbook provides a comprehensive guide to keeping your wooden door functional, beautiful, and structurally sound through rigorous inspection, cleaning, finishing, and maintenance.\n\n## 1. Comprehensive Inspection Protocol\n\nInspection is not a once-a-year chore; it is a continuous vigilance. In a rainy climate, you should perform a visual check every month during the wet season and a deep dive twice a year (spring and fall).\n\n**The \"Tap Test\" for Rot**\nRot often starts internally or at the bottom rail before becoming visible. Take a small screwdriver or a nail and gently tap the surface of the door, particularly around the edges, the bottom rail, and any areas where water might pool. Healthy wood produces a solid, sharp *thock* sound. Rotted wood sounds dull, hollow, or soft. If the tip of the screwdriver sinks into the wood with little resistance, you have active decay.\n\n**Checking for Warping and Swelling**\nHold a straightedge (like a level or a long ruler) against the door’s edge and face. Look for gaps between the straightedge and the wood. In rainy climates, wood absorbs moisture and swells. If the door sticks in the frame only when it rains, this is likely temporary swelling. However, if the door remains stuck after drying out, or if the gap between the door and frame varies significantly from top to bottom, the door has warped. Pay special attention to the corners; if the diagonal measurement of the door differs",
+      "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 80,
+        "total_tokens": 464
+      },
+      "metrics": {
+        "available_physical_bytes": 76452319232,
+        "decode_ms": 32654.6541,
+        "decode_tokens": 383,
+        "decode_tps": 11.728802847738631,
+        "prefill_ms": 357.6003,
+        "prefill_tps": 223.71345885336223,
+        "seed": 2026,
+        "total_ms": 33013.8631,
+        "ttft_ms": 359.209
+      },
+      "client_ttft_seconds": 0.400262199997087,
+      "client_last_content_seconds": 33.054773899988504,
+      "http_seconds": 33.08039889999782,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 0.40024560000165366,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758484,
+            "id": "chatcmpl-63268-28",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.400262199997087,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "#"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758484,
+            "id": "chatcmpl-63268-28",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 0.4849878999957582,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": " The"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758484,
+            "id": "chatcmpl-63268-28",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.08013899999787,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758484,
+            "id": "chatcmpl-63268-28",
+            "metrics": {
+              "available_physical_bytes": 76452319232,
+              "decode_ms": 32654.6541,
+              "decode_tokens": 383,
+              "decode_tps": 11.728802847738631,
+              "prefill_ms": 357.6003,
+              "prefill_tps": 223.71345885336223,
+              "seed": 2026,
+              "total_ms": 33013.8631,
+              "ttft_ms": 359.209
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 33.08018879999872,
+          "data": {
+            "choices": [],
+            "created": 1794758484,
+            "id": "chatcmpl-63268-28",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 80,
+              "total_tokens": 464
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "context_4096_calibration",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:02:03.891032+00:00",
+      "http_status": 200,
+      "http_seconds": 5.933708199998364,
+      "request_sha256": "0c3670df64a9a2e030dca15e4761c51b60b9fdc97c25245fa4e4ac4a68bf5fed",
+      "request_bytes": 3542,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "MAP",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758517,
+        "id": "chatcmpl-63268-29",
+        "metrics": {
+          "available_physical_bytes": 76391247872,
+          "decode_ms": 0.0381,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "prefill_ms": 5882.695,
+          "prefill_tps": 267.054470782524,
+          "seed": 2026,
+          "total_ms": 5885.6241,
+          "ttft_ms": 5885.586
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1571,
+          "total_tokens": 1572
+        }
+      }
+    },
+    {
+      "name": "retrieval_target_4096",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:02:19.226385+00:00",
+      "http_status": 200,
+      "http_seconds": 15.33409180000308,
+      "request_sha256": "ac5f10154b6175502198658b786d4c9286c472c7ed832adbd16dfba8424b5f82",
+      "request_bytes": 8784,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758523,
+        "id": "chatcmpl-63268-30",
+        "metrics": {
+          "available_physical_bytes": 76547899392,
+          "decode_ms": 1988.1077,
+          "decode_tokens": 23,
+          "decode_tps": 11.568789759226826,
+          "prefill_ms": 13268.2768,
+          "prefill_tps": 307.65110357058575,
+          "seed": 2026,
+          "total_ms": 15262.5713,
+          "ttft_ms": 13274.4636
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 24,
+          "prompt_tokens": 4082,
+          "total_tokens": 4106
+        }
+      }
+    },
+    {
+      "name": "populated_4096_decode",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:03:06.766061+00:00",
+      "request_sha256": "7a1a58f0d36cec017762e9ef1af670775e57adc61de5fb26a0ad995b20811ee3",
+      "request_bytes": 8952,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 384,
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      },
+      "text": "MAPLE-7319 BRASS-4826 CEDAR-9052\n\n**The Comprehensive Guide to Auditing a Warehouse Stock Ledger: A Step-by-Step Operational Framework**\n\nAuditing a warehouse stock ledger is not merely an administrative task; it is the backbone of supply chain integrity. In a high-volume environment, where thousands of items like \"oak trim\" move through various bins daily, discrepancies can lead to significant financial losses, production halts, or customer dissatisfaction. This guide provides a detailed, operational framework for conducting a rigorous audit of a warehouse stock ledger. It covers the entire lifecycle of the audit process, from initial preparation and receiving protocols to physical counting, reconciliation, damage assessment, and final record updates. By following these concrete steps, auditors can ensure that the digital ledger accurately reflects the physical reality of the warehouse floor.\n\n### Phase 1: Preparation and Receiving Protocols\n\nBefore any counting begins, the foundation of the audit must be laid. The first step in auditing a stock ledger is ensuring that the data entering the system is accurate. Many ledger errors originate at the point of receipt. Therefore, the audit process must begin by reviewing the receiving protocols.\n\nWhen new inventory arrives, the receiving team must perform a three-way match: comparing the Purchase Order (PO), the Supplier’s Packing List, and the Physical Goods. For example, if the PO specifies 100 units of oak trim, but the packing list shows 95, this discrepancy must be flagged immediately before the goods are shelved. The auditor should verify that the warehouse management system (WMS) records reflect the actual quantity received, not just the ordered quantity. If short-shipped items are accepted without documentation, the ledger will permanently show a higher quantity than exists, creating a \"phantom inventory\" problem.\n\nFurthermore, bin assignment during receiving is critical. In",
+      "text_sha256": "5fddca25a9cfb0713b14980caa2da3b43aa998db4b12d5359f3e1707096798a0",
+      "finish_reason": "length",
+      "usage": {
+        "completion_tokens": 384,
+        "prompt_tokens": 4100,
+        "total_tokens": 4484
+      },
+      "metrics": {
+        "available_physical_bytes": 76194357248,
+        "decode_ms": 33350.3521,
+        "decode_tokens": 383,
+        "decode_tps": 11.484136624752455,
+        "prefill_ms": 14111.0497,
+        "prefill_tps": 290.55244557745414,
+        "seed": 2026,
+        "total_ms": 47464.3519,
+        "ttft_ms": 14113.9998
+      },
+      "client_ttft_seconds": 14.162528600005317,
+      "client_last_content_seconds": 47.51272759999847,
+      "http_seconds": 47.541422100010095,
+      "delta_count": 384,
+      "bounded_event_samples": [
+        {
+          "seconds": 14.162507300003199,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "",
+                  "role": "assistant"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758539,
+            "id": "chatcmpl-63268-31",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 14.162528600005317,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "MAP"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758539,
+            "id": "chatcmpl-63268-31",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 14.250235900006373,
+          "data": {
+            "choices": [
+              {
+                "delta": {
+                  "content": "LE"
+                },
+                "finish_reason": null,
+                "index": 0
+              }
+            ],
+            "created": 1794758539,
+            "id": "chatcmpl-63268-31",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 47.54121809999924,
+          "data": {
+            "choices": [
+              {
+                "delta": {},
+                "finish_reason": "length",
+                "index": 0
+              }
+            ],
+            "created": 1794758539,
+            "id": "chatcmpl-63268-31",
+            "metrics": {
+              "available_physical_bytes": 76194357248,
+              "decode_ms": 33350.3521,
+              "decode_tokens": 383,
+              "decode_tps": 11.484136624752455,
+              "prefill_ms": 14111.0497,
+              "prefill_tps": 290.55244557745414,
+              "seed": 2026,
+              "total_ms": 47464.3519,
+              "ttft_ms": 14113.9998
+            },
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": null
+          }
+        },
+        {
+          "seconds": 47.541244300009566,
+          "data": {
+            "choices": [],
+            "created": 1794758539,
+            "id": "chatcmpl-63268-31",
+            "model": "Qwen/Qwen3.8-27B",
+            "object": "chat.completion.chunk",
+            "usage": {
+              "completion_tokens": 384,
+              "prompt_tokens": 4100,
+              "total_tokens": 4484
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "context_30000_calibration",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:03:11.792231+00:00",
+      "http_status": 200,
+      "http_seconds": 5.021957599994494,
+      "request_sha256": "0c3670df64a9a2e030dca15e4761c51b60b9fdc97c25245fa4e4ac4a68bf5fed",
+      "request_bytes": 3542,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 1
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "length",
+            "index": 0,
+            "message": {
+              "content": "MAP",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758586,
+        "id": "chatcmpl-63268-32",
+        "metrics": {
+          "available_physical_bytes": 76687843328,
+          "decode_ms": 0.0661,
+          "decode_tokens": 0,
+          "decode_tps": 0.0,
+          "prefill_ms": 4962.0401,
+          "prefill_tps": 316.6036485678542,
+          "seed": 2026,
+          "total_ms": 4966.8827,
+          "ttft_ms": 4966.8166
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1571,
+          "total_tokens": 1572
+        }
+      }
+    },
+    {
+      "name": "retrieval_target_30000",
+      "path": "/v1/chat/completions",
+      "utc": "2026-11-15T16:05:35.387468+00:00",
+      "http_status": 200,
+      "http_seconds": 143.60423260000243,
+      "request_sha256": "6858b0693461ce892b996cb3e8edccf85fd18bc0d26573928cafbb0cf2aa0944",
+      "request_bytes": 65018,
+      "parameters": {
+        "model": "Qwen/Qwen3.8-27B",
+        "temperature": 0,
+        "seed": 2026,
+        "max_tokens": 96
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1794758591,
+        "id": "chatcmpl-63268-33",
+        "metrics": {
+          "available_physical_bytes": 76198772736,
+          "decode_ms": 2084.913,
+          "decode_tokens": 23,
+          "decode_tps": 11.031635372794932,
+          "prefill_ms": 141439.8344,
+          "prefill_tps": 219.27344677377536,
+          "seed": 2026,
+          "total_ms": 143543.0351,
+          "ttft_ms": 141458.1221
+        },
+        "model": "Qwen/Qwen3.8-27B",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 24,
+          "prompt_tokens": 31014,
+          "total_tokens": 31038
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "arithmetic_invoice",
+      "passed": true,
+      "seconds": 0.8206371000123909,
+      "detail": {
+        "expected": "428.50",
+        "observed": "428.50"
+      }
+    },
+    {
+      "name": "structured_instruction",
+      "passed": true,
+      "seconds": 1.3154248999926494,
+      "detail": {
+        "expected": "{\"color\":\"blue\",\"count\":3}",
+        "observed": "{\"color\": \"blue\", \"count\": 3}"
+      }
+    },
+    {
+      "name": "unicode",
+      "passed": true,
+      "seconds": 1.0690574000036577,
+      "detail": {
+        "expected": "Café — 東京 🪵",
+        "observed": "Café — 東京 🪵"
+      }
+    },
+    {
+      "name": "instruction_summary",
+      "passed": true,
+      "seconds": 1.7239034999947762,
+      "detail": {
+        "expected": "<=20 words; usable9 damaged3",
+        "observed": "Nine usable and three damaged doors were received, with the former ready for collection."
+      }
+    },
+    {
+      "name": "multi_turn_inventory",
+      "passed": true,
+      "seconds": 0.6010013999912189,
+      "detail": {
+        "expected": "22",
+        "observed": "22"
+      }
+    },
+    {
+      "name": "coding_clamp_fixtures",
+      "passed": true,
+      "seconds": 1.9923316999920644,
+      "detail": {
+        "source": "def clamp(value, low, high):\n    return max(low, min(high, value))",
+        "fixtures_passed": 8,
+        "execution_safety": "AST allowlist with only min/max calls; no imports, attributes, loops or arbitrary builtins"
+      }
+    },
+    {
+      "name": "thinking_opt_in_arithmetic",
+      "passed": true,
+      "seconds": 28.01323169999523,
+      "detail": {
+        "observed": "<think>\nWe need answer user: Compute 37*24. Check arithmetic, then final product and one short sentence explaining calculation. Need final concise. Compute: 37*24 = 37*20 + 37*4 = 740+148=888. Or 24*37 = 24*30+24*7=720+168=888. Need include check? User says Check arithmetic, then give final product and one short sentence explaining calculation. Could say: 37 × 24 = 888. Check: 37×20=740 and 37×4=148; 740+148=888. But they ask final product and one short sentence explaining calculation. Maybe final: 888 — 37×24 = (37×20)+(37×4)=740+148=888. That's one sentence? It includes check. Need maybe \"The product is 888, since 37×24 = 37×20 + 37×4 = 740 + 148 = 888.\" That's one sentence. Ensure final product clear.\n</think>\n\nThe product is 888, since 37 × 24 = 37 × 20 + 37 × 4 = 740 + 148 = 888.",
+        "raw_thinking_tags_present": true,
+        "usage": {
+          "completion_tokens": 337,
+          "prompt_tokens": 79,
+          "total_tokens": 416
+        },
+        "scope": "Explicit thinking request with a bounded arithmetic check; not a reasoning benchmark"
+      }
+    },
+    {
+      "name": "strict_request_validation",
+      "passed": true,
+      "seconds": 0.22767089999979362,
+      "detail": {
+        "invalid_requests_rejected": 15
+      }
+    },
+    {
+      "name": "greedy_repeat_request_isolation",
+      "passed": true,
+      "seconds": 9.74827959999675,
+      "detail": {
+        "text_sha256": "3131c1363052a2e5674a9d8b8fc02b0213071845914d2199e45553446cd9ee67",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 28,
+          "total_tokens": 80
+        }
+      }
+    },
+    {
+      "name": "sampled_fixed_seed_repeat",
+      "passed": true,
+      "seconds": 22.984822099999292,
+      "detail": {
+        "temperature": 0.7,
+        "seed": 2026,
+        "text_sha256": "cc059e62213c6daec00096e298652211000dd239405bc2922bbf5559c4c175ec",
+        "usage": {
+          "completion_tokens": 137,
+          "prompt_tokens": 35,
+          "total_tokens": 172
+        }
+      }
+    },
+    {
+      "name": "stream_nonstream_equivalence",
+      "passed": true,
+      "seconds": 4.590897500005667,
+      "detail": {
+        "text_sha256": "3131c1363052a2e5674a9d8b8fc02b0213071845914d2199e45553446cd9ee67",
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 28,
+          "total_tokens": 80
+        }
+      }
+    },
+    {
+      "name": "stop_buffering_stream_and_nonstream",
+      "passed": true,
+      "seconds": 3.9129069000046,
+      "detail": {
+        "stop": "ganize categories",
+        "prefix_sha256": "c7a9e8e9528c767a72b936f21dc63580e24b63dd6c14d9e55ac9595f44aaf19a",
+        "usage": {
+          "completion_tokens": 20,
+          "prompt_tokens": 28,
+          "total_tokens": 48
+        }
+      }
+    },
+    {
+      "name": "raw_completion_and_stream",
+      "passed": true,
+      "seconds": 5.851190799992764,
+      "detail": {
+        "text": " 8, 10,\n\nThe sequence provided consists of consecutive positive even integers, where each number is exactly 2 greater than the previous one. Following",
+        "usage": {
+          "completion_tokens": 32,
+          "prompt_tokens": 18,
+          "total_tokens": 50
+        }
+      }
+    },
+    {
+      "name": "busy_disconnect_cancellation_recovery",
+      "passed": true,
+      "seconds": 1.0450565999926766,
+      "detail": {
+        "cancellation_cleanup_seconds": 0.1461877999972785,
+        "cancelled_before": 0,
+        "cancelled_after": 1,
+        "saw_content_before_disconnect": true
+      }
+    },
+    {
+      "name": "prefill_disconnect_cancellation_recovery",
+      "passed": true,
+      "seconds": 0.73802550000255,
+      "detail": {
+        "request_sha256": "0a7f2767b0cfe826d8d7ce81874d476292d7d4b883cfe3664e618d1fbb374e50",
+        "request_bytes": 28421,
+        "cancellation_cleanup_seconds": 0.14175839998642914,
+        "cancelled_before": 1,
+        "cancelled_after": 2,
+        "scope": "Disconnect after busy admission without reading response headers; intended to exercise populated prefill cancellation"
+      }
+    },
+    {
+      "name": "context_overflow_and_recovery",
+      "passed": true,
+      "seconds": 1.1896636000019498,
+      "detail": {
+        "configured_context": 32768,
+        "probe_tokens": 129,
+        "overflow_repetitions": 33531
+      }
+    },
+    {
+      "name": "warm_repeated_decode_benchmark",
+      "passed": true,
+      "seconds": 105.77620009999373,
+      "detail": {
+        "repeats": 3,
+        "prompt_tokens": 80,
+        "completion_tokens_each": [
+          384,
+          384,
+          384
+        ],
+        "median_decode_tps": 12.03701344549173,
+        "median_prefill_tps": 223.54529991815448,
+        "median_client_ttft_seconds": 0.4073649000056321,
+        "median_http_seconds": 32.26585789999808,
+        "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+      }
+    },
+    {
+      "name": "populated_context_4096_retrieval",
+      "passed": true,
+      "seconds": 68.81751709998935,
+      "detail": {
+        "target_tokens": 4096,
+        "actual_prompt_tokens": 4082,
+        "rows": 169,
+        "expected": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "observed": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "metrics": {
+          "available_physical_bytes": 76547899392,
+          "decode_ms": 1988.1077,
+          "decode_tokens": 23,
+          "decode_tps": 11.568789759226826,
+          "prefill_ms": 13268.2768,
+          "prefill_tps": 307.65110357058575,
+          "seed": 2026,
+          "total_ms": 15262.5713,
+          "ttft_ms": 13274.4636
+        },
+        "scope": "One three-key retrieval at front/middle/end; not general long-context quality validation",
+        "populated_decode": {
+          "usage": {
+            "completion_tokens": 384,
+            "prompt_tokens": 4100,
+            "total_tokens": 4484
+          },
+          "metrics": {
+            "available_physical_bytes": 76194357248,
+            "decode_ms": 33350.3521,
+            "decode_tokens": 383,
+            "decode_tps": 11.484136624752455,
+            "prefill_ms": 14111.0497,
+            "prefill_tps": 290.55244557745414,
+            "seed": 2026,
+            "total_ms": 47464.3519,
+            "ttft_ms": 14113.9998
+          },
+          "client_ttft_seconds": 14.162528600005317,
+          "text_sha256": "5fddca25a9cfb0713b14980caa2da3b43aa998db4b12d5359f3e1707096798a0"
+        }
+      }
+    },
+    {
+      "name": "populated_context_30000_retrieval",
+      "passed": true,
+      "seconds": 148.63397490000352,
+      "detail": {
+        "target_tokens": 30000,
+        "actual_prompt_tokens": 31014,
+        "rows": 1296,
+        "expected": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "observed": "MAPLE-7319, BRASS-4826, CEDAR-9052",
+        "metrics": {
+          "available_physical_bytes": 76198772736,
+          "decode_ms": 2084.913,
+          "decode_tokens": 23,
+          "decode_tps": 11.031635372794932,
+          "prefill_ms": 141439.8344,
+          "prefill_tps": 219.27344677377536,
+          "seed": 2026,
+          "total_ms": 143543.0351,
+          "ttft_ms": 141458.1221
+        },
+        "scope": "One three-key retrieval at front/middle/end; not general long-context quality validation"
+      }
+    }
+  ],
+  "passed": true,
+  "initial_health": {
+    "busy": false,
+    "cancelled_requests": 0,
+    "completed_requests": 0,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 72283340800,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 644.2563,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": null,
+    "pid": 63268,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "models": {
+    "data": [
+      {
+        "created": 0,
+        "id": "Qwen/Qwen3.8-27B",
+        "object": "model",
+        "owned_by": "Qwen"
+      }
+    ],
+    "object": "list"
+  },
+  "benchmark_summary": {
+    "repeats": 3,
+    "prompt_tokens": 80,
+    "completion_tokens_each": [
+      384,
+      384,
+      384
+    ],
+    "median_decode_tps": 12.03701344549173,
+    "median_prefill_tps": 223.54529991815448,
+    "median_client_ttft_seconds": 0.4073649000056321,
+    "median_http_seconds": 32.26585789999808,
+    "text_sha256": "43d206a65c923ec80fe011df8c3b9e18c018ec4669144d03f4300eb63d85bc86"
+  },
+  "final_health": {
+    "busy": false,
+    "cancelled_requests": 2,
+    "completed_requests": 30,
+    "engine": "native-rust-llama-cpp",
+    "error": null,
+    "experimental": true,
+    "identity": {
+      "architecture": "qwen35",
+      "backend": "embedded-llama.cpp-ggml",
+      "backend_commit": "b54752df40e4d8e53d34ef5a598336b4e4871d39",
+      "batch": 2048,
+      "context": 32768,
+      "device": "AMD Radeon(TM) 8060S Graphics",
+      "device_backend": "Vulkan0",
+      "flash_attention": true,
+      "gpu_budget_free_bytes": 88270981980,
+      "gpu_budget_total_bytes": 113084137472,
+      "gpu_layers_requested": 999,
+      "kv_type": "q8_0",
+      "lazy_weights": false,
+      "load_available_physical_bytes": 72283340800,
+      "mmap": false,
+      "model_id": "Qwen/Qwen3.8-27B",
+      "model_parameters": 27320697856,
+      "model_tensor_bytes": 17431404544,
+      "mtp": false,
+      "quantization": "Q4_K_M",
+      "startup_warmup_ms": 644.2563,
+      "startup_warmup_tokens": 128,
+      "thinking_supported": true,
+      "threads": 8,
+      "ubatch": 512,
+      "vulkan_fa_flip_disabled": true
+    },
+    "last_request": {
+      "id": "chatcmpl-63268-33",
+      "metrics": {
+        "available_physical_bytes": 76198772736,
+        "decode_ms": 2084.913,
+        "decode_tokens": 23,
+        "decode_tps": 11.031635372794932,
+        "prefill_ms": 141439.8344,
+        "prefill_tps": 219.27344677377536,
+        "seed": 2026,
+        "total_ms": 143543.0351,
+        "ttft_ms": 141458.1221
+      },
+      "outcome": "completed"
+    },
+    "pid": 63268,
+    "queue_capacity": 0,
+    "state": "ready"
+  },
+  "finished_utc": "2026-11-15T16:05:35.404138+00:00"
+}

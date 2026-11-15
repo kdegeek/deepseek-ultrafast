@@ -1,0 +1,22 @@
+[
+  {
+    "ModuleName": "qwen-resident.exe",
+    "FileName": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\release\\qwen-resident.exe",
+    "Version": null
+  },
+  {
+    "ModuleName": "qwen_native.dll",
+    "FileName": "C:\\Users\\ncrawford\\deepseek-ultrafast\\target\\qwen-resident\\build\\bin\\Release\\qwen_native.dll",
+    "Version": null
+  },
+  {
+    "ModuleName": "vulkan-1.dll",
+    "FileName": "C:\\WINDOWS\\SYSTEM32\\vulkan-1.dll",
+    "Version": "1.4.357.0"
+  },
+  {
+    "ModuleName": "amdvlk64.dll",
+    "FileName": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\amdvlk.inf_amd64_865a9c4fff871fca\\amdvlk64.dll",
+    "Version": "9.2.10.416"
+  }
+]
