@@ -25,6 +25,17 @@ def metrics(actual, expected):
             "relative_l2": float(np.linalg.norm(a - b) / max(np.linalg.norm(b), 1e-300))}
 
 
+def float32_metrics(actual, expected):
+    """Recover native f32 JSON round-trips before measuring in float64.
+
+    serde emits the shortest decimal that round-trips to f32, while PyTorch's
+    float().tolist() exposes its exact f64 expansion. Decimal spelling must not
+    create false mismatches. Keep metrics() for genuinely float64 CPU oracles.
+    """
+    import numpy as np
+    return metrics(np.asarray(actual, dtype=np.float32), np.asarray(expected, dtype=np.float32))
+
+
 def bounded_rows(store, name, ids):
     """Validation-only bounded byte reads, bypassing Windows torch mmap storage."""
     import math

@@ -16,25 +16,34 @@ sys.path.insert(0, str(ROOT))
 
 
 def compare(args, cases, identity, hip_root):
-    from component_oracle import metrics
+    from component_oracle import float32_metrics
     (args.output / "cases.json").write_text(json.dumps(cases, ensure_ascii=False, indent=2), encoding="utf-8")
     binary_hash = hashlib.sha256(args.native.read_bytes()).hexdigest()
-    subprocess.run([str(args.native), str(args.checkpoint), str(args.output / "cases.json"), str(args.output / "native")], check=True)
+    native_root = args.native_output or args.output / "native"
+    if args.native_output is None:
+        subprocess.run([str(args.native), str(args.checkpoint), str(args.output / "cases.json"), str(native_root)], check=True)
+    vocab_size = json.loads((args.checkpoint / "inference/config.json").read_text(encoding="utf-8"))["vocab_size"]
     report = {"identity":identity, "teacher_forced":True, "cases":{}, "hip_logits":str(hip_root),
               "native_executable_sha256":binary_hash,
+              "native_logits":str(native_root),
+              "comparison_dtype":"decode both JSON vectors to FP32, then compute errors in FP64",
               "acceptance":"Exact next-token matches and all-logit errors reported independently; no new tolerance."}
     for case in cases:
         label = case["label"]
-        native = json.loads((args.output / "native" / label / "summary.json").read_text())
+        native = json.loads((native_root / label / "summary.json").read_text(encoding="utf-8"))
+        if native["input_tokens"] != case["tokens"] or native["prompt_tokens"] != case["prompt_tokens"]:
+            raise ValueError("native and HIP inputs/tokenization differ")
         positions = []
         for position in range(len(case["tokens"])):
             name = f"p{position:03}-logits.json"
-            hip = json.loads((hip_root / label / name).read_text())
-            actual = json.loads((args.output / "native" / label / name).read_text())
+            hip = json.loads((hip_root / label / name).read_text(encoding="utf-8"))
+            actual = json.loads((native_root / label / name).read_text(encoding="utf-8"))
+            if len(hip) != vocab_size or len(actual) != vocab_size:
+                raise ValueError("comparison requires the complete original vocabulary")
             positions.append({"position":position, "input_token":case["tokens"][position],
                               "hip_next":case["next_tokens"][position], "native_next":native["next_tokens"][position],
                               "greedy_match":case["next_tokens"][position] == native["next_tokens"][position],
-                              **metrics(actual, hip)})
+                              **float32_metrics(actual, hip)})
         report["cases"][label] = {"prompt":case["prompt"], "positions":positions, "native_memory":native["weight_cache"],
                                   "peak_read_bytes":native["peak_read_bytes"]}
     (args.output / "report.json").write_text(json.dumps(report, indent=2))
@@ -44,7 +53,19 @@ def run(args):
     args.output.mkdir(parents=True, exist_ok=False)
     if args.reuse_reference:
         cases = json.loads((args.reuse_reference / "cases.json").read_text(encoding="utf-8"))
-        identity = json.loads((args.reuse_reference / "report.json").read_text())["identity"]
+        prior_report = args.reuse_reference / "report.json"
+        if prior_report.exists():
+            identity = json.loads(prior_report.read_text(encoding="utf-8"))["identity"]
+        else:
+            # Recovery of complete logits after a reporting failure: validate
+            # current pinned metadata without rerunning or replacing the oracle.
+            from engine import ReferenceEngine
+            engine = ReferenceEngine(args.checkpoint, context=128, prefill_batch=1)
+            try:
+                identity = dict(engine.identity)
+                identity["metadata_revalidated_after_reporting_failure"] = True
+            finally:
+                engine.close()
         return compare(args, cases, identity, args.reuse_reference / "hip")
     import torch
     from engine import ReferenceEngine, reset_request_state
@@ -86,4 +107,5 @@ if __name__ == "__main__":
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--native", type=Path, default=Path("target/release/examples/teacher_force.exe"))
     p.add_argument("--reuse-reference", type=Path, help="reuse a completed, unchanged HIP run; write fresh native evidence")
+    p.add_argument("--native-output", type=Path, help="compare existing native artifacts without rerunning inference")
     run(p.parse_args())

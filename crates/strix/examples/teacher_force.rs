@@ -44,7 +44,7 @@ fn main() -> Result<()> {
             let greedy = logits
                 .iter()
                 .enumerate()
-                .max_by(|a, b| a.1.total_cmp(b.1))
+                .max_by(|a, b| a.1.total_cmp(b.1).then_with(|| b.0.cmp(&a.0)))
                 .unwrap()
                 .0;
             next.push(greedy);

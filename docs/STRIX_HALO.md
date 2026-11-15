@@ -376,23 +376,125 @@ checked into Git. No models, drivers, OS settings or existing services were repl
 
 ## Next native integration work
 
-1. Resolve the remaining original-checkpoint numerical divergence. Identical-input layer-0
-   MoE matched the HIP oracle exactly, while identical-input Engram/attention
-   differed slightly in BF16. That is diagnostic evidence, not proof that every
-   layer equation is correct. Small early differences grow substantially through
-   the actual 40-layer graph on the one-token “The” diagnostic; its greedy token
-   differs even though the complete France prompt passes. The exact root cause
-   and broader quality impact remain unresolved.
-2. Continue intermediate-tensor comparisons across more real layers, compression
-   boundaries and routed experts. Pairwise FP32 RMS reductions and explicit FMA
-   with a wider Vulkan reduction tree improved early agreement and closed the
-   France completion gate. They did not establish general logit equivalence.
-   Do not hide remaining failures by widening tolerances.
+1. Native numerical equivalence remains unestablished. The numerical investigation
+   below demonstrates that even one legitimate accumulation change inside the HIP
+   reference can change the full-model greedy result. This explains a mechanism
+   for amplification; it does not prove that every native operation is correct.
+2. Keep the exact-token gates and full-vocabulary comparisons visible. Broader
+   original-model acceptance requires more than locally accurate components or
+   two easy completions. Do not change the reference, tune reduction width to
+   prompts, or widen tolerances to conceal the remaining disagreement.
 3. After broader acceptance, integrate official prompt encoding and native serving,
    then validate request cancellation, KV lifetime, memory bounds, and API
    behavior on the actual Radeon hardware.
 4. Tune weight reuse, transfers and kernels only after matching the correctness
    baseline. DSpark, vision and long-context support require separate acceptance.
+
+## Identical-input numerical investigation (November 14, 2026)
+
+New evidence is recorded separately in
+[`validation/strix-halo-numerics-2026-11-14.json`](validation/strix-halo-numerics-2026-11-14.json).
+Earlier traces and acceptance records remain historical evidence. The native
+decoder remains **experimental**, with no native API or publication in this slice.
+
+Two bounded arithmetic corrections follow the pinned equations:
+
+- Attention now multiplies scores by the FP32 conversion of the model's scalar
+  `head_dim**-0.5`, instead of dividing by an FP32 square root. An independent
+  one-product, 512-dimensional boundary fixture returns `0.5` on CPU and HIP;
+  the previous native expression returned `0.50390625`. The Rust and Python
+  regressions require exact output, with no tolerance change.
+- Engram now forms the product of the two RMS inverses before applying it to the
+  dot product, multiplies by the scalar inverse square root, and uses a pairwise
+  FP32 sum for the 5,120 products. With the original layer-14 residual and
+  projected KV held identical, gate
+  maximum error against CPU float64 falls from `9.07e-8` to `1.43e-8`.
+  Nine differing BF16 output elements become zero. This is component evidence,
+  not a claim of whole-model parity.
+
+The first hyperconnection projection provides a separate, measured explanation
+for early amplification. With identical original embedding and matrix bytes,
+native versus HIP maximum difference is `5.15e-5`. Against independent CPU
+float64, native maximum error is `7.68e-7`, while HIP's is `5.07e-5`.
+Holding the attention result and residual fixed, the resulting coefficient
+differences cross 19 BF16 residual boundaries, then 18 FFN normalization
+boundaries. The following FP8 quantization removes those particular FFN-input
+differences; the residual stream still carries the earlier changes.
+
+Two unchanged HIP executions of `The` produce identical **all-vocabulary** logits
+and greedy token `455`. In a separately labelled diagnostic variant, replacing
+only layer 0's attention hyperconnection projection with CPU float64 accumulation,
+then rounding back to FP32 before the unchanged HIP normalization/mixing, changes
+the next token to `201`. Relative L2 logit difference is `0.841294`, maximum absolute
+difference `13.684872`. This variant is a sensitivity experiment, never a new
+acceptance oracle. The original reference files, weights and environment are unchanged.
+
+The reusable component replay covers original layers 0, 1, 2, 14 and 20, with
+473 probes: hyperconnection stages, router projections/selection/weights, learned
+projections, grouped `wo_a`, normalization, RoPE, FP8/FP4 quantization, Engram and
+sparse attention with sinks. Ratios 1 and 2 are replayed at positions 0 and 1;
+the longer teacher-forced sequences cross further compression boundaries.
+All sampled router expert selections match. Exact FP8/FP4 and normalization
+stage matches are distinguished from projection rounding differences in the JSON.
+CPU float64 checks of disagreeing BF16 matrix rows find examples where either
+implementation is closer; HIP is not silently treated as an exact real-arithmetic sum.
+
+The direct layer-14 component probe exposed an access violation in the existing
+Python mmap row loader. The diagnostic's optional `--bounded-rows` path reads the
+same requested row bytes with `seek`/`read`, capped at 1 MiB per request. Layer-1
+readback is compared with the unchanged loader. This is confined to validation
+tooling; the ordinary full-model HIP comparison uses the unchanged engine/loader.
+Older native trace hash IDs were serialized through FP32 and cannot be replayed
+as exact large row addresses. The probe derives integer hashes from the pinned
+hash module and records the source token explicitly.
+
+Reproduction (new output paths are required):
+
+```powershell
+$python = 'C:/Users/ncrawford/.unsloth/studio/unsloth_studio/Scripts/python.exe'
+$checkpoint = 'target/models/DeepSeek-V4.1-Flash'
+cargo build -p deepseek-ultrafast-strix --release --examples
+& $python ports/strix-reference/component_oracle.py --checkpoint $checkpoint --trace target/strix-native-fma --token 671 --layers 0 1 2 14 20 --bounded-rows --output target/new-components
+& $python ports/strix-reference/analyze_components.py --checkpoint $checkpoint --components target/new-components --output target/new-components-f64.json
+& $python ports/strix-reference/engram_variance.py --checkpoint $checkpoint --components target/new-components --output target/new-engram-calibration
+& $python ports/strix-reference/reference_variance.py --checkpoint $checkpoint --prompt The --output target/new-reference-variance
+& $python ports/strix-reference/validate_numerics.py --checkpoint $checkpoint --output target/new-full-comparison
+```
+
+`teacher_force` is a Rust validation example, not a serving API. It checks Rust
+tokenization against supplied original prompt IDs, preserves the 8 GiB packed
+weight cache and 128-token bound, and writes all 129,280 logits per position.
+The suite includes raw France, officially serialized chat, `The`, arithmetic,
+story and greeting inputs. Continuations are teacher-forced; exact predicted
+IDs are reported for every position so reference continuations cannot hide a
+native generation mismatch. Native code never invokes Python.
+
+The final suite matches **23 of 28 next-token predictions** across six inputs.
+France's `[11111, 16, 1]` and chat's `[11932, 1]` remain exact; all arithmetic,
+story and greeting positions match. `The` still predicts native `1` versus HIP
+`455`, with all-logit maximum absolute error `11.6160233` and relative L2
+`0.7047771`. Earlier France and chat prefixes also disagree. All 129,280 logits
+are compared at every position; the repeated `The` prefix is bit-identical
+across the two native requests. The longest original sequence here is 10
+positions, so this is not acceptance of a full 128-position original run.
+
+The comparison first restores FP32 from JSON's round-trip decimals, then computes
+errors in float64. True float64 component oracles retain their extra precision.
+The report reader uses UTF-8 for native serialized-chat summaries, checks exact
+input IDs and vocabulary length, and can recover completed artifacts with
+`--reuse-reference` plus `--native-output`. The earlier Windows-code-page reporting
+failure and its original inference artifacts remain preserved separately.
+
+Validation passed 31 regular Rust tests, both AMD hardware tests, 46 Python
+tests without skips, the original-checkpoint hash-constant check, clippy with
+warnings denied, formatting, and diff checks. The native packed-cache peak was
+8,589,933,136 bytes against the 8 GiB budget; largest checkpoint read was 20 MiB.
+These counters exclude total process/device overhead. No publication or native
+API acceptance follows from these results.
+
+PyTorch documents why different reduction and batching choices need not be
+bit-identical in its [2.11 numerical accuracy notes](https://docs.pytorch.org/docs/2.11/notes/numerical_accuracy.html).
+That fact is context for the measured sensitivity, not an acceptance tolerance.
 
 The unmodified official model files and their MIT license are kept under
 `ports/strix-reference/upstream`. The Rust fork retains the upstream Elastic
